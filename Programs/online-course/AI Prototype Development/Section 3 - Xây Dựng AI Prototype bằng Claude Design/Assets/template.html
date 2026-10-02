@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<title>Design Template — Travel Buddy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet" />
+<link rel="stylesheet" href="design-tokens.css" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal; font-style: normal; font-size: 24px; line-height: 1;
+    letter-spacing: normal; text-transform: none; display: inline-block;
+    white-space: nowrap; word-wrap: normal; direction: ltr;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+  }
+  .fill { font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+
+  body {
+    font-family: var(--font-family-base);
+    color: var(--color-text-primary);
+    background: var(--base-surface-4);
+    padding: 32px;
+  }
+  .wrap { max-width: 1320px; margin: 0 auto; }
+
+  header { margin-bottom: 36px; }
+  header .eyebrow { font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-primary); margin-bottom: 8px; }
+  header h1 { font-size: 40px; font-weight: var(--font-weight-extrabold); letter-spacing: -0.01em; }
+  header p { margin-top: 12px; font-size: var(--font-size-base); color: var(--color-text-secondary); max-width: 720px; line-height: 1.5; }
+
+  /* ==== Flow diagram (small, non-scrollable preview) ==== */
+  .flow {
+    display: flex; align-items: flex-start; gap: 0;
+    background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md);
+    padding: 28px; margin-bottom: 36px; box-shadow: var(--shadow-card);
+    overflow-x: auto;
+  }
+  .flow-node { flex-shrink: 0; width: 170px; text-align: center; }
+  .flow-node .name { font-size: var(--font-size-sm); font-weight: var(--font-weight-bold); margin-top: 12px; }
+  .flow-node .desc { font-size: 11px; color: var(--color-text-muted); margin-top: 2px; }
+  .flow-arrow { flex: 1; min-width: 90px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 4px; position: relative; top: 130px; }
+  .flow-arrow .line { width: 100%; height: 2px; background: var(--color-border-strong); position: relative; }
+  .flow-arrow .line::after { content: ''; position: absolute; right: -1px; top: -4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid var(--color-border-strong); }
+  .flow-arrow .label { font-size: 10px; color: var(--color-text-secondary); font-weight: var(--font-weight-medium); margin-top: 8px; text-align: center; max-width: 130px; }
+  .flow-frame-crop { width: 170px; height: 360px; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-frame); background: #F7F7F7; }
+  .flow-frame-crop .device-inner { width: 375px; transform: scale(0.4533); transform-origin: top left; }
+
+  /* ==== Real phone frame — built at true 375px width, real px values, NO scale ====
+     375px ≈ real device 390px (iPhone), close enough to be visually accurate
+     without any scaling artifacts. Height is AUTO so the full real screen
+     content shows — nothing gets clipped or hidden behind a fixed viewport. */
+  .device { width: 375px; border-radius: 32px; overflow: hidden; box-shadow: var(--shadow-frame); background: #F7F7F7; flex-shrink: 0; }
+  .device.fixed-h { height: 780px; }
+
+  .statusbar { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px 0; font-size: 12px; font-weight: 600; color: #111; }
+  .statusbar.on-dark { color: #fff; position: relative; z-index: 2; }
+  .statusbar .icons { display: flex; align-items: center; gap: 4px; }
+  .statusbar .material-symbols-outlined { font-size: 14px; }
+
+  /* --- Onboarding screen --- */
+  .ob-screen { position: relative; height: 780px; display: flex; flex-direction: column; }
+  .ob-bg { position: absolute; inset: 0; }
+  .ob-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .ob-grad { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 45%, rgba(0,0,0,0.4) 100%); }
+  .ob-content { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 20px 24px 28px; }
+  .ob-bottom { display: flex; flex-direction: column; gap: 16px; }
+  .ob-kicker { font-size: 12px; font-weight: 700; letter-spacing: 3px; color: #C4E03A; text-transform: uppercase; }
+  .ob-headline { font-size: 38px; font-weight: 800; color: #fff; line-height: 1.1; }
+  .ob-sub { font-size: 14px; color: rgba(255,255,255,0.82); line-height: 1.5; max-width: 300px; }
+  .ob-btns { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+  .btn-primary { background: #5DB85C; border: none; border-radius: 50px; padding: 17px 22px; font-size: 15px; font-weight: 600; color: #fff; font-family: var(--font-family-base); display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .btn-primary .material-symbols-outlined { font-size: 18px; }
+  .btn-outline { background: transparent; border: 1.5px solid rgba(255,255,255,0.4); border-radius: 50px; padding: 15px 22px; font-size: 14px; font-weight: 600; color: #fff; font-family: var(--font-family-base); text-align: center; }
+
+  /* --- Discover / Explore screen (auto-height, full unrolled content) --- */
+  .dx-screen { background: #F7F7F7; }
+  .dx-scroll { padding: 0 20px; }
+  .dx-loc { display: flex; align-items: center; justify-content: space-between; padding: 16px 0 0; }
+  .dx-loc-left { display: flex; align-items: center; gap: 4px; font-size: 13px; color: #555; font-weight: 500; }
+  .dx-loc-left .material-symbols-outlined { font-size: 15px; color: #5DB85C; }
+  .dx-loc-count { color: #BBB; font-weight: 400; }
+  .dx-change { font-size: 12px; font-weight: 600; color: #5DB85C; }
+  .dx-titlerow { display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0 0; }
+  .dx-title { font-size: 22px; font-weight: 700; color: #111; line-height: 1.2; }
+  .dx-bell { width: 44px; height: 44px; border-radius: 50%; background: #F0F0F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .dx-modeswitch { display: flex; gap: 4px; background: #EDEDED; border-radius: 50px; padding: 4px; margin-top: 12px; }
+  .dx-modeswitch button { flex: 1; border: none; background: transparent; padding: 8px 0; border-radius: 50px; font-size: 14px; font-weight: 600; font-family: var(--font-family-base); color: #999; }
+  .dx-modeswitch button.on { background: #fff; color: #111; }
+  .dx-searchrow { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+  .dx-search { flex: 1; background: #F0F0F0; border-radius: 14px; padding: 13px 16px; display: flex; align-items: center; gap: 10px; }
+  .dx-search .material-symbols-outlined { font-size: 18px; color: #999; }
+  .dx-search span { color: #999; font-size: 14px; }
+  .dx-filter { position: relative; width: 46px; height: 46px; border-radius: 14px; background: #F0F0F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .dx-filter .material-symbols-outlined { font-size: 20px; color: #111; }
+  .dx-filter-badge { position: absolute; top: -4px; right: -4px; background: #5DB85C; color: #fff; font-size: 10px; font-weight: 700; min-width: 18px; height: 18px; border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+  .dx-guestbanner { margin-top: 16px; background: #1C1C2E; border-radius: 16px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; }
+  .dx-guestbanner .material-symbols-outlined { font-size: 22px; color: #C4E03A; }
+  .dx-guestbanner .t { font-size: 13px; font-weight: 600; color: #fff; }
+  .dx-guestbanner .s { font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 1px; }
+  .dx-guestbanner .close { margin-left: auto; color: rgba(255,255,255,0.5); }
+  .dx-list { padding: 16px 0 24px; display: flex; flex-direction: column; gap: 14px; }
+
+  .tip-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .tip-card .img { position: relative; height: 200px; background: #E0E0E0; }
+  .tip-card .img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tip-card .grad { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 45%); }
+  .tip-card .badges-tl { position: absolute; top: 12px; left: 12px; display: flex; gap: 6px; }
+  .crowd-badge { font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 50px; }
+  .video-badge { background: rgba(0,0,0,0.55); color: #fff; font-size: 11px; font-weight: 600; padding: 5px 10px; border-radius: 50px; display: flex; align-items: center; gap: 4px; }
+  .video-badge .material-symbols-outlined { font-size: 13px; }
+  .tip-card .fav-btn { position: absolute; top: 12px; right: 12px; width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,0.92); display: flex; align-items: center; justify-content: center; }
+  .tip-card .fav-btn .material-symbols-outlined { font-size: 16px; color: #C0392B; }
+  .tip-card .safety-btn { position: absolute; top: 12px; right: 50px; width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,0.92); display: flex; align-items: center; justify-content: center; }
+  .tip-card .safety-btn .material-symbols-outlined { font-size: 16px; color: #C97B0A; }
+  .tip-card .titleov { position: absolute; bottom: 12px; left: 14px; right: 14px; color: #fff; }
+  .tip-card .titleov .t { font-size: 17px; font-weight: 700; }
+  .tip-card .titleov .l { font-size: 11px; color: rgba(255,255,255,0.85); margin-top: 2px; }
+  .tip-card .body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 8px; }
+  .tip-card .quote { font-size: 13px; color: #555; line-height: 1.45; }
+  .tip-card .authorrow { display: flex; align-items: center; justify-content: space-between; }
+  .tip-card .author { display: flex; align-items: center; gap: 8px; }
+  .tip-card .avatar { width: 26px; height: 26px; border-radius: 50%; background: #D8D8D8; overflow: hidden; flex-shrink: 0; }
+  .tip-card .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .tip-card .aname { font-size: 12px; font-weight: 600; color: #111; }
+  .tip-card .aname span { font-weight: 400; color: #999; }
+  .tip-card .recency { font-size: 11px; color: #BBB; }
+
+  .dx-paywall { margin-top: 4px; background: linear-gradient(135deg,#1C1C2E,#2A2A44); border-radius: 20px; padding: 24px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .dx-paywall .material-symbols-outlined { font-size: 30px; color: #C4E03A; }
+  .dx-paywall .t { font-size: 15px; font-weight: 700; color: #fff; }
+  .dx-paywall .d { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+  .dx-paywall .cta { margin-top: 6px; background: #C4E03A; border: none; border-radius: 50px; padding: 12px 24px; font-size: 13px; font-weight: 700; color: #1C1C2E; font-family: var(--font-family-base); }
+
+  .dx-bottomnav { display: flex; background: #1C1C2E; padding: 10px 0 24px; }
+  .dx-bottomnav .item { flex: 1; text-align: center; color: rgba(255,255,255,0.5); font-size: 10px; }
+  .dx-bottomnav .item .material-symbols-outlined { font-size: 20px; display: block; margin: 0 auto 3px; }
+  .dx-bottomnav .item.on { color: #C4E03A; }
+
+  /* --- Tip Detail screen (auto-height, full content) --- */
+  .dt-screen { background: #fff; }
+  .dt-hero { position: relative; height: 300px; }
+  .dt-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .dt-hero .grad { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 55%); }
+  .dt-hero .topbar { position: absolute; top: 0; left: 0; right: 0; z-index: 2; display: flex; justify-content: space-between; padding: 20px; }
+  .dt-icon-btn { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.9); box-shadow: 0 4px 16px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center; }
+  .dt-icon-btn .material-symbols-outlined { font-size: 18px; color: #111; }
+  .dt-hero .badgesrow { position: absolute; z-index: 2; display: flex; gap: 6px; left: 20px; top: 68px; }
+  .badge-safety { background: rgba(255,243,214,0.95); color: #8A6A00; font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 50px; display: flex; align-items: center; gap: 4px; }
+  .dt-hero .bottomov { position: absolute; z-index: 2; left: 20px; right: 20px; bottom: 20px; color: #fff; }
+  .dt-hero .loc { font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+  .dt-hero .title { font-size: 26px; font-weight: 700; line-height: 1.2; margin-top: 4px; }
+  .dt-hero .metarow { font-size: 12px; color: rgba(255,255,255,0.85); margin-top: 4px; }
+
+  .dt-body { padding: 16px 20px 0; }
+  .dt-segtabs { display: flex; gap: 4px; background: #F0F0F0; border-radius: 50px; padding: 4px; }
+  .dt-segtabs button { flex: 1; border: none; background: transparent; padding: 8px 0; border-radius: 50px; font-size: 14px; font-weight: 600; font-family: var(--font-family-base); color: #999; }
+  .dt-segtabs button.on { background: #fff; color: #111; }
+  .dt-authorrow { display: flex; align-items: center; gap: 10px; margin-top: 16px; }
+  .dt-avatar { width: 46px; height: 46px; border-radius: 50%; background: #D8D8D8; flex-shrink: 0; overflow: hidden; }
+  .dt-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .dt-aname { font-size: 15px; font-weight: 600; color: #111; display: flex; align-items: center; gap: 4px; }
+  .dt-aname .material-symbols-outlined { font-size: 14px; color: #5DB85C; }
+  .dt-arole { font-size: 12px; color: #999; margin-top: 1px; }
+  .dt-connect { margin-left: auto; background: #F0F0F0; border-radius: 50px; padding: 9px 16px; font-size: 12px; font-weight: 600; color: #111; white-space: nowrap; }
+  .dt-h3 { font-size: 16px; font-weight: 700; margin-top: 20px; }
+  .dt-p { font-size: 14px; color: #555; line-height: 1.6; margin-top: 8px; }
+  .dt-gallery { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 20px; }
+  .dt-thumb { height: 74px; border-radius: 10px; overflow: hidden; }
+  .dt-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .dt-bottombar { border-top: 1px solid #EBEBEB; padding: 14px 20px 20px; display: flex; gap: 10px; align-items: center; margin-top: 20px; }
+  .dt-save { flex: 1; background: #5DB85C; color: #fff; border-radius: 50px; padding: 16px; font-size: 15px; font-weight: 600; font-family: var(--font-family-base); display: flex; align-items: center; justify-content: center; gap: 6px; white-space: nowrap; }
+  .dt-save .material-symbols-outlined { font-size: 18px; }
+  .dt-share { width: 52px; height: 52px; border-radius: 50%; background: #F0F0F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .dt-share .material-symbols-outlined { font-size: 20px; color: #111; }
+
+  /* ==== Template annotation cards ==== */
+  .template-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); box-shadow: var(--shadow-card); margin-bottom: 28px; overflow: hidden; }
+  .template-card__head { display: flex; align-items: center; justify-content: space-between; padding: 24px 32px; border-bottom: 1px solid var(--color-border); }
+  .template-card__head h2 { font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); }
+  .template-card__head .used-by { font-size: var(--font-size-xs); color: var(--color-text-muted); margin-top: 2px; }
+  .tag { font-size: 11px; font-weight: var(--font-weight-semibold); padding: 5px 12px; border-radius: var(--radius-pill); background: var(--base-green-tint); color: #2C7A2C; white-space: nowrap; }
+  .template-card__body { display: grid; grid-template-columns: 375px 1fr; gap: 32px; padding: 28px; align-items: start; }
+  .template-card__body .device { margin: 0 auto; }
+  .device-scroll-note { text-align: center; font-size: 11px; color: var(--color-text-muted); margin-top: 10px; }
+
+  .region-list { font-size: var(--font-size-base); }
+  .region-list .row { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--color-surface-sunken); }
+  .region-list .row:last-child { border: none; }
+  .region-list .num { width: 20px; height: 20px; border-radius: 50%; background: var(--color-text-primary); color: #fff; font-size: 10px; font-weight: var(--font-weight-bold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .region-list .name { font-weight: var(--font-weight-bold); }
+  .region-list .meta { color: var(--color-text-muted); font-size: var(--font-size-sm); margin-top: 2px; line-height: 1.5; }
+  .region-list code { background: var(--color-surface-sunken); padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+
+  .transitions { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--color-border); font-size: var(--font-size-sm); color: var(--color-text-secondary); }
+  .transitions .t-label { font-weight: var(--font-weight-bold); color: var(--color-text-primary); margin-bottom: 10px; }
+  .transitions .t-row { padding: 3px 0; }
+  .transitions .t-row b { color: var(--color-primary); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Design template · trích xuất từ source thật</div>
+    <h1>Travel Buddy — Design Template</h1>
+    <p>3 template chính dựng lại đầy đủ nội dung thật từ "Travel Buddy (Standalone).html" — ảnh, dữ liệu tip, avatar đều là ảnh và text thật trong sản phẩm, không phải placeholder.</p>
+  </header>
+
+  <!-- Flow diagram -->
+  <div class="flow">
+
+    <div class="flow-node">
+      <div class="flow-frame-crop"><div class="device-inner">
+        <div class="ob-screen"><div class="ob-bg"><img src="images/hero_thailand.jpg" alt=""></div><div class="ob-grad"></div>
+          <div class="ob-content">
+            <div></div>
+            <div class="ob-bottom">
+              <div class="ob-kicker">Travel Buddy</div>
+              <div class="ob-headline">Find places worth going to.</div>
+              <div class="ob-btns"><div class="btn-primary">Get started <span class="material-symbols-outlined">arrow_forward</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      <div class="name">Onboarding</div>
+      <div class="desc">Template 1 · Full-bleed hero</div>
+    </div>
+
+    <div class="flow-arrow"><div class="line"></div><div class="label">"Explore without signing up" → guest mode</div></div>
+
+    <div class="flow-node">
+      <div class="flow-frame-crop"><div class="device-inner">
+        <div class="dx-screen">
+          <div class="statusbar"><span>9:41</span><div class="icons"><span class="material-symbols-outlined fill">signal_cellular_alt</span><span class="material-symbols-outlined fill">wifi</span><span class="material-symbols-outlined fill">battery_full</span></div></div>
+          <div class="dx-scroll">
+            <div class="dx-loc"><div class="dx-loc-left"><span class="material-symbols-outlined">location_on</span>Near Chiang Mai</div><span class="dx-change">Change</span></div>
+            <div class="dx-titlerow"><div class="dx-title">Explore</div><div class="dx-bell"><span class="material-symbols-outlined">notifications</span></div></div>
+            <div class="dx-modeswitch"><button class="on">Near Me</button><button>Country</button><button>Map</button></div>
+            <div class="dx-guestbanner">
+              <span class="material-symbols-outlined fill">travel_explore</span>
+              <div><div class="t">Browsing as guest</div><div class="s">Sign up free to save tips</div></div>
+            </div>
+            <div class="dx-list">
+              <div class="tip-card">
+                <div class="img"><img src="images/tip_warorot.jpg" alt=""><div class="grad"></div>
+                  <div class="badges-tl"><span class="crowd-badge" style="color:#8A6A00;background:rgba(255,243,214,.95);">🟡 Popular</span></div>
+                  <div class="titleov"><div class="t">Warorot Night Market</div></div>
+                </div>
+              </div>
+              <div class="tip-card">
+                <div class="img"><img src="images/tip_doisuthep.jpg" alt=""><div class="grad"></div>
+                  <div class="badges-tl"><span class="crowd-badge" style="color:#B23A2E;background:rgba(253,226,222,.95);">🔴 Very touristy</span></div>
+                  <div class="titleov"><div class="t">Doi Suthep Temple</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      <div class="name">Explore feed</div>
+      <div class="desc">Template 2 · Feed / List</div>
+    </div>
+
+    <div class="flow-arrow"><div class="line"></div><div class="label">Tap vào Tip Card</div></div>
+
+    <div class="flow-node">
+      <div class="flow-frame-crop"><div class="device-inner">
+        <div class="dt-screen">
+          <div class="dt-hero"><img src="images/tip_warorot.jpg" alt=""><div class="grad"></div>
+            <div class="topbar"><div class="dt-icon-btn"><span class="material-symbols-outlined">arrow_back</span></div><div class="dt-icon-btn"><span class="material-symbols-outlined fill" style="color:#C0392B">favorite</span></div></div>
+            <div class="bottomov"><div class="loc">Chiang Mai, Thailand</div><div class="title">Warorot Night Market</div></div>
+          </div>
+          <div class="dt-body">
+            <div class="dt-segtabs"><button class="on">Details</button><button>Video</button><button>Safety</button></div>
+            <div class="dt-authorrow">
+              <span class="dt-avatar"><img src="images/avatar_niran.jpg" alt=""></span>
+              <div><div class="dt-aname">Niran K.</div><div class="dt-arole">Local resident</div></div>
+            </div>
+            <div class="dt-h3">About Warorot Night Market</div>
+            <div class="dt-p">Warorot Market is where Chiang Mai locals actually shop and eat — not the tourist night bazaar.</div>
+          </div>
+        </div>
+      </div></div>
+      <div class="name">Tip detail</div>
+      <div class="desc">Template 3 · Detail</div>
+    </div>
+
+  </div>
+
+  <!-- Template 1 — Onboarding -->
+  <div class="template-card">
+    <div class="template-card__head">
+      <div><h2>Template 1 — Full-bleed hero</h2><div class="used-by">Dùng bởi: Onboarding (S01 Welcome)</div></div>
+      <span class="tag">Pre-auth · không có bottom nav</span>
+    </div>
+    <div class="template-card__body">
+      <div>
+        <div class="device fixed-h">
+          <div class="ob-screen">
+            <div class="ob-bg"><img src="images/hero_thailand.jpg" alt="Thailand hero"></div>
+            <div class="ob-grad"></div>
+            <div class="ob-content">
+              <div class="statusbar on-dark"><span>9:41</span><div class="icons"><span class="material-symbols-outlined fill">signal_cellular_alt</span><span class="material-symbols-outlined fill">wifi</span><span class="material-symbols-outlined fill">battery_full</span></div></div>
+              <div class="ob-bottom">
+                <div class="ob-kicker">Travel Buddy</div>
+                <div class="ob-headline">Find places<br>worth going to.</div>
+                <div class="ob-sub">Real tips from locals and travelers you can trust — plan, discover, and connect in one place.</div>
+                <div class="ob-btns">
+                  <div class="btn-primary">Get started <span class="material-symbols-outlined">arrow_forward</span></div>
+                  <div class="btn-outline">Explore without signing up</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="device-scroll-note">ảnh nền thật: destination photo Thailand (window.__resources.img14)</div>
+      </div>
+      <div>
+        <div class="region-list">
+          <div class="row"><div class="num">1</div><div><div class="name">Ảnh nền full-bleed</div><div class="meta">Ảnh destination thật (Thailand) · gradient <code>linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.2) 45%, rgba(0,0,0,.4) 100%)</code> phủ toàn ảnh để chữ trắng đọc được</div></div></div>
+          <div class="row"><div class="num">2</div><div><div class="name">Kicker + Headline + Subtext</div><div class="meta">"TRAVEL BUDDY" — 12px/700, letter-spacing 3px, màu <code>#C4E03A</code> · Headline 38px/800 trắng 2 dòng · Subtext 14px, <code>rgba(255,255,255,.82)</code>, max-width 300px</div></div></div>
+          <div class="row"><div class="num">3</div><div><div class="name">2 CTA xếp chồng</div><div class="meta">Primary "Get started" filled <code>#5DB85C</code>, radius 50px, padding 17px 22px, icon <code>arrow_forward</code> · Secondary "Explore without signing up" outline 1.5px <code>rgba(255,255,255,.4)</code></div></div></div>
+        </div>
+        <div class="transitions">
+          <div class="t-label">Điều kiện chuyển màn</div>
+          <div class="t-row"><b>Get started</b> → Social Login (Apple / Google / Email)</div>
+          <div class="t-row"><b>Explore without signing up</b> → Template 2, ở trạng thái guest mode</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Template 2 — Explore feed (full, unrolled) -->
+  <div class="template-card">
+    <div class="template-card__head">
+      <div><h2>Template 2 — Feed / List</h2><div class="used-by">Dùng bởi: Discover / Explore, chế độ Near Me — 2 tip ví dụ (thật) trong tổng 6 tip của Chiang Mai</div></div>
+      <span class="tag">Có bottom nav · 2 ví dụ</span>
+    </div>
+    <div class="template-card__body">
+      <div class="device">
+        <div class="dx-screen">
+          <div class="statusbar"><span>9:41</span><div class="icons"><span class="material-symbols-outlined fill">signal_cellular_alt</span><span class="material-symbols-outlined fill">wifi</span><span class="material-symbols-outlined fill">battery_full</span></div></div>
+          <div class="dx-scroll">
+            <div class="dx-loc"><div class="dx-loc-left"><span class="material-symbols-outlined">location_on</span>Near Chiang Mai <span class="dx-loc-count">&nbsp;· 6 tips</span></div><span class="dx-change">Change</span></div>
+            <div class="dx-titlerow"><div class="dx-title">Explore</div><div class="dx-bell"><span class="material-symbols-outlined">notifications</span></div></div>
+            <div class="dx-modeswitch"><button class="on">Near Me</button><button>Country</button><button>Map</button></div>
+            <div class="dx-searchrow">
+              <div class="dx-search"><span class="material-symbols-outlined">search</span><span>Search destination, tip, place…</span></div>
+              <div class="dx-filter"><span class="material-symbols-outlined">tune</span><span class="dx-filter-badge">2</span></div>
+            </div>
+            <div class="dx-guestbanner">
+              <span class="material-symbols-outlined fill">travel_explore</span>
+              <div><div class="t">Browsing as guest</div><div class="s">Sign up free to save tips and build your trip plan</div></div>
+              <span class="close material-symbols-outlined">close</span>
+            </div>
+
+            <div class="dx-list">
+
+              <div class="tip-card">
+                <div class="img"><img src="images/tip_warorot.jpg" alt="Warorot Night Market"><div class="grad"></div>
+                  <div class="badges-tl">
+                    <span class="crowd-badge" style="color:#8A6A00;background:rgba(255,243,214,.95);">🟡 Popular</span>
+                    <span class="video-badge"><span class="material-symbols-outlined fill">play_circle</span>0:38</span>
+                  </div>
+                  <span class="safety-btn"><span class="material-symbols-outlined fill">warning</span></span>
+                  <span class="fav-btn"><span class="material-symbols-outlined fill">favorite</span></span>
+                  <div class="titleov"><div class="t">Warorot Night Market</div><div class="l">Chiang Mai · Street food</div></div>
+                </div>
+                <div class="body">
+                  <div class="quote">"Skip the tourist night bazaar — this is where I actually shop after work."</div>
+                  <div class="authorrow"><div class="author"><span class="avatar"><img src="images/avatar_niran.jpg" alt=""></span><span class="aname">Niran K. <span>· Local resident</span></span></div><span class="recency">2d ago</span></div>
+                </div>
+              </div>
+
+              <div class="tip-card">
+                <div class="img"><img src="images/tip_doisuthep.jpg" alt="Doi Suthep Temple"><div class="grad"></div>
+                  <div class="badges-tl"><span class="crowd-badge" style="color:#B23A2E;background:rgba(253,226,222,.95);">🔴 Very touristy</span></div>
+                  <span class="fav-btn"><span class="material-symbols-outlined">favorite</span></span>
+                  <div class="titleov"><div class="t">Doi Suthep Temple</div><div class="l">Chiang Mai · Culture</div></div>
+                </div>
+                <div class="body">
+                  <div class="quote">"Arrived at 7:30am and had the naga staircase almost to myself before the buses came."</div>
+                  <div class="authorrow"><div class="author"><span class="avatar"><img src="images/avatar_aisha.jpg" alt=""></span><span class="aname">Aisha M. <span>· Explorer</span></span></div><span class="recency">5d ago</span></div>
+                </div>
+              </div>
+
+              <div class="dx-paywall">
+                <span class="material-symbols-outlined fill">lock_open</span>
+                <div class="t">Sign up to see more tips</div>
+                <div class="d">You've hit the guest preview limit. Create a free account for unlimited tips and trip planning.</div>
+                <button class="cta">Sign up free</button>
+              </div>
+
+            </div>
+          </div>
+          <div class="dx-bottomnav">
+            <div class="item on"><span class="material-symbols-outlined fill">explore</span>Explore</div>
+            <div class="item"><span class="material-symbols-outlined">map</span>Plan</div>
+            <div class="item"><span class="material-symbols-outlined">groups</span>Connect</div>
+            <div class="item"><span class="material-symbols-outlined">auto_stories</span>Journal</div>
+            <div class="item"><span class="material-symbols-outlined">settings</span>Settings</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="region-list">
+          <div class="row"><div class="num">1</div><div><div class="name">Header + location</div><div class="meta">Icon <code>location_on</code> (<code>#5DB85C</code>) + tên khu vực + số lượng tip · "Change" link · tiêu đề mode 22px/700 + chuông thông báo</div></div></div>
+          <div class="row"><div class="num">2</div><div><div class="name">Mode switcher</div><div class="meta">Nền track <code>#EDEDED</code>, 3 tab Near Me / Country / Map</div></div></div>
+          <div class="row"><div class="num">3</div><div><div class="name">Search + Filter</div><div class="meta">Input nền <code>#F0F0F0</code> · nút filter riêng có badge số bộ lọc</div></div></div>
+          <div class="row"><div class="num">4</div><div><div class="name">Guest banner</div><div class="meta">Nền <code>#1C1C2E</code>, chỉ hiện ở guest mode</div></div></div>
+          <div class="row"><div class="num">5</div><div><div class="name">Tip Card × 2 (ví dụ, thật)</div><div class="meta">Rút gọn còn 2 card để dễ nhìn — mỗi card dùng đúng ảnh, badge crowd (🟢/🟡/🔴 theo <code>crowdMeta</code>), avatar, quote thật trong <code>tips[]</code>. Chiang Mai có 6 tip thật tổng cộng, xem đủ trong Standalone.html gốc</div></div></div>
+          <div class="row"><div class="num">6</div><div><div class="name">Guest Paywall</div><div class="meta">Chặn cuối feed, CTA "Sign up free" nền <code>#C4E03A</code></div></div></div>
+          <div class="row"><div class="num">7</div><div><div class="name">Bottom nav ⚠</div><div class="meta">5 tab, <strong>không tìm thấy trong phần code export</strong> — dựng theo token đã xác lập, chưa xác minh 100% với source</div></div></div>
+        </div>
+        <div class="transitions">
+          <div class="t-label">Điều kiện chuyển màn</div>
+          <div class="t-row">Tap <b>Tip Card</b> → Template 3</div>
+          <div class="t-row">Tap <b>nút filter</b> → Bottom Sheet "Filter"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Template 3 — Tip Detail (full, unrolled) -->
+  <div class="template-card">
+    <div class="template-card__head">
+      <div><h2>Template 3 — Detail</h2><div class="used-by">Dùng bởi: Tip Detail — Warorot Night Market (tip thật id=1)</div></div>
+      <span class="tag">Không có bottom nav · có bottom action bar</span>
+    </div>
+    <div class="template-card__body">
+      <div class="device">
+        <div class="dt-screen">
+          <div class="dt-hero">
+            <img src="images/tip_warorot.jpg" alt="Warorot Night Market"><div class="grad"></div>
+            <div class="topbar"><div class="dt-icon-btn"><span class="material-symbols-outlined">arrow_back</span></div><div class="dt-icon-btn"><span class="material-symbols-outlined fill" style="color:#C0392B">favorite</span></div></div>
+            <div class="badgesrow"><span class="crowd-badge" style="color:#8A6A00;background:rgba(255,243,214,.95);">🟡 Popular</span><span class="badge-safety"><span class="material-symbols-outlined fill" style="font-size:12px">warning</span>Safety notes</span></div>
+            <div class="bottomov">
+              <div class="loc"><span class="material-symbols-outlined" style="font-size:13px">location_on</span>Chiang Mai, Thailand</div>
+              <div class="title">Warorot Night Market</div>
+              <div class="metarow">2-3hrs · 1.2km away</div>
+            </div>
+          </div>
+          <div class="dt-body">
+            <div class="dt-segtabs"><button class="on">Details</button><button>Video</button><button>Safety</button></div>
+            <div class="dt-authorrow">
+              <span class="dt-avatar"><img src="images/avatar_niran.jpg" alt=""></span>
+              <div><div class="dt-aname">Niran K. <span class="material-symbols-outlined fill">verified</span></div><div class="dt-arole">Local resident · Verified</div></div>
+              <span class="dt-connect">Connect</span>
+            </div>
+            <div class="dt-h3">About Warorot Night Market</div>
+            <div class="dt-p">Warorot Market is where Chiang Mai locals actually shop and eat — not the tourist night bazaar. Best after 6pm when the food stalls light up. Go deeper past the flower vendors for the real finds: sticky rice, sausages, and fruit you won't see elsewhere.</div>
+            <div class="dt-h3">Gallery</div>
+            <div class="dt-gallery">
+              <div class="dt-thumb"><img src="images/tip_doisuthep.jpg" alt=""></div>
+              <div class="dt-thumb"><img src="images/tip_riceterrace.jpg" alt=""></div>
+              <div class="dt-thumb"><img src="images/tip_changpuak.jpg" alt=""></div>
+            </div>
+            <div class="dt-bottombar">
+              <div class="dt-save"><span class="material-symbols-outlined">add</span>Save to plan</div>
+              <div class="dt-share"><span class="material-symbols-outlined">ios_share</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="region-list">
+          <div class="row"><div class="num">1</div><div><div class="name">Hero image header</div><div class="meta">Ảnh tip thật cao 300px · back + favorite nổi trên ảnh · badge row (crowd + safety) · location + title 26px/700 đè lên đáy ảnh</div></div></div>
+          <div class="row"><div class="num">2</div><div><div class="name">Segmented tabs</div><div class="meta">Details / Video / Safety, nền track <code>#F0F0F0</code> — khác <code>#EDEDED</code> ở Template 2 (xem Component Inventory)</div></div></div>
+          <div class="row"><div class="num">3</div><div><div class="name">Author row</div><div class="meta">Avatar thật 46px + tên + icon <code>verified</code> + role, nút "Connect"</div></div></div>
+          <div class="row"><div class="num">4</div><div><div class="name">About + Gallery</div><div class="meta">Đoạn mô tả thật · Gallery = ảnh của 3 tip khác cùng destination (<code>galleryImages = tips khác, 3 ảnh đầu</code>), không phải ảnh riêng của gallery</div></div></div>
+          <div class="row"><div class="num">5</div><div><div class="name">Bottom action bar</div><div class="meta">CTA chính "Save to plan" (<code>#5DB85C</code>) + icon share phụ tròn</div></div></div>
+        </div>
+        <div class="transitions">
+          <div class="t-label">Điều kiện chuyển màn</div>
+          <div class="t-row">Nút <b>back</b> → quay lại Template 2</div>
+          <div class="t-row">Nút <b>Connect</b> → guest gate hoặc Message Thread</div>
+          <div class="t-row">Nút <b>Save to plan</b> → thêm vào tab Plan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

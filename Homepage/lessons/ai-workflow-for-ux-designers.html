@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<meta name="description" content="How to think about, choose, and use AI across the design process — not just for prototyping"/>
+<title>Set Up Your AI Workflow — Training Hub</title>
+<link rel="stylesheet" href="../assets/css/tokens.css"/>
+<link rel="stylesheet" href="../assets/css/components.css"/>
+<link rel="stylesheet" href="../assets/css/site.css"/>
+<link rel="stylesheet" href="../assets/css/card-list.css"/>
+<link rel="stylesheet" href="../assets/css/text-page.css"/>
+<link rel="stylesheet" href="../assets/css/home.css"/>
+
+</head>
+<body class="tp-white">
+<nav>
+  <a class="nav-logo" href="../index.html"><img src="../assets/images/logo-nav.svg" alt="Winnie Nguyen — Training Hub"/></a>
+  <div class="nav-links">
+    <a href="../lessons.html" data-text="Lesson Library" class=active>Lesson Library</a>
+    <a href="../private-training.html" data-text="Private Training">Private Training</a>
+    <a href="../programs.html" data-text="Programs">Programs</a>
+  </div>
+</nav>
+<div class="tp">
+  <a class="tp-back" href="../lessons.html">← All lessons</a>
+  <header class="tp-head">
+    <h1 class="page-title">Set Up Your AI Workflow</h1>
+    <p class="page-desc">How to think about, choose, and use AI across the design process — not just for prototyping</p>
+    
+    <div class="tp-info" data-var-panel data-var-id="0"><div class="draft-banner">Draft: content exists but is not finalised for delivery.</div><dl class="tp-meta" style="--tp-cols: repeat(3, minmax(0, 1fr)) minmax(0, 1.8fr)"><div><dt>Stage</dt><dd>Foundation</dd></div><div><dt>Level</dt><dd>Foundational</dd></div><div><dt>Date</dt><dd>20 Jul 2026</dd></div><div><dt>Source file</dt><dd><code>ai-workflow-for-ux-designers-lesson.md</code></dd></div><div class="tp-meta__tags"><dt>Topics</dt><dd><span>ai</span><span>workflow</span><span>mindset</span><span>design-thinking</span><span>prompting</span><span>tools</span></dd></div></dl></div>
+  </header>
+  <div class="tabs tabs--pill tp-tabs"><div class="tabs__list" role="tablist"><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="lesson" aria-selected="false">Lesson</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="slides" aria-selected="false">Slides (1)</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="homework" aria-selected="false">Homework</button></div></div>
+  <section class="tp-panel" data-tab-panel data-tab-id="lesson" role="tabpanel" hidden><div data-var-panel data-var-id="0">
+  <div class="tp-layout">
+    <aside class="tp-toc" aria-label="On this page"><p class="tp-toc__label">On this page</p><a href="#v0-overview">Overview</a><a href="#v0-learning-objectives">Learning Objectives</a><a href="#v0-materials-needed">Materials Needed</a><a href="#v0-pre-class-preparation">Pre-Class Preparation</a><a href="#v0-session-structure">Session Structure</a><a href="#v0-activities">Activities</a><a href="#v0-ai-in-practice">AI in Practice</a><a href="#v0-assessment">Assessment</a><a href="#v0-homework">Homework</a><a href="#v0-prompt-library-reference">Prompt Library Reference</a><a href="#v0-instructor-notes">Instructor Notes</a><a href="#v0-further-resources">Further Resources</a><a href="#v0-connection-to-curriculum">Connection to Curriculum</a></aside>
+    <article class="tp-body"><h2 id="v0-overview">Overview</h2>
+<p>In the previous session, students learned the Design Thinking cycle — Empathise, Define, Ideate, Prototype, Test — as the framework for the whole program. This session answers a different question: <em>how does AI fit into that framework, deliberately, rather than accidentally?</em></p>
+<p>Most designers are already using AI somehow. 91% of designers used AI in 2026, and the average designer now reaches for 7 different AI tools regularly. But usage isn't the same as a workflow. Most designers picked up AI tool by tool, task by task, with no underlying framework for when to trust it, when to double-check it, or how to prompt it well. This session builds that framework — before students touch AI seriously in Customer Understanding, Synthesis, Design Framework, or the AI Prototype Development sessions later in the program.</p>
+<p><strong>The core distinction this lesson teaches: AI-assisted vs. AI-generated.</strong> AI-generated means AI made the decision. AI-assisted means the designer made the decision and AI did the assembly. Every activity in this session — and every AI-related activity in every session after this one — depends on students understanding that difference and choosing AI-assisted on purpose.</p>
+<p>This is also the session where students who have never opened a text editor learn just enough technical vocabulary — Markdown, HTML, local folders — to not feel lost the moment an AI tool mentions a <code>.md</code> file or a "browser-viewable prototype." That's not a side note. It's a prerequisite for every AI-heavy session that follows, especially AI Prototype Development.</p>
+<blockquote>
+<p><strong>Why this session exists, and where it sits:</strong> Design Thinking gave students the <em>what</em> — the 5-stage cycle. This session gives them the <em>how</em> — a deliberate, reviewable way of bringing AI into every stage of that cycle. Students carry this mindset and toolkit forward into every subsequent session, particularly the AI Prototype Development session, which assumes this vocabulary and this level of critical engagement with AI output.</p>
+</blockquote>
+<hr />
+<h2 id="v0-learning-objectives">Learning Objectives</h2>
+<p>By the end of this session, students will be able to:</p>
+<ol>
+<li><strong>Explain</strong> the benefits and risks of a deliberate AI workflow, using real 2026 industry data, not just intuition</li>
+<li><strong>Describe</strong> how the UX Product Designer role shifts when AI is part of the workflow — from maker to strategist/editor</li>
+<li><strong>Apply</strong> the CARE prompting framework (Context, Ask, Rules, Examples) to write a structured AI prompt</li>
+<li><strong>Distinguish</strong> AI-assisted from AI-generated work, and default to AI-assisted by design</li>
+<li><strong>Reuse</strong> saved artifacts — past synthesis, problem statements, prototype patterns — as Context for new prompts, instead of re-describing a project from memory each time</li>
+<li><strong>Map</strong> AI's role across each of the 5 Design Thinking stages — where it helps most, where it's riskiest, and what artifact each stage hands forward</li>
+<li><strong>Recognise</strong> basic technical vocabulary — Markdown (<code>.md</code>), HTML, local folder structure — well enough to work with AI tools without feeling lost</li>
+<li><strong>Set up</strong> a personal AI tool stack and a clean local project folder, organised to hold artifacts you'll reuse across the whole design process</li>
+</ol>
+<hr />
+<h2 id="v0-materials-needed">Materials Needed</h2>
+<ul>
+<li>Access to an AI chat tool (ChatGPT, Gemini, Claude, or any tool students are comfortable with)</li>
+<li>Students' Design Thinking artefacts from the previous session (problem statement draft, or any real project in progress)</li>
+<li>A laptop with a file explorer/Finder open (for the local folder activity)</li>
+<li>Prompt library handout (see below)</li>
+<li>Technical literacy self-check handout (see Pre-Class Preparation)</li>
+</ul>
+<hr />
+<h2 id="v0-pre-class-preparation">Pre-Class Preparation</h2>
+<p><strong>For students:</strong></p>
+<ol>
+<li><strong>Bring one AI tool you already use</strong> — even informally (ChatGPT for random questions counts). We'll audit it together, not judge it.</li>
+<li><strong>Self-check your technical literacy.</strong> Answer honestly — no wrong answers, this just tells us where to spend time in Phase 2:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Can you explain it to a teammate?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What a <code>.md</code> (Markdown) file is</td>
+<td>☐ Yes ☐ Not sure</td>
+</tr>
+<tr>
+<td>What HTML is and why a browser needs it</td>
+<td>☐ Yes ☐ Not sure</td>
+</tr>
+<tr>
+<td>What a "local folder" is, and why it's different from a Google Drive or Figma file</td>
+<td>☐ Yes ☐ Not sure</td>
+</tr>
+</tbody>
+</table>
+<p>If you checked "Not sure" on any of these, don't worry — Phase 2 is built for you, and nobody will be quizzed cold.</p>
+<ol start="3">
+<li><strong>Optional read:</strong> NN/G's <a href="https://www.nngroup.com/articles/ai-ux-getting-started/" target="_blank" rel="noopener">AI for UX: Getting Started</a> — 5 minutes, sets the tone for today.</li>
+</ol>
+<p><strong>For the instructor:</strong></p>
+<ul>
+<li>Prepare a live example of a "bad" vague prompt vs. a CARE-structured prompt on the same task, to demo the difference live in Phase 3.</li>
+<li>Have your own local project folder open and ready to screen-share for the Phase 2 folder-setup demo.</li>
+<li>Review the Connection to Curriculum table at the end of this file — this session's Phase 4 stage-mapping activity should reference the same 5-stage vocabulary from <code>design-thinking-lesson.md</code> exactly, not a paraphrase.</li>
+</ul>
+<hr />
+<h2 id="v0-session-structure">Session Structure</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Activity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Mindset reframe — benefits, impact, and why a deliberate workflow beats ad hoc tool use</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Technical literacy primer — Markdown, HTML, local folders</td>
+</tr>
+<tr>
+<td>3</td>
+<td>The AI workflow toolkit — CARE prompting + AI-assisted vs. AI-generated</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Mapping AI across the 5 Design Thinking stages</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Build your workflow (hands-on) + share &amp; reflect</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="v0-phase-1-mindset-reframe">Phase 1 — Mindset Reframe</h3>
+<p><strong>Open with the data, not the hype.</strong> Show two numbers side by side: 91% of designers used AI in 2026, and 7 tools per designer on average. Then show the split finding from Figma's 2026 report: 36% of designers said design got <em>better</em> with AI, 35% said <em>worse</em>, 29% said no change. Ask the class: why would the same tools produce such different outcomes for different people?</p>
+<p><strong>Land the answer:</strong> the difference isn't the tool. It's whether the designer has a deliberate workflow — a way of deciding when to use AI, how to prompt it, and how to review its output — or whether they're using AI accidentally, tool by tool, task by task, with no underlying framework.</p>
+<p><strong>Benefits, stated plainly:</strong></p>
+<ul>
+<li>Research synthesis that took days now takes hours — AI is strongest at <em>planning and analysis</em>, not at replacing the research itself.</li>
+<li>Junior designers benefit disproportionately — AI narrows the execution gap between junior and senior, even as it widens the judgment gap. That's worth naming directly for a room with mixed experience levels.</li>
+<li>McKinsey's 2025 State of AI findings: organisations that integrated AI into product design workflows saw 22% higher feature adoption. Figma 2026: 91% of designers who increased AI use said it improved their design quality; 89% said they worked faster.</li>
+</ul>
+<p><strong>The role shift, stated plainly:</strong></p>
+<ul>
+<li>The designer's job is moving from <em>maker</em> to <em>strategist and editor</em>. NN/G puts it directly: "your hands still direct the work" — AI is a set of gloves, not a replacement hand.</li>
+<li>The most valuable profile emerging in 2026 is the "AI-UX Generalist": strong human-centred thinking, data literacy, and strategic vision, who uses AI to automate the grunt work rather than specialising narrowly in one execution skill.</li>
+<li>Half of designers surveyed in 2026 have shipped AI-generated code to production. The line between design and implementation is blurring — directly relevant to the AI Prototype Development session later in this program.</li>
+</ul>
+<p><strong>Mindset framings to land here — pick 2–3, don't try to cover all of them:</strong></p>
+<ul>
+<li><strong>"Augment, don't replace."</strong> The dominant framing across the industry: AI takes the tedious and repetitive; the designer keeps authorship, judgment, and ethics.</li>
+<li><strong>AI as intern, not oracle.</strong> NN/G's "Meet Ari" framing: a talented intern who works fast, never tires, but still needs supervision and correction. This reframes "AI got it wrong" as an expected part of the workflow, not a failure.</li>
+<li><strong>This is a hype cycle — know that going in.</strong> NN/G draws a direct parallel to the VR hype cycle: early over-promise, a trough of disillusionment, then durable practical use. Naming this explicitly helps students calibrate expectations rather than treating every new tool as either magic or a threat.</li>
+<li><strong>Bias and ethics aren't a footnote.</strong> Training data skews Western/English. For a program serving Vietnamese/SEA designers, this deserves airtime here, not just a caveat — the same point already made in the Design Framework session about AI-suggested component hierarchies.</li>
+</ul>
+<p><strong>Discussion prompt (neighbour exercise):</strong> "Turn to the person next to you: think of one time AI genuinely helped your work, and one time it quietly made your work worse without you noticing right away. What was different about those two moments?" Collect 2–3 answers. Common pattern: the "helped" moments involved a clear ask and a review step; the "worse" moments involved trusting output without checking it.</p>
+<hr />
+<h3 id="v0-phase-2-technical-literacy-primer">Phase 2 — Technical Literacy Primer</h3>
+<p>Most students have never needed to open a text editor — Figma abstracted all of that away. But AI workflows constantly surface three concepts, and nobody usually stops to explain them. Teach this as a fast, plain-language primer — not a coding lesson.</p>
+<p><strong>What is a <code>.md</code> file (Markdown)? Why do we need it?</strong></p>
+<p>Markdown is a plain-text way of writing formatted documents — headings, bold, bullet lists, tables, links — without a word processor. Type <code>**bold**</code> instead of clicking a Bold button. Type <code>## Heading</code> instead of choosing a style from a menu. A <code>.md</code> file is just a <code>.txt</code> file that follows these typing conventions.</p>
+<p>Why designers need it: it's the native language of AI tools. Every prompt you structure with headers and bullets, and every reply an AI tool gives back, is Markdown under the hood. It's also what this entire program's lesson files are built from — recognising <code>#</code>, <code>-</code>, <code>**text**</code>, and <code>| |</code> tables is the whole vocabulary needed to read almost any Markdown file. Students don't need to write it by hand — they need to recognise it and know they can open a <code>.md</code> file in any text editor or paste it back into an AI chat tool.</p>
+<p><strong>What is HTML? Why do we need it?</strong></p>
+<p>HTML (HyperText Markup Language) is the language every web page is built from. It's structural, not a programming language — tags say what each piece of content <em>is</em>: <code>&lt;button&gt;</code> marks a button, <code>&lt;img&gt;</code> marks an image, <code>&lt;h1&gt;</code> marks a heading, <code>&lt;div&gt;</code> marks a container. A browser reads an HTML file and draws it on screen.</p>
+<p>Why designers need it: an AI-generated prototype (covered in depth in the AI Prototype Development session) <em>is</em> an HTML file. Nesting in HTML works the same way nesting works in Atomic Design — a <code>&lt;nav&gt;</code> containing <code>&lt;button&gt;</code> tags is structurally the same idea as an Organism containing Atom instances. Naming that parallel makes HTML feel familiar rather than foreign. And basic tag vocabulary upgrades feedback quality: "the button is outside the card's container, that's why the padding looks wrong" is something both a human and an AI tool can act on; "this looks off" isn't.</p>
+<p><strong>How Markdown and HTML work together</strong></p>
+<p>These two aren't unrelated trivia — they're two ends of the same pipeline, and designers use it constantly outside of prototyping too. Take synthesis: paste 8 interview transcripts into an AI chat tool and ask it to find themes. What comes back — headings per theme, bullet lists of supporting quotes, bold insight statements — is Markdown. That's your working document: plain text, easy to correct, easy to paste into your next prompt as Context.</p>
+<p>Now say that synthesis needs to become something you actually show stakeholders — a research report with a header, a card per theme, maybe a chart of theme frequency. Paste the same Markdown synthesis doc back into an AI tool and ask it to turn it into an HTML report. What comes back is a real webpage: laid out, styled, ready to open in a browser or drop into a deck. Markdown was the working document. HTML is the presentation artifact.</p>
+<p>You keep Markdown. AI builds HTML when you need something visual. That's the whole loop — raw insight in, formatted report out. It's the same loop the AI Prototype Development session uses later (component inventory → AI → running screens), just applied here to a research report instead of a screen.</p>
+<p><strong>Local folder setup — why "where your files live" matters, at every stage</strong></p>
+<p>A <em>local folder</em> is simply a folder on your own computer's hard drive — not a Figma file on Figma's servers, not a Google Doc in Drive. This isn't a Prototype-stage concept. From the moment you start using AI at Empathise — pasting interview notes into an AI chat tool, saving synthesis output — a clean folder is what lets you find and reuse that work later. It matters most visibly once you reach an AI coding tool (which opens a whole local folder as a project and reads everything inside it as context), but the habit should start on day one, not the day you open Cursor.</p>
+<p>Why it matters: a messy folder produces messy output at every stage, for the same reason a messy Figma file produces a messy component inventory (a point already taught in the Design Framework session). One project = one folder — never scattered across Desktop, Downloads, and Drive. Cloud-sync folders (Google Drive, Dropbox) can behave unpredictably mid-write once an AI coding tool is actively generating files — prefer a plain local folder while actively building, and copy the finished result to Drive afterward.</p>
+<p><strong>There's no single correct way to organise that folder — pick whichever option fits how you think:</strong></p>
+<p><em>Option A — By design process stage</em> (mirrors the 5-stage cycle):</p>
+<pre><code>my-project/
+  01-empathise/   research notes, interview transcripts, AI synthesis output
+  02-define/      problem statements, JTBD notes, HMWs
+  03-ideate/      concept sketches, AI-generated idea lists
+  04-prototype/   design tokens, component inventory, generated screens
+  05-test/        test scripts, session notes, findings
+</code></pre>
+<p>Best for solo projects where you want the folder to mirror your process — fast to answer "what did I do at Define?" Numbering the folders (<code>01-</code>, <code>02-</code>...) keeps them sorted in stage order in Finder/Explorer.</p>
+<p><em>Option B — By file type:</em></p>
+<pre><code>my-project/
+  notes/     research notes, meeting notes, AI chat exports
+  assets/    images, icons, exported design files
+  prompts/   saved CARE prompts you reuse
+  exports/   finished deliverables — prototypes, reports, decks
+</code></pre>
+<p>Best for grabbing "all my notes" or "all my exports" regardless of which stage produced them. This is also the structure AI coding tools expect most naturally once you reach Prototype.</p>
+<p><em>Option C — By deliverable:</em></p>
+<pre><code>my-project/
+  research/
+  design-system/
+  prototype/
+  presentation/
+</code></pre>
+<p>Best for team projects, or when what matters is the output, not your stage-by-stage history — easier for a teammate or stakeholder to find "the prototype" without knowing how you got there.</p>
+<p>Many students start with Option B for their first project or two — it's the simplest — then move to Option A once they feel the friction of hunting through mixed content by stage. There's no wrong choice here; the only real mistake is no structure at all.</p>
+<p><strong>Quick pulse-check before moving on:</strong> ask the room to raise a hand for whichever of the three concepts they'd still hesitate to explain to a teammate. Address the most-raised one for 60 seconds before continuing — don't let this phase run long; the goal is recognition, not mastery.</p>
+<hr />
+<h3 id="v0-phase-3-the-ai-workflow-toolkit">Phase 3 — The AI Workflow Toolkit</h3>
+<p><strong>AI-assisted vs. AI-generated — the throughline for this entire program.</strong></p>
+<p>AI-generated means AI made the decision. AI-assisted means the designer made the decision and AI did the assembly. This single distinction is why the AI Prototype Development session insists students define a "prototype pattern" before touching a build prompt — the pattern is what keeps AI in the assistant role instead of the decision-maker role. Land this now, explicitly, so every later session can reference it instead of re-teaching it.</p>
+<p><strong>A prompting framework, taught explicitly: CARE</strong></p>
+<p>Rather than leaving prompting to intuition, teach NN/G's CARE structure — a simple frame students can reuse in every stage and every future session:</p>
+<table>
+<thead>
+<tr>
+<th>Letter</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>C</strong> — Context</td>
+<td>What's the situation? Who's involved? What already exists?</td>
+<td>"I'm designing a checkout flow for a Vietnamese food delivery app."</td>
+</tr>
+<tr>
+<td><strong>A</strong> — Ask</td>
+<td>What specifically do you want?</td>
+<td>"Generate 3 alternative empty-cart states."</td>
+</tr>
+<tr>
+<td><strong>R</strong> — Rules</td>
+<td>Constraints, tone, format, what to avoid</td>
+<td>"Keep copy under 8 words. No exclamation marks. Match a calm, trustworthy tone."</td>
+</tr>
+<tr>
+<td><strong>E</strong> — Examples</td>
+<td>Show, don't just tell</td>
+<td>"Here's an example of the tone I mean: [paste]."</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Live demo:</strong> show a vague prompt ("make this better") next to the same request rebuilt with CARE. Let students see the output difference live, not just hear about it.</p>
+<p><strong>Feed forward: prefer past work over starting fresh</strong></p>
+<p>There's a habit worth building into CARE's "Context" step specifically: <strong>default to reusing an artifact you already have, not re-describing your project from memory.</strong> A new AI conversation defaults to a blank slate — it knows nothing about your project until you tell it. Most students' instinct is to retype a summary of their project every time, from memory, slightly differently each time. That's slow, and it's also where inconsistency creeps in — this week's synthesis subtly contradicts last week's because you described the research differently in the retelling.</p>
+<p>The fix: your local folder (Phase 2) isn't just a place to dump files — it's your artifact library. Every stage produces something worth saving: an Empathise-stage synthesis doc, a Define-stage problem statement, a Prototype-stage component inventory. When you sit down for a new AI task, the first question isn't "how do I explain my project," it's "which saved artifact already answers this." Paste or attach that file as your Context, instead of authoring a fresh description.</p>
+<p>This is the same principle the AI Prototype Development session teaches under a different name: the "prototype pattern" works precisely because it's a saved artifact fed into every build prompt, rather than re-explained screen by screen. What's new here is naming it as a general habit that applies to <em>every</em> stage, not just Prototype — this is sometimes called "context engineering" in 2026 AI practice: treating context as something you deliberately assemble and carry forward, not something you retype under pressure each session. Multi-step AI work compounds this further — each step's output becomes the next step's input, so a sloppy artifact at Empathise degrades everything built on top of it at Define and beyond.</p>
+<p><strong>Two ways this shows up in practice:</strong></p>
+<ul>
+<li><strong>Reference a saved file directly.</strong> "Context: here's my Empathise-stage synthesis doc: [paste from <code>01-empathise/synthesis.md</code>]." Faster and more accurate than reconstructing it from memory, and it's exactly why Phase 2's folder habit matters beyond just tidiness.</li>
+<li><strong>Use your AI tool's persistent project/memory feature, if it has one.</strong> Many AI chat tools now let you set up a project once — upload your synthesis docs, personas, and problem statement — so every new conversation inside that project already has the context, instead of you re-attaching files each time. Worth demoing live if your AI tool supports it.</li>
+</ul>
+<p><strong>Rule of thumb to give students:</strong> if the context you're about to type already exists somewhere in your folder, stop typing and go find the file. Retyping from memory is where drift enters your workflow — same failure mode as the "component drift" problem taught in the Design Framework session, just at the level of ideas instead of UI components.</p>
+<p><strong>A quick vocabulary check on what AI tools are actually for</strong>, without naming specific brand names in the takeaway (per program convention — refer to "AI chat tool" / "AI coding tool" in all student-facing material):</p>
+<ul>
+<li><strong>AI chat tools</strong> — research synthesis, ideation, writing, strategy conversations</li>
+<li><strong>AI coding tools</strong> — turning a defined pattern into working code (covered fully in AI Prototype Development)</li>
+<li><strong>In-tool AI features</strong> — layer renaming, component detection, auto-suggestions inside the design tool itself</li>
+</ul>
+<p><strong>Instructor note:</strong> resist tool-collecting. Most experienced designers in 2026 lean on 2–3 general-purpose AI chat tools for almost everything, and reach for a specialised tool only when the task demands it (prototyping/code). Teach depth with one tool before breadth across many.</p>
+<hr />
+<h3 id="v0-phase-4-where-ai-fits-in-your-design-process">Phase 4 — Where AI Fits in Your Design Process</h3>
+<p>Reframe this away from "AI, in general" and toward what a product/UX/UI designer actually spends their week doing. Almost every real AI use case a designer has falls into one of four buckets: <strong>synthesising research, setting up the process map, prototyping, and everything else</strong> — critique prep, stakeholder comms, QA, accessibility, competitive analysis. This section walks through each bucket with real design artifacts and examples, then ties them back to the 5-stage vocabulary from Design Thinking so nothing here feels like a new framework — just a closer look at four things you already do.</p>
+<p><strong>Key teaching point:</strong> AI's usefulness is not evenly distributed across these buckets. It's strongest at Synthesis and Prototyping — both are fundamentally pattern-matching and generation tasks. It's weakest at the judgment calls inside Process Mapping and the "Other" bucket — deciding which insight is real, which flow is right, what's actually on-brand. Naming this unevenness up front stops students from trying to force AI equally into everything.</p>
+<p><strong>Second teaching point — this is where "feed forward" from Phase 3 becomes concrete:</strong> each bucket below produces an artifact worth saving into your local folder. That artifact isn't just a record of what you did — it's the Context you paste into your next prompt, instead of re-describing your project from memory. The chain of artifacts <em>is</em> the workflow: synthesis doc → process map → prototype pattern → test synthesis.</p>
+<hr />
+<h4 id="v0-1-synthesising-research-maps-to-empathise-sometimes-test">1. Synthesising Research (maps to Empathise, sometimes Test)</h4>
+<p>Every designer produces piles of raw research and not enough time to make sense of it: interview transcripts, survey exports, support tickets, usability session notes, competitor screenshots. AI's best use here isn't replacing the research — it's compressing the distance between raw notes and a synthesis artifact you can actually design from.</p>
+<ul>
+<li><strong>Interview → themes.</strong> Paste transcripts, get thematic clusters with supporting quotes — a faster first pass at what you'd otherwise do by hand with sticky notes in an affinity map.</li>
+<li><strong>Empathy Map drafting.</strong> Turn interview notes into a first-draft Say / Think / Do / Feel map — the same Synthesis Activity from Design Thinking, just faster to get to a v1 you then correct.</li>
+<li><strong>Assumption audit.</strong> Paste your team's stated assumptions, ask AI to sort them into Known / Unknown and flag which have zero supporting evidence.</li>
+<li><strong>Competitive teardown.</strong> Paste screenshots or descriptions of 3 competitor flows, ask for a structured comparison table (pattern used, strength, weakness) instead of building it cell by cell.</li>
+</ul>
+<p>Prompt (CARE): <em>Context</em> — "Here are my raw interview transcripts from 8 sessions on [topic]: [paste]." <em>Ask</em> — "Draft an Empathy Map (Say/Think/Do/Feel) and identify 4–6 recurring themes with 2 supporting quotes each." <em>Rules</em> — "Separate observation from inference. Flag anything based on a single participant." <em>Examples</em> — "Match this format: [paste your research repo template]."</p>
+<p>Stays yours: which themes are actually load-bearing for the decision ahead, and whether a quote is being used out of context. AI-simulated "synthetic users" can supplement, never replace, real research — AI doesn't control your customer's purse strings; they do.</p>
+<p>Artifact to save: the synthesis doc — Empathy Map + theme list + Assumption Map. This becomes your Context for the process map next.</p>
+<hr />
+<h4 id="v0-2-setting-up-your-process-map-maps-to-define-ideate-the-organise-for-users-step">2. Setting Up Your Process Map (maps to Define → Ideate — the "Organise for users" step)</h4>
+<p>This is the bucket that gets skipped most often under time pressure, and it's where AI genuinely closes a gap: turning synthesised research into the maps and flows that make a problem visible — journey maps, sitemaps, task flows, service blueprints.</p>
+<ul>
+<li><strong>Current-state journey map.</strong> From your synthesis doc, draft a first-pass journey — stage → user action → thought/feeling → pain point. Same Define-stage output you already know, faster to a correctable v1.</li>
+<li><strong>Evidence-based sitemap.</strong> From research + competitive audit, draft an information architecture that traces back to evidence instead of guesswork.</li>
+<li><strong>Task flow drafting.</strong> Describe the feature in a sentence, get a first-pass task flow (entry point → steps → decision points → exit) to correct against your own judgment of the real flow.</li>
+<li><strong>Service blueprint.</strong> For anything with a "backstage" (support, fulfilment, onboarding with a human in the loop), draft frontstage/backstage swimlanes from a raw process description.</li>
+<li><strong>HMW generation.</strong> Convert insight statements into How Might We questions, scored for scope — not too broad, not already a solution. Same Define-stage activity, sped up.</li>
+</ul>
+<p>Prompt: <em>"Here is my research synthesis: [paste]. Draft a current-state journey map with 5–7 stages. For each stage: user action, thought/feeling, pain point, and which research insight supports it. Flag any stage where you're guessing rather than working from the research."</em></p>
+<p>Stays yours: the sequencing and priority calls, and deciding what's genuinely a distinct stage versus a micro-step AI padded the map with to look thorough. Validate the map against real users before treating it as ground truth — a journey map is a hypothesis document until it's been checked.</p>
+<p>Artifact to save: the journey map / sitemap / task flow, plus your chosen problem statement. This becomes your Context heading into Prototype.</p>
+<hr />
+<h4 id="v0-3-prototyping-maps-to-prototype">3. Prototyping (maps to Prototype)</h4>
+<p>This program has a full dedicated session on this — AI Prototype Development — so treat what's here as a preview, not the full teaching. The heavyweight version (component inventory + interaction pattern → AI generates working screens) lives there. The everyday, lighter-weight uses show up constantly before that session even starts:</p>
+<ul>
+<li>Generating the component states you forgot to design (empty, loading, error, success) from a description of the default state.</li>
+<li>Drafting realistic placeholder content (real-sounding names, prices, dates) instead of lorem ipsum, so a prototype survives a stakeholder actually reading it.</li>
+<li>Building a rough clickable flow fast enough to test navigation with 5 users before investing in high-fidelity Figma.</li>
+<li>Generating 3 layout variations of a screen to react against, rather than starting from a blank frame.</li>
+</ul>
+<p>Prompt: <em>"I have this component inventory: [paste or describe]. Generate the missing states for [component] — I only have 'default,' I need hover, loading, error, and empty."</em></p>
+<p>Stays yours: spacing, grouping, and hierarchy judgment. AI "follows general directions but lacks the sophistication to weigh design tradeoffs" — treat the first output as a starting point, not a result.</p>
+<p>Artifact to save: the prototype pattern and the running prototype. This becomes your Context at Test.</p>
+<hr />
+<h4 id="v0-4-other-designer-activities-cross-cutting-doesn-t-map-to-one-stage">4. Other Designer Activities (cross-cutting — doesn't map to one stage)</h4>
+<p>The work that doesn't fit neatly into a single Design Thinking stage but eats real time every week:</p>
+<ul>
+<li><strong>Critique prep</strong> — "Here's my screen: [describe/paste]. Playing devil's advocate, what would a tough design critique flag about hierarchy, accessibility, and consistency with our design system?" Arrive at critique with your own blind spots already found.</li>
+<li><strong>Stakeholder communication</strong> — turn a messy set of design decisions and trade-offs into a clear one-pager or slide narrative. The translation work between "what I decided" and "why a non-designer should care."</li>
+<li><strong>Usability test synthesis</strong> — turn raw session notes into a findings doc with severity ratings. The same Test-stage activity from Design Thinking, faster.</li>
+<li><strong>Design QA</strong> — check a set of screens against your design tokens/component library for consistency before handoff. Catch the hardcoded colour or off-brand spacing before a developer does.</li>
+<li><strong>Accessibility first pass</strong> — "Check this component list against WCAG AA — flag likely contrast, tap-target, and labelling issues." A first pass before a real accessibility audit, not a replacement for one.</li>
+<li><strong>UX writing</strong> — drafting and refining button labels, error messages, empty states, and tooltips in the product's voice, then editing hard — AI copy defaults to generic SaaS tone unless corrected.</li>
+</ul>
+<p>Stays yours: every one of these is a first draft, not a final artifact. The pattern from every bucket repeats here — AI produces a fast, reviewable draft; you decide what's true, what's on-brand, and what ships.</p>
+<hr />
+<p><strong>Quick reference — how the four buckets map onto the 5 stages you already know:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Bucket</th>
+<th>Design Thinking stage(s)</th>
+<th>AI does well</th>
+<th>Stays yours</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Synthesising Research</td>
+<td>Empathise (some Test)</td>
+<td>Clustering, theme-finding</td>
+<td>Which theme is load-bearing</td>
+</tr>
+<tr>
+<td>Process Mapping</td>
+<td>Define → Ideate</td>
+<td>Drafting a first-pass map</td>
+<td>Sequencing, priority calls</td>
+</tr>
+<tr>
+<td>Prototyping</td>
+<td>Prototype</td>
+<td>Assembling from a pattern</td>
+<td>Spacing, grouping, hierarchy</td>
+</tr>
+<tr>
+<td>Other Activities</td>
+<td>Cross-cutting</td>
+<td>Fast first drafts</td>
+<td>What's true, what's on-brand</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Convergence point:</strong> by the end of Phase 4, every student can name, for their own real project, one AI use case in each of the four buckets — and can point to where the resulting artifact will live in their local folder. If a bucket comes up blank, that's useful information, not a failure — not every project touches all four in a given week.</p>
+<hr />
+<h3 id="v0-phase-5-build-your-workflow-hands-on-share-reflect">Phase 5 — Build Your Workflow (Hands-On) + Share &amp; Reflect</h3>
+<p><strong>Step 1 — Set up your local folder (5 min)</strong>
+Using the Phase 2 vocabulary, create one dedicated project folder on your own machine for this program's work. Pick one of the three organisation options from Phase 2 (by stage, by file type, or by deliverable) and build out the subfolders now. This becomes the folder you use across every stage from here forward — not just the one AI coding tools open later.</p>
+<p><strong>Step 2 — Pick your primary AI chat tool (2 min)</strong>
+From the tool you brought in Pre-Class Preparation, or a new one — pick one you'll use as your default for the rest of the program. Depth beats breadth.</p>
+<p><strong>Step 3 — Write one CARE prompt for your real project (8 min)</strong>
+Using your Phase 4 stage-mapping, pick the stage you're currently working on in your real project. If you already have a saved artifact from an earlier stage (even a rough one), use it as your Context — don't retype a project summary from memory. Write a full CARE-structured prompt for one task in that stage. Run it. Read the output critically — does it hold up, or does it need correction? Save the result into your local folder before you move on, so it's ready to feed forward next time.</p>
+<p><strong>Step 4 — Share &amp; reflect (5 min)</strong>
+Ask 2–3 students to share:</p>
+<ul>
+<li>Which stage did you pick, and what did AI actually give you?</li>
+<li>Where did you have to correct or push back on the output?</li>
+<li>What's one thing you'll do differently now that you have a CARE structure, versus how you prompted before today?</li>
+</ul>
+<p><strong>Closing thought for the instructor to land:</strong></p>
+<blockquote>
+<p>Every session from here forward will ask you to use AI for something — research synthesis, problem framing, prototyping. None of those sessions will re-teach what "AI-assisted" means, or how to write a good prompt, or what a <code>.md</code> file is. That's what today was for. The tool will keep changing. This workflow — define clearly, prompt deliberately, review critically — doesn't.</p>
+</blockquote>
+<hr />
+<h2 id="v0-activities">Activities</h2>
+<p>Full instructions for the two in-class activities. Use the Session Structure table for timing and facilitation context — these are the facilitator-ready versions of Phase 4's convergence point and Phase 5's hands-on build.</p>
+<hr />
+<h3 id="v0-activity-1-stage-mapping-artifact-canvas">🗺️ Activity 1 — Stage Mapping + Artifact Canvas</h3>
+<p><strong>Type:</strong> In-class · Worksheet or FigJam
+<strong>Time:</strong> 15 min
+<strong>Format:</strong> Solo (own real project, or the shared practice project if a student doesn't have one yet)</p>
+<p><strong>What it is:</strong>
+Students work through the 5-stage vocabulary from the Design Thinking session and, for each stage, name what AI will help with, what stays their responsibility, and which artifact that stage produces to feed forward into the next. The output is a completed canvas students keep and refer back to for the rest of the program.</p>
+<p><strong>Setup (before class):</strong></p>
+<ul>
+<li>Prepare a 5-column canvas — physical handout, FigJam board, or shared doc — with columns: Empathise · Define · Ideate · Prototype · Test</li>
+<li>Each column has 3 rows to fill: "AI helps with," "Stays mine," "Artifact to save"</li>
+<li>Have the Phase 4 stage-by-stage breakdown (Core Content) visible or handed out as reference — students are applying it, not deriving it from scratch</li>
+</ul>
+<p><strong>Instructions for students:</strong></p>
+<ol>
+<li><strong>(10 min)</strong> For each of the 5 stages, fill in your canvas: what will AI help you with here, what stays your responsibility, and what artifact will this stage produce that you'll carry into the next one.</li>
+<li><strong>(5 min) — Share.</strong> 2–3 students read out one stage from their canvas. Winnie listens for: is the "stays mine" column genuinely a judgment call, or did they just restate the "AI helps with" column in different words?</li>
+</ol>
+<p><strong>Facilitator watch-fors:</strong></p>
+<ul>
+<li>Students who leave "Artifact to save" blank or vague ("notes") — push for a specific, nameable file: "what would you actually call this file?"</li>
+<li>Students who can't distinguish "AI helps with" from "stays mine" at Define or Test — these are the judgment-heavy stages; if they're stuck, ask "what would you have to personally verify before you'd trust this?"</li>
+<li>Students without a current real project should use the shared practice project rather than skip the activity — the canvas habit matters more than the specific content</li>
+</ul>
+<p><strong>For private mentees (Anh / Vy):</strong>
+This canvas becomes their working reference for the rest of the program — every future session's AI activity should trace back to a row on this canvas. Keep it alongside their project files, not just in the shared class board.</p>
+<hr />
+<h3 id="v0-activity-2-build-your-workflow">🔧 Activity 2 — Build Your Workflow</h3>
+<p><strong>Type:</strong> In-class · Hands-on, own laptop
+<strong>Time:</strong> 15 min
+<strong>Format:</strong> Solo</p>
+<p><strong>What it is:</strong>
+Students set up the actual infrastructure this session has been building toward: a local folder, a primary AI tool, and one real CARE-structured prompt run against their own project — using their Activity 1 canvas as the map for what to prompt and which artifact to reuse as Context.</p>
+<p><strong>Setup (before class):</strong></p>
+<ul>
+<li>Students should have their laptop with a file explorer/Finder open and access to an AI chat tool</li>
+<li>Have your own local project folder open and ready to screen-share as a live example</li>
+</ul>
+<p><strong>Instructions for students:</strong></p>
+<ol>
+<li><strong>(5 min) — Set up your local folder.</strong> Create one dedicated project folder on your machine. Pick one of the three organisation options from Phase 2 (by stage, by file type, or by deliverable) and build out the subfolders now. This is the folder you'll use across every stage from here forward.</li>
+<li><strong>(2 min) — Pick your primary AI chat tool.</strong> From what you brought in Pre-Class Preparation, or a new one — pick one default for the rest of the program. Depth beats breadth.</li>
+<li><strong>(8 min) — Write and run one CARE prompt.</strong> Using your Activity 1 canvas, pick the stage you're currently working on. If you already have a saved artifact from an earlier stage (even a rough one), use it as your Context — don't retype a project summary from memory. Write a full CARE-structured prompt, run it, and read the output critically. Save the result into your folder before moving on.</li>
+</ol>
+<p><strong>Facilitator watch-fors:</strong></p>
+<ul>
+<li>Circulate during Step 1 and check students are actually building subfolders, not just creating one empty folder and moving on</li>
+<li>Key coaching question during Step 3: "What would you correct before you'd actually use this output?" — if a student runs their prompt and moves on without answering that, stop them</li>
+<li>If a student has no prior artifact to feed forward, that's fine — have them note what artifact <em>this</em> prompt will produce, so next session they have something to reuse</li>
+</ul>
+<p><strong>For private mentees (Anh / Vy):</strong>
+Use their actual current project. The folder and prompt library they start here should become the one they use for the rest of the program — not a throwaway practice exercise.</p>
+<hr />
+<h2 id="v0-ai-in-practice">AI in Practice</h2>
+<h3 id="v0-try-this-prompt">🤖 Try this prompt</h3>
+<blockquote>
+<p><em>"I'm a UX designer working on [describe your project in 1–2 sentences]. I'm currently at the [Empathise/Define/Ideate/Prototype/Test] stage. Using the CARE framework, help me write a well-structured prompt for [the specific task]. Then critique your own prompt: what's still ambiguous, and what should I add?"</em></p>
+</blockquote>
+<h3 id="v0-critical-thinking-prompt">🧠 Critical thinking prompt</h3>
+<p>After running the prompt above, discuss as a class:</p>
+<ul>
+<li>Did the AI's self-critique catch something you missed?</li>
+<li>Where did the AI's suggested prompt still leave room for AI to make a decision that should have stayed yours?</li>
+<li>If you ran this same prompt with less context, how much worse would the output likely be?</li>
+</ul>
+<h3 id="v0-prompt-engineering-tip">✍️ Prompt engineering tip</h3>
+<p>Specificity in the Context section does more work than any other part of CARE. "A checkout flow" gets a generic answer. "A checkout flow for a Vietnamese food delivery app, used mostly on Android, for time-pressed parents ordering dinner after work" gets an answer shaped to the actual problem.</p>
+<h3 id="v0-ethics-consideration">⚖️ Ethics consideration</h3>
+<p>AI tools reflect the design patterns of their training data, which skews heavily Western/English-language. When using AI for research synthesis, ideation, or prototyping for a Vietnamese or Southeast Asian product, stay critical about whether AI's suggestions actually match your users' mental models — not just whether the output looks polished.</p>
+<hr />
+<h2 id="v0-assessment">Assessment</h2>
+<h3 id="v0-quick-knowledge-check">Quick knowledge check</h3>
+<p>Run verbally or in a shared doc at the close of Phase 3 (2–3 min):</p>
+<ol>
+<li>What's the difference between "AI-assisted" and "AI-generated"? Give an example of each from your own recent AI use.</li>
+<li>Name the four parts of the CARE prompting framework.</li>
+<li>At which Design Thinking stage is AI riskiest to over-trust, and why?</li>
+<li>A colleague says: "I don't need a workflow, I just ask AI for what I need." What's the gap in that thinking?</li>
+<li>A colleague opens a new AI chat and retypes a summary of their project from memory every time. What would you tell them to do differently, and why?</li>
+</ol>
+<hr />
+<h2 id="v0-homework">Homework</h2>
+<h3 id="v0-assignment-1-set-up-your-ai-workflow">Assignment 1 — Set Up Your AI Workflow</h3>
+<p><strong>Due:</strong> Before next session
+<strong>Time estimate:</strong> 20 min
+<strong>Type:</strong> Setup</p>
+<p>If you completed Activity 2 in class, this assignment is mostly about finishing and documenting it properly — not starting from zero.</p>
+<ul>
+<li>Local project folder created, organised using one of the three options from Phase 2 (by stage, by file type, or by deliverable)</li>
+<li>Primary AI chat tool chosen as your default for the rest of the program</li>
+<li>A personal prompt library file started, containing at least 3 CARE-structured prompts (Context, Ask, Rules, Examples) you expect to reuse across upcoming sessions</li>
+</ul>
+<p>Submit: a screenshot or link to your folder structure + your prompt library file, shared in the class channel (group) or with Winnie directly (private mentees)</p>
+<p><strong>What Winnie is looking for:</strong></p>
+<ul>
+<li>Is the folder actually organised — clear subfolders, not just one empty folder created and left?</li>
+<li>Do the saved prompts include all four CARE parts, or just a one-line Ask dressed up as a prompt?</li>
+<li>Does the chosen organisation option make sense for how this student actually works?</li>
+</ul>
+<hr />
+<h3 id="v0-assignment-2-capture-organise-your-current-screens">Assignment 2 — Capture &amp; Organise Your Current Screens</h3>
+<p><strong>Due:</strong> Before next session
+<strong>Time estimate:</strong> 30 min
+<strong>Type:</strong> Capture · Organisation</p>
+<p>This is what Customer Understanding needs from you on day one — the friction analysis activity in that session runs directly on the screen flows you capture here. Put them straight into the folder you set up in Assignment 1, not somewhere you'll have to hunt for later.</p>
+<ul>
+<li>For each main experience in your project, capture the current screen flow as it exists today</li>
+<li>Identify the key experiences to map (e.g. Onboarding, Core Task, Checkout, Settings)</li>
+<li>Screenshot each screen in the flow — aim for a high-level overview, not every micro-state</li>
+<li>Save the screenshots into your local folder from Assignment 1, and label each one with its state</li>
+<li>Optional: paste the flow into your AI chat tool and ask it to draft a one-line description per screen — a fast way to check your labelling is clear before Customer Understanding, using the CARE structure from today</li>
+<li>We will use these flows in the next session to set up friction metrics for each step</li>
+</ul>
+<p>Submit: your organised screen flow (folder link or exported images), shared in the class channel (group) or with Winnie directly (private mentees)</p>
+<p><strong>What Winnie is looking for:</strong></p>
+<ul>
+<li>Are the screens actually inside the Assignment 1 folder, not scattered across Desktop or a random export — this is the folder habit from today, applied for real</li>
+<li>Is each screen labelled with its state, not just a bare filename</li>
+<li>Coverage of the flow at a high level — this doesn't need to be exhaustive, it needs to be usable in next session's friction analysis</li>
+</ul>
+<hr />
+<h2 id="v0-prompt-library-reference">Prompt Library Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Structure any request (CARE)</td>
+<td>"Context: [situation]. Ask: [specific request]. Rules: [constraints/format]. Examples: [reference]."</td>
+</tr>
+<tr>
+<td><strong>Synthesising Research</strong> — interview themes</td>
+<td>"Here are my raw interview transcripts: [paste]. My research goal is [X]. Draft an Empathy Map and identify recurring themes, contradictions, and 3 quotes per theme."</td>
+</tr>
+<tr>
+<td><strong>Synthesising Research</strong> — assumption audit</td>
+<td>"Here are our team's stated assumptions: [paste]. Sort into Known vs. Unknown and flag which have zero supporting evidence."</td>
+</tr>
+<tr>
+<td><strong>Process Mapping</strong> — journey map</td>
+<td>"Here is my research synthesis: [paste]. Draft a current-state journey map with 5–7 stages — action, thought/feeling, pain point, supporting insight per stage. Flag any stage where you're guessing."</td>
+</tr>
+<tr>
+<td><strong>Process Mapping</strong> — HMW generation</td>
+<td>"Here are my insight statements: [paste]. Draft 5 How Might We questions at different levels of scope. Flag any that are already a solution in disguise."</td>
+</tr>
+<tr>
+<td><strong>Prototyping</strong> — missing states</td>
+<td>"I have this component inventory: [paste or describe]. Generate the missing states for [component] — I only have 'default,' I need hover, loading, error, and empty."</td>
+</tr>
+<tr>
+<td><strong>Other Activities</strong> — critique prep</td>
+<td>"Here's my screen: [describe/paste]. Playing devil's advocate, what would a tough design critique flag about hierarchy, accessibility, and consistency with our design system?"</td>
+</tr>
+<tr>
+<td><strong>Other Activities</strong> — usability test synthesis</td>
+<td>"Here are notes from [N] usability sessions: [paste]. What patterns appeared across multiple users vs. just one? Rate severity. What contradicts our problem statement?"</td>
+</tr>
+<tr>
+<td>Audit your own prompt</td>
+<td>"Critique this prompt I'm about to use: [paste]. What's ambiguous? What decision am I accidentally handing to you that should stay mine?"</td>
+</tr>
+<tr>
+<td>Feed forward instead of starting fresh</td>
+<td>"Context: here's my [previous stage] artifact: [paste saved file]. Don't ask me to re-describe the project — everything you need is in that file. Ask: [your task for this stage]."</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="v0-instructor-notes">Instructor Notes</h2>
+<p><strong>Handling mixed AI fluency in the room:</strong>
+Some students already live in AI tools daily; others have barely used them. The Phase 2 technical literacy self-check exists to surface this early without embarrassing anyone — frame it as "this tells me where to spend time," not a test. Pair confident and less-confident students for Phase 5's hands-on step.</p>
+<p><strong>The most common failure mode:</strong>
+Students treat AI output as finished rather than as a first draft to review. Watch for this specifically during Phase 5, Step 3 — if a student runs their prompt and moves on without reading critically, stop and ask: "What would you correct before you'd actually use this?" That question is the whole point of the AI-assisted mindset.</p>
+<p><strong>On the technical literacy primer running long:</strong>
+Phase 2 is designed to be fast — recognition, not mastery. If discussion pulls it long, cut it short and point students to Further Resources; this content resurfaces naturally (and in more depth) once they're actually building with an AI coding tool in the AI Prototype Development session.</p>
+<p><strong>This session sets vocabulary every later session assumes:</strong>
+"AI-assisted vs. AI-generated," "CARE," and the three technical literacy terms should not be re-taught later — they should be referenced. If a later session's students seem to have lost this vocabulary, that's a signal to recap for 2 minutes, not to skip past confusion.</p>
+<hr />
+<h2 id="v0-further-resources">Further Resources</h2>
+<p>These are resources worth pointing students to — not a complete list, but the ones that make the biggest difference for this specific lesson.</p>
+<h3 id="v0-mindset-data">Mindset &amp; Data</h3>
+<ul>
+<li><strong><a href="https://www.figma.com/reports/state-of-the-designer-2026/" target="_blank" rel="noopener">Figma — State of the Designer 2026</a></strong> and <strong><a href="https://www.figma.com/blog/2026-ai-report/" target="_blank" rel="noopener">Figma's 2026 AI Report</a></strong> — the adoption and satisfaction statistics used to open Phase 1.</li>
+<li><strong><a href="https://www.nngroup.com/articles/ai-work-study-guide/" target="_blank" rel="noopener">NN/G — Using AI for UX Work: Study Guide</a></strong> <em>(Oct 2025)</em> — the single best index for going deeper on every part of this lesson.</li>
+<li><strong><a href="https://www.nngroup.com/articles/ai-intern/" target="_blank" rel="noopener">NN/G — Your AI UX Intern: Meet Ari</a></strong> — the intern metaphor used in Phase 1.</li>
+<li><strong><a href="https://www.nngroup.com/articles/7-ai-sins/" target="_blank" rel="noopener">NN/G — 7 Deadly AI Sins for UX Professionals</a></strong> — a ready-made checklist for the "what stays yours" framing throughout Phase 4.</li>
+<li><strong><a href="https://www.nngroup.com/articles/vr-hype-cycle-lessons-for-ai/" target="_blank" rel="noopener">NN/G — The VR Hype Cycle: Lessons for the Age of AI</a></strong></li>
+</ul>
+<h3 id="v0-prompting-context-reuse">Prompting &amp; Context Reuse</h3>
+<ul>
+<li><strong><a href="https://www.nngroup.com/articles/careful-prompts/" target="_blank" rel="noopener">NN/G — CARE: Structure for Crafting AI Prompts</a></strong> — the framework taught in Phase 3, in full.</li>
+<li><strong><a href="https://sourcegraph.com/blog/context-engineering" target="_blank" rel="noopener">Sourcegraph — Context Engineering: A Practical Guide for AI Agents</a></strong> — the source for the "feed forward" framing in Phase 3: each step's output becomes the next step's context, and context quality issues cascade if you're sloppy about it. Written for engineers, but the principle transfers directly.</li>
+<li><strong><a href="https://karozieminski.substack.com/p/context-engineering-product-builders-guide-2026" target="_blank" rel="noopener">Karo Zieminski — Context Engineering for Product Builders: The 2026 Operating Manual</a></strong> — a more product/builder-oriented take on the same idea, including the practice of maintaining a reusable library of past artifacts and prompts rather than starting fresh each time.</li>
+<li><strong>Your AI chat tool's project/memory feature, if it has one</strong> — by 2026, most major AI chat tools offer some form of persistent, project-scoped context (upload once, referenced automatically in every new conversation within that project). Worth a 5-minute setup demo in class if your tool supports it — check its documentation, since this changes fast and features vary by tool.</li>
+</ul>
+<h3 id="v0-design-thinking-ai">Design Thinking + AI</h3>
+<ul>
+<li><strong><a href="https://www.ideou.com/blogs/inspiration/ai-and-design-thinking" target="_blank" rel="noopener">IDEO U — The Intersection of Design Thinking and AI</a></strong></li>
+<li><strong><a href="https://www.ideou.com/blogs/inspiration/best-ai-x-design-thinking-resources-books-articles-courses-more" target="_blank" rel="noopener">IDEO U — Top 22 Best AI x Design Thinking Resources</a></strong> — includes IDEO's downloadable AI ethics card deck, usable as a follow-up in-class exercise.</li>
+<li><strong>"AI Design Workflow — 6 must-know stages"</strong> <em>(LinkedIn infographic, Imen Mlika, Digital Designer)</em> — a visual 6-stage breakdown: AI Research Synthesis, Generative Ideation, AI Wireframing, Conversational UX, Adaptive Interfaces, Responsible AI Testing. Stages 1–3 map directly onto this lesson's Synthesising Research, Process Map, and Prototyping buckets; stages 4–6 (Conversational UX, Adaptive Interfaces, Responsible AI Testing) point past this lesson toward more advanced, product-specific AI applications — useful as an "if you want to go deeper" pointer for students, especially ahead of Test-stage and AI Prototype Development sessions.</li>
+</ul>
+<h3 id="v0-stage-specific-depth">Stage-Specific Depth</h3>
+<ul>
+<li><strong><a href="https://www.nngroup.com/articles/research-with-ai/" target="_blank" rel="noopener">NN/G — Accelerating Research with AI</a></strong> (Empathise)</li>
+<li><strong><a href="https://www.nngroup.com/articles/synthetic-users/" target="_blank" rel="noopener">NN/G — Synthetic Users: If, When, and How to Use AI-Generated "Research"</a></strong> (Empathise/Test)</li>
+<li><strong><a href="https://www.nngroup.com/articles/ai-creative-teammate/" target="_blank" rel="noopener">NN/G — AI as a Creative Teammate</a></strong> (Ideate)</li>
+<li><strong><a href="https://www.nngroup.com/articles/promptframes/" target="_blank" rel="noopener">NN/G — Promptframes: Evolving the Wireframe for the Age of AI</a></strong> (Prototype)</li>
+</ul>
+<h3 id="v0-what-i-d-actually-assign">What I'd Actually Assign</h3>
+<p>If time only allows one: <strong>NN/G's AI Work Study Guide</strong>, skimmed before class. It's a syllabus in disguise, and every other resource here is one click from it.</p>
+<hr />
+<h2 id="v0-connection-to-curriculum">Connection to Curriculum</h2>
+<table>
+<thead>
+<tr>
+<th>Session</th>
+<th>Role in this lesson</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Design Thinking</td>
+<td>Supplies the 5-stage vocabulary this lesson maps AI onto directly</td>
+</tr>
+<tr>
+<td><strong>This session</strong></td>
+<td>Builds the mindset, prompting framework, and technical literacy every later AI-related activity assumes</td>
+</tr>
+<tr>
+<td>Customer Understanding</td>
+<td>First real application of the Empathise-stage AI prompts taught here; also depends directly on Assignment 2's captured screen flows for its friction analysis activity</td>
+</tr>
+<tr>
+<td>Synthesis &amp; Problem Definition</td>
+<td>First real application of the Define-stage AI prompts taught here</td>
+</tr>
+<tr>
+<td>Design Framework (Atomic Design)</td>
+<td>Reinforces AI-assisted vs. AI-generated at the component-system level</td>
+</tr>
+<tr>
+<td>AI Prototype Development</td>
+<td>Assumes this session's vocabulary in full — "AI-assisted," CARE, local folder setup, and basic HTML literacy are all prerequisites, not re-taught there</td>
+</tr>
+</tbody>
+</table></article>
+  </div>
+</div></section><section class="tp-panel" data-tab-panel data-tab-id="slides" role="tabpanel" hidden><div class="tp-slides"><iframe id="deck-frame" src="../assets/lessons/ai-workflow-for-ux-designers/slides/AI%20Workflow%20Deck.html" title="Lesson slides" allowfullscreen loading="lazy"></iframe></div>
+<p class="tp-slides__link"><a id="deck-open" href="../assets/lessons/ai-workflow-for-ux-designers/slides/AI%20Workflow%20Deck.html" target="_blank" rel="noopener">Open slides full screen ↗</a></p></section><section class="tp-panel" data-tab-panel data-tab-id="homework" role="tabpanel" hidden><div class="tp-slides tp-slides--empty"><strong>No mentee homework yet</strong><span>Drop files in <code>Mentees/&lt;name&gt;/homework/ai-workflow-for-ux-designers/</code> and they show up here.</span></div></section>
+  <section class="tp-related"><h2>Related lessons</h2><div class="tp-related__grid"><a class="tp-related__card" href="design-thinking.html"><span>Previous lesson</span><strong>Design Thinking for UX Designer</strong></a><a class="tp-related__card" href="customer-understanding.html"><span>Next lesson</span><strong>Customer Understanding</strong></a></div></section>
+</div>
+<script>
+(function () {
+  function group(btnSel, panelSel, attr, onShow) {
+    var btns = [].slice.call(document.querySelectorAll(btnSel)), panels = [].slice.call(document.querySelectorAll(panelSel));
+    function show(id) {
+      btns.forEach(function (b) { var on = b.getAttribute(attr) === id; b.setAttribute('aria-selected', on); b.classList.toggle('tabs__tab--active', on && b.classList.contains('tabs__tab')); });
+      panels.forEach(function (p) { p.hidden = p.getAttribute(attr) !== id; });
+      if (onShow) onShow(id);
+    }
+    btns.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute(attr)); }); });
+    return show;
+  }
+  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === 'lesson' ? location.pathname : '#' + id); });
+  var showVar = group('[data-var-btn]', '[data-var-panel]', 'data-var-id');
+  var h = (location.hash || '').replace('#', '');
+  showTab(['slides', 'homework'].indexOf(h) > -1 && document.querySelector('[data-tab-id="' + h + '"]') ? h : 'lesson');
+  if (document.querySelector('[data-var-btn]')) showVar('0');
+  var decks = [].slice.call(document.querySelectorAll('[data-deck-btn]'));
+  decks.forEach(function (b) { b.addEventListener('click', function () {
+    var f = document.getElementById('deck-frame'); f.src = b.dataset.src; document.getElementById('deck-open').href = b.dataset.src;
+    decks.forEach(function (x) { x.classList.toggle('tabs__tab--active', x === b); x.setAttribute('aria-selected', x === b); });
+  }); });
+})();
+</script>
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Winnie Nguyen · Senior Product Designer</p>
+    <div class="footer-links">
+      <a href="mailto:nguyenphuctuongvan@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/winnienguyen2910" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script>(function(){if(location.protocol.indexOf('http')!==0)return;var u='../assets/build-stamp.txt',last=null;function c(){fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(t){if(t===null)return;if(last!==null&&t!==last)location.reload();last=t}).catch(function(){})}c();setInterval(c,1500)})();</script>
+</body>
+</html>

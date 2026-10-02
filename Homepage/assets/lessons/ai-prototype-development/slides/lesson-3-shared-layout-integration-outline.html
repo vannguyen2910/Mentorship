@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<title>Shared Layout Integration — Lesson 3</title>
+	<style>
+		:root {
+			--text-primary: #1a1a1a;
+			--text-secondary: #666;
+			--text-label: #999;
+			--bg-primary: #f9f9f9;
+			--bg-secondary: #fff;
+			--border: #e0e0e0;
+			--accent: #0066cc;
+			--success: #00a854;
+			--neutral: #f0f0f0;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			:root:not([data-theme="light"]) {
+				--text-primary: #f0f0f0;
+				--text-secondary: #ccc;
+				--text-label: #888;
+				--bg-primary: #1a1a1a;
+				--bg-secondary: #242424;
+				--border: #333;
+				--accent: #4da6ff;
+				--success: #52c41a;
+				--neutral: #333;
+			}
+		}
+
+		:root[data-theme="dark"] {
+			--text-primary: #f0f0f0;
+			--text-secondary: #ccc;
+			--text-label: #888;
+			--bg-primary: #1a1a1a;
+			--bg-secondary: #242424;
+			--border: #333;
+			--accent: #4da6ff;
+			--success: #52c41a;
+			--neutral: #333;
+		}
+
+		* { box-sizing: border-box; }
+		html { height: 100%; }
+		body {
+			margin: 0;
+			background: var(--bg-primary);
+			color: var(--text-primary);
+			font: 1rem/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+			padding: 0 16px;
+		}
+
+		.container {
+			max-width: 960px;
+			margin: 0 auto;
+			padding: 40px 0;
+		}
+
+		header {
+			margin-bottom: 48px;
+			border-bottom: 2px solid var(--border);
+			padding-bottom: 24px;
+		}
+
+		h1 {
+			margin: 0 0 8px;
+			font-size: 2rem;
+			font-weight: 600;
+			letter-spacing: -0.02em;
+		}
+
+		.subtitle {
+			font-size: 0.95rem;
+			color: var(--text-secondary);
+			margin: 0;
+		}
+
+		.section {
+			margin-bottom: 60px;
+		}
+
+		.section h2 {
+			font-size: 1.3rem;
+			font-weight: 600;
+			margin: 0 0 20px;
+			color: var(--accent);
+		}
+
+		.section h3 {
+			font-size: 0.95rem;
+			font-weight: 600;
+			color: var(--text-label);
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			margin: 24px 0 12px;
+		}
+
+		/* Diagram section */
+		.flow-diagram {
+			background: var(--bg-secondary);
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			padding: 32px;
+			margin: 24px 0;
+			position: relative;
+		}
+
+		.diagram-label {
+			font-size: 0.85rem;
+			font-weight: 600;
+			color: var(--text-label);
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			margin-bottom: 16px;
+		}
+
+		svg {
+			max-width: 100%;
+			height: auto;
+			display: block;
+		}
+
+		/* Outline section */
+		.outline-item {
+			background: var(--bg-secondary);
+			border-left: 3px solid var(--accent);
+			padding: 16px 20px;
+			margin-bottom: 12px;
+			border-radius: 4px;
+		}
+
+		.outline-item strong {
+			display: block;
+			color: var(--accent);
+			font-size: 0.9rem;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			margin-bottom: 6px;
+		}
+
+		.outline-item p {
+			margin: 0;
+			color: var(--text-secondary);
+			font-size: 0.95rem;
+		}
+
+		/* Code / prompt section */
+		.code-block {
+			background: var(--neutral);
+			border: 1px solid var(--border);
+			border-radius: 6px;
+			padding: 16px;
+			font-family: "Monaco", "Courier New", monospace;
+			font-size: 0.85rem;
+			overflow-x: auto;
+			margin: 16px 0;
+			color: var(--text-secondary);
+		}
+
+		.decision-box {
+			background: linear-gradient(135deg, var(--bg-secondary), var(--neutral));
+			border: 2px solid var(--accent);
+			border-radius: 6px;
+			padding: 16px;
+			margin: 24px 0;
+		}
+
+		.decision-box h4 {
+			margin: 0 0 12px;
+			font-size: 0.9rem;
+			color: var(--accent);
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+
+		.decision-option {
+			padding: 8px 0;
+			color: var(--text-secondary);
+			font-size: 0.95rem;
+		}
+
+		.decision-option strong {
+			color: var(--text-primary);
+		}
+
+		/* File structure */
+		.file-tree {
+			background: var(--neutral);
+			border: 1px solid var(--border);
+			border-radius: 6px;
+			padding: 16px;
+			font-family: "Monaco", "Courier New", monospace;
+			font-size: 0.85rem;
+			margin: 16px 0;
+		}
+
+		.file-tree-item {
+			color: var(--text-secondary);
+			margin: 4px 0;
+		}
+
+		.file-tree-indent-1 { margin-left: 20px; }
+		.file-tree-indent-2 { margin-left: 40px; }
+
+		.tag {
+			display: inline-block;
+			background: var(--success);
+			color: white;
+			padding: 2px 8px;
+			border-radius: 3px;
+			font-size: 0.75rem;
+			font-weight: 600;
+			margin-left: 8px;
+		}
+
+		.tag.preview { background: var(--accent); }
+
+		a {
+			color: var(--accent);
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		@media (max-width: 600px) {
+			h1 { font-size: 1.5rem; }
+			.section h2 { font-size: 1.1rem; }
+			.flow-diagram { padding: 16px; }
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>Shared Layout in Lesson 3</h1>
+			<p class="subtitle">Embedding your prompt-driven propagation pattern into "Update the Rules, Then Propagate"</p>
+		</header>
+
+		<div class="section">
+			<h2>Overview</h2>
+			<p>Your <code>shared-layout.html</code> pattern fits perfectly into <strong>Segment 7</strong> of Lesson 3 (Update the Rules, Then Propagate), specifically after "The propagation truth" section. It bridges the gap between the promise of propagation and the grown-up version the lesson mentions (GOV.UK Prototype Kit).</p>
+			<p><strong>Why here:</strong> Students have just reviewed their first journey and rewritten the rules. They're asking "can I change the layout once and have everything update?" Your answer is yes—through a pattern designed for designers, not developers.</p>
+		</div>
+
+		<div class="section">
+			<h2>Visual Flow — How It Works</h2>
+			<div class="flow-diagram">
+				<div class="diagram-label">The Shared Layout Pattern</div>
+				<svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
+					<!-- Hub -->
+					<rect x="220" y="100" width="160" height="80" rx="6" fill="var(--accent)" stroke="var(--text-label)" stroke-width="2"/>
+					<text x="300" y="135" text-anchor="middle" font-size="14" font-weight="600" fill="white">shared-layout.html</text>
+					<text x="300" y="155" text-anchor="middle" font-size="12" fill="white" opacity="0.9">(Header, footer,</text>
+					<text x="300" y="170" text-anchor="middle" font-size="12" fill="white" opacity="0.9">navigation)</text>
+
+					<!-- Page circles -->
+					<circle cx="80" cy="220" r="35" fill="var(--bg-secondary)" stroke="var(--accent)" stroke-width="2"/>
+					<text x="80" y="220" text-anchor="middle" font-size="12" font-weight="600" fill="var(--text-primary)">page 1</text>
+					<text x="80" y="235" text-anchor="middle" font-size="10" fill="var(--text-secondary)">journey A</text>
+
+					<circle cx="220" cy="260" r="35" fill="var(--bg-secondary)" stroke="var(--accent)" stroke-width="2"/>
+					<text x="220" y="260" text-anchor="middle" font-size="12" font-weight="600" fill="var(--text-primary)">page 2</text>
+					<text x="220" y="275" text-anchor="middle" font-size="10" fill="var(--text-secondary)">journey A</text>
+
+					<circle cx="380" cy="260" r="35" fill="var(--bg-secondary)" stroke="var(--accent)" stroke-width="2"/>
+					<text x="380" y="260" text-anchor="middle" font-size="12" font-weight="600" fill="var(--text-primary)">page 3</text>
+					<text x="380" y="275" text-anchor="middle" font-size="10" fill="var(--text-secondary)">journey B</text>
+
+					<circle cx="520" cy="220" r="35" fill="var(--bg-secondary)" stroke="var(--accent)" stroke-width="2"/>
+					<text x="520" y="220" text-anchor="middle" font-size="12" font-weight="600" fill="var(--text-primary)">page 4</text>
+					<text x="520" y="235" text-anchor="middle" font-size="10" fill="var(--text-secondary)">journey B</text>
+
+					<!-- Connection lines -->
+					<line x1="250" y1="140" x2="110" y2="200" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5,5"/>
+					<line x1="260" y1="155" x2="245" y2="230" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5,5"/>
+					<line x1="340" y1="155" x2="355" y2="230" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5,5"/>
+					<line x1="350" y1="140" x2="490" y2="200" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5,5"/>
+
+					<!-- Change indicator -->
+					<g transform="translate(300, 60)">
+						<circle cx="0" cy="0" r="15" fill="var(--success)" opacity="0.2"/>
+						<circle cx="0" cy="0" r="12" fill="var(--success)" opacity="0.4"/>
+						<circle cx="0" cy="0" r="9" fill="var(--success)"/>
+						<text x="0" y="3" text-anchor="middle" font-size="14" font-weight="600" fill="white">✓</text>
+					</g>
+					<text x="300" y="35" text-anchor="middle" font-size="11" fill="var(--text-secondary)" font-weight="600">Edit here</text>
+
+					<text x="300" y="310" text-anchor="middle" font-size="11" fill="var(--text-label)">Edit shared layout → All pages reference it → All pages update</text>
+				</svg>
+			</div>
+		</div>
+
+		<div class="section">
+			<h2>Content Outline — What Students Learn</h2>
+
+			<h3>Part A: The Concept (Why This Pattern Exists)</h3>
+			<div class="outline-item">
+				<strong>What's shared vs. what changes</strong>
+				<p>Every screen has a layout shell — header, footer, navigation, sidebar. Redesigning that shell means touching every screen file individually. This pattern puts the shell in one file, and all screens point to it.</p>
+			</div>
+
+			<div class="outline-item">
+				<strong>The two versions of propagation</strong>
+				<p><strong>Built-in (GOV.UK Prototype Kit):</strong> Pages extend a layout; update it once and every page updates automatically.<br/><strong>Prompt-driven (your approach):</strong> One shared file that all pages reference; a controlled prompt handles the sync.</p>
+			</div>
+
+			<div class="outline-item">
+				<strong>Why designers need this</strong>
+				<p>You spot an issue with the header on screen 3. Rather than editing every screen individually (and risking drift), you fix the shared layout once and sync. One edit, one prompt, all screens consistent.</p>
+			</div>
+
+			<h3>Part B: How It Works (The Implementation)</h3>
+
+			<div class="outline-item">
+				<strong>File structure</strong>
+				<p>Keep shared layout separate from journey-specific content.</p>
+			</div>
+
+			<div class="file-tree">
+				<div class="file-tree-item"><strong>screens/</strong></div>
+				<div class="file-tree-item file-tree-indent-1"><strong>shared-layout.html</strong> ← Navigation, header, footer (the shell)</div>
+				<div class="file-tree-item file-tree-indent-1"><strong>journey-a/</strong></div>
+				<div class="file-tree-item file-tree-indent-2"><strong>page-1.html</strong> (includes shared-layout)</div>
+				<div class="file-tree-item file-tree-indent-2"><strong>page-2.html</strong> (includes shared-layout)</div>
+				<div class="file-tree-item file-tree-indent-1"><strong>journey-b/</strong></div>
+				<div class="file-tree-item file-tree-indent-2"><strong>page-3.html</strong> (includes shared-layout)</div>
+				<div class="file-tree-item file-tree-indent-2"><strong>page-4.html</strong> (includes shared-layout)</div>
+			</div>
+
+			<div class="outline-item">
+				<strong>How pages reference it</strong>
+				<p>Each page includes the shared layout as an HTML fragment or component. When the layout changes, pages don't need to be regenerated—they already point to the latest version.</p>
+			</div>
+
+			<div class="outline-item">
+				<strong>When to sync</strong>
+				<p>You edit <code>shared-layout.html</code> (e.g., change the header height, update navigation). Then you run the sync prompt once. Done.</p>
+			</div>
+
+			<h3>Part C: The Sync Prompt</h3>
+			<p>This is the prompt students use when they've changed <code>shared-layout.html</code> and need all journey pages to pick up the change:</p>
+
+			<div class="code-block">
+"I've updated `screens/shared-layout.html`. All journey pages at `screens/journey-*/` reference it.
+Update each page to ensure the shared layout is correctly included and no conflicting styles override it.
+
+List every file you touched and what changed. If a page has diverged (custom styling in the header), report it—don't force it to match.
+
+Only update the layout inclusion—don't regenerate the page's main content."
+			</div>
+
+			<h3>Part D: Why This Matters (Designer POV)</h3>
+
+			<div class="outline-item">
+				<strong>Speed: Iteration gets faster</strong>
+				<p>First journey took time to design and review. Second journey costs a fraction because the system (including layout) is locked. Changes to the layout are now one-file edits, not screen-by-screen.</p>
+			</div>
+
+			<div class="outline-item">
+				<strong>Consistency: Drift prevention</strong>
+				<p>Without a shared layout, screen-by-screen edits subtly diverge (one person uses 16px padding, another uses 18px). A single source of truth for the shell eliminates that.</p>
+			</div>
+
+			<div class="outline-item">
+				<strong>Confidence: Visible proof the system works</strong>
+				<p>Changing one file and watching three screens instantly reflect it is proof that your rules and templates are doing their job. It's not magic—it's structure.</p>
+			</div>
+		</div>
+
+		<div class="section">
+			<h2>Integration Point</h2>
+			<p>In the lesson, this sits right after "The propagation truth" subsection (around line 251 of the current lesson-3 file). It answers the student's next question: <strong>"OK, so tokens update automatically and everything else is prompted. But can I at least manage the layout easily?"</strong></p>
+			<p>Your answer: <em>Yes. Here's how.</em></p>
+		</div>
+
+		<div class="decision-box">
+			<h4>Decision: How much hands-on practice?</h4>
+			<div class="decision-option">
+				<strong>Option A:</strong> Show the pattern and file structure; students set up their own <code>shared-layout.html</code> in segment 7 as part of the rules-update work.
+			</div>
+			<div class="decision-option">
+				<strong>Option B:</strong> Demonstrate the pattern with a screenshot/example; students can add it to their next project (homework).
+			</div>
+			<div class="decision-option">
+				<strong>Option C:</strong> Both: show the pattern here, then in lesson 4 ("Present & Publish"), revisit it when they're publishing—that's when shared layout becomes most valuable (live updates).
+			</div>
+		</div>
+
+		<div class="section">
+			<h2>Next Steps</h2>
+			<p><strong>Once you approve this outline:</strong></p>
+			<ol>
+				<li>I'll integrate this content into the lesson-3 file (after "The propagation truth" section)</li>
+				<li>Add a worked example showing before/after (file structure + prompt + result)</li>
+				<li>Create a quick reference card for students (the sync prompt + best practices)</li>
+				<li>Optional: Build a simple HTML example they can reference or adapt</li>
+			</ol>
+		</div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+/* ==========================================================================
+   design-tokens.css
+   Trích xuất trực tiếp từ "Travel Buddy (Standalone).html" — file export thật
+   từ Claude Design (không phải giá trị suy đoán). Số lần xuất hiện ghi trong
+   comment lấy từ phân tích tần suất trên 838 thuộc tính style="" của file gốc.
+   ========================================================================== */
+
+:root {
+  /* ---- Color / Base ---- */
+  --base-green-500: #5DB85C;   /* primary action — nút chính, icon active, badge số */
+  --base-lime-400:  #C4E03A;   /* accent trên nền tối — kicker onboarding, icon nổi bật, CTA guest paywall */
+  --base-navy-900:  #1C1C2E;   /* nền tối — guest banner, nút Apple login, guest paywall gradient */
+
+  --base-ink-900: #111111;     /* text chính — 112 lần, xuất hiện nhiều nhất */
+  --base-ink-500: #555555;     /* text mô tả/preview */
+  --base-ink-400: #999999;     /* text phụ/muted — 69 lần */
+  --base-ink-300: #BBBBBB;     /* text rất nhạt — recency, timestamp */
+  --base-ink-200: #CCCCCC;
+  --base-ink-100: #DDDDDD;
+
+  --base-white:     #FFFFFF;
+  --base-surface-1: #F7F7F7;   /* nền màn hình chính (Discover) */
+  --base-surface-2: #F0F0F0;   /* nền input, icon button tròn, placeholder ảnh */
+  --base-surface-3: #EDEDED;   /* nền mode switcher (Discover) — lưu ý khác #F0F0F0 dùng ở segmented tabs Tip Detail, đây là 1 điểm KHÔNG NHẤT QUÁN thật trong design gốc */
+  --base-surface-4: #E5E5E5;
+  --base-surface-5: #EBEBEB;   /* border-top thanh action dưới cùng */
+  --base-canvas:    #EAE8E2;   /* nền ngoài khung điện thoại */
+
+  --base-green-tint: #EAF6EA;
+  --base-amber-700:  #8A6A00;  /* text badge safety notes */
+  --base-amber-bg:   rgba(255,243,214,0.95);
+  --base-danger-600: #C0392B;
+
+  /* ---- Color / Semantic (alias → Base) ---- */
+  --color-primary:         var(--base-green-500);
+  --color-primary-on-dark: var(--base-lime-400);   /* dùng thay primary khi nền tối */
+  --color-surface:         var(--base-surface-1);
+  --color-surface-sunken:  var(--base-surface-2);
+  --color-surface-tabs:    var(--base-surface-3);
+  --color-canvas:          var(--base-canvas);
+  --color-border:          var(--base-surface-5);
+  --color-border-strong:   var(--base-surface-4);
+
+  --color-text-primary:    var(--base-ink-900);
+  --color-text-secondary:  var(--base-ink-500);
+  --color-text-muted:      var(--base-ink-400);
+  --color-text-faint:      var(--base-ink-300);
+  --color-text-on-primary: var(--base-white);
+  --color-text-on-dark:    var(--base-white);
+
+  --color-warning-bg:   var(--base-amber-bg);
+  --color-warning-text: var(--base-amber-700);
+  --color-danger:       var(--base-danger-600);
+
+  /* ---- Crowd status badge (crowdMeta trong source thật — 3 mức) ---- */
+  --crowd-local-text:    #2D7A2D;
+  --crowd-local-bg:      rgba(232,245,232,0.95);
+  --crowd-popular-text:  #8A6A00;
+  --crowd-popular-bg:    rgba(255,243,214,0.95);
+  --crowd-touristy-text: #B23A2E;
+  --crowd-touristy-bg:   rgba(253,226,222,0.95);
+
+  /* ---- Avatar sizes (đúng 2 size thật dùng trong app: 26px ở Tip Card, 46px ở author row) ---- */
+  --avatar-sm: 26px;
+  --avatar-md: 46px;
+
+  /* ---- Typography ---- */
+  /* 'DM Sans', sans-serif — 45 lần dùng, KHÔNG phải Inter. Icon: Material Symbols Outlined, 127 lần */
+  --font-family-base: 'DM Sans', sans-serif;
+  --font-family-icon: 'Material Symbols Outlined';
+
+  --font-size-2xs:  11px;  /* recency, caption nhỏ nhất */
+  --font-size-xs:   12px;  /* status bar, label, meta */
+  --font-size-sm:   13px;  /* body nhỏ, toast, location row */
+  --font-size-base: 14px;  /* body chính — 91 lần, size dùng nhiều nhất */
+  --font-size-md:   15px;  /* button label, tên contributor */
+  --font-size-lg:   18px;  /* section label */
+  --font-size-xl:   20px;  /* heading vừa */
+  --font-size-2xl:  22px;  /* mode title (Discover) */
+  --font-size-3xl:  26px;  /* tiêu đề Tip Detail */
+  --font-size-4xl:  28px;  /* tiêu đề Create your account */
+  --font-size-5xl:  38px;  /* headline Onboarding */
+
+  --font-weight-regular:   400;
+  --font-weight-medium:    500;
+  --font-weight-semibold:  600;  /* trọng số dùng nhiều nhất — 101 lần */
+  --font-weight-bold:      700;
+  --font-weight-extrabold: 800;  /* chỉ dùng cho headline lớn (Onboarding) */
+
+  --tracking-label:  0.5px;  /* uppercase label nhỏ */
+  --tracking-kicker: 3px;    /* riêng kicker "TRAVEL BUDDY" trên Onboarding */
+
+  /* ---- Spacing ---- */
+  --spacing-1: 4px;
+  --spacing-2: 6px;
+  --spacing-3: 8px;
+  --spacing-4: 10px;
+  --spacing-5: 12px;
+  --spacing-6: 14px;
+  --spacing-7: 16px;
+  --spacing-8: 20px;
+  --spacing-9: 24px;
+
+  /* ---- Radius ---- */
+  --radius-pill:  50px;          /* nút, tag, tab — 53 lần, phổ biến nhất */
+  --radius-full:  50%;           /* avatar, icon button tròn — 38 lần */
+  --radius-sm:    10px;
+  --radius-md:    14px;          /* input, card ảnh nhỏ */
+  --radius-lg:    16px;          /* guest banner, gallery thumb */
+  --radius-xl:    20px;          /* Tip Card, guest paywall */
+  --radius-sheet: 24px 24px 0 0; /* bottom sheet — 12 lần, luôn bo 2 góc trên */
+
+  /* ---- Shadow ---- */
+  --shadow-card:  0 2px 12px rgba(0,0,0,0.06);   /* Tip Card */
+  --shadow-float: 0 4px 16px rgba(0,0,0,0.18);   /* nút tròn nổi trên ảnh (back/favorite) */
+  --shadow-sheet: 0 8px 24px rgba(0,0,0,0.25);
+  --shadow-frame: 0 24px 70px rgba(0,0,0,0.18);  /* khung điện thoại ngoài cùng */
+}

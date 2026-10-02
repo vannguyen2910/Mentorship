@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<meta name="description" content="Judging design decisions you didn&#x27;t make"/>
+<title>UI Fundamentals — Training Hub</title>
+<link rel="stylesheet" href="../assets/css/tokens.css"/>
+<link rel="stylesheet" href="../assets/css/components.css"/>
+<link rel="stylesheet" href="../assets/css/site.css"/>
+<link rel="stylesheet" href="../assets/css/card-list.css"/>
+<link rel="stylesheet" href="../assets/css/text-page.css"/>
+<link rel="stylesheet" href="../assets/css/home.css"/>
+
+</head>
+<body class="tp-white">
+<nav>
+  <a class="nav-logo" href="../index.html"><img src="../assets/images/logo-nav.svg" alt="Winnie Nguyen — Training Hub"/></a>
+  <div class="nav-links">
+    <a href="../lessons.html" data-text="Lesson Library" class=active>Lesson Library</a>
+    <a href="../private-training.html" data-text="Private Training">Private Training</a>
+    <a href="../programs.html" data-text="Programs">Programs</a>
+  </div>
+</nav>
+<div class="tp">
+  <a class="tp-back" href="../lessons.html">← All lessons</a>
+  <header class="tp-head">
+    <h1 class="page-title">UI Fundamentals</h1>
+    <p class="page-desc">Judging design decisions you didn&#x27;t make</p>
+    <div class="used"><span>Taught in</span><a class="used__chip" href="../programs/ui-ux-fundamentals.html">UI/UX Design Fundamentals · session 06</a></div>
+    <div class="tp-info" data-var-panel data-var-id="0"><div class="draft-banner">Draft: content exists but is not finalised for delivery.</div><dl class="tp-meta" style="--tp-cols: repeat(4, minmax(0, 1fr)) minmax(0, 1.8fr)"><div><dt>Stage</dt><dd>Develop</dd></div><div><dt>Level</dt><dd>Junior</dd></div><div><dt>Duration</dt><dd>90 min</dd></div><div><dt>Date</dt><dd>9 Sep 2026</dd></div><div><dt>Source file</dt><dd><code>ui-fundamentals-lesson.md</code></dd></div><div class="tp-meta__tags"><dt>Topics</dt><dd><span>ui-design</span><span>visual-hierarchy</span><span>typography</span><span>colour</span><span>spacing</span><span>design-tokens</span></dd></div></dl></div>
+  </header>
+  <div class="tabs tabs--pill tp-tabs"><div class="tabs__list" role="tablist"><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="lesson" aria-selected="false">Lesson</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="slides" aria-selected="false">Slides</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="homework" aria-selected="false">Homework</button></div></div>
+  <section class="tp-panel" data-tab-panel data-tab-id="lesson" role="tabpanel" hidden><div data-var-panel data-var-id="0">
+  <div class="tp-layout">
+    <aside class="tp-toc" aria-label="On this page"><p class="tp-toc__label">On this page</p><a href="#v0-overview">Overview</a><a href="#v0-learning-objectives">Learning Objectives</a><a href="#v0-success-check">Success Check</a><a href="#v0-materials-needed">Materials Needed</a><a href="#v0-pre-class-preparation">Pre-Class Preparation</a><a href="#v0-session-plan">Session Plan</a><a href="#v0-core-content">Core Content</a><a href="#v0-activities">Activities</a><a href="#v0-ai-in-practice">AI in Practice</a><a href="#v0-assignments">Assignments</a><a href="#v0-close-where-this-goes-next">Close · Where This Goes Next</a><a href="#v0-further-resources">Further Resources</a></aside>
+    <article class="tp-body"><h2 id="v0-overview">Overview</h2>
+<p>Most UI lessons assume the student is starting from a blank artboard. Almost none of them are.</p>
+<p>A working junior designer inherits nearly everything. The screens they are asked to judge were made by someone else, or by a machine. The components they build with were built by their manager. The colours and spacing were decided before they arrived. The one thing they are rarely doing is inventing, and the one thing every course teaches is inventing.</p>
+<p>So this session is not about making a screen look good. It is about judging design decisions you did not make, and being able to say the reason out loud to a developer who is about to build it.</p>
+<p>The gap this closes is not visual vocabulary. Students can produce screens. What they cannot do is choose between two of them, or explain why the one they chose is right, which means they cannot defend their work, cannot evaluate what an AI tool hands them, and cannot tell whether the component they inherited is well made or badly made. Framed in Norman's terms, generative tools have collapsed the Gulf of Execution almost to nothing. Producing a plausible, attractive screen now costs a sentence. They have done nothing at all for the Gulf of Evaluation. A designer can now generate three competent-looking options and has no criteria to choose between them.</p>
+<p>The session teaches one instrument, a five-layer decision stack, and then points it at three different inherited things: screens the student did not make, the student's own screen, and the component their team already uses. Same tool, three surfaces. That repetition is what makes it portable rather than a trick for checking screens.</p>
+<p>Two outputs leave the room. A decision sheet, which records what was changed and why, and a documented token set, which is an audit of what the team already uses rather than an invented one. Both are what make this session chainable to a prototyping or critique session later.</p>
+<hr />
+<h2 id="v0-learning-objectives">Learning Objectives</h2>
+<p>By the end of this session, students will be able to:</p>
+<ol>
+<li><strong>Explain</strong> why an attractive screen is not evidence of a usable one, and name the research finding behind it</li>
+<li><strong>Apply</strong> five layers of visual decision-making in reading order: space, hierarchy, type, colour, component</li>
+<li><strong>Say out loud</strong>, in a developer's register, the reason behind a spacing, hierarchy, type, colour or component decision</li>
+<li><strong>Name</strong> the principle or law behind each layer, and say what it does and does not cover</li>
+<li><strong>Identify</strong> two commonly misapplied UX laws and explain why the usual application is wrong</li>
+<li><strong>Audit</strong> the design tokens their team already uses, and name what is inconsistent or undefined</li>
+<li><strong>Interrogate</strong> an inherited component: what decisions are baked into it, and whether those decisions hold up against the five layers</li>
+<li><strong>Raise</strong> a problem with an inherited component as a question rather than an accusation</li>
+</ol>
+<hr />
+<h2 id="v0-success-check">Success Check</h2>
+<ul>
+<li>The student can look at a screen they have never seen and name, in order, which of the five layers is failing first.</li>
+<li>The reason a student gives for a decision would survive being repeated to a developer without the developer asking "says who?"</li>
+<li>The token audit names at least one thing that is inconsistent or undefined in what their team currently uses. An audit that finds nothing has not been done.</li>
+<li>When asked about a component they find confusing, the student states which specific layers do not resolve, rather than saying it feels wrong.</li>
+</ul>
+<hr />
+<h2 id="v0-materials-needed">Materials Needed</h2>
+<ul>
+<li><strong>One real screen from the student's own work.</strong> Not a portfolio piece, not a redesign concept. Something currently in production or in a live file, ideally one they have had a conversation about with a developer.</li>
+<li><strong>Access to their team's design system or component library</strong>, whatever state it is in. A shared Figma file, a Storybook, a folder of screens somebody keeps reusing. If the team has no system at all, that fact is itself the material and the session works fine.</li>
+<li><strong>One component from that system that the student finds confusing.</strong> They should bring the confusion, not resolve it beforehand.</li>
+<li><strong>The stimulus set</strong> (instructor): six to eight screens of the same product, mixed AI-generated and real, close enough in visual quality that the choice is not obvious. Prepared in advance. See the facilitation note below.</li>
+<li><strong>A contrast checking tool.</strong> Any of them. The habit matters more than the tool.</li>
+<li><strong>The food delivery tracking screen</strong>, prepared at a teachable level of wrongness, used for every worked example on the slides. It is needed in eight versions: the original, five progressively corrected states (one per layer), a heavily blurred version and a desaturated version. Built once as one file with variants, not eight separate screens.</li>
+<li><strong>The schematic specimen kit</strong>, a small set of reusable abstracted UI parts (grey bars for text, geometric shapes for controls) used for every principle diagram. See the Visual language section of the slide outline for the drawing rules.</li>
+<li>An AI tool, for the critical-thinking beat only. It is used here as something to be checked, not as something to produce with.</li>
+</ul>
+<hr />
+<h2 id="v0-pre-class-preparation">Pre-Class Preparation</h2>
+<ol>
+<li><strong>Bring the screen.</strong> One, real, from work. If they bring three, pick the busiest one, because density is where the layers show.</li>
+<li><strong>Bring the confusing component.</strong> Ask them not to work out why it is confusing beforehand. The confusion is the raw material.</li>
+<li><strong>Find out whether the team has tokens.</strong> Not what they are, just whether they exist and where. Five minutes of asking, done before the session rather than during it.</li>
+<li><strong>Bring one design decision a developer pushed back on.</strong> What was built, what they said, what happened. It gets used twice.</li>
+</ol>
+<hr />
+<h2 id="v0-session-plan">Session Plan</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Block</th>
+<th>Topic</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Open</td>
+<td>Which one ships?</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Frame</td>
+<td>You can make it. You cannot judge it.</td>
+<td>7 min</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Layer 1</td>
+<td>Space and layout</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Layer 2</td>
+<td>Hierarchy, and two laws you will hear quoted wrongly</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Layer 3</td>
+<td>Type</td>
+<td>7 min</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Layer 4</td>
+<td>Colour</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Reveal</td>
+<td>Why the prettiest one won</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Layer 5</td>
+<td>Components, and the one you inherited</td>
+<td>12 min</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Practice</td>
+<td><em>Reserved. Winnie to define.</em></td>
+<td>16 min</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Close</td>
+<td>Two outputs, and where they go</td>
+<td>4 min</td>
+</tr>
+</tbody>
+</table>
+<p>86 minutes scripted into a 90 minute slot. Five teaching layers, one reveal, one practice block.</p>
+<blockquote>
+<p><strong>Why the layers run in this order.</strong> Reading order, not importance order. Grouping registers before hierarchy, hierarchy before type, type before colour emphasis, and the component is the last thing a person consciously identifies. Teaching in the order a screen is actually read means a student can check their work by looking rather than by remembering a list. It also runs from the most structural decision to the most local, so the expensive mistakes get caught first.</p>
+<p><strong>Why the reveal sits at minute 49 and not at minute 5.</strong> The Aesthetic-Usability Effect only lands if the student has already been caught by it. They pick the prettiest screen in the opening, spend forty minutes learning four layers, and only then find out what happened to them at the start. Named up front it is a fact they nod at. Named after four layers it is an explanation of their own behaviour, and it recontextualises everything they have just learned. Do not move it earlier.</p>
+<p><strong>Facilitation note on the stimulus set.</strong> Six to eight screens of the same product, some AI-generated, some real, and the students are not told which is which. This matters: the moment they know a screen came from an AI tool, they start hunting for AI tells instead of applying criteria, and the point of the session is that the source does not change the criteria. Each screen should fail on exactly one layer, and the failures should be spread across the five, so that whichever screen a student defends, some layer later in the session takes it away from them. Building this set is the single largest prep cost and it is reusable indefinitely.</p>
+<p><strong>Facilitation note on Layer 5.</strong> This is the layer most likely to overrun, and it is the one worth overrunning for. It is also the only layer with a political dimension, because the student is being taught to evaluate their manager's work. Read the guardrail out loud rather than assuming it is obvious.</p>
+<p><strong>If the student's team has no design system at all.</strong> The session does not break. Layer 5 runs on any public component the student uses regularly instead, and the token audit becomes a derivation: pull the spacing, sizes and colours actually present in their own screen and write down what the implicit system already is. Most teams have an accidental system nobody has written down, and finding it is a more useful exercise than being handed a tidy one.</p>
+</blockquote>
+<hr />
+<h2 id="v0-core-content">Core Content</h2>
+<h3 id="v0-open-which-one-ships">Open · Which One Ships?</h3>
+<p>Put the stimulus set up. Ask each student to pick the one they would ship and write the reason in one sentence.</p>
+<p>Do not discuss the answers yet. Collect them, read two or three aloud without comment, and move on. The reasons will be some version of "it looks cleaner" or "it feels more modern," and the room will split. That split is the session's opening evidence and it should be left sitting there uncomfortably rather than resolved.</p>
+<p>Name what just happened in one line, then leave it: everyone here can make a screen like these. Nobody here can say why one of them is better.</p>
+<hr />
+<h3 id="v0-frame-you-can-make-it-you-cannot-judge-it">Frame · You Can Make It. You Cannot Judge It.</h3>
+<p>Two gulfs sit between a person and a system. The Gulf of Execution is the distance between wanting something and doing it. The Gulf of Evaluation is the distance between what the system shows and understanding what it means.</p>
+<p>Normally these are talked about as problems the user has. Turn them on the designer instead.</p>
+<p>Making a screen used to be the hard part. It took tool skill, time and craft, and the reason a junior could not produce senior work was mostly that they could not physically make it yet. That gulf has closed. Generative tools produce plausible, attractive, competently spaced screens from a sentence. Execution is close to free.</p>
+<p>The evaluation gulf has not moved at all. Nothing about the last few years made it easier to look at three screens and know which one is right.</p>
+<p>So the value moved. It used to sit in making, because making was scarce. It now sits in judging, because judging is what is left scarce. This is uncomfortable framing for someone whose job title says designer and whose day is spent producing, and it should be said plainly rather than softened: producing is no longer the thing you are paid for.</p>
+<p>Judging requires criteria you can name. That is what the rest of the session is.</p>
+<p><strong>The dev thread.</strong> Every layer today ends with a sentence you could say to a developer. Not a design rationale, a sentence. The test of whether a student understands a layer is not whether they can apply it, it is whether they can say why in a register that a person who does not care about design will accept. Most junior designers lose arguments they were right about because they only had "it looks better" available.</p>
+<hr />
+<h3 id="v0-layer-1-space-and-layout">Layer 1 · Space and Layout</h3>
+<p><strong>The question this layer answers:</strong> what belongs with what?</p>
+<p>Most junior screens fail here, and almost nobody diagnoses it here, because a grouping failure presents as a vague feeling that the screen is messy.</p>
+<p><strong>Proximity.</strong> Elements placed near each other are perceived as related, whether or not they are. This is not a preference, it is how vision works before conscious attention arrives. Which means spacing is not decoration, it is the first piece of meaning on the screen, and it gets read before any of the words do.</p>
+<p><strong>Common region.</strong> A shared boundary beats proximity when the two compete. Two items far apart inside the same card read as more related than two items close together on either side of a card edge. This is the one juniors have almost never heard of, and it explains a specific recurring mistake: reaching for a divider line or a border when the actual problem was that the spacing was wrong. Borders are a strong tool. Reached for to fix a spacing problem, they add a second grouping signal that argues with the first one.</p>
+<p><strong>The 8pt scale.</strong> Every gap is a multiple of 8. That is the whole rule. Its value is not aesthetic, it is that it converts a question with infinite answers into a question with a small number of answers. "Is this 24 or 25?" stops being a question a person can have an opinion about, which means it stops being a thing to argue with a developer about, which is most of the point.</p>
+<p><strong>Worked example.</strong> On the tracking screen, the order status and the estimated time belong together and are usually not spaced as though they do, while the courier's name sits close enough to the order contents to read as part of them. Fix the grouping and the screen stops feeling busy without a single element being removed.</p>
+<blockquote>
+<p><strong>The sentence you say to a dev:</strong> "Those two are in the same group, so the gap is 8. The next group starts at 24. It's the scale, not my preference."</p>
+</blockquote>
+<hr />
+<h3 id="v0-layer-2-hierarchy">Layer 2 · Hierarchy</h3>
+<p><strong>The question this layer answers:</strong> what gets read first?</p>
+<p>Hierarchy is not "make the important thing bigger." There are four levers, and size is only the most obvious one: size, weight, colour and space. A screen where everything is the same size can still have perfect hierarchy if the other three are doing work, and a screen with five type sizes can have none.</p>
+<p>The failure to watch for is a screen where two elements are both trying to be primary. Not too many sizes: two firsts. There can only be one thing that gets read first, and if a student cannot say which element that is on their own screen, the screen does not have hierarchy, it has variety.</p>
+<p><strong>Von Restorff, the isolation effect.</strong> The item that differs from its neighbours is the one that gets remembered and noticed. Practical consequence, and it is the one juniors resist: emphasis is a fixed budget. Every additional emphasised element on a screen makes every other emphasised element weaker. Three primary buttons is zero primary buttons.</p>
+<p><strong>F-pattern scanning.</strong> People do not read screens, they scan them, and on text-dense layouts the scan tends toward an F or a layer-cake shape driven by headings. What matters for a junior is the implication rather than the shape: the first two words of a heading do more work than the rest of the heading, and content placed below a heading nobody reads is content that does not exist.</p>
+<p><strong>Worked example, and this is the one that matters.</strong> On the tracking screen, the map is almost always the largest, most colourful element. It is also, according to the actual job, the least useful thing on the screen. The job is <em>"let me stop fearing it's not coming."</em> What answers that fear is the status and the promise that the app will tell them when something changes. What does not answer it is a map of a motorbike moving, which mostly gives someone something to stare at while continuing to worry.</p>
+<p>So the junior version leads with the map because the map is the most attractive element, and attractiveness is what they had available as a criterion. The evidence says lead with reassurance. This is the whole session in one screen, and it is worth sitting on for a minute.</p>
+<h4 id="v0-two-laws-you-will-hear-quoted-wrongly">Two laws you will hear quoted wrongly</h4>
+<p>Worth three minutes, because students will hear both of these used as arguments and need to know when the argument is invalid.</p>
+<p><strong>Hick's Law</strong> describes reaction time when choosing among simple, unfamiliar, roughly equally likely options. It does not describe someone scanning a well-labelled, well-grouped menu, because that person is not evaluating every item in turn. Using it to argue that navigation must have fewer than five items is the standard misuse. A categorised list of twenty routinely beats an ungrouped list of eight. Grouping and labelling beat item-count reduction.</p>
+<p><strong>Miller's Law</strong> is misapplied almost universally. Miller measured immediate memory span, how many items a person can hold in mind, and the paper was substantially about chunking rather than about limits. It says nothing about how many links a navigation bar can have, because those items are on screen being read, not being memorised. Recognition, not recall.</p>
+<p>The point of teaching this is not trivia. It is that a rule has a scope, and the skill is checking whether the rule applies before invoking it. A designer who quotes a law that does not apply loses the argument and some credibility with it.</p>
+<blockquote>
+<p><strong>The sentence you say to a dev:</strong> "The status is the primary. If it can't be the biggest element, it has to be the highest contrast one. It can't be neither."</p>
+</blockquote>
+<hr />
+<h3 id="v0-layer-3-type">Layer 3 · Type</h3>
+<p><strong>The question this layer answers:</strong> how does the reading order stay readable?</p>
+<p>Layer 3 has no named law behind it, and saying so is worth doing rather than glossing over. Not every design decision has a psychology paper underneath it. Some of it is craft with conventions, and pretending otherwise teaches students to reach for a citation they do not have, which is a habit that will embarrass them in front of an engineer.</p>
+<p><strong>Three sizes and two weights beat nine of each.</strong> A junior screen typically has six or seven type sizes, most of which differ by two pixels and therefore communicate nothing at all. A difference the eye cannot reliably detect is not a hierarchy signal, it is noise with extra maintenance cost.</p>
+<p><strong>A scale, not a set of fonts.</strong> The decision is the ratio between steps, and then everything on the screen takes a value from that scale. Same logic as the 8pt grid: the aim is to remove opinion from the decision.</p>
+<p><strong>Line height and measure.</strong> Line height belongs to the size, not to the block, so it should live in the scale rather than be adjusted per instance. Measure, the characters per line, has more effect on whether a paragraph gets read than the typeface choice does, and juniors adjust the typeface.</p>
+<p><strong>The diagnostic.</strong> If a student needs a fourth size to make something stand out, the problem is almost never in the type. It is that Layer 2 has not been resolved and they are trying to fix a hierarchy problem with a type solution.</p>
+<blockquote>
+<p><strong>The sentence you say to a dev:</strong> "Three sizes, two weights, and every one of them is on the scale. If I need a fourth size, something upstream is wrong and I should fix that instead."</p>
+</blockquote>
+<hr />
+<h3 id="v0-layer-4-colour">Layer 4 · Colour</h3>
+<p><strong>The question this layer answers:</strong> what is the one thing to do here?</p>
+<p><strong>Roles, not palettes.</strong> A colour on a screen is not a colour, it is a job: brand, neutral, success, warning, error, and the surface and text values that carry them. The junior version of this layer is picking a palette that looks nice. The working version is assigning meaning, and then never using a meaning-carrying colour for anything else. The moment error red is also the primary button, the screen has lost the ability to say error.</p>
+<p><strong>Von Restorff again, which is why this layer is short.</strong> Colour is the strongest emphasis lever, which makes it the easiest to spend badly. If the primary action is not the only saturated element on the screen, it is not the primary action.</p>
+<p><strong>Contrast, taught as one rule and a tool.</strong> WCAG 2.1 AA: 4.5:1 for body text, 3:1 for large text and for the non-text parts that carry meaning. Check it, do not estimate it. This layer teaches one rule and the habit of running the tool, not accessibility as a topic. That deserves its own session and does not fit in ten minutes.</p>
+<p>The reason it is a hard gate rather than a guideline is worth one sentence: it is the only decision on this screen that has a correct answer, and a junior arguing from a measured number rather than a preference is in a different conversation entirely.</p>
+<p><strong>Worked example.</strong> The tracking screen's status text is frequently mid-grey on white, which fails, and nobody notices because it fails by a small margin and the screen looks calm. Calm and unreadable are easy to confuse.</p>
+<blockquote>
+<p><strong>The sentence you say to a dev:</strong> "Red is our error role. If we use it for the primary button we lose the ability to show an error on this screen."</p>
+</blockquote>
+<hr />
+<h3 id="v0-reveal-why-the-prettiest-one-won">Reveal · Why the Prettiest One Won</h3>
+<p>Go back to the opening. Ask the room which screen they picked and why, then read out one of the original sentences.</p>
+<p><strong>Kurosu and Kashimura, Hitachi Design Center, 1995.</strong> 252 participants rated 26 variations of an ATM interface on both aesthetic appeal and ease of use. The correlation between rated appeal and <em>perceived</em> ease of use was stronger than the correlation between appeal and <em>actual</em> ease of use. Tractinsky replicated it in Israel expecting culture to weaken the effect and found it stronger.</p>
+<p>People believe attractive things work better. So do designers. So did everyone in this room forty-five minutes ago.</p>
+<p>Two consequences, and the second one is the one that is rarely taught.</p>
+<p><strong>For users, this is real and useful.</strong> Attractive design buys tolerance. People forgive small friction in something that looks good, and that is a genuine competitive advantage. It has a ceiling: serious usability problems break through the goodwill regardless of how good the thing looks.</p>
+<p><strong>For designers, it is a trap.</strong> Attractiveness hides problems from the person evaluating. In a usability test, participants struggle through a task and then praise the visuals, and the real defect never gets named.</p>
+<p>Now the part that connects to the whole session. Attractiveness only works as a signal when attractiveness is scarce. Generative tools raised the aesthetic floor for everybody, so nearly everything now looks fine, so looking fine stopped discriminating between options. A designer whose only evaluation tool was taste has, in the last few years, quietly lost their only evaluation tool.</p>
+<p>That is why the stimulus set was mixed and why nobody was told which screens were generated. The source never mattered. The criteria are the same either way.</p>
+<hr />
+<h3 id="v0-layer-5-components-and-the-one-you-inherited">Layer 5 · Components, and the One You Inherited</h3>
+<p><strong>The question this layer answers:</strong> why does this thing exist, and when should I not use it?</p>
+<p>This is the heaviest layer and the one closest to the student's daily frustration.</p>
+<p><strong>Jakob's Law.</strong> People spend most of their time on other products, so they prefer yours to work like the ones they already know. Familiarity is not a lack of ambition. A novel component costs the user learning time, and that cost has to be paid for by a benefit the designer can name.</p>
+<p><strong>A component is inherited reasoning.</strong> Every component encodes decisions somebody already made and, ideally, defended: which states exist, minimum sizes, spacing, focus behaviour, what happens at the smallest breakpoint. Using it is not a constraint on creativity, it is the reuse of thinking. A student who understands this stops experiencing the design system as a cage.</p>
+<p><strong>States are the part juniors skip.</strong> Default, hover, focus, active, disabled, loading, error, empty. A component defined only in its default state is a picture, not a component, and the missing states become a developer's improvisation, which means the designer stopped making the decisions partway through.</p>
+<p><strong>Tesler's Law, the conservation of complexity.</strong> Complexity in a system cannot be removed, only relocated. Either the user absorbs it or the system does. This is the most useful law in the session for the developer and BA conversation, because it converts a taste argument into an allocation question. "I think this should be simpler" invites disagreement. "This complexity has to live somewhere, and right now it lives with the user; can it live with us instead?" invites a decision. Engineers respond to the second framing because it is the framing they already use.</p>
+<h4 id="v0-the-hard-case-what-if-the-component-is-actually-bad">The hard case: what if the component is actually bad?</h4>
+<p>Often it is. A confused student cannot tell which of two things is true: the component is well-reasoned and they have not learned to read it, or the component is genuinely sloppy and their confusion is accurate information.</p>
+<p>That is the Gulf of Evaluation again, one level up. They cannot judge the screen, and they cannot judge the system that made the screen.</p>
+<p>The answer is neither "trust the system" nor "critique the system." <strong>Run the same five layers on the component itself.</strong> Space: is the internal spacing on the scale? Hierarchy: is there one clear primary? Type: is it drawing from the same scale as everything else? Colour: do the roles hold, does it pass contrast in every state? Component: are all the states defined, and can anyone say what it is for?</p>
+<p>If the decisions resolve, the gap is the student's and it is a learning problem, which is good news. If two of them do not resolve, the gap is the component's, and the student now has specific language instead of a vague feeling.</p>
+<p>This is the third surface the same instrument has been pointed at today, and that is the point: it works on things you did not make, on things you did make, and on the system that made both.</p>
+<blockquote>
+<p><strong>The guardrail, and say it out loud.</strong> Ask, do not indict. The output of this is a question, not a verdict: <em>"I ran our button against these five checks and the internal spacing and the disabled state don't resolve for me. Can you walk me through the reasoning?"</em> That question makes a junior look careful. The same observation delivered as "our design system is broken" makes them look like a problem, and it will be remembered longer than whether they were right. A junior who is right and unemployable has not won anything.</p>
+<p><strong>The sentence you say to a dev:</strong> "Our button already handles disabled and loading. If I make a new one, we maintain two of them forever."</p>
+</blockquote>
+<hr />
+<h3 id="v0-close-two-outputs-and-where-they-go">Close · Two Outputs, and Where They Go</h3>
+<p><strong>The decision sheet.</strong> One row per decision: what changed, which layer, which rule or law, and the sentence you would say to a developer. This is what makes the work defensible later, and it is the thing a critique session can actually critique. A revised screen shows what you did. The sheet shows why, and only the why can be argued with productively.</p>
+<p><strong>The token audit.</strong> Not an invented set. What does the team already use for spacing, type and colour roles, written down, with the gaps and inconsistencies named. Most teams have an accidental system that nobody has documented, and the person who documents it becomes useful in a way that is disproportionate to the effort.</p>
+<p>Both outputs feed forward. Tokens are the input to any prototyping work, where they are what stops a generative tool inventing its own system on every screen. The decision sheet is the input to any critique, where the question stops being "do you like it?" and becomes "does the stated reason hold?"</p>
+<p><strong>The one thing to carry out of the room.</strong> You will spend most of your career judging work you did not make. The five layers are not a checklist for making screens. They are how you form an opinion you can defend in a meeting, and being able to do that at all is rarer than it should be.</p>
+<hr />
+<h2 id="v0-activities">Activities</h2>
+<blockquote>
+<p><strong>Reserved. Winnie is defining the in-class activities.</strong></p>
+<p>16 minutes are held in the session plan for a practice block. What the session structure requires of whatever fills that slot:</p>
+<ul>
+<li><strong>It must produce the decision sheet</strong>, or something that records reasons rather than only changes. Any downstream critique has nothing to work with otherwise.</li>
+<li><strong>It must produce the token audit</strong>, or the handoff to any prototyping session breaks.</li>
+<li><strong>It runs on the student's own screen</strong>, not on the food delivery example. Food delivery is the teaching surface; their work is the practice surface.</li>
+<li><strong>Any share-back is stronger in a developer's register</strong> than in a design-mentor register. Students find the register shift harder than the content, which makes it diagnostic.</li>
+<li><strong>If any part of it involves judging screens</strong>, the Aesthetic-Usability reveal stays after the judging, never before.</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id="v0-ai-in-practice">AI in Practice</h2>
+<h3 id="v0-try-this-with-ai">🤖 Try this with AI</h3>
+<blockquote>
+<p><em>"Here is a screen from a product I work on. Assess it against five things, in this order: spacing and grouping, visual hierarchy, type scale, colour roles and contrast, and component consistency. For each one, tell me what decision was made, whether it holds up, and what you would say to a developer to justify it."</em></p>
+</blockquote>
+<h3 id="v0-critical-thinking">🧠 Critical thinking</h3>
+<p>Take one claim the tool made about contrast and check it with a contrast tool. It will frequently assert that a pair passes AA when it does not, and it will assert it in exactly the same confident register it uses for everything else.</p>
+<p>This is the point, and it generalises past contrast. An AI tool produces rationale, and rationale is not reasoning. It is text shaped like reasoning, generated after the fact, with no measurement behind it unless a measurement happened. Anything checkable should be checked. Anything not checkable should be held more loosely than the tool's tone invites.</p>
+<p>Which returns to the frame the session opened with: the tool closed the execution gap and did nothing for the evaluation gap. Its confidence is not evidence, and treating it as evidence is the same mistake as treating attractiveness as evidence.</p>
+<h3 id="v0-prompt-engineering-tip">✍️ Prompt engineering tip</h3>
+<p>Ask for the assessment in a fixed order and a fixed structure. An open request produces a list of impressions weighted toward whatever is most visually obvious, which is the same bias the session is trying to correct.</p>
+<hr />
+<h2 id="v0-assignments">Assignments</h2>
+<blockquote>
+<p><strong>Reserved. Winnie is defining the assignment.</strong></p>
+<p>What the session structure requires: whichever outputs are not completed in the practice block need to be completed here, since both are inputs to downstream work.</p>
+</blockquote>
+<hr />
+<h2 id="v0-close-where-this-goes-next">Close · Where This Goes Next</h2>
+<p>Standalone lesson, so nothing is assumed before it and nothing is promised after it. Two natural continuations:</p>
+<ul>
+<li><strong>Toward prototyping.</strong> The token audit is the input. The five layers become the correction checklist for anything a generative tool produces, which is the difference between prompting until something looks right and knowing when it is.</li>
+<li><strong>Toward critique.</strong> The decision sheet is the input. A critique against stated reasons is a different exercise from a critique against taste, and considerably more useful to both people in the room.</li>
+</ul>
+<p>Adjacent material already in the library: <code>Library/guides/how-to-give-design-critique</code> for the critique protocol, <code>Library/frameworks/framework-nielsen-usability-heuristics.md</code> for the full set of heuristics this session pulls two from, and <code>03-develop/design-framework</code> for Atomic Design, which owns the component taxonomy this session deliberately stops short of.</p>
+<hr />
+<h2 id="v0-further-resources">Further Resources</h2>
+<p><strong>The anchor finding</strong></p>
+<ul>
+<li>The Aesthetic-Usability Effect, NN/g: https://www.nngroup.com/articles/aesthetic-usability-effect/</li>
+</ul>
+<p><strong>Layers 1 to 4</strong></p>
+<ul>
+<li>Intro to the 8-Point Grid System: https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632</li>
+<li>Building a Visual Language, Airbnb: https://airbnb.design/building-a-visual-language/</li>
+<li>UI Design in Practice: Colors: https://uxmisfit.com/2019/05/21/ui-design-in-practice-colors/</li>
+<li>Colorable, contrast checking: https://colorable.jxnblk.com/</li>
+<li>Progressive Disclosure, NN/g: https://www.nngroup.com/articles/progressive-disclosure/</li>
+</ul>
+<p><strong>Layer 5</strong></p>
+<ul>
+<li>Mobbin, mobile pattern reference: https://mobbin.design/patterns</li>
+<li>Nielsen's 10 heuristics applied to UI: https://aelaschool.com/en/interactiondesign/10-usability-heuristics-ui-design/</li>
+<li>Responsive data tables, a worked component problem: https://medium.com/appnroll-publication/5-practical-solutions-to-make-responsive-data-tables-ff031c48b122</li>
+</ul>
+<p><strong>The laws, and their limits</strong></p>
+<ul>
+<li>Laws of UX, reference set: https://lawsofux.com/</li>
+<li>Hick's Law, original framing: https://en.wikipedia.org/wiki/Hick%27s_law</li>
+<li>The 7±2 myth: https://uxmyths.com/post/931925744/myth-23-choices-should-always-be-limited-to-seven</li>
+<li>Your navigation menu doesn't need Miller's rule: https://stephaniewalter.design/blog/your-menu-doesnt-need-millers-7-plus-minus-2-rule/</li>
+</ul></article>
+  </div>
+</div></section><section class="tp-panel" data-tab-panel data-tab-id="slides" role="tabpanel" hidden><div class="tp-slides tp-slides--empty"><strong>No slides yet</strong><span>Add a deck (.html) or .pdf to this lesson's <code>slides/</code> folder, or a <code>slides:</code> link in the lesson front matter.</span></div></section><section class="tp-panel" data-tab-panel data-tab-id="homework" role="tabpanel" hidden><div class="tp-slides tp-slides--empty"><strong>No mentee homework yet</strong><span>Drop files in <code>Mentees/&lt;name&gt;/homework/ui-fundamentals/</code> and they show up here.</span></div></section>
+  <section class="tp-related"><h2>Related lessons</h2><div class="tp-related__grid"><div class="tp-related__card"><span>Previous lesson</span><strong>None. Standalone.</strong></div><div class="tp-related__card"><span>Next lesson</span><strong>None. Standalone. Hands off to any prototyping or critique session.</strong></div></div></section>
+</div>
+<script>
+(function () {
+  function group(btnSel, panelSel, attr, onShow) {
+    var btns = [].slice.call(document.querySelectorAll(btnSel)), panels = [].slice.call(document.querySelectorAll(panelSel));
+    function show(id) {
+      btns.forEach(function (b) { var on = b.getAttribute(attr) === id; b.setAttribute('aria-selected', on); b.classList.toggle('tabs__tab--active', on && b.classList.contains('tabs__tab')); });
+      panels.forEach(function (p) { p.hidden = p.getAttribute(attr) !== id; });
+      if (onShow) onShow(id);
+    }
+    btns.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute(attr)); }); });
+    return show;
+  }
+  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === 'lesson' ? location.pathname : '#' + id); });
+  var showVar = group('[data-var-btn]', '[data-var-panel]', 'data-var-id');
+  var h = (location.hash || '').replace('#', '');
+  showTab(['slides', 'homework'].indexOf(h) > -1 && document.querySelector('[data-tab-id="' + h + '"]') ? h : 'lesson');
+  if (document.querySelector('[data-var-btn]')) showVar('0');
+  var decks = [].slice.call(document.querySelectorAll('[data-deck-btn]'));
+  decks.forEach(function (b) { b.addEventListener('click', function () {
+    var f = document.getElementById('deck-frame'); f.src = b.dataset.src; document.getElementById('deck-open').href = b.dataset.src;
+    decks.forEach(function (x) { x.classList.toggle('tabs__tab--active', x === b); x.setAttribute('aria-selected', x === b); });
+  }); });
+})();
+</script>
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Winnie Nguyen · Senior Product Designer</p>
+    <div class="footer-links">
+      <a href="mailto:nguyenphuctuongvan@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/winnienguyen2910" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script>(function(){if(location.protocol.indexOf('http')!==0)return;var u='../assets/build-stamp.txt',last=null;function c(){fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(t){if(t===null)return;if(last!==null&&t!==last)location.reload();last=t}).catch(function(){})}c();setInterval(c,1500)})();</script>
+</body>
+</html>

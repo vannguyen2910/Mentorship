@@ -1,0 +1,147 @@
+1
+00:00:01,689 --> 00:00:04,109
+Xin chào các bạn, mình là Winnie,
+
+2
+00:00:04,449 --> 00:00:05,729
+hiện tại mình đang là
+
+3
+00:00:10,780 --> 00:00:11,169
+UX. Product Designer với hơn 10 năm kinh nghiệm chuyên môn. Mình đã thiết
+
+4
+00:00:11,170 --> 00:00:14,169
+kế sản phẩm ở các quy mô lớn trong ngành tài chính ngân hàng,
+
+5
+00:00:14,609 --> 00:00:17,209
+cũng rất là nhiều industry khác như là
+
+6
+00:00:22,260 --> 00:00:24,193
+Edtech, Ecommerce, Social Media. Healthcare và nhiều cái lĩnh vực khác nữa. Song song
+
+7
+00:00:24,194 --> 00:00:28,173
+với công việc full time của mình, mình có hơn 6 năm kinh nghiệm
+
+8
+00:00:28,174 --> 00:00:30,213
+giảng dạy ở các trung tâm đào tạo
+
+9
+00:00:35,264 --> 00:00:35,133
+UX và Design. Trong đó, mình cũng có training trong nội bộ của công
+
+10
+00:00:35,134 --> 00:00:39,133
+ty và các chương trình đào tạo cá nhân one-on-one cũng như là
+
+11
+00:00:44,184 --> 00:00:46,017
+group training program. Mình đã mentor với hơn  50 designers ở Việt Nam, Mỹ
+
+12
+00:00:46,018 --> 00:00:46,277
+và
+
+13
+00:00:51,328 --> 00:00:51,137
+Úc. Một cái điều mà làm mình hãnh diện nhất là năm 2025 mình
+
+14
+00:00:51,138 --> 00:00:54,117
+đã thuộc top 30% mentor ở trên
+
+15
+00:00:59,168 --> 00:00:59,177
+ADPList trong 3 quốc gia Việt Nam, Mỹ và
+
+16
+00:01:04,228 --> 00:01:03,581
+Úc. Trọng tâm của mình là mình sẽ giảng dạy về
+
+17
+00:01:08,632 --> 00:01:09,601
+UIUX Design, Design Thinking và các kỹ năng cần có của một designer khi
+
+18
+00:01:09,602 --> 00:01:10,341
+làm việc với
+
+19
+00:01:15,392 --> 00:01:14,981
+stakeholder trong môi trường product. Và mới đây khi mà AI nổi lên như
+
+20
+00:01:14,982 --> 00:01:18,121
+là một hiện tượng và thay đổi cách làm việc và sáng tạo của
+
+21
+00:01:18,122 --> 00:01:22,341
+chúng ta, mình cũng có những kinh nghiệm sử dụng AI để hỗ trợ
+
+22
+00:01:22,342 --> 00:01:24,741
+design workflow như là prototype,
+
+23
+00:01:25,201 --> 00:01:27,181
+synthesis research cũng như là xây
+
+24
+00:01:32,232 --> 00:01:33,565
+dựng design artifact của team. Hành trình sự nghiệp của mình là đi từ
+
+25
+00:01:33,566 --> 00:01:38,285
+một designer thiêng về execution focus đến strategic partner trong
+
+26
+00:01:38,286 --> 00:01:42,125
+tổ chức. Từ việc chỉ cần làm tốt một mình đến xây dựng một
+
+27
+00:01:47,176 --> 00:01:45,805
+chuẩn mực chung của cả team. Từ đó mà tay nghề design của mình
+
+28
+00:01:45,806 --> 00:01:49,385
+mới có thể tốt hơn và cũng có tiếng nói hơn trong việc quyết
+
+29
+00:01:49,386 --> 00:01:51,265
+định những sản phẩm cũng như quyết định trong
+
+30
+00:01:56,316 --> 00:01:56,049
+các thiết kế. Khóa học này cũng xây dựng từ chính hành trình đó,
+
+31
+00:01:56,369 --> 00:01:59,549
+từ cách mà mình quan sát được khi mà mình hướng dẫn rất là
+
+32
+00:01:59,550 --> 00:02:03,349
+nhiều bạn designer khác với cùng hành trình của
+
+33
+00:02:08,400 --> 00:02:08,369
+mình. Như là kỹ năng prototype nhanh bằng AI chỉ thực sự có giá
+
+34
+00:02:08,370 --> 00:02:13,049
+trị khi mà nó được xây dựng trên một hệ thống thay
+
+35
+00:02:13,050 --> 00:02:15,409
+vì một chuỗi may rũi kế tiếp
+
+36
+00:02:20,460 --> 00:02:19,293
+nhau. Cho nên các bạn hãy cùng đồng hành với mình trong khóa học
+
+37
+00:02:19,294 --> 00:02:19,613
+này nha!

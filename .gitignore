@@ -1,0 +1,44 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverrideIcon
+._*
+
+# iCloud placeholders (unsynced stubs)
+*.icloud
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Thumbnails
+Thumbs.db
+
+# Claude Code internal
+.claude/
+
+
+# Raw source assets (too large for GitHub)
+Source/
+
+_Inbox/*.mp4
+_System/Themes/assets/*.fig
+
+
+
+# Mentee records (private)
+Mentees/
+
+# Business, private showcase, assessment tool (previously under Operations/)
+Business/
+Showcase/private/
+Showcase/testimonials.md
+Programs/assessment-tool/

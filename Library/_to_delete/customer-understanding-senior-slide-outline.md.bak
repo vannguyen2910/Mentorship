@@ -1,0 +1,352 @@
+# Slide Deck Outline — Customer Understanding (Senior/Lead)
+
+> **Source of truth:** `customer-understanding-senior-lesson.md`
+> All content changes (activities, concepts, examples) must be made there first, then reflected here.
+> This file contains only slide-specific concerns: layout types, visual hints, kickers, structure, and speaker notes.
+
+> **How to use this file**
+> This outline is ready to hand to your own AI tool or process to generate the slide deck — the build prompt isn't included here.
+
+---
+
+## Session metadata
+
+| Field | Value |
+|---|---|
+| Session title | Customer Understanding (Senior/Lead) |
+| Session number | Private Training |
+| Instructor | Winnie Nguyen |
+| Program | Private Training |
+| Year | 2026 |
+| Previous session | Audit & Desk Research |
+| Next session | — |
+| Cover photo | Two people in conversation across a table, one gesturing mid-explanation — feels like a real working conversation, not a formal interview |
+
+---
+
+## Slide structure
+
+> **90-minute version — 30 slides.**
+> Arc: Opening → Jobs to Be Done → Stakeholder Check-In → Customer Interview → Actionable Insight → Stakeholder Pitch → Assignment + Close.
+> Every slide below lists on-slide content separately from speaker notes — keep the two from merging back together when building the deck.
+
+---
+
+## 1. Introduction
+
+---
+
+### COVER
+- Year: 2026
+- Day label: Private Training
+- Title: Customer\n*Understanding*
+- Subtitle: From assumed job to actual job
+- Author: Winnie Nguyen
+- Right panel photo: Two people in conversation, one leaning in, one mid-gesture. Real working conversation feel.
+- Speaker notes: Full subtitle for framing out loud: "insight that survives the room." Use the opening seconds to name the throughline before Slide 2: last session was evidence, today is motivation and persuasion.
+
+---
+
+### STATEMENT — Opening
+- Kicker: From data to decisions
+- Title: Evidence tells you\nwhat's broken.\nNot *why it matters.*
+- On-slide: no body text — title + visual only
+- Speaker notes: Last session gave you an audit, a desk research pass, an updated Assumption Map. None of it explains why the person on the other end cares enough to be here — or why a stakeholder should change a decision because of it. Those are two different failures, and this session is built to close both: motivation first, persuasion second.
+- 🎨 Visual hint: Split panel. LEFT: a small dense table icon (--ink, muted) labelled "Evidence." RIGHT: a single speech bubble with a question mark (--sienna) labelled "Why?" Arrow from left to right.
+
+---
+
+## 2. Part 1 — Jobs to Be Done
+
+---
+
+### STATEMENT — Part intro
+- Kicker: Part 1
+- Title: JOBS TO BE DONE
+- On-slide: nothing else
+- Speaker notes: —
+- 🎨 Visual hint: Full-bleed --sienna background. "Part 1" small muted text bottom-left. "JOBS TO BE DONE" in large bold display type. No other content.
+
+---
+
+### STATEMENT — The core claim
+- Kicker: Part 1 · Reframe
+- Title: People don't buy\nproducts. They *hire*\nthem for a job.
+- On-slide: Caption only — "Different people. Same job."
+- Speaker notes: A 25-year-old and a 55-year-old can hire the exact same product for the exact same job. Two people who look identical on a persona slide can be hiring completely different jobs. JTBD explains motivation — not who someone is, but what they're trying to get done, and why they reached for a solution to do it.
+- 🎨 Visual hint: Two silhouette icons, visually different (age/style), both with an arrow pointing to the same central "job" icon (a target or checkmark in --sienna).
+
+---
+
+### NUMBERED — Three job types
+- Kicker: Part 1 · Framework
+- Title: Every job carries\nthree layers.
+- On-slide: 3 labels only, one short example each:
+  - **Functional** — "Get this task done."
+  - **Emotional** — "Feel confident, not anxious."
+  - **Social** — "Be seen as in control."
+- Speaker notes: Most real jobs are functional, emotional, and social all at once. A functional-only reading usually misses why the friction actually hurts. Full examples to walk through live: functional — "Get my application approved without re-submitting the same document"; emotional — "Feel confident I haven't missed a step"; social — "Be seen as someone who has this under control, not someone overwhelmed by paperwork." Full framework file: `Library/frameworks/jtbd/framework-jtbd.md`.
+- 🎨 Visual hint: 3 stacked cards, each with an icon (task/checkbox for functional, heart/pulse for emotional, two-people for social) + bold label + short on-slide phrase.
+
+---
+
+### STATEMENT — The job statement formula
+- Kicker: Part 1 · Write it right
+- Title: Start with the\n*situation*, not\nthe person.
+- On-slide: Formula only — *"When [situation], I want to [motivation], so I can [expected outcome]."*
+- Speaker notes: Circumstance-first, not persona-first — that's what separates a job statement from a persona line. Weak example: "As a busy professional, I want a fast checkout." Strong example: "When I'm applying for a home loan while managing a property settlement deadline, I want to know exactly what's outstanding at a glance, so I can stop re-checking the portal daily out of anxiety I've missed something." Point out live: the weak one opens with "as a," the strong one opens with "when."
+- 🎨 Visual hint: One large formula card, --sienna border, each bracket term ([situation] etc.) colour-coded distinctly. No weak/strong example cards on-slide — deliver the contrast verbally from notes.
+
+---
+
+### NUMBERED — JTBD vs persona
+- Kicker: Part 1 · The trap
+- Title: Persona answers who.\nJob answers *why,\nright now.*
+- On-slide: Two-column labels only:
+  - **Persona** — demographics, stable across products
+  - **JTBD** — circumstance, stable only for this job
+- Speaker notes: Quick test to give the room: does your statement start with "when [situation]" or does it secretly start with "as a [type of person]"? The second one is a persona in disguise. Same person can hire different jobs in different circumstances — that's the whole point of circumstance over identity.
+- 🎨 Visual hint: Two columns side by side, persona (--ink-ghost, muted) vs JTBD (--sienna). No footer text on-slide — deliver the quick test verbally.
+
+---
+
+### DIAGRAM — Break the job into its own stages
+- Kicker: Part 1 · What it looks like in action
+- Title: The job says *why.*\nStages say *where.*
+- On-slide: generic placeholder chain only, no real labels — Stage 1 → Stage 2 → Stage 3 → ⋯ → Stage N — plus one small standing label underneath: "Your stages, your words — usually 3 to 6"
+- Speaker notes: A job statement explains motivation. It doesn't say where in the process that motivation shows up, or how it shifts along the way — and a recommendation is hard to scope without knowing which stage it belongs to. There's no fixed universal vocabulary here — say that explicitly, since a Job Map with fixed step names exists in the wild (Ulwick's Outcome-Driven Innovation, cited in the framework file) and this session deliberately trades that fixed scaffold for one that flexes per project. Walk the applied example live from the framework file: the home-loan job broken into 4 stages — realising I need a loan, gathering documents, submitting and waiting, approval and settlement — each with its own job statement. The actual job derived earlier, "let me stop relying on my memory," sits specifically at stage 3, submitting and waiting, not spread across the whole thing. That's the payoff: the statement says it matters, the stage breakdown says exactly where. Full detail and the worked table: `Library/frameworks/jtbd/framework-jtbd.md`.
+- 🎨 Visual hint: A generic N-node horizontal chain, dashed/lighter styling to signal "placeholder, not a fixed template" — 4-5 nodes shown with a "..." ellipsis node before the final one to imply flexible count. Node labels read "Stage 1," "Stage 2," etc., not real step names. Small muted caption beneath: "Your stages, your words." Deliberately looser and less "finished" than a fixed diagram would be, so it doesn't read as a scaffold to memorise.
+
+---
+
+### STATEMENT — Hypothesis, not finding
+- Kicker: Part 1 · Say this out loud
+- Title: "Until it's tested,\nit's a *hypothesis* —\nnot a job."
+- On-slide: small label under the quote — "candidate job hypothesis"
+- Speaker notes: A job statement written before talking to anyone has the same evidence status as an unproven entry on the Assumption Map. JTBD sounds authoritative when it's well-formatted — that confidence is easy to mistake for evidence. Label it a candidate job hypothesis until a pattern from real interviews confirms it. This is the single most important framing line of the session — say it slowly.
+- 🎨 Visual hint: Dark --ink full-bleed background. Bold quote in --ochre display type.
+
+---
+
+### MILESTONE — Build Your Stage Map
+- Kicker: Activity · Part 1
+- Num: 9
+- Title: Minutes
+- On-slide: nothing beyond kicker/num/title
+- Speaker notes: Name the stages your project's job actually goes through, in your own words — usually 3 to 6, no fixed vocabulary. Point your AI tool at your audit findings and Assumption Map, already in your project folder, no need to re-explain the project. Ask it to cross-check both files and draft a candidate JTBD hypothesis for each stage, and to say which existing file supports each one. Check each against the persona trap. Deliverable: `jtbd-map.md` — one hypothesis per stage, labelled draft.
+- 🎨 Visual hint: Full-bleed --sienna moment, matching Audit deck's milestone style.
+
+---
+
+## 3. Part 2 — Stakeholder Check-In
+
+---
+
+### STATEMENT — Part intro
+- Kicker: Part 2
+- Title: STAKEHOLDER CHECK-IN
+- On-slide: nothing else
+- Speaker notes: —
+- 🎨 Visual hint: Full-bleed --sienna background. "Part 2" small muted text bottom-left. "STAKEHOLDER CHECK-IN" in large bold display type.
+
+---
+
+### STATEMENT — Not a new method
+- Kicker: Part 2 · Reuse, don't reinvent
+- Title: This is your\nAssumption Map —\naimed at *one question.*
+- On-slide: the one question only — "What job does the business believe the customer is hiring us for?"
+- Speaker notes: The switch-interview technique reconstructs a real customer's decision journey. A stakeholder never switched to anything — running that technique on them is a category error, not a shorter version of the same thing. What this conversation actually produces is an assumption. Capture it the way the mentee already knows how: WHO/WHAT/WHY/SIGNAL, same matrix as last session.
+- 🎨 Visual hint: Reuse the same 2×2 Assumption Map matrix visual from the Audit & Desk Research deck, faded/ghosted, with a single new sticky note added in the top-left labelled "Assumed customer job." Signals continuity, not a new framework.
+
+---
+
+### DIAGRAM — Place the guess on the map
+- Kicker: Part 2 · Before the real meeting
+- Title: Guess first.\nThen go check it.
+- On-slide: the same generic stage chain from Part 1, one node marked with a small "?" tag, no real labels
+- Speaker notes: Before the real check-in happens, place a provisional guess of the stakeholder's belief onto the stage map from Part 1 — which stage do they likely think the job matters most at, and does that match the hypotheses on the map? This isn't the confirmed answer, it's a rehearsal: a specific gap to go test instead of walking in with an open-ended "what do you think the job is." Whichever stage shows the biggest gap between guess and hypothesis is the one to listen for specifically once the real conversation happens.
+- 🎨 Visual hint: Same dashed placeholder stage chain from Part 1, now with one node circled in --sienna and a small "?" badge, signalling "unconfirmed guess," not a finished answer.
+
+---
+
+### MILESTONE — Place the Stakeholder's Assumed Job on the Map
+- Kicker: Activity · Part 2
+- Num: 5
+- Title: Minutes
+- On-slide: nothing beyond kicker/num/title
+- Speaker notes: For each stage on the map, write your best guess at what the stakeholder currently believes the job is there — provisional, before the real check-in. Mark where that guess matches your own hypothesis and where it diverges. Circle the stage with the biggest gap. Deliverable: assumed-job placement added to `jtbd-map.md`, labelled draft, pending the real check-in.
+- 🎨 Visual hint: Full-bleed --sienna moment.
+
+---
+
+### NUMBERED — Questions to bring
+- Kicker: Part 2 · In the room
+- Title: Three questions.\nOne meeting you\nalready have.
+- On-slide: 3 short prompts only:
+  1. "What job do you think the customer is doing here?"
+  2. "Why do you believe that?"
+  3. "What would change your mind?"
+- Speaker notes: Aim these at the stage that showed the biggest gap in the previous activity, not the whole job in the abstract. Fold this into a 1:1, a standup, a check-in already on the calendar — don't book a new meeting. Getting dedicated time with a stakeholder is often the harder scheduling problem in this whole assignment, and it's easy to underestimate that if you've never tried to book a PM or business owner's calendar for something that isn't urgent to them.
+- 🎨 Visual hint: 3 numbered question cards in a row. Small calendar-with-checkmark icon below, no caption text on-slide.
+
+---
+
+### MILESTONE — Prepare Your Stakeholder Check-in
+- Kicker: Activity · Part 2
+- Num: 4
+- Title: Minutes
+- On-slide: nothing beyond kicker/num/title
+- Speaker notes: Identify the meeting already on your calendar this attaches to. Draft your 2–3 questions, aimed at the stage with the biggest gap. Add them as a new entry on your existing `assumption-map.md` — same formula, same matrix — ready to log the real answer once the meeting happens. Deliverable: the new entry logged in `assumption-map.md`.
+- 🎨 Visual hint: Full-bleed --sienna moment.
+
+---
+
+## 4. Part 3 — The Customer Interview
+
+---
+
+### STATEMENT — Part intro
+- Kicker: Part 3
+- Title: THE CUSTOMER INTERVIEW
+- On-slide: nothing else
+- Speaker notes: —
+- 🎨 Visual hint: Full-bleed --sienna background. "Part 3" small muted text bottom-left. "THE CUSTOMER INTERVIEW" in large bold display type.
+
+---
+
+### DIAGRAM — The switch timeline
+- Kicker: Part 3 · The primary method
+- Title: Reconstruct the\ndecision. Don't ask\nfor the reason.
+- On-slide: 5 stage names only (no prompts written out):
+  - First thought → Passive looking → Active looking → Deciding → Using
+- Speaker notes: People rationalise when asked "why did you do that?" directly. The switch interview reconstructs the timeline instead. Prompts to deliver verbally per stage: "When did you first start thinking about this?" / "What were you doing instead, before you looked for something new?" / "What made today the day you actually went looking?" / "What almost stopped you?" / "Is it doing what you hoped?"
+- 🎨 Visual hint: Horizontal 5-node pipeline, connected by arrows. Each node: stage name only, bold. --sienna accent on the "Deciding" node as the pivot point. No prompt subtext on the nodes themselves.
+
+---
+
+### STATEMENT — Scoping check
+- Kicker: Part 3 · Before you draft
+- Title: Does this project\nhave a *switch*\nmoment — or a task?
+- On-slide: two labels only — "Switch moment" / "Task-based"
+- Speaker notes: The switch timeline assumes a real decision point: someone was doing something else, then chose this instead. That fits an application or adoption moment. It fits far less cleanly onto a workflow feature inside a process someone's already committed to. Name which one this is before drafting your guide — if there's no switch, adapt the timeline to task initiation instead: first thought about needing to do the task, what they tried first, what made them look for a better way, what they chose, whether it worked.
+- 🎨 Visual hint: Two-path fork diagram. LEFT path labelled "Switch moment" leading to the 5-stage pipeline icon. RIGHT path labelled "Task-based" leading to an adapted icon. Simple decision-tree shape, no extra text.
+
+---
+
+### STATEMENT — Why more than one
+- Kicker: Part 3 · Sample size
+- Title: One interview is\na story. The job is\nwhat *repeats.*
+- On-slide: "2–3 interviews minimum" as the only supporting text
+- Speaker notes: Two to three interviews showing the same circumstance-motivation-outcome shape is the minimum before calling it a job rather than an anecdote — same discipline as the 2–3 comparator minimum from last session's desk research. Worth naming directly: this is the moment a senior/lead gets tested on discipline, not skill — it's tempting to stop at one great interview.
+- 🎨 Visual hint: 3 overlapping speech-bubble icons, each slightly different, converging on one shared shape in the overlap zone (--sienna). No caption text on-slide.
+
+---
+
+### MILESTONE — Draft Your JTBD-Informed Interview Guide
+- Kicker: Activity · Part 3
+- Num: 10
+- Title: Minutes
+- On-slide: nothing beyond kicker/num/title
+- Speaker notes: Name whether your project has a switch moment or needs the task adaptation. Take your stage map. Point your AI tool at `jtbd-map.md`, already saved, and ask it to generate 8 questions along the timeline that test these specific stage hypotheses. Cut to your strongest 5–6. Deliverable: `interview-guide.md`.
+- 🎨 Visual hint: Full-bleed --sienna moment.
+
+---
+
+## 5. Part 4 — Actionable Insight
+
+---
+
+### STATEMENT — Part intro
+- Kicker: Part 4
+- Title: ACTIONABLE INSIGHT
+- On-slide: nothing else
+- Speaker notes: —
+- 🎨 Visual hint: Full-bleed --sienna background. "Part 4" small muted text bottom-left. "ACTIONABLE INSIGHT" in large bold display type.
+
+---
+
+### DIAGRAM — Assumed vs actual, same map
+- Kicker: Part 4 · The gap
+- Title: The business\nbelieved X. The\nevidence says Y.
+- On-slide: two card labels only — "Assumed job" / "Actual job"
+- Speaker notes: This is the moment the two things built earlier in the session come together on the same map: the stakeholder's assumed job, now confirmed for real in the check-in, against the actual job derived from your interview pattern. Comparing them, stage by stage, is the strongest insight-generating move in this session — specific, evidence-backed, and hard to dismiss as opinion. Walk through the example from the framework doc live if there's time: assumed "show me my status" vs actual "let me stop relying on my memory," located at stage 3 — submitting and waiting.
+- 🎨 Visual hint: Two stacked cards, both anchored on the same small stage-chain strip from Part 1/Part 2 so the room sees it's the same map. TOP card (--ink-ghost, muted): "Assumed job." BOTTOM card (--sienna border): "Actual job," small stage-number tag in the corner. Bold "≠" symbol between them, large and central. No statement text inside the cards on-slide — deliver the specific example verbally.
+
+---
+
+### NUMBERED — The insight formula, three legs
+- Kicker: Part 4 · Write it right
+- Title: Two legs isn't\nenough anymore.
+- On-slide: 3 block labels only — Observation / Implication / Recommended decision
+- Speaker notes: Audit & Desk Research taught pattern → assumption confirmed/broken → why it matters. That's two legs. A senior/lead insight needs a third: what decision this unlocks. Weak example: "it matters because it's causing repeat support calls." Strong example adds: "We should prototype a proactive confirmation instead of iterating further on the status page." An insight that stops at "why it matters" still leaves the stakeholder to figure out what to do about it.
+- 🎨 Visual hint: 3 connected blocks left to right, arrows between. Block 3 visually heavier/bolder (--sienna fill) than blocks 1–2 (outline only) to signal it's the new, previously-missing piece. No example text on the blocks — labels only.
+
+---
+
+### STATEMENT — The gut-check test
+- Kicker: Part 4 · Before you present it
+- Title: "Would this change\na decision?"
+- On-slide: quote only
+- Speaker notes: For every insight drafted, ask: would a stakeholder change what they do next because of this sentence? If the honest answer is no, the recommended decision isn't specific enough yet — go back and name one.
+- 🎨 Visual hint: Dark --ink full-bleed background. Bold quote in --ochre display type, centred.
+
+---
+
+## 6. Part 5 — The Stakeholder Pitch
+
+---
+
+### STATEMENT — Part intro
+- Kicker: Part 5
+- Title: THE STAKEHOLDER PITCH
+- On-slide: nothing else
+- Speaker notes: —
+- 🎨 Visual hint: Full-bleed --sienna background. "Part 5" small muted text bottom-left. "THE STAKEHOLDER PITCH" in large bold display type.
+
+---
+
+### NUMBERED — Observation vs implication
+- Kicker: Part 5 · Lead with this
+- Title: Data opens the\nappendix. Implication\nopens the pitch.
+- On-slide: structure only — Implication headline → evidence → recommended decision
+- Speaker notes: Observation is what happened. Implication is what it means and why the person in the room should care. A senior/lead insight leads with implication. Weaker, leads with observation: "3 out of 3 users check their status page daily, sometimes more than once." Stronger, leads with implication: "We're asking users to do our job for us — checking daily because they don't trust us to tell them when something changes. That's driving our support call volume, and it's fixable." Full notes and quotes go in the appendix, not the core pitch.
+- 🎨 Visual hint: Simple 3-step horizontal flow (headline → evidence → decision). No weak/strong example cards on-slide — deliver the contrast verbally.
+
+---
+
+### MILESTONE — Draft Your Stakeholder Pitch
+- Kicker: Activity · Part 5
+- Num: 7
+- Title: Minutes
+- On-slide: nothing beyond kicker/num/title
+- Speaker notes: Take one real insight from your Audit & Desk Research readout — not a hypothetical. Rewrite the headline to lead with implication. Add the recommended-decision line if it's missing. Solo: run the "would this change a decision" test on yourself, optionally cross-check with AI against your saved readout and audit insights. Pair path, if a partner's here: deliver your 60-second pitch, they push back with "that's just your opinion" — point to your evidence. Deliverable: updated `stakeholder-readout-template.md`, plus a rendered HTML one-pager if presenting live.
+- 🎨 Visual hint: Full-bleed --sienna moment.
+
+---
+
+## 7. Assignment + Close
+
+---
+
+### PRACTICE — Assignment: From Assumed Job to Actionable Insight
+- Kicker: Assignment
+- Title: Test the Job.\nFind the Gap.
+- On-slide: 7 short step labels only, no full sentences:
+  - Run the stakeholder check-in
+  - Conduct 2–3 customer interviews
+  - Derive the actual job
+  - Update the stage breakdown from real findings
+  - Update `jtbd-map.md`
+  - Write the insight (3 legs)
+  - Update the stakeholder readout
+- Speaker notes: Full detail per step — run the stakeholder check-in inside the meeting already on the calendar, log the assumed job on the Assumption Map. Conduct 2–3 JTBD-informed customer interviews, not one. After each, cross-check it against the hypothesis (AI already has the files, no re-pasting needed). Derive the actual job from what repeats. Update the draft stage breakdown from this session with what the real interviews actually showed — confirm, revise, or add stages. Update `jtbd-map.md`: hypothesis / assumed / actual / gap / linked insight / confirmed stage breakdown. Write the insight using the 3-leg formula, scoped to its stage, into the Insight Synthesis Template. Update the Stakeholder Readout draft with the implication-first headline. AI prompt to mention: point AI at the 3 saved interview files and the hypothesis file, ask it to cross-check the pattern and draft the actual job statement. Deliverable: updated `jtbd-map.md`, Insight Synthesis Template, and Stakeholder Readout Template (all markdown), plus a rendered HTML one-pager of the readout for the actual presentation.
+- 🎨 Visual hint: 6 short numbered labels in a vertical list, no body text beneath each. `jtbd-map.md` schema preview (5 columns) as a small table thumbnail on the right.
+
+---
+
+### END — Closing
+- Kicker: One thing to carry forward
+- Title: "The job is what\nrepeats. The insight\nis what *moves\nsomeone.*"
+- On-slide: title + sign only
+- Speaker notes: A candidate hypothesis becomes a job when a pattern confirms it. An observation becomes an insight when it names a decision. Neither one is finished until it's been tested against something outside your own head.
+- Sign: — Winnie Nguyen
