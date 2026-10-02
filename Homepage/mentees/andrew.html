@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<meta name="description" content="Mid-Level UX/Product Design"/>
+<title>Andrew — Private Training</title>
+<link rel="stylesheet" href="../assets/css/tokens.css"/>
+<link rel="stylesheet" href="../assets/css/components.css"/>
+<link rel="stylesheet" href="../assets/css/site.css"/>
+<link rel="stylesheet" href="../assets/css/card-list.css"/>
+<link rel="stylesheet" href="../assets/css/text-page.css"/>
+<link rel="stylesheet" href="../assets/css/home.css"/>
+
+</head>
+<body class="tp-white">
+<nav>
+  <a class="nav-logo" href="../index.html"><img src="../assets/images/logo-nav.svg" alt="Winnie Nguyen — Training Hub"/></a>
+  <div class="nav-links">
+    <a href="../lessons.html" data-text="Lesson Library">Lesson Library</a>
+    <a href="../private-training.html" data-text="Private Training" class=active>Private Training</a>
+    <a href="../programs.html" data-text="Programs">Programs</a>
+  </div>
+</nav>
+<div class="tp">
+  <a class="tp-back" href="../private-training.html">← All mentees</a>
+  <header class="tp-head">
+    <div class="mentee-hero"><div class="avatar avatar--xl avatar--purple"><div class="avatar__inner">A</div></div>
+    <div><h1 class="page-title">Andrew</h1>
+    <p class="page-desc">Mid-Level UX/Product Design</p></div></div>
+    <div class="tp-info"><dl class="tp-meta" style="--tp-cols: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.8fr)"><div><dt>Programme</dt><dd><a class="tp-meta__link" href="../programs/junior-to-mid-level.html">Product Design Roadmap to Mid-Level →</a></dd></div><div><dt>Status</dt><dd>In progress</dd></div><div><dt>Level</dt><dd>Junior (0–1 yrs, UI Designer in Banking)</dd></div><div><dt>Target</dt><dd>Mid-level UX/Product Designer</dd></div><div><dt>Cadence</dt><dd>60–90 mins, weekly, ~3 months</dd></div><div><dt>Project focus</dt><dd>A live flow from his current Banking UI role</dd></div></dl><div class="md-progress" role="progressbar" aria-valuemin="0" aria-valuemax="12" aria-valuenow="0" aria-label="Sessions logged"><span style="width:0%"></span></div><div class="mentee-count">0 of 12 sessions logged</div></div>
+  </header>
+  <div class="tabs tabs--pill tp-tabs"><div class="tabs__list" role="tablist"><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="overview" aria-selected="false">Overview</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="assessment" aria-selected="false">Assessment</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="sessions" aria-selected="false">Sessions</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="slides" aria-selected="false">Slides</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="homework" aria-selected="false">Homework</button></div></div>
+  <section class="tp-panel" data-tab-panel data-tab-id="overview" role="tabpanel" hidden><article class="tp-body"><h2>Programme overview</h2><p>This programme moves An from a Banking UI Designer executing inside someone else's UX decisions, to a Mid-level UX/Product Designer who runs research, frames problems, and defends decisions with evidence — using a live flow from his current banking product as the vehicle, over 12 weekly sessions across roughly 3 months.</p></article></section><section class="tp-panel" data-tab-panel data-tab-id="assessment" role="tabpanel" hidden><article class="tp-body"><h2>Baseline vs post-training</h2>
+<table class="assess-table"><thead><tr><th>Metric</th><th>Baseline</th><th>Post-training</th><th>Change</th></tr></thead><tbody><tr><th scope="row">Date taken</th><td>28 Sep 2026</td><td><span class="sess__none">Pending</span></td><td></td></tr><tr><th scope="row">Target level</th><td>Principal (own pick; programme targets Mid-level)</td><td><span class="sess__none">Pending</span></td><td></td></tr><tr><th scope="row">Career readiness</th><td>20%</td><td><span class="sess__none">Pending</span></td><td></td></tr><tr><th scope="row">Designer profile</th><td>The All-Rounder</td><td><span class="sess__none">Pending</span></td><td></td></tr><tr><th scope="row">Craft maturity</th><td>29%</td><td><span class="sess__none">Pending</span></td><td></td></tr><tr><th scope="row">Behaviour maturity</th><td>0%</td><td><span class="sess__none">Pending</span></td><td></td></tr><tr><th scope="row">AI readiness</th><td>AI Early</td><td><span class="sess__none">Pending</span></td><td></td></tr></tbody></table>
+<p class="sess__none">Self-assessment against the target level, taken at the start and again at the end of the programme.</p></article></section><section class="tp-panel" data-tab-panel data-tab-id="sessions" role="tabpanel" hidden><div class="tp-slides tp-slides--empty"><strong>No sessions yet</strong><span>Sessions appear here as they are logged.</span></div></section><section class="tp-panel" data-tab-panel data-tab-id="slides" role="tabpanel" hidden><div class="tp-slides tp-slides--empty"><strong>No slides yet</strong><span>Add decks to this mentee's <code>slides/</code> folder.</span></div></section><section class="tp-panel" data-tab-panel data-tab-id="homework" role="tabpanel" hidden><div class="tp-slides tp-slides--empty"><strong>No homework yet</strong><span>Work from between sessions shows up here.</span></div></section>
+</div>
+<script>
+(function () {
+  function group(btnSel, panelSel, attr, onShow) {
+    var btns = [].slice.call(document.querySelectorAll(btnSel)), panels = [].slice.call(document.querySelectorAll(panelSel));
+    function show(id) {
+      btns.forEach(function (b) { var on = b.getAttribute(attr) === id; b.setAttribute('aria-selected', on); b.classList.toggle('tabs__tab--active', on && b.classList.contains('tabs__tab')); });
+      panels.forEach(function (p) { p.hidden = p.getAttribute(attr) !== id; });
+      if (onShow) onShow(id);
+    }
+    btns.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute(attr)); }); });
+    return show;
+  }
+  var firstTab = (document.querySelector('[data-tab-btn]') || {getAttribute: function () {}}).getAttribute('data-tab-id');
+  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === firstTab ? location.pathname : '#' + id); });
+  var showVar = group('[data-var-btn]', '[data-var-panel]', 'data-var-id');
+  var h = (location.hash || '').replace('#', '');
+  showTab(h && document.querySelector('[data-tab-btn][data-tab-id="' + h + '"]') ? h : firstTab);
+  if (document.querySelector('[data-var-btn]')) showVar('0');
+  var decks = [].slice.call(document.querySelectorAll('[data-deck-btn]'));
+  decks.forEach(function (b) { b.addEventListener('click', function () {
+    var f = document.getElementById('deck-frame'); f.src = b.dataset.src; document.getElementById('deck-open').href = b.dataset.src;
+    decks.forEach(function (x) { x.classList.toggle('deck-item--active', x === b); x.setAttribute('aria-pressed', x === b); });
+  }); });
+})();
+</script>
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Winnie Nguyen · Senior Product Designer</p>
+    <div class="footer-links">
+      <a href="mailto:nguyenphuctuongvan@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/winnienguyen2910" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script>(function(){if(location.protocol.indexOf('http')!==0)return;var u='../assets/build-stamp.txt',last=null;function c(){fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(t){if(t===null)return;if(last!==null&&t!==last)location.reload();last=t}).catch(function(){})}c();setInterval(c,1500)})();</script>
+</body>
+</html>

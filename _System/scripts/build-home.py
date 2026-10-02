@@ -9,7 +9,7 @@ Run from anywhere:
 Reads
   - Programs  : <WEBSITE>/src/pages/training/programs/*.sessions.js + *.jsx   (live program pages)
   - Lessons   : Library/lessons/**/<topic>-lesson.md                          (+ EXTRA_LESSONS below)
-  - Mentees   : <MENTEES>/<name>/plan|sessions|assessments                    (internal only)
+  - Mentees   : <MENTEES>/<name>/plan|sessions|assessments                    (public: card + detail page)
   - Design    : <WEBSITE>/design-system/css + fonts  (copied, so the output is standalone)
 
 Writes (all static, relative links, open index.html straight from disk)
@@ -363,6 +363,172 @@ def load_homework(topic_name):
 
 FALLBACK_USED = []
 
+MENTEE_PUBLISHED = set()
+
+
+def mentee_href(d, p):
+    """Mentees/ is git-ignored (private), so only slides and homework are copied into Homepage/assets/mentees/ and linked from there."""
+    rel = p.relative_to(d)
+    dest = ASSETS / "mentees" / d.name / rel
+    sync_file(p, dest)
+    MENTEE_PUBLISHED.add(dest)
+    return "../assets/mentees/" + quote(d.name) + "/" + quote(rel.as_posix())
+
+
+def mentee_md_page(d, f, rel):
+    """Markdown file -> a readable page inside the site (a raw .md would download instead of opening)."""
+    body = parse_front_matter(f.read_text(encoding="utf-8"))[1]
+    html_body, _ = render_markdown(body)
+    dest = ASSETS / "mentees" / d.name / "md" / rel.with_suffix(".html")
+    depth = 4 + len(rel.parts) - 1   # Homepage/assets/mentees/<slug>/md/<rel>.html
+    title = nice_topic(f.stem)
+    page_html = page(f"{title} — {d.name.replace('-', ' ').title()}", f'''<div class="tp"><a class="tp-back" href="{"../" * depth}mentees/{d.name}.html#artifacts">← Back to mentee</a>
+<article class="tp-body">{html_body}</article></div>''', depth, "", body_cls="tp-white", active="mentees")
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(page_html, encoding="utf-8")
+    MENTEE_PUBLISHED.add(dest)
+    return "../assets/mentees/" + quote(d.name) + "/md/" + quote(rel.with_suffix(".html").as_posix())
+
+
+def prune_mentee_assets():
+    base = ASSETS / "mentees"
+    if base.exists():
+        for f in sorted(base.rglob("*"), reverse=True):
+            if f.is_file() and f not in MENTEE_PUBLISHED:
+                f.unlink()
+            elif f.is_dir() and not any(f.iterdir()):
+                f.rmdir()
+
+
+def nice_topic(stem):
+    return re.sub(r"[-_]+", " ", stem).strip().title()
+
+
+def read_sessions_table(path):
+    """Mentees/<slug>/sessions.md: `| # | Topic | Date | Status | Lesson | Playback |`, one row per session."""
+    rows = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        cells = [c.strip() for c in line.strip().strip("|").split("|")] if line.strip().startswith("|") else []
+        if len(cells) >= 4 and cells[0].isdigit():
+            cells += [""] * (6 - len(cells))
+            rows.append({"n": int(cells[0]), "title": cells[1], "date": pretty_date(cells[2]), "status": cells[3], "lesson": cells[4], "playback": cells[5]})
+    return rows
+
+
+def read_assessment(path):
+    """Mentees/<slug>/assessment.md: `| Metric | Baseline | Post-training |` table, or front matter `na: "reason"`."""
+    out = {"rows": [], "na": ""}
+    if not path.exists():
+        return out
+    fm, body = parse_front_matter(path.read_text(encoding="utf-8"))
+    out["na"] = fm.get("na", "")
+    for line in body.splitlines():
+        cells = [c.strip() for c in line.strip().strip("|").split("|")] if line.strip().startswith("|") else []
+        if len(cells) >= 3 and cells[0].lower() != "metric" and not set(cells[0]) <= set("-: "):
+            out["rows"].append((cells[0], cells[1], cells[2]))
+    return out
+
+
+def mentee_detail(d, meta, plan_body, session_files, readme, mm=None):
+    """What the public detail page shows. Session recaps, transcripts and assessment files stay private: only
+    topic / date / status (from the README log or recap titles), slide decks and homework files are published."""
+    ov = re.search(r"^##\s+Program(?:me)? Overview\s*\n(.*?)(?=^---\s*$|^##\s)", plan_body, re.M | re.S)
+    overview = ov.group(1).strip() if ov else ""
+
+    mm = mm or {}
+    rows = []
+    sessions_md = d / "sessions.md"
+    if sessions_md.exists():   # source of truth; the README / recap / transcript fallbacks below only run without it
+        rows = read_sessions_table(sessions_md)
+    if not rows and readme.exists():
+        for m in re.finditer(r"^\|\s*(\d+)\s*\|\s*(.*?)\s*\|\s*(.*?)\s*\|\s*(.*?)\s*\|\s*$", readme.read_text(encoding="utf-8"), re.M):
+            status = re.split(r"\s+[—-]\s+see\b", m.group(4))[0].strip()
+            rows.append({"n": int(m.group(1)), "title": m.group(2), "date": "" if m.group(3) in ("", "—", "-") else m.group(3), "status": status})
+    if not rows:
+        for f in session_files:
+            fm, _ = parse_front_matter(f.read_text(encoding="utf-8"))
+            n = fm.get("session_number") or (re.search(r"session-(\d+)", f.name) or [None, ""])[1]
+            if str(n).isdigit():
+                title = re.sub(r"^Session\s*\d+\s*[—:-]\s*", "", fm.get("title", "")) or nice_topic(re.sub(r"^session-\d+-", "", f.stem))
+                rows.append({"n": int(n), "title": title, "date": pretty_date(fm.get("date")), "status": "Completed"})
+    td = d / "transcripts"
+    for f in sorted(td.glob("*")) if td.exists() and not sessions_md.exists() else []:
+        t = re.match(r"^(?:Session|Lesson)\s*(\d+)(?:\.\d+)?\s*[-–:_]?\s*(.*?)(?:\s*-\s*Part \d+)?$", f.stem, re.I)
+        if t and not any(r["n"] == int(t.group(1)) for r in rows):
+            rows.append({"n": int(t.group(1)), "title": t.group(2).strip(" _-"), "date": "", "status": "", "weak": True})   # file names only, never contents
+    rows.sort(key=lambda r: r["n"])
+
+    playback = {r["n"]: r["playback"] for r in rows if r.get("playback")}
+    pb = d / "playback.md"   # legacy; sessions.md has a Playback column, one line per session: "3: https://link" or "3: short summary"
+    if pb.exists():
+        for m_ in re.finditer(r"^\W*(\d+)\s*:\s*(\S.*)$", pb.read_text(encoding="utf-8"), re.M):
+            playback[int(m_.group(1))] = m_.group(2).strip()
+
+    slides, other = {}, []
+    sd = d / "slides"
+    for f in sorted(sd.rglob("*")) if sd.exists() else []:
+        if not f.is_file() or any(x.startswith((".", "_")) for x in f.relative_to(sd).parts):
+            continue
+        item = {"label": re.sub(r"\.dc$", "", f.stem), "ext": f.suffix.lower().lstrip("."), "url": mentee_href(d, f)}
+        num = re.match(r"^(?:(?:Session|Sesion|Day|Lesson)\s*)?(\d+)(?:\.\d+)?(?:\s+(\d+))?\s*(?:[-–·:.]\s*)(.*)$", f.stem, re.I)
+        if not num:
+            other.append(item)
+            continue
+        item["topic"] = re.sub(r"\s*[—-]\s*Winnie Nguyen$", "", num.group(3)).strip()
+        for n in range(int(num.group(1)), int(num.group(2) or num.group(1)) + 1):   # "Day 1 2-" covers days 1 and 2
+            slides.setdefault(n, []).append(item)
+
+    homework = {}
+    hd = d / "homework"
+    for f in sorted(hd.rglob("*")) if hd.exists() else []:
+        rel = f.relative_to(hd)
+        if not f.is_file() or any(x.startswith((".", "_")) for x in rel.parts):
+            continue
+        topic = nice_topic(rel.parts[0]) if len(rel.parts) > 1 else "General"
+        stem = re.sub(rf"^{re.escape(d.name)}[-_ ]", "", f.stem, flags=re.I)
+        homework.setdefault(topic, []).append({
+            "label": nice_topic(re.sub(r"^[A-Z][a-z]+[-_][A-Z][a-z]+[-_]", "", stem)) or f.stem,
+            "is_image": f.suffix.lower() in IMG_EXT, "ext": f.suffix.lower().lstrip("."), "url": mentee_href(d, f)})
+
+    # Loose files: anything dropped in the mentee folder or in a folder the site doesn't already use shows up as a link.
+    # Skipped: README / mentee / sessions / assessment files, the private folders, and names starting with "." or "_".
+    # artifacts/ HTML pages embed inline; Markdown files are rendered to a readable page; everything else links to the file.
+    artifacts, groups = {}, {}
+    SKIP_FILES = {"readme.md", "mentee.md", "sessions.md", "assessment.md", "playback.md", "profile.md"}
+    RESERVED = {"assessments", "homework", "plan", "sessions", "slides", "transcripts"}
+    for f in sorted(d.rglob("*")):
+        rel = f.relative_to(d)
+        if not f.is_file() or any(x.startswith((".", "_")) for x in rel.parts) or rel.parts[0].lower() in RESERVED:
+            continue
+        if len(rel.parts) == 1 and f.name.lower() in SKIP_FILES:
+            continue
+        in_art = rel.parts[0] == "artifacts"
+        sub = rel.parts[1:] if in_art else rel.parts
+        group = nice_topic(sub[0]) if len(sub) > 1 else ("Artifacts" if in_art else "Files")
+        ext = f.suffix.lower().lstrip(".")
+        if ext == "md":
+            url = mentee_md_page(d, f, rel)
+        else:
+            url = mentee_href(d, f)
+        groups.setdefault(group, []).append({"label": f.name, "ext": ext, "url": url, "embed": in_art and ext in ("html", "htm")})
+    for g, files in groups.items():
+        # a folder with an HTML page shows the page(s); its css/js/images ride along unlisted
+        artifacts[g] = [x for x in files if x["embed"]] + [x for x in files if not x["embed"] and not any(y["embed"] for y in files)]
+
+    prof = dict(mm)   # mentee.md first
+    if not mm and (d / "profile.md").exists():   # facts copied from the private Notion hub: role, dates, cadence, goal
+        prof, _ = parse_front_matter((d / "profile.md").read_text(encoding="utf-8"))
+    lesson_map = {int(n): slug.strip() for n, slug in re.findall(r"(\d+)\s*=\s*([\w-]+)", str(prof.get("lessons", "")))}
+    lesson_map.update({r["n"]: r["lesson"] for r in rows if r.get("lesson")})
+    when = " – ".join(x for x in [pretty_date(prof.get("start")), pretty_date(prof.get("end"))] if x)
+
+    plan_dir = d / "plan"
+    plan_files = sorted(plan_dir.glob("*.pdf"))[-1:] or sorted(plan_dir.glob("*.md"))[:1] if plan_dir.exists() else []
+    return {"overview": overview, "cadence": prof.get("cadence") or meta.get("cadence", ""), "role": prof.get("role", ""), "when": when, "goal": prof.get("goal", ""), "project": prof.get("project") or meta.get("project_vehicle", ""),
+            "sessions_log": rows, "playback": playback, "lesson_map": lesson_map, "slides": slides, "slides_other": other, "homework": homework,
+            "plan_url": "", "artifacts": artifacts, "assessment": read_assessment(d / "assessment.md"), "prog_slug": prof.get("programme_page", "")}   # coaching plans stay private (draft: true in the template); not published
+
+
 
 def resolve_programs(slug, variants):
     """(program slug, session idx) pairs, read from each lesson file's own `programs:` line."""
@@ -522,8 +688,9 @@ def load_mentees():
         meta, body = ({}, "")
         if plan:
             meta, body = parse_front_matter(plan.read_text(encoding="utf-8"))
+        mm = parse_front_matter((d / "mentee.md").read_text(encoding="utf-8"))[0] if (d / "mentee.md").exists() else {}
         roadmap = re.search(r"^##\s+(Roadmap to .*)$", body, re.M)
-        name = meta.get("student") or d.name.replace("-", " ").title()
+        name = mm.get("name") or meta.get("student") or d.name.replace("-", " ").title()
         if " " not in name and d.name.count("-"):
             name = d.name.replace("-", " ").title()
         sess_dir = d / "sessions"
@@ -549,13 +716,19 @@ def load_mentees():
         for label, p in [("Coaching plan", plan_pdf or plan), ("Baseline", assess[0] if assess else None)]:
             if p:
                 links.append((label, quote(os.path.relpath(p, OUT).replace(os.sep, "/"))))
+        detail = mentee_detail(d, meta, body, sorted(sess_dir.glob("session-*.md")) if sess_dir.exists() else [], readme, mm)
+        if (d / "sessions.md").exists():
+            sessions = [r for r in detail["sessions_log"] if r["status"].lower().startswith("completed")]
+            planned = mm.get("sessions") or planned
+        status = {"completed": "Completed", "in-progress": "In progress", "not-started": "Not started"}.get(str(mm.get("status", "")).lower())
         people.append({
+            **detail,
             "name": name, "slug": d.name,
-            "level": meta.get("level", ""), "target": meta.get("target_level", ""),
-            "program": (roadmap.group(1).replace("Roadmap to ", "") if roadmap else readme_program),
+            "level": mm.get("level") or meta.get("level", ""), "target": mm.get("target") or meta.get("target_level", ""),
+            "program": mm.get("program") or (roadmap.group(1).replace("Roadmap to ", "") if roadmap else readme_program),
             "planned": int(planned) if str(planned).isdigit() else None,
-            "logged": len(sessions), "baseline": bool(assess), "has_plan": bool(plan or plan_pdf),
-            "status": "Completed" if closeout else ("In progress" if (sessions or plan or plan_pdf) else "Not started"),
+            "logged": len(sessions), "baseline": bool(assess) or any(b for k, b, _ in detail["assessment"]["rows"] if k == "Career readiness"), "has_plan": bool(plan or plan_pdf),
+            "status": status or ("Completed" if closeout else ("In progress" if (sessions or plan or plan_pdf) else "Not started")),
             "links": links,
         })
     return people
@@ -655,35 +828,33 @@ def lesson_card(l):
     return f'<div class="cl-mini lesson-card lesson-card--soon" {attrs}>\n  {inner}\n</div>'
 
 
+def md_progress(logged, planned):
+    """Material 3 linear progress indicator. Fallback: the design system has no progress component."""
+    if not planned:
+        return f'<div class="mentee-count">{logged} session{"s" if logged != 1 else ""} logged</div>'
+    pct = min(100, round(100 * logged / planned))
+    return (f'<div class="md-progress" role="progressbar" aria-valuemin="0" aria-valuemax="{planned}" aria-valuenow="{logged}" '
+            f'aria-label="Sessions logged"><span style="width:{pct}%"></span></div>'
+            f'<div class="mentee-count">{logged} of {planned} sessions logged</div>')
+
+
+STATUS_ORDER = {"In progress": 0, "Not started": 1, "Completed": 2}   # list order on the Private Training page
+STATUS_TONE = {"Completed": "success", "In progress": "primary", "Not started": "default"}
+
+
 def mentee_card(m):
-    initials = "".join(w[0] for w in m["name"].split()[:2]).upper()
-    tone = {"Completed": "success", "In progress": "primary", "Not started": "default"}[m["status"]]
-    if m["planned"]:
-        pct = min(100, round(100 * m["logged"] / m["planned"]))
-        prog = f'<div class="mentee__bar"><span style="width:{pct}%"></span></div><div class="mentee__count">{m["logged"]} of {m["planned"]} sessions logged</div>'
-    elif m["logged"]:
-        prog = f'<div class="mentee__count">{m["logged"]} session{"s" if m["logged"] != 1 else ""} logged</div>'
-    else:
-        prog = '<div class="mentee__count">No sessions logged yet</div>'
-    checks = "".join(
-        f'<li class="{"is-done" if ok else ""}">{"✓" if ok else "○"} {label}</li>'
-        for label, ok in [("Coaching plan", m["has_plan"]), ("Baseline assessment", m["baseline"])]
-    )
-    links = " · ".join(f'<a href="{u}">{esc(t)}</a>' for t, u in m["links"])
-    return f"""<article class="mentee">
-  <div class="mentee__head"><div class="mentee__avatar" aria-hidden="true">{esc(initials)}</div>
-    <div><h3 class="mentee__name">{esc(m['name'])}</h3><div class="mentee__level">{esc(m['level'])}</div></div>
-    {chip(m['status'], tone)}
-  </div>
-  <p class="mentee__prog">{esc(m['program'] or 'Program not set')}</p>
-  {prog}
-  <ul class="mentee__checks">{checks}</ul>
-  <div class="mentee__links">{links}</div>
-</article>"""
+    """Card-list template: compact card (cl-mini). Every card carries the same fields: status, name, programme."""
+    prog = m["program"] or "Private training"
+    hay = esc(" ".join([m["name"], prog, m["status"]]).lower())
+    return f"""<a class="cl-mini mentee-card" href="mentees/{m['slug']}.html" data-status="{m['status']}" data-hay="{hay}">
+  <div class="mentee-card__head"><h3 class="cl-mini__title">{esc(m['name'])}</h3>{chip(m['status'], STATUS_TONE[m['status']])}</div>
+  <p class="cl-mini__desc">{esc(prog)}</p>
+</a>"""
 
 
 def page_header(eyebrow, title, desc, note=""):
-    return f"""<div class="page-header"><div class="page-eyebrow">{eyebrow}</div>
+    eyebrow_html = f'<div class="page-eyebrow">{eyebrow}</div>' if eyebrow else ""
+    return f"""<div class="page-header">{eyebrow_html}
   <h1 class="page-title">{title}</h1><p class="page-desc">{desc}</p>{note}</div>"""
 
 
@@ -704,7 +875,7 @@ def build_index(programs, lessons, mentees, counts):
 </header>
 <section class="section hub-grid">
   {big("lessons.html", "01 · Lessons", "Lesson Library", "Full lesson plans with timing, activities and facilitator notes. Filter by design-thinking stage or search by topic.", f"{len(lessons)} lessons", "purple")}
-  {big("private-training.html", "02 · Mentees", "Private Training", "Everyone I coach one to one: their program, progress, coaching plan and baseline assessment. Internal only.", f"{len(mentees)} mentees", "yellow")}
+  {big("private-training.html", "02 · Mentees", "Private Training", "Everyone I coach one to one: their program, progress, session topics, slides and homework.", f"{len(mentees)} mentees", "yellow")}
   {big("programs.html", "03 · Programs", "Programs", "The offers people enrol in, such as UI/UX Fundamentals and the roadmaps to Mid and Senior, with every session and its lesson.", f"{len(programs)} programs", "gray")}
 </section>
 """
@@ -716,7 +887,7 @@ def build_lessons_index(lessons):
     filters = "".join(
         f'<button type="button" role="tab" class="tabs__tab{" tabs__tab--active" if s == "All" else ""}" data-stage="{s}" aria-selected="{"true" if s == "All" else "false"}">{s}</button>' for s in stages
     )
-    body = f"""{page_header("Lesson Library", "Lesson Library", "Click a lesson to read the full plan: timing, activities and facilitator notes.")}
+    body = f"""{page_header("", "Lesson Library", "Click a lesson to read the full plan: timing, activities and facilitator notes.")}
 <section class="section section--tight">
   <div class="cl-controls">
     <div class="input-field cl-search"><input id="q" type="search" placeholder=" "/><label for="q">Search lessons, topics, levels</label></div>
@@ -749,7 +920,7 @@ def build_lessons_index(lessons):
 
 
 def build_programs_index(programs, counts):
-    body = f"""{page_header("Programs", "Programs", "Read from the live program pages, so titles and curriculum stay in sync.")}
+    body = f"""{page_header("", "Programs", "Read from the live program pages, so titles and curriculum stay in sync.")}
 <section class="section section--tight">
   <div class="cl-grid prog-grid">{''.join(program_card(p, counts['by_program'].get(p['slug'], 0)) for p in programs)}</div>
 </section>"""
@@ -757,12 +928,224 @@ def build_programs_index(programs, counts):
 
 
 def build_mentees_page(mentees):
-    note = '<p class="home-section__note" style="margin-top:var(--space-4)">Internal view. Do not publish this page: it names the people I coach.</p>'
-    body = f"""{page_header("Private Training", "Private Training", "Everyone I coach one to one.", note)}
+    statuses = ["All"] + [x for x in ("In progress", "Completed", "Not started") if any(m["status"] == x for m in mentees)]
+    filters = "".join(
+        f'<button type="button" role="tab" class="tabs__tab{" tabs__tab--active" if x == "All" else ""}" data-stage="{x}" aria-selected="{"true" if x == "All" else "false"}">{x}</button>' for x in statuses)
+    body = f"""{page_header("", "Private Training", "Everyone I coach one to one. Open a card for their programme, sessions and homework.")}
 <section class="section section--tight">
-  <div class="mentee-grid">{''.join(mentee_card(m) for m in mentees)}</div>
-</section>"""
+  <div class="cl-controls">
+    <div class="input-field cl-search"><input id="q" type="search" placeholder=" "/><label for="q">Search by name or programme</label></div>
+  </div>
+  <div class="tabs tabs--pill cl-tabs"><div class="tabs__list" role="tablist" aria-label="Filter by status">{filters}</div></div>
+  <div class="cl-grid" id="mentee-grid">{''.join(mentee_card(m) for m in sorted(mentees, key=lambda m: (STATUS_ORDER[m["status"]], m["name"].lower())))}</div>
+  <p class="cl-empty" id="empty" hidden>Nobody found. Try a different word.</p>
+</section>
+<script>
+(function () {{
+  var cards = [].slice.call(document.querySelectorAll('.mentee-card'));
+  var q = document.getElementById('q'), empty = document.getElementById('empty');
+  var btns = [].slice.call(document.querySelectorAll('.tabs__tab')), status = 'All';
+  function apply() {{
+    var words = q.value.toLowerCase().split(/\\s+/).filter(Boolean), shown = 0;
+    cards.forEach(function (c) {{
+      var ok = (status === 'All' || c.dataset.status === status) && words.every(function (w) {{ return c.dataset.hay.indexOf(w) > -1; }});
+      c.hidden = !ok; if (ok) shown++;
+    }});
+    empty.hidden = shown > 0;
+  }}
+  btns.forEach(function (b) {{ b.addEventListener('click', function () {{
+    status = b.dataset.stage; btns.forEach(function (x) {{ x.setAttribute('aria-selected', x === b ? 'true' : 'false'); x.classList.toggle('tabs__tab--active', x === b); }}); apply();
+  }}); }});
+  q.addEventListener('input', apply);
+}})();
+</script>"""
     return page("Private Training — Training Hub", body, 0, "Mentees.", active="mentees")
+
+
+def mentee_overview_panel(m):
+    goal = f'<h2>Programme goal</h2><blockquote>{esc(m["goal"])}</blockquote>' if m["goal"] else ""
+    ov = f'<h2>Programme overview</h2>{render_markdown(m["overview"])[0]}' if m["overview"] else ""
+    plan = f'<p><a class="btn btn--md btn--outlined btn--primary" href="{m["plan_url"]}" target="_blank" rel="noopener">Open coaching plan ↗</a></p>' if m["plan_url"] else ""
+    if not (goal or ov or plan):
+        return '<div class="tp-slides tp-slides--empty"><strong>Overview coming soon</strong><span>Add a coaching plan to this mentee\'s <code>plan/</code> folder.</span></div>'
+    return f'<article class="tp-body">{goal}{ov}{plan}</article>'
+
+
+def mentee_file_card(f):
+    """Design-system Card (interactive) + Chip for one slide deck."""
+    ext = FILE_ICON.get(f["ext"], f["ext"].upper()[:4] or "FILE")
+    return f'<a class="card card--z1 card--interactive mentee-file" href="{f["url"]}" target="_blank" rel="noopener">{chip(ext, "primary")}<strong>{esc(f["label"])}</strong></a>'
+
+
+STOP = {"and", "for", "the", "a", "of", "to", "in", "with", "your"}
+
+
+def toks(t):
+    return {w for w in re.sub(r"[^a-z0-9]+", " ", t.lower().replace("&", " and ")).split() if w not in STOP}
+
+
+def lesson_for(r, m, lessons):
+    """The library lesson a session belongs to: explicit `lessons:` override in profile.md, else the best title match
+    (at least 75% of the shorter title's words shared, either direction). Returns None when nothing fits."""
+    by_slug = {l["slug"]: l for l in lessons if l["has_page"]}
+    if r["n"] in m["lesson_map"]:
+        return by_slug.get(m["lesson_map"][r["n"]])
+    best, best_score = None, 0.0
+    for t in [r["title"]] + [d["topic"] for d in r["decks"] if d.get("topic")]:
+        a = toks(t)
+        for l in by_slug.values():
+            b = toks(l["title"])
+            if a and b:
+                score = len(a & b) / min(len(a), len(b))
+                if score > best_score:
+                    best, best_score = l, score
+    return best if best_score >= 0.75 else None
+
+
+def lesson_link(l):
+    return f'<a class="btn btn--sm btn--text btn--primary" href="../lessons/{l["slug"]}.html">Lesson plan →</a>' if l else ""
+
+
+def mentee_rows(m):
+    rows = list(m["sessions_log"])
+    known = {r["n"] for r in rows}
+    rows += [{"n": n, "title": "", "date": "", "status": ""} for n in sorted(m["slides"]) if n not in known]
+    rows.sort(key=lambda r: r["n"])
+    for r in rows:
+        decks = m["slides"].get(r["n"], [])
+        slide_title = next((d["topic"] for d in decks if d.get("topic")), "")
+        r["title"] = (slide_title if r.get("weak") else r["title"]) or r["title"] or slide_title or f"Session {r['n']}"
+        r["decks"] = decks
+    return rows
+
+
+def mentee_sessions_panel(m, lessons):
+    """Sessions tab: what happened in each session (playback), not the slide files."""
+    rows = mentee_rows(m)
+    if not rows:
+        return '<div class="tp-slides tp-slides--empty"><strong>No sessions yet</strong><span>Sessions appear here as they are logged.</span></div>'
+    out = []
+    for r in rows:
+        tone = "success" if r["status"].lower().startswith("completed") else "default"
+        meta = ([chip(r["status"], tone)] if r["status"] else []) + ([f'<span class="sess__date">{esc(r["date"])}</span>'] if r["date"] else [])
+        pb = m["playback"].get(r["n"], "")
+        if pb.startswith("http"):
+            play = f'<a class="btn btn--sm btn--soft btn--primary" href="{esc(pb)}" target="_blank" rel="noopener">Session playback ↗</a>'
+        elif pb:
+            play = f'<p class="sess__sum">{esc(pb)}</p>'
+        else:
+            play = '<span class="sess__none">Playback coming soon</span>'
+        meta.append(lesson_link(lesson_for(r, m, lessons)))
+        out.append(f"""<div class="sess"><div class="sess__idx">{r['n']}</div>
+  <div><h4 class="sess__title">{esc(r['title'])}</h4>
+  <div class="sess__meta">{"".join(x for x in meta if x)}</div>{play}</div></div>""")
+    return f'<div class="sess-list">{"".join(out)}</div>'
+
+
+def mentee_slides_panel(m, lessons):
+    """Slides tab: the decks used, grouped by session; falls back to the matching library lesson's deck."""
+    out = []
+    for r in mentee_rows(m):
+        lesson = lesson_for(r, m, lessons)
+        files = "".join(mentee_file_card(f) for f in r["decks"])
+        if not files and lesson and (lesson["decks"] or lesson["pdfs"]):
+            files = f'<a class="card card--z1 card--interactive mentee-file" href="../lessons/{lesson["slug"]}.html#slides">{chip("Lesson deck", "primary")}<strong>{esc(lesson["title"])}</strong></a>'
+        if not files:
+            continue
+        out.append(f"""<div class="sess"><div class="sess__idx">{r['n']}</div>
+  <div><h4 class="sess__title">{esc(r['title'])}</h4><div class="sess__meta">{lesson_link(lesson)}</div><div class="sess__files">{files}</div></div></div>""")
+    if m["slides_other"]:
+        out.append(f'<h3 class="tp-hw__group" style="margin-top:var(--space-10)">Other slides</h3><div class="sess__files">{"".join(mentee_file_card(f) for f in m["slides_other"])}</div>')
+    if not out:
+        return '<div class="tp-slides tp-slides--empty"><strong>No slides yet</strong><span>Add decks to this mentee\'s <code>slides/</code> folder.</span></div>'
+    return f'<div class="sess-list">{"".join(out)}</div>'
+
+
+def mentee_assessment_panel(m):
+    """Baseline vs post-training self-assessment (numbers only; notes and recaps stay private)."""
+    a = m["assessment"]
+    if a["na"]:
+        return f'<div class="tp-slides tp-slides--empty"><strong>No assessment for this programme</strong><span>{esc(a["na"])}</span></div>'
+    if not a["rows"] or not any(b or p for _, b, p in a["rows"]):
+        return '<div class="tp-slides tp-slides--empty"><strong>No assessment yet</strong><span>The baseline is taken at or before session 1; the reassessment at close-out.</span></div>'
+    def change(b, p):
+        mb, mp = re.fullmatch(r"(\d+)%", b), re.fullmatch(r"(\d+)%", p)
+        return f"{int(mp.group(1)) - int(mb.group(1)):+d} pts" if mb and mp else ""
+    pending = '<span class="sess__none">Pending</span>'
+    rows = "".join(f"<tr><th scope=\"row\">{esc(k)}</th><td>{esc(b) if b else pending}</td><td>{esc(p) if p else pending}</td><td>{change(b, p)}</td></tr>" for k, b, p in a["rows"])
+    return f'''<article class="tp-body"><h2>Baseline vs post-training</h2>
+<table class="assess-table"><thead><tr><th>Metric</th><th>Baseline</th><th>Post-training</th><th>Change</th></tr></thead><tbody>{rows}</tbody></table>
+<p class="sess__none">Self-assessment against the target level, taken at the start and again at the end of the programme.</p></article>'''
+
+
+def mentee_artifacts_panel(m):
+    """Files tab: HTML prototypes from artifacts/ embed inline; every other file is a plain hyperlink."""
+    out = []
+    for group, files in m["artifacts"].items():
+        embeds = [f for f in files if f["embed"]]
+        links = [f for f in files if not f["embed"]]
+        html_ = f'<h3 class="tp-hw__group">{esc(group)}</h3>'
+        for f in embeds:
+            html_ += (f'''<div class="art-embed"><div class="art-embed__bar"><strong>{esc(f["label"])}</strong>
+<a class="tp-meta__link" href="{f["url"]}" target="_blank" rel="noopener">Open full screen ↗</a></div>
+<iframe src="{f["url"]}" title="{esc(f["label"])}" loading="lazy" allowfullscreen></iframe></div>''')
+        if links:
+            html_ += '<ul class="file-links">' + "".join(
+                f'<li>{chip((f["ext"] or "file").upper()[:4], "primary")}<a href="{f["url"]}" target="_blank" rel="noopener">{esc(f["label"])}</a></li>' for f in links) + "</ul>"
+        out.append(html_)
+    return f'<div class="tp-hw">{"".join(out)}</div>'
+
+
+def mentee_homework_panel(m):
+    if not m["homework"]:
+        return '<div class="tp-slides tp-slides--empty"><strong>No homework yet</strong><span>Work from between sessions shows up here.</span></div>'
+    groups = []
+    for topic, files in m["homework"].items():
+        cards = []
+        for h in files:
+            if h["is_image"]:
+                cards.append(f'<a class="tp-hw__card" href="{h["url"]}" target="_blank" rel="noopener"><div class="tp-hw__thumb"><img src="{h["url"]}" alt="{esc(h["label"])}" loading="lazy"></div><div class="tp-hw__info"><strong>{esc(h["label"])}</strong></div></a>')
+            else:
+                cards.append(f'<a class="tp-hw__card" href="{h["url"]}" target="_blank" rel="noopener"><div class="tp-hw__thumb"><span class="file-card__ext">{esc(FILE_ICON.get(h["ext"], h["ext"].upper()[:4]))}</span></div><div class="tp-hw__info"><strong>{esc(h["label"])}</strong></div></a>')
+        groups.append(f'<h3 class="tp-hw__group">{esc(topic)}</h3><div class="tp-hw__grid">{"".join(cards)}</div>')
+    return f'<div class="tp-hw">{"".join(groups)}</div>'
+
+
+def build_mentee_page(m, lessons, programs=()):
+    initials = "".join(w[0] for w in m["name"].split()[:2]).upper()
+    n_sess = len(m["sessions_log"]) or len(m["slides"])
+    n_hw = sum(len(v) for v in m["homework"].values())
+    details = [("Status", m["status"]), ("Role" if m["role"] and not m["level"] else "Level", m["role"] or m["level"]), ("Target", m["target"]),
+               ("Dates", m["when"]), ("Cadence", m["cadence"]), ("Project focus", m["project"])]
+    details = [(k, v) for k, v in details if v]
+    prog_page = next((p for p in programs if p["slug"] == m["prog_slug"]), None)
+    cells_extra = f'<div><dt>Programme</dt><dd><a class="tp-meta__link" href="../programs/{prog_page["slug"]}.html">{esc(prog_page["title"])} →</a></dd></div>' if prog_page else ""
+    cols = " ".join(["minmax(0, 1fr)"] * (len(details) - 1 + bool(cells_extra)) + ["minmax(0, 1.8fr)"])
+    cells = cells_extra + "".join(f"<div><dt>{k}</dt><dd>{esc(v)}</dd></div>" for k, v in details)
+    info = f'<div class="tp-info"><dl class="tp-meta" style="--tp-cols: {cols}">{cells}</dl>{md_progress(m["logged"], m["planned"])}</div>'
+    n_slides = sum(len(v) for v in m["slides"].values()) + len(m["slides_other"])
+    tabs = [("overview", "Overview"), ("assessment", "Assessment"), ("sessions", f"Sessions ({n_sess})" if n_sess else "Sessions"),
+            ("slides", f"Slides ({n_slides})" if n_slides else "Slides"),
+            ("homework", f"Homework ({n_hw})" if n_hw else "Homework")]
+    n_art = sum(len(v) for v in m["artifacts"].values())
+    if n_art:   # the tab only exists when the folder has artifacts
+        tabs.append(("artifacts", f"Files ({n_art})"))
+    panels = {"overview": mentee_overview_panel(m), "assessment": mentee_assessment_panel(m), "sessions": mentee_sessions_panel(m, lessons), "slides": mentee_slides_panel(m, lessons), "homework": mentee_homework_panel(m), "artifacts": mentee_artifacts_panel(m) if n_art else ""}
+    btns = "".join(f'<button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="{k}" aria-selected="false">{esc(lab)}</button>' for k, lab in tabs)
+    panel_html = "".join(f'<section class="tp-panel" data-tab-panel data-tab-id="{k}" role="tabpanel" hidden>{panels[k]}</section>' for k, _ in tabs)
+    body = f"""<div class="tp">
+  <a class="tp-back" href="../private-training.html">← All mentees</a>
+  <header class="tp-head">
+    <div class="mentee-hero"><div class="avatar avatar--xl avatar--purple"><div class="avatar__inner">{esc(initials)}</div></div>
+    <div><h1 class="page-title">{esc(m['name'])}</h1>
+    <p class="page-desc">{esc(m['program'] or 'Program not set')}</p></div></div>
+    {info}
+  </header>
+  <div class="tabs tabs--pill tp-tabs"><div class="tabs__list" role="tablist">{btns}</div></div>
+  {panel_html}
+</div>
+{TAB_JS}"""
+    return page(f"{m['name']} — Private Training", body, 1, m["program"], body_cls="tp-white", active="mentees")
 
 
 def build_program_page(p, lessons_by_slug):
@@ -809,15 +1192,16 @@ TAB_JS = """<script>
     btns.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute(attr)); }); });
     return show;
   }
-  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === 'lesson' ? location.pathname : '#' + id); });
+  var firstTab = (document.querySelector('[data-tab-btn]') || {getAttribute: function () {}}).getAttribute('data-tab-id');
+  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === firstTab ? location.pathname : '#' + id); });
   var showVar = group('[data-var-btn]', '[data-var-panel]', 'data-var-id');
   var h = (location.hash || '').replace('#', '');
-  showTab(['slides', 'homework'].indexOf(h) > -1 && document.querySelector('[data-tab-id="' + h + '"]') ? h : 'lesson');
+  showTab(h && document.querySelector('[data-tab-btn][data-tab-id="' + h + '"]') ? h : firstTab);
   if (document.querySelector('[data-var-btn]')) showVar('0');
   var decks = [].slice.call(document.querySelectorAll('[data-deck-btn]'));
   decks.forEach(function (b) { b.addEventListener('click', function () {
     var f = document.getElementById('deck-frame'); f.src = b.dataset.src; document.getElementById('deck-open').href = b.dataset.src;
-    decks.forEach(function (x) { x.classList.toggle('tabs__tab--active', x === b); x.setAttribute('aria-selected', x === b); });
+    decks.forEach(function (x) { x.classList.toggle('deck-item--active', x === b); x.setAttribute('aria-pressed', x === b); });
   }); });
 })();
 </script>"""
@@ -852,19 +1236,36 @@ def variant_panel(l, v, idx, by_stem):
 </div>"""
 
 
+def deck_label(path):
+    """Card title for a deck: its <title> unless that is a tool default, else the humanised file name."""
+    try:
+        m = re.search(r"<title>(.*?)</title>", path.read_text(encoding="utf-8", errors="ignore")[:4000], re.S | re.I)
+    except OSError:
+        m = None
+    t = html.unescape(m.group(1)).strip() if m else ""
+    if not t or re.match(r"^(bundled page|untitled|index|document)$", t, re.I):
+        t = re.sub(r"\.dc$", "", path.stem).replace("_", " ")
+        if " " not in t:
+            t = t.replace("-", " ").capitalize()
+    return t
+
+
 def slides_panel(l):
     empty = '<div class="tp-slides tp-slides--empty"><strong>No slides yet</strong><span>Add a deck (.html) or .pdf to this lesson\'s <code>slides/</code> folder, or a <code>slides:</code> link in the lesson front matter.</span></div>'
     base = f"../assets/lessons/{quote(l['slug'])}/slides/"
     parts = []
     if l["decks"]:
         srcs = [base + quote(d.relative_to(l["folder"] / "slides").as_posix()) for d in l["decks"]]
-        picker = ""
+        viewer = f"""<div class="tp-slides"><iframe id="deck-frame" src="{srcs[0]}" title="Lesson slides" allowfullscreen loading="lazy"></iframe></div>
+<p class="tp-slides__link"><a id="deck-open" href="{srcs[0]}" target="_blank" rel="noopener">Open slides full screen ↗</a></p>"""
         if len(l["decks"]) > 1:
-            picker = '<div class="tabs tabs--pill deck-picker"><div class="tabs__list" role="tablist" aria-label="Choose a deck">' + "".join(
-                f'<button type="button" role="tab" class="tabs__tab{" tabs__tab--active" if i == 0 else ""}" data-deck-btn data-src="{src}">{esc(re.sub(chr(46) + "dc$", "", d.stem))}</button>'
-                for i, (d, src) in enumerate(zip(l["decks"], srcs))) + "</div></div>"
-        parts.append(f"""{picker}<div class="tp-slides"><iframe id="deck-frame" src="{srcs[0]}" title="Lesson slides" allowfullscreen loading="lazy"></iframe></div>
-<p class="tp-slides__link"><a id="deck-open" href="{srcs[0]}" target="_blank" rel="noopener">Open slides full screen ↗</a></p>""")
+            items = "".join(
+                f'<li><button type="button" class="deck-item{" deck-item--active" if i == 0 else ""}" data-deck-btn data-src="{src}" aria-pressed="{"true" if i == 0 else "false"}">'
+                f'<span class="deck-item__title">{esc(deck_label(d))}</span></button></li>'
+                for i, (d, src) in enumerate(zip(l["decks"], srcs)))
+            parts.append(f'<div class="deck-layout"><div class="deck-side" role="group" aria-label="Slide decks"><p class="deck-side__label">Decks ({len(l["decks"])})</p><ul>{items}</ul></div><div class="deck-main">{viewer}</div></div>')
+        else:
+            parts.append(viewer)
     if l["pdfs"] or l["links"]:
         cards = "".join(
             f'<a class="file-card" href="{base + quote(f.relative_to(l["folder"] / "slides").as_posix())}" target="_blank" rel="noopener"><span class="file-card__ext">PDF</span><strong>{esc(f.stem)}</strong><span>Open PDF ↗</span></a>'
@@ -880,12 +1281,14 @@ def homework_panel(l):
         return '<div class="tp-slides tp-slides--empty"><strong>No mentee homework yet</strong><span>Drop files in <code>Mentees/&lt;name&gt;/homework/%s/</code> and they show up here.</span></div>' % esc(l["slug"])
     cards = []
     for h in l["homework"]:
-        info = f'<div class="tp-hw__info"><strong>{esc(h["label"])}</strong><span>by {esc(h["mentee"])}</span></div>'
+        # sibling links (not nested): the file opens from the thumbnail, the name opens that mentee's Homework tab
+        info = (f'<div class="tp-hw__info"><strong>{esc(h["label"])}</strong>'
+                f'<span>by <a class="tp-meta__link" href="../mentees/{esc(h["mentee_dir"])}.html#homework">{esc(h["mentee"])}</a></span></div>')
         if h["is_image"]:
-            cards.append(f'<a class="tp-hw__card" href="{h["url"]}" target="_blank" rel="noopener"><div class="tp-hw__thumb"><img src="{h["url"]}" alt="{esc(h["label"])}" loading="lazy"></div>{info}</a>')
+            thumb = f'<img src="{h["url"]}" alt="{esc(h["label"])}" loading="lazy">'
         else:
-            ext = FILE_ICON.get(h["ext"], h["ext"].upper()[:4] or "FILE")
-            cards.append(f'<a class="tp-hw__card" href="{h["url"]}" target="_blank" rel="noopener"><div class="tp-hw__thumb"><span class="file-card__ext">{esc(ext)}</span></div>{info}</a>')
+            thumb = f'<span class="file-card__ext">{esc(FILE_ICON.get(h["ext"], h["ext"].upper()[:4] or "FILE"))}</span>'
+        cards.append(f'<div class="tp-hw__card tp-hw__card--link"><a class="tp-hw__thumb" href="{h["url"]}" target="_blank" rel="noopener">{thumb}</a>{info}</div>')
     return f'<div class="tp-hw"><div class="tp-hw__grid">{"".join(cards)}</div></div>'
 
 
@@ -981,12 +1384,80 @@ def copy_design_system():
         shutil.copy2(DESIGN_SYSTEM / "fonts" / f, OUT / "_System/fonts" / f)
 
 
+def mentee_health(mentees, lessons):
+    """Things worth fixing before publishing, per mentee. Returns [(mentee name, [message, ...])]."""
+    out = []
+    for m in mentees:
+        d = MENTEES / m["slug"]
+        w = []
+        if not (d / "mentee.md").exists():
+            w.append("no mentee.md (run `mentee.py migrate` or `new`)")
+        if not (d / "sessions.md").exists():
+            w.append("no sessions.md: sessions are guessed from README / recaps / file names")
+        if not m["has_plan"]:
+            w.append("no coaching plan in plan/")
+        if not m["baseline"] and m["status"] != "Not started" and not m["assessment"]["na"]:
+            w.append("no baseline assessment (fill the Baseline column in assessment.md; needed for the close-out comparison)")
+        if m["status"] == "Completed" and m["planned"] and m["logged"] < m["planned"]:
+            w.append(f"marked Completed but only {m['logged']} of {m['planned']} sessions are logged as Completed")
+        if m["status"] == "Completed" and not m["when"].count("–"):
+            w.append("marked Completed but mentee.md has no end date")
+        if not m["prog_slug"]:
+            w.append("not linked to a programme page (set programme_page in mentee.md)")
+        if m["status"] == "Completed" and not (m["assessment"]["na"] or any(p for k, _, p in m["assessment"]["rows"] if k == "Career readiness")):
+            w.append("marked Completed but no post-training assessment in assessment.md")
+        if not m["program"]:
+            w.append("no programme name (card shows 'Private training')")
+        if not m["goal"]:
+            w.append("no goal in mentee.md")
+        no_lesson, no_slides, no_play, no_date, orphan = [], [], [], [], []
+        known = {r["n"] for r in m["sessions_log"]}
+        for r in mentee_rows(m):
+            lesson = lesson_for(r, m, lessons)
+            if r["n"] not in known:
+                orphan.append(r["n"])
+            if not lesson:
+                no_lesson.append(r["n"])
+            if not r["decks"] and not (lesson and (lesson["decks"] or lesson["pdfs"])):
+                no_slides.append(r["n"])
+            if not m["playback"].get(r["n"]):
+                no_play.append(r["n"])
+            if not r["date"]:
+                no_date.append(r["n"])
+        fmt = lambda xs: ", ".join(map(str, xs))
+        if orphan:
+            w.append(f"slides exist for session(s) {fmt(orphan)} but they are not in sessions.md")
+        if no_lesson:
+            w.append(f"no matching lesson for session(s) {fmt(no_lesson)} (set the Lesson column)")
+        if no_slides:
+            w.append(f"no slides for session(s) {fmt(no_slides)}")
+        if no_play:
+            w.append(f"no playback for session(s) {fmt(no_play)}")
+        if no_date:
+            w.append(f"no date for session(s) {fmt(no_date)}")
+        if m["slides_other"]:
+            w.append("slide files not tied to a session: " + ", ".join(f["label"] for f in m["slides_other"]))
+        out.append((m["name"], w))
+    return out
+
+
+def print_health(report):
+    total = sum(len(w) for _, w in report)
+    print(f"\nMentee health check: {total} thing{'s' if total != 1 else ''} to look at" if total else "\nMentee health check: all clear")
+    for name, w in report:
+        if w:
+            print(f"  {name}")
+            for x in w:
+                print(f"    - {x}")
+    return total
+
+
 def build():
     FALLBACK_USED.clear()
     for needed in (DESIGN_SYSTEM, PROGRAMS_SRC, LESSONS_DIR):
         if not needed.exists():
             sys.exit(f"Missing folder: {needed}")
-    for d in ("lessons", "programs"):  # regenerate from scratch so removed lessons don't linger
+    for d in ("lessons", "programs", "mentees"):  # regenerate from scratch so removed lessons don't linger
         shutil.rmtree(OUT / d, ignore_errors=True)
         (OUT / d).mkdir(parents=True, exist_ok=True)
     shutil.rmtree(ASSETS / "lesson-assets", ignore_errors=True)
@@ -994,7 +1465,9 @@ def build():
 
     programs = load_programs()
     lessons = load_lessons()
+    MENTEE_PUBLISHED.clear()
     mentees = load_mentees()
+    prune_mentee_assets()
 
     stage_rank = {s: i for i, s in enumerate(STAGES.values())}
     lessons.sort(key=lambda l: (stage_rank.get(l["stage"], 99), l["title"].lower(), l["slug"]))
@@ -1017,6 +1490,8 @@ def build():
     (OUT / "lessons.html").write_text(build_lessons_index(lessons), encoding="utf-8")
     (OUT / "programs.html").write_text(build_programs_index(programs, counts), encoding="utf-8")
     (OUT / "private-training.html").write_text(build_mentees_page(mentees), encoding="utf-8")
+    for m in mentees:
+        (OUT / "mentees" / f"{m['slug']}.html").write_text(build_mentee_page(m, lessons, programs), encoding="utf-8")
     for p in programs:
         (OUT / "programs" / f"{p['slug']}.html").write_text(build_program_page(p, by_slug), encoding="utf-8")
     for l in lessons:
@@ -1026,6 +1501,7 @@ def build():
     (ASSETS / "build-stamp.txt").write_text(str(time.time_ns()), encoding="utf-8")  # written last: open pages reload on it
     pages = sum(1 for l in lessons if l["has_page"])
     soon = [l["title"] for l in lessons if not l["variants"]]
+    health_total = print_health(mentee_health(mentees, lessons)) if "--quiet" not in sys.argv else 0
     print(f"Built {len(programs)} programs, {len(lessons)} lesson cards ({pages} pages), {len(mentees)} mentees")
     for l in lessons:
         extras = []

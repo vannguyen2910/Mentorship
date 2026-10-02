@@ -301,15 +301,16 @@
     btns.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute(attr)); }); });
     return show;
   }
-  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === 'lesson' ? location.pathname : '#' + id); });
+  var firstTab = (document.querySelector('[data-tab-btn]') || {getAttribute: function () {}}).getAttribute('data-tab-id');
+  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === firstTab ? location.pathname : '#' + id); });
   var showVar = group('[data-var-btn]', '[data-var-panel]', 'data-var-id');
   var h = (location.hash || '').replace('#', '');
-  showTab(['slides', 'homework'].indexOf(h) > -1 && document.querySelector('[data-tab-id="' + h + '"]') ? h : 'lesson');
+  showTab(h && document.querySelector('[data-tab-btn][data-tab-id="' + h + '"]') ? h : firstTab);
   if (document.querySelector('[data-var-btn]')) showVar('0');
   var decks = [].slice.call(document.querySelectorAll('[data-deck-btn]'));
   decks.forEach(function (b) { b.addEventListener('click', function () {
     var f = document.getElementById('deck-frame'); f.src = b.dataset.src; document.getElementById('deck-open').href = b.dataset.src;
-    decks.forEach(function (x) { x.classList.toggle('tabs__tab--active', x === b); x.setAttribute('aria-selected', x === b); });
+    decks.forEach(function (x) { x.classList.toggle('deck-item--active', x === b); x.setAttribute('aria-pressed', x === b); });
   }); });
 })();
 </script>

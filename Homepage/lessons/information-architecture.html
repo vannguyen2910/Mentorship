@@ -296,8 +296,8 @@ Jobs-to-Be-Done gives you the lens for evaluating a flow. For each step in the f
 <hr />
 <p><em>Lesson: Information Architecture · Part of the 8-session UX Mentoring Program</em></p></article>
   </div>
-</div></section><section class="tp-panel" data-tab-panel data-tab-id="slides" role="tabpanel" hidden><div class="tabs tabs--pill deck-picker"><div class="tabs__list" role="tablist" aria-label="Choose a deck"><button type="button" role="tab" class="tabs__tab tabs__tab--active" data-deck-btn data-src="../assets/lessons/information-architecture/slides/information-architecture-slides.html">information-architecture-slides</button><button type="button" role="tab" class="tabs__tab" data-deck-btn data-src="../assets/lessons/information-architecture/slides/information-architecture.html">information-architecture</button></div></div><div class="tp-slides"><iframe id="deck-frame" src="../assets/lessons/information-architecture/slides/information-architecture-slides.html" title="Lesson slides" allowfullscreen loading="lazy"></iframe></div>
-<p class="tp-slides__link"><a id="deck-open" href="../assets/lessons/information-architecture/slides/information-architecture-slides.html" target="_blank" rel="noopener">Open slides full screen ↗</a></p><h3 class="tp-hw__group" style="margin-top:var(--space-10)">Other formats</h3><div class="file-grid"><a class="file-card" href="../assets/lessons/information-architecture/slides/information-architecture-slides.pdf" target="_blank" rel="noopener"><span class="file-card__ext">PDF</span><strong>information-architecture-slides</strong><span>Open PDF ↗</span></a></div></section><section class="tp-panel" data-tab-panel data-tab-id="homework" role="tabpanel" hidden><div class="tp-slides tp-slides--empty"><strong>No mentee homework yet</strong><span>Drop files in <code>Mentees/&lt;name&gt;/homework/information-architecture/</code> and they show up here.</span></div></section>
+</div></section><section class="tp-panel" data-tab-panel data-tab-id="slides" role="tabpanel" hidden><div class="deck-layout"><div class="deck-side" role="group" aria-label="Slide decks"><p class="deck-side__label">Decks (2)</p><ul><li><button type="button" class="deck-item deck-item--active" data-deck-btn data-src="../assets/lessons/information-architecture/slides/information-architecture-slides.html" aria-pressed="true"><span class="deck-item__title">Session 4 · Information Architecture — Winnie Nguyen</span></button></li><li><button type="button" class="deck-item" data-deck-btn data-src="../assets/lessons/information-architecture/slides/information-architecture.html" aria-pressed="false"><span class="deck-item__title">Information Architecture — Winnie Nguyen</span></button></li></ul></div><div class="deck-main"><div class="tp-slides"><iframe id="deck-frame" src="../assets/lessons/information-architecture/slides/information-architecture-slides.html" title="Lesson slides" allowfullscreen loading="lazy"></iframe></div>
+<p class="tp-slides__link"><a id="deck-open" href="../assets/lessons/information-architecture/slides/information-architecture-slides.html" target="_blank" rel="noopener">Open slides full screen ↗</a></p></div></div><h3 class="tp-hw__group" style="margin-top:var(--space-10)">Other formats</h3><div class="file-grid"><a class="file-card" href="../assets/lessons/information-architecture/slides/information-architecture-slides.pdf" target="_blank" rel="noopener"><span class="file-card__ext">PDF</span><strong>information-architecture-slides</strong><span>Open PDF ↗</span></a></div></section><section class="tp-panel" data-tab-panel data-tab-id="homework" role="tabpanel" hidden><div class="tp-slides tp-slides--empty"><strong>No mentee homework yet</strong><span>Drop files in <code>Mentees/&lt;name&gt;/homework/information-architecture/</code> and they show up here.</span></div></section>
   
 </div>
 <script>
@@ -312,15 +312,16 @@ Jobs-to-Be-Done gives you the lens for evaluating a flow. For each step in the f
     btns.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute(attr)); }); });
     return show;
   }
-  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === 'lesson' ? location.pathname : '#' + id); });
+  var firstTab = (document.querySelector('[data-tab-btn]') || {getAttribute: function () {}}).getAttribute('data-tab-id');
+  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === firstTab ? location.pathname : '#' + id); });
   var showVar = group('[data-var-btn]', '[data-var-panel]', 'data-var-id');
   var h = (location.hash || '').replace('#', '');
-  showTab(['slides', 'homework'].indexOf(h) > -1 && document.querySelector('[data-tab-id="' + h + '"]') ? h : 'lesson');
+  showTab(h && document.querySelector('[data-tab-btn][data-tab-id="' + h + '"]') ? h : firstTab);
   if (document.querySelector('[data-var-btn]')) showVar('0');
   var decks = [].slice.call(document.querySelectorAll('[data-deck-btn]'));
   decks.forEach(function (b) { b.addEventListener('click', function () {
     var f = document.getElementById('deck-frame'); f.src = b.dataset.src; document.getElementById('deck-open').href = b.dataset.src;
-    decks.forEach(function (x) { x.classList.toggle('tabs__tab--active', x === b); x.setAttribute('aria-selected', x === b); });
+    decks.forEach(function (x) { x.classList.toggle('deck-item--active', x === b); x.setAttribute('aria-pressed', x === b); });
   }); });
 })();
 </script>

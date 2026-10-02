@@ -28,7 +28,7 @@
   <header class="tp-head">
     <h1 class="page-title">Design Thinking for UX Designer</h1>
     <p class="page-desc">From solving requirements to solving real problems</p>
-    <div class="used"><span>Taught in</span><a class="used__chip" href="../programs/ui-ux-fundamentals.html">UI/UX Design Fundamentals · session 01</a><a class="used__chip" href="../programs/junior-to-mid-level.html">Product Design Roadmap to Mid-Level · session 01</a></div>
+    <div class="used"><span>Taught in</span><a class="used__chip" href="../programs/ui-ux-fundamentals.html">UI/UX Design Fundamentals · session 01</a><a class="used__chip" href="../programs/junior-to-mid-level.html">Product Design Roadmap to Mid-Level · session 01</a><a class="used__chip" href="../programs/mid-to-senior.html">Product Design Roadmap to Senior · session 01</a></div>
     <div class="tp-info" data-var-panel data-var-id="0"><dl class="tp-meta" style="--tp-cols: repeat(4, minmax(0, 1fr)) minmax(0, 1.8fr)"><div><dt>Stage</dt><dd>Foundation</dd></div><div><dt>Level</dt><dd>All levels</dd></div><div><dt>Duration</dt><dd>90 min</dd></div><div><dt>Date</dt><dd>24 Jun 2026</dd></div><div><dt>Source file</dt><dd><code>design-thinking-lesson.md</code></dd></div><div class="tp-meta__tags"><dt>Topics</dt><dd><span>design-thinking</span><span>empathise</span><span>define</span><span>ideate</span><span>prototype</span><span>test</span></dd></div></dl></div>
   </header>
   <div class="tabs tabs--pill tp-tabs"><div class="tabs__list" role="tablist"><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="lesson" aria-selected="false">Lesson</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="slides" aria-selected="false">Slides (1)</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="homework" aria-selected="false">Homework (2)</button></div></div>
@@ -402,7 +402,7 @@ Open the shared FigJam board (or your own Notion template). You'll see a 5-colum
 <p><em>Created by Winnie Nguyen · UX Class · Last updated June 2026</em></p></article>
   </div>
 </div></section><section class="tp-panel" data-tab-panel data-tab-id="slides" role="tabpanel" hidden><div class="tp-slides"><iframe id="deck-frame" src="../assets/lessons/design-thinking/slides/Design%20Thinking%20for%20UX%20Designer.dc.html" title="Lesson slides" allowfullscreen loading="lazy"></iframe></div>
-<p class="tp-slides__link"><a id="deck-open" href="../assets/lessons/design-thinking/slides/Design%20Thinking%20for%20UX%20Designer.dc.html" target="_blank" rel="noopener">Open slides full screen ↗</a></p></section><section class="tp-panel" data-tab-panel data-tab-id="homework" role="tabpanel" hidden><div class="tp-hw"><div class="tp-hw__grid"><a class="tp-hw__card" href="../assets/homework/design-thinking/anh-truong/Anh-Truong-Strand-Butler-Process.png" target="_blank" rel="noopener"><div class="tp-hw__thumb"><img src="../assets/homework/design-thinking/anh-truong/Anh-Truong-Strand-Butler-Process.png" alt="Strand Butler Process" loading="lazy"></div><div class="tp-hw__info"><strong>Strand Butler Process</strong><span>by Anh</span></div></a><a class="tp-hw__card" href="../assets/homework/design-thinking/tam-nguyen/Tam-Nguyen-Design-Process-Double-Diamond.png" target="_blank" rel="noopener"><div class="tp-hw__thumb"><img src="../assets/homework/design-thinking/tam-nguyen/Tam-Nguyen-Design-Process-Double-Diamond.png" alt="Design Process Double Diamond" loading="lazy"></div><div class="tp-hw__info"><strong>Design Process Double Diamond</strong><span>by Tam</span></div></a></div></div></section>
+<p class="tp-slides__link"><a id="deck-open" href="../assets/lessons/design-thinking/slides/Design%20Thinking%20for%20UX%20Designer.dc.html" target="_blank" rel="noopener">Open slides full screen ↗</a></p></section><section class="tp-panel" data-tab-panel data-tab-id="homework" role="tabpanel" hidden><div class="tp-hw"><div class="tp-hw__grid"><div class="tp-hw__card tp-hw__card--link"><a class="tp-hw__thumb" href="../assets/homework/design-thinking/anh-truong/Anh-Truong-Strand-Butler-Process.png" target="_blank" rel="noopener"><img src="../assets/homework/design-thinking/anh-truong/Anh-Truong-Strand-Butler-Process.png" alt="Strand Butler Process" loading="lazy"></a><div class="tp-hw__info"><strong>Strand Butler Process</strong><span>by <a class="tp-meta__link" href="../mentees/anh-truong.html#homework">Anh</a></span></div></div><div class="tp-hw__card tp-hw__card--link"><a class="tp-hw__thumb" href="../assets/homework/design-thinking/tam-nguyen/Tam-Nguyen-Design-Process-Double-Diamond.png" target="_blank" rel="noopener"><img src="../assets/homework/design-thinking/tam-nguyen/Tam-Nguyen-Design-Process-Double-Diamond.png" alt="Design Process Double Diamond" loading="lazy"></a><div class="tp-hw__info"><strong>Design Process Double Diamond</strong><span>by <a class="tp-meta__link" href="../mentees/tam-nguyen.html#homework">Tam</a></span></div></div></div></div></section>
   <section class="tp-related"><h2>Related lessons</h2><div class="tp-related__grid"><a class="tp-related__card" href="customer-understanding.html"><span>Next lesson</span><strong>Customer Understanding</strong></a></div></section>
 </div>
 <script>
@@ -417,15 +417,16 @@ Open the shared FigJam board (or your own Notion template). You'll see a 5-colum
     btns.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute(attr)); }); });
     return show;
   }
-  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === 'lesson' ? location.pathname : '#' + id); });
+  var firstTab = (document.querySelector('[data-tab-btn]') || {getAttribute: function () {}}).getAttribute('data-tab-id');
+  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === firstTab ? location.pathname : '#' + id); });
   var showVar = group('[data-var-btn]', '[data-var-panel]', 'data-var-id');
   var h = (location.hash || '').replace('#', '');
-  showTab(['slides', 'homework'].indexOf(h) > -1 && document.querySelector('[data-tab-id="' + h + '"]') ? h : 'lesson');
+  showTab(h && document.querySelector('[data-tab-btn][data-tab-id="' + h + '"]') ? h : firstTab);
   if (document.querySelector('[data-var-btn]')) showVar('0');
   var decks = [].slice.call(document.querySelectorAll('[data-deck-btn]'));
   decks.forEach(function (b) { b.addEventListener('click', function () {
     var f = document.getElementById('deck-frame'); f.src = b.dataset.src; document.getElementById('deck-open').href = b.dataset.src;
-    decks.forEach(function (x) { x.classList.toggle('tabs__tab--active', x === b); x.setAttribute('aria-selected', x === b); });
+    decks.forEach(function (x) { x.classList.toggle('deck-item--active', x === b); x.setAttribute('aria-pressed', x === b); });
   }); });
 })();
 </script>
