@@ -50,7 +50,7 @@ Topic folders keep their original names inside their stage folder (e.g. `01-disc
 | `03-develop/information-architecture/slides/information-architecture.html` | Information Architecture | UX Mentoring | — | ✅ Ready |
 | `03-develop/ui-fundamentals/materials/ui-fundamentals-lesson.md` | UI Fundamentals (Judging design decisions you didn't make) | Standalone | Junior | 🚧 Draft |
 | `03-develop/design-framework/materials/design-framework-lesson.md` | Design Once. Use Everywhere. (Atomic Design) | UX Class | Intermediate | 🚧 Draft |
-| `03-develop/ai-prototype-development/materials/ai-prototype-development-lesson.md` | Build the Pattern First (AI Prototype Development) | UX Class | Intermediate | 🚧 Draft |
+| `03-develop/ai-prototype-development/materials/ai-prototype-development-lesson.md` | AI Prototype Development | UX Class | Intermediate | 🚧 Draft |
 | `03-develop/develop-solutions-ideate/materials/develop-solutions-ideate-lesson.md` | Develop Solutions & Ideate | UX Class / Private | — | ✅ Ready |
 | `03-develop/interaction-design-user-flows/materials/interaction-design-user-flows-lesson.md` | Interaction Design & User Flows | UX Class / Private | Intermediate | ✅ Ready |
 | `04-deliver/solution-validation-user-testing/materials/solution-validation-user-testing-lesson.md` | Solution Validation & User Testing | UX Class | Intermediate | ✅ Ready |

@@ -58,6 +58,15 @@ def parse_library_data():
     return json.loads(array_text)
 
 
+_STAGE_BY_FOLDER = {"00-foundation": "Foundation", "01-discover": "Discover",
+                    "02-define": "Define", "03-develop": "Develop", "04-deliver": "Deliver"}
+
+
+def _stage_from_path(path):
+    parts = path.replace("\\", "/").split("/")
+    return _STAGE_BY_FOLDER.get(parts[1]) if len(parts) > 2 and parts[0] == "lessons" else None
+
+
 def write_library_data(materials):
     original = LIBRARY_DATA_PATH.read_text(encoding="utf-8")
     lines = ["window.LIBRARY_DATA = [\n\n"]
@@ -80,6 +89,9 @@ def write_library_data(materials):
         lines.append(f'    file: "{m.get("file", "")}",\n')
         if m.get("page"):
             lines.append(f'    page: "{m["page"]}",\n')
+        stage = m.get("stage") or _stage_from_path(m.get("file") or m.get("page") or "")
+        if m["type"] == "lesson" and stage:
+            lines.append(f'    stage: "{stage}",\n')
         if m.get("crossRef"):
             cr_parts = ", ".join(
                 '{ id: ' + str(cr["id"]) + ', rel: "' + cr["rel"] + '" }'

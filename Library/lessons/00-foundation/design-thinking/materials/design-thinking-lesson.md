@@ -11,7 +11,7 @@ draft: false
 slides: ""
 previous-session: ""
 next-session: "Customer Understanding"
-programs: [ui-ux-fundamentals:01, junior-to-mid-level:01]
+programs: [ui-ux-fundamentals:01, junior-to-mid-level:01, mid-to-senior:01]
 ---
 
 ## Overview

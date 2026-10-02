@@ -60,6 +60,7 @@ window.LIBRARY_DATA = [
     date: "Apr 2026",
     file: "lessons/02-define/synthesis-problem-definition-in-ux/materials/synthesis-problem-definition-in-ux-lesson.md",
     page: "lessons/02-define/synthesis-problem-definition-in-ux/slides/synthesis-problem-definition-in-ux.html",
+    stage: "Define",
     crossRef: [{ id: 6, rel: "requires" }, { id: 3, rel: "uses" }, { id: 8, rel: "companion" }]
   },
 
@@ -81,6 +82,7 @@ window.LIBRARY_DATA = [
     date: "Mar 2025",
     file: "",
     page: "lessons/00-foundation/mental-models-in-ux-design/slides/mental-models-in-ux-design.html",
+    stage: "Foundation",
     crossRef: [{ id: 4, rel: "companion" }, { id: 7, rel: "extends" }]
   },
 
@@ -228,6 +230,7 @@ window.LIBRARY_DATA = [
     date: "Apr 2026",
     file: "",
     page: "lessons/03-develop/information-architecture/slides/information-architecture.html",
+    stage: "Develop",
     crossRef: [{ id: 18, rel: "extends" }]
   },
 
@@ -249,6 +252,7 @@ window.LIBRARY_DATA = [
     prerequisites: ["Evaluate Current Experience (evaluation.md); seniors may skip via fast-track", "Raw assumptions list from prior session"],
     date: "Aug 2026",
     file: "lessons/01-discover/desk-research/materials/desk-research-lesson.md",
+    stage: "Discover",
     crossRef: [{ id: 12, rel: "companion" }]
   },
 
@@ -270,6 +274,7 @@ window.LIBRARY_DATA = [
     prerequisites: [],
     date: "Jun 2026",
     file: "lessons/01-discover/customer-understanding/materials/customer-understanding-lesson.md",
+    stage: "Discover",
     crossRef: [{ id: 13, rel: "requires" }]
   },
 
@@ -291,6 +296,7 @@ window.LIBRARY_DATA = [
     prerequisites: ["Desk Research (Assumption Map, insight statements)"],
     date: "Aug 2026",
     file: "lessons/01-discover/customer-understanding/materials/customer-understanding-senior-lesson.md",
+    stage: "Discover",
     crossRef: [{ id: 10, rel: "requires" }]
   },
 
@@ -312,6 +318,7 @@ window.LIBRARY_DATA = [
     prerequisites: [],
     date: "Jun 2026",
     file: "lessons/00-foundation/design-thinking/materials/design-thinking-lesson.md",
+    stage: "Foundation",
     crossRef: [{ id: 11, rel: "companion" }, { id: 14, rel: "companion" }]
   },
 
@@ -333,6 +340,7 @@ window.LIBRARY_DATA = [
     prerequisites: ["Design Thinking for UX Designer"],
     date: "Jul 2026",
     file: "lessons/00-foundation/ai-workflow-for-ux-designers/materials/ai-workflow-for-ux-designers-lesson.md",
+    stage: "Foundation",
     crossRef: [{ id: 13, rel: "requires" }]
   },
 
@@ -354,6 +362,7 @@ window.LIBRARY_DATA = [
     prerequisites: ["A validated concept from user/stakeholder feedback"],
     date: "May 2026",
     file: "lessons/03-develop/design-framework/materials/design-framework-lesson.md",
+    stage: "Develop",
     crossRef: [{ id: 16, rel: "requires" }]
   },
 
@@ -377,6 +386,7 @@ window.LIBRARY_DATA = [
     prerequisites: ["One real screen from their own work", "Access to their team's components, in whatever state"],
     date: "September 2026",
     file: "lessons/03-develop/ui-fundamentals/materials/ui-fundamentals-lesson.md",
+    stage: "Develop",
     crossRef: [{ id: 15, rel: "related" }]
   },
 
@@ -384,7 +394,7 @@ window.LIBRARY_DATA = [
     id: 16,
     type: "lesson",
     program: "ux-class",
-    title: "Build the Pattern First",
+    title: "AI Prototype Development",
     description: "Prototyping with AI as a collaborator, not a generator: define the component inventory and interaction pattern first, then have an AI coding tool assemble a working, browser-viewable prototype from it.",
     audience: "Intermediate",
     duration: "90 min",
@@ -398,6 +408,7 @@ window.LIBRARY_DATA = [
     prerequisites: ["Design Once. Use Everywhere. (Atomic Design)"],
     date: "Jun 2026",
     file: "lessons/03-develop/ai-prototype-development/materials/ai-prototype-development-lesson.md",
+    stage: "Develop",
     crossRef: [{ id: 15, rel: "requires" }, { id: 19, rel: "companion" }]
   },
 
@@ -419,6 +430,7 @@ window.LIBRARY_DATA = [
     prerequisites: ["A defined problem statement or research insight"],
     date: "Jun 2026",
     file: "lessons/03-develop/develop-solutions-ideate/materials/develop-solutions-ideate-lesson.md",
+    stage: "Develop",
     crossRef: []
   },
 
@@ -440,6 +452,7 @@ window.LIBRARY_DATA = [
     prerequisites: ["Information Architecture (user flow shape language, happy path, swimlanes)"],
     date: "May 2026",
     file: "lessons/03-develop/interaction-design-user-flows/materials/interaction-design-user-flows-lesson.md",
+    stage: "Develop",
     crossRef: [{ id: 9, rel: "requires" }]
   },
 
@@ -458,9 +471,10 @@ window.LIBRARY_DATA = [
       "Facilitate a moderated usability session using the think-aloud protocol",
       "Synthesise findings into prioritised recommendations using the Feedback Capture Grid",
     ],
-    prerequisites: ["Build the Pattern First (AI Prototype Development)"],
+    prerequisites: ["AI Prototype Development"],
     date: "Jun 2026",
     file: "lessons/04-deliver/solution-validation-user-testing/materials/solution-validation-user-testing-lesson.md",
+    stage: "Deliver",
     crossRef: [{ id: 16, rel: "requires" }]
   },
 
@@ -484,11 +498,12 @@ window.LIBRARY_DATA = [
     prerequisites: ["Customer Understanding (Senior / Lead): JTBD map, insight statements"],
     date: "Aug 2026",
     file: "lessons/02-define/problem-definition-strategy/materials/problem-definition-strategy-lesson.md",
+    stage: "Define",
     crossRef: [{ id: 12, rel: "requires" }, { id: 1, rel: "companion" }]
   },
 
   {
-    id: 21,
+    id: 22,
     type: "guide",
     program: "private",
     title: "Publish Your Work — Git & GitHub for Non-Technical Designers",
@@ -503,11 +518,85 @@ window.LIBRARY_DATA = [
       "Prompt an AI coding tool to run the same publish workflow end-to-end",
       "Recover from a bad commit — discard an uncommitted change or amend a bad one — using GitHub Desktop",
     ],
-    prerequisites: ["Build the Pattern First (AI Prototype Development)"],
+    prerequisites: ["AI Prototype Development"],
     date: "Sep 2026",
-    file: "guides/publish-your-work-git-github-for-non-technical-designers/learning/index.md",
+    file: "",
     page: "guides/publish-your-work-git-github-for-non-technical-designers/publish-your-work-git-github-for-non-technical-designers.html",
     crossRef: [{ id: 16, rel: "extends" }]
+  },
+
+  {
+    id: 23,
+    type: "lesson",
+    program: "private",
+    title: "Evaluate Current Experience",
+    description: "Judge an existing experience against clear principles, with evidence you can show. Pick the right evaluation method, run a heuristic evaluation, attach evidence and severity to every issue, then use AI as an assistant only after the manual pass.",
+    audience: "Beginner",
+    duration: "90 min",
+    tags: ["Evaluation", "Heuristic Evaluation", "Severity Rating", "WCAG", "Usability", "Draft"],
+    objectives: [
+      "Choose an evaluation method that fits the stage the project is in",
+      "Judge a flow against Nielsen's 10 usability heuristics with evidence for each issue",
+      "Rate issues by severity so the biggest problems rise to the top",
+      "Use AI to brainstorm missed issues and structure findings, after the manual pass",
+    ],
+    prerequisites: ["Design Thinking for UX Designer"],
+    date: "Oct 2026",
+    file: "lessons/01-discover/evaluate-current-experience/materials/evaluate-current-experience-lesson.md",
+    stage: "Discover",
+    crossRef: [{ id: 13, rel: "requires" }, { id: 11, rel: "companion" }]
+  },
+
+  {
+    id: 24,
+    type: "lesson",
+    program: "private",
+    title: "Systematic AI Prototyping",
+    description: "Draft placeholder: the Deliver-stage lesson on prototyping with AI in a repeatable, systematic way. Content not yet written.",
+    audience: "Intermediate",
+    duration: "",
+    tags: ["AI Prototyping", "Draft"],
+    objectives: [
+    ],
+    prerequisites: ["AI Prototype Development"],
+    date: "2026",
+    file: "lessons/04-deliver/systematic-ai-prototyping/materials/index.md",
+    stage: "Deliver",
+    crossRef: [{ id: 16, rel: "extends" }]
+  },
+
+  {
+    id: 25,
+    type: "lesson",
+    program: "private",
+    title: "Change Management",
+    description: "Draft placeholder for the leader-level lesson on change management. Only a slide-outline stub exists so far.",
+    audience: "Advanced",
+    duration: "",
+    tags: ["Leadership", "Change Management", "Draft"],
+    objectives: [
+    ],
+    prerequisites: [],
+    date: "Apr 2026",
+    file: "lessons/leader-level/change-management/README.md",
+    crossRef: []
+  },
+
+  {
+    id: 26,
+    type: "lesson",
+    program: "both",
+    title: "Estimating & Communicating Design Effort",
+    description: "Brainstorm for a 90-minute leader-level session: how a senior or lead designer estimates design effort, allocates work across junior and mid-level designers, and communicates that effort to stakeholders. Prep material, not yet a full lesson.",
+    audience: "Advanced",
+    duration: "90 min",
+    tags: ["Leadership", "Estimation", "Stakeholders", "Draft"],
+    objectives: [
+    ],
+    prerequisites: [],
+    date: "Aug 2026",
+    file: "lessons/leader-level/estimating-design-effort/materials/estimating-design-effort-brainstorm.md",
+    crossRef: []
   }
 
 ];
