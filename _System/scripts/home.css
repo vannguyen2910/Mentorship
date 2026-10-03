@@ -170,3 +170,20 @@ a.tp-hw__thumb { text-decoration: none; color: inherit; }
 .file-links li { display: flex; align-items: center; gap: var(--space-3); }
 .file-links a { color: var(--purple); font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
 .file-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Roadmap: Material Design data table (flat, 1px row dividers, 52px rows, 14px body, muted medium-weight header) */
+.md-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 20px; color: var(--text-primary); }
+.md-table th, .md-table td { height: 52px; padding: 0 16px; text-align: left; vertical-align: middle; border: 0; border-bottom: 1px solid var(--border-default); background: transparent; }
+.md-table thead th { height: 56px; font-size: 12px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; color: var(--text-secondary); }
+.md-table tbody th { font-weight: 400; color: var(--text-secondary); width: 48px; }
+.md-table tbody tr:hover { background: rgba(127, 127, 127, .06); }
+.md-table tr.is-next { background: rgba(127, 127, 255, .10); }
+.md-table tr.is-done td, .md-table tr.is-done th { color: var(--text-tertiary); }
+.md-table td strong { font-weight: 500; }
+.md-table .chip { white-space: nowrap; }
+
+/* Mentee cards: enrolled / end date */
+.mentee-card__dates { display: flex; gap: var(--space-6); margin: var(--space-3) 0 0; padding-top: var(--space-3); border-top: 1px solid var(--border-default); }
+.mentee-card__dates dt { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .04em; color: var(--text-tertiary); }
+.mentee-card__dates dd { margin: 2px 0 0; font-size: var(--text-sm); color: var(--text-primary); }
+.md-table .md-nowrap { white-space: nowrap; }
