@@ -283,7 +283,7 @@ def sync_tree(src, dest):
     want = set()
     if src.exists():
         for f in sorted(src.rglob("*")):
-            if f.is_file() and not any(part.startswith((".", "_")) for part in f.relative_to(src).parts):
+            if f.is_file() and not any(part.startswith((".", "_")) and not part.startswith("_ds") for part in f.relative_to(src).parts):  # _ds = deck design-system files (tokens, fonts)
                 rel = f.relative_to(src)
                 want.add(rel)
                 sync_file(f, dest / rel)
