@@ -1,5 +1,5 @@
 ---
-title: "Build the Pattern First"
+title: "AI Prototype Development"
 type: lesson
 stage: Develop
 level: "Intermediate"
@@ -22,7 +22,7 @@ Lesson 2 ended with four files and a navigable `design-system.html`, and no scre
 
 **What this lesson is honest about, in two places.** First, the rules handed over at the start are not the student's yet — they come from someone else's experience, and only the ones they rewrite after their first build will survive contact with a deadline. Second, "update one template and the whole prototype updates" is true of exactly one layer — tokens — and a governed prompt everywhere else. Both are taught as stated limits rather than glossed.
 
-**This lesson runs on top of `03-develop/ai-prototype-development-lesson.md` ("Build the Pattern First")**, same relationship Lessons 1 and 2 have to it — but it deliberately **departs from that lesson's Phase 4 Step 6**, which says to build one screen at a time. See *Why not screen-by-screen any more* below; the departure is reasoned, not accidental, and should be said out loud to a student who has read the source lesson.
+**This lesson runs on top of `03-develop/ai-prototype-development-lesson.md` ("AI Prototype Development")**, same relationship Lessons 1 and 2 have to it — but it deliberately **departs from that lesson's Phase 4 Step 6**, which says to build one screen at a time. See *Why not screen-by-screen any more* below; the departure is reasoned, not accidental, and should be said out loud to a student who has read the source lesson.
 
 ## Session Structure
 
@@ -468,7 +468,7 @@ Give this to the student as a starting shape, not a finished file. After segment
 
 ## Connection to Curriculum
 
-A private-training adaptation layer on top of `03-develop/ai-prototype-development-lesson.md` ("Build the Pattern First") — Phase 4 Steps 2 and 5 and the whole "Concept Extension — Stitching Prototypes," re-paced for 1:1 delivery and picking up exactly where Lesson 2 ends.
+A private-training adaptation layer on top of `03-develop/ai-prototype-development-lesson.md` ("AI Prototype Development") — Phase 4 Steps 2 and 5 and the whole "Concept Extension — Stitching Prototypes," re-paced for 1:1 delivery and picking up exactly where Lesson 2 ends.
 
 **A deliberate departure from the source lesson:** Phase 4 Step 6's "build one screen at a time" is not taught here. With tokens, a component inventory, templates and a rules file all in place, the constraint that used to come from sequencing now comes from the system, so the journey builds in one pass. The reasoning is spelled out in the lesson body rather than left implicit.
 

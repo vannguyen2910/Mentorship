@@ -8,7 +8,7 @@ duration: "90 min"
 date: 2026-06-27
 tags: [user-testing, solution-validation, usability, moderated, unmoderated, synthesis]
 draft: false
-previous-session: "Build the Pattern First (AI Prototype Development)"
+previous-session: "AI Prototype Development (AI Prototype Development)"
 next-session: "Reflection & Next Steps"
 recovered: "rebuilt from the rendered lesson page of 2026-10-02 (not the original file); check formatting"
 programs: [junior-to-mid-level:08, mid-to-senior:08]

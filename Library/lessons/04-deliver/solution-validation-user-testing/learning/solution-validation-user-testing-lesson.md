@@ -9,7 +9,7 @@ duration: "90 min"
 date: 2026-06-27
 draft: false
 slides: ""
-previous-session: "Build the Pattern First (AI Prototype Development)"
+previous-session: "AI Prototype Development (AI Prototype Development)"
 next-session: "Reflection & Next Steps"
 ---
 

@@ -6,7 +6,7 @@ Two layers live here: the standalone method lesson, and the private-training arc
 
 | File | What it is | Status |
 |---|---|---|
-| `ai-prototype-development-lesson.md` | "Build the Pattern First" — canonical method: AI foundations, mindset reframe, component inventory, interaction pattern, build/edit prompts, stitching | Complete |
+| `ai-prototype-development-lesson.md` | "AI Prototype Development" — canonical method: AI foundations, mindset reframe, component inventory, interaction pattern, build/edit prompts, stitching | Complete |
 | `ai-prototype-development-slide-outline.md` | Paired slide outline for the above | Complete |
 
 ## Private-training arc (4 lessons, 1:1, weekly)

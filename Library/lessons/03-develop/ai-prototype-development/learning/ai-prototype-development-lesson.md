@@ -1,5 +1,5 @@
 ---
-title: "Build the Pattern First"
+title: "AI Prototype Development"
 subtitle: "How to use AI and your design system to prototype smarter — not screen by screen"
 type: lesson
 program: ux-class

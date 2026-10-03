@@ -1,5 +1,5 @@
 ---
-title: "Build the Pattern First"
+title: "AI Prototype Development"
 type: lesson
 stage: Develop
 level: "Intermediate"
@@ -20,7 +20,7 @@ Lesson 1 named the Design Pattern — tokens, component inventory, template — 
 
 **Three ways to get there, same destination.** A student with Figma MCP set up reads the design file directly (Method A). A student without it pastes what they have into their AI coding tool and has it generate the same output (Method B). A student whose team's design system already lives in code points the tool at the repository instead (Method C). None is a lesser fallback. Confirm which applies at the setup step and walk only that path — a given student runs exactly one.
 
-**This lesson runs on top of `03-develop/ai-prototype-development-lesson.md` ("Build the Pattern First"), not alongside it** — same relationship Lesson 1 has to it. The Pre-Flight checklist and the token-sync and component-inventory prompts are that lesson's Phase 4 Steps 1, 3 and 4, run as written. What's new here: the three-method framing, one coded template per pattern type, consolidating everything into one demoable page, and the interaction pattern taught as its own concept rather than a single prompt.
+**This lesson runs on top of `03-develop/ai-prototype-development-lesson.md` ("AI Prototype Development"), not alongside it** — same relationship Lesson 1 has to it. The Pre-Flight checklist and the token-sync and component-inventory prompts are that lesson's Phase 4 Steps 1, 3 and 4, run as written. What's new here: the three-method framing, one coded template per pattern type, consolidating everything into one demoable page, and the interaction pattern taught as its own concept rather than a single prompt.
 
 ## Session Structure
 
@@ -346,7 +346,7 @@ The metaphor does real work here, it isn't decoration: a floor plan is exactly w
 
 ## Connection to Curriculum
 
-This lesson is a private-training adaptation layer on top of `03-develop/ai-prototype-development-lesson.md` ("Build the Pattern First") — Phase 4 Steps 1, 3 and 4, and Phase 2, re-paced for 1:1 delivery and picking up exactly where Lesson 1 ends. The genuinely new content, not covered in the source lesson as written: the three-method framing (MCP / no-MCP / design-system-in-code), explicit scope and setup steps before any tool work, one coded template per pattern type, consolidating everything into a single demoable `design-system.html`, the interaction pattern taught as its own concept rather than a single prompt, and folding that pattern back into the same page so it becomes navigable.
+This lesson is a private-training adaptation layer on top of `03-develop/ai-prototype-development-lesson.md` ("AI Prototype Development") — Phase 4 Steps 1, 3 and 4, and Phase 2, re-paced for 1:1 delivery and picking up exactly where Lesson 1 ends. The genuinely new content, not covered in the source lesson as written: the three-method framing (MCP / no-MCP / design-system-in-code), explicit scope and setup steps before any tool work, one coded template per pattern type, consolidating everything into a single demoable `design-system.html`, the interaction pattern taught as its own concept rather than a single prompt, and folding that pattern back into the same page so it becomes navigable.
 
 Phase 4 Steps 5 and 6 — the five-ingredient build prompt and the three edit modes — are **not** covered here. They open Lesson 3.
 

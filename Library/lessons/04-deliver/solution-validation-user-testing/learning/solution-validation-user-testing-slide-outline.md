@@ -50,7 +50,7 @@ VISUAL DESIGN DIRECTION — apply globally to every slide:
 | Instructor | Winnie Nguyen |
 | Program | UX Class |
 | Year | 2026 |
-| Previous session | Build the Pattern First (AI Prototype Development) |
+| Previous session | AI Prototype Development (AI Prototype Development) |
 | Next session | Reflection & Next Steps |
 | Cover photo | Designer watching a user interact with a prototype on screen — observer in background, warm focused atmosphere |
 

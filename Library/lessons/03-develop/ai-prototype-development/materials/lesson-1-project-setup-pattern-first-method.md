@@ -1,5 +1,5 @@
 ---
-title: "Build the Pattern First"
+title: "AI Prototype Development"
 type: lesson
 stage: Develop
 level: "Intermediate"
@@ -20,7 +20,7 @@ This lesson flips that. Before touching a single screen, the student sets up a p
 
 **Known gap, not yet reconciled:** the built deck also carries three content pieces this file doesn't yet have in prose — a "Design It in Figma" 3-step process for the template ingredient, a 7-type "common template pattern types" lookup table, and a "Which Screens Are Right" scoping slide with three named traps. Flagged here rather than silently trusted, same convention as the slide outline's own mismatch notes — reconcile when next revising this file in full.
 
-**This lesson runs on top of `03-develop/ai-prototype-development-lesson.md` ("Build the Pattern First"), not alongside it.** The AI foundations recap and the mindset reframe below are that lesson's Phase 0 and Phase 1, run as written — the method doesn't change for private-training delivery, only the pacing and the audience (1:1, not a cohort). What's actually new here — and written out in full — is the project folder setup and where the "artifacts over prompts" habit starts. See that lesson's Overview for the full pattern-first rationale if it's useful background before teaching this.
+**This lesson runs on top of `03-develop/ai-prototype-development-lesson.md` ("AI Prototype Development"), not alongside it.** The AI foundations recap and the mindset reframe below are that lesson's Phase 0 and Phase 1, run as written — the method doesn't change for private-training delivery, only the pacing and the audience (1:1, not a cohort). What's actually new here — and written out in full — is the project folder setup and where the "artifacts over prompts" habit starts. See that lesson's Overview for the full pattern-first rationale if it's useful background before teaching this.
 
 ## Session Structure
 

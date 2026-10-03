@@ -1,5 +1,5 @@
 ---
-title: "Build the Pattern First"
+title: "AI Prototype Development"
 type: lesson
 stage: Develop
 level: "Intermediate"
