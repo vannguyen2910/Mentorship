@@ -449,12 +449,12 @@
   </div>
 </div><div data-var-panel data-var-id="1" hidden>
   <div class="tp-layout">
-    <aside class="tp-toc" aria-label="On this page"><p class="tp-toc__label">On this page</p><a href="#v1-the-rules">The rules</a><a href="#v1-opening-a-pull-request">Opening a pull request</a><a href="#v1-review-and-merge">Review and merge</a><a href="#v1-if-two-people-changed-the-same-file">If two people changed the same file</a><a href="#v1-using-an-ai-tool-in-this-repo">Using an AI tool in this repo</a></aside>
-    <article class="tp-body"><p>One page. Read it before your first change. If something here is wrong or missing, open a pull request to fix this file.</p>
+    <aside class="tp-toc" aria-label="On this page"><p class="tp-toc__label">On this page</p><a href="#v1-the-rules">The rules</a><a href="#v1-opening-a-pull-request">Opening a pull request</a><a href="#v1-review-and-merge">Review and merge</a><a href="#v1-if-something-breaks">If something breaks</a><a href="#v1-using-an-ai-tool-in-this-repo">Using an AI tool in this repo</a></aside>
+    <article class="tp-body"><p>One page. Your rules for this project — for you and for your AI tool. Copy it into your project, fill in the blanks, and push it. If something here is wrong, fix it with a pull request.</p>
 <h2 id="v1-the-rules">The rules</h2>
 <ol>
-<li><strong>Never work directly on <code>main</code>.</strong> One branch per change.</li>
-<li><strong>Check for new work before you start</strong> each session (Pull).</li>
+<li><strong>Never work directly on <code>main</code>.</strong> It is your live site. One branch per idea.</li>
+<li><strong>Pull before you start</strong> each session, especially if you use two laptops or your AI tool pushes for you.</li>
 <li><strong>Branch names:</strong> <code>area/short-description</code> — e.g. <code>tokens/update-spacing</code>, <code>components/button-states</code>.</li>
 <li><strong>Commit notes</strong> say what changed and why, in one line.</li>
 <li><strong>This project is public.</strong> Never add passwords, keys or <code>.env</code> files. Git history is permanent.</li>
@@ -468,21 +468,23 @@
 </ul>
 <h2 id="v1-review-and-merge">Review and merge</h2>
 <ul>
-<li><strong>Reviewer:</strong> <name> — one teammate looks it over and approves</li>
-<li><strong>Owner / merger:</strong> <name> — merges once approved</li>
-<li>After the merge, everyone pulls.</li>
+<li><strong>Read your own changes</strong> on the pull request as if someone else wrote them, before you merge.</li>
+<li>Merge into <code>main</code> — your live site updates.</li>
+<li>Then pull, and start your next branch.</li>
+<li><em>If you add collaborators later:</em> name a reviewer and an owner who merges here.</li>
 </ul>
-<h2 id="v1-if-two-people-changed-the-same-file">If two people changed the same file</h2>
-<p>Stop and ask who owns it. Don't pick a side just to make the warning go away — it's a design decision, not a tool error.</p>
+<h2 id="v1-if-something-breaks">If something breaks</h2>
+<p>Delete the branch. <code>main</code> is untouched, so your live site is fine. If two copies changed the same file, stop and decide which version stays — it's a design decision, not a tool error.</p>
 <h2 id="v1-using-an-ai-tool-in-this-repo">Using an AI tool in this repo</h2>
 <p>Point it at the rules file and this file first. It must follow the tokens and components already here, must never touch <code>main</code>, and must not edit files outside the change you asked for. Read its answer, and review the changes in GitHub Desktop, before agreeing to a push.</p>
-<p>Useful prompts (the same six as the Lesson 4 deck):</p>
+<p>Useful prompts (from the Lesson 4 deck):</p>
 <ul>
-<li>Check if my teammates added anything new, and bring it into my project.</li>
+<li>Check if GitHub has anything new for this project, and bring it into my folder.</li>
+<li>Run localhost so I can preview my work.</li>
 <li>Create a new branch called area/short-description and switch to it. Don't touch main.</li>
 <li>Show me what I've changed since my last commit, in plain language.</li>
 <li>Open a pull request for this branch. Write a short summary of what changed and why.</li>
-<li>Clone <repo URL> into a new folder and tell me what's in it.</li>
+<li>Clone <repo URL> into a new folder and tell me what's in it. <em>(Set up on another laptop.)</em></li>
 <li>Undo my last commit but keep my changes, so I can edit them again.</li>
 </ul></article>
   </div>

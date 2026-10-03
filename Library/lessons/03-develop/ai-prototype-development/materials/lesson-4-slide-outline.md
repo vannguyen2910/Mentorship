@@ -2,17 +2,17 @@
 title: "Lesson 4: Publish It"
 lesson_file: "lesson-3-4-stub.md"
 level: "intermediate"
-slide_count: 23
+slide_count: 25
 duration: "100 min"
 status: deck-built
-built_deck: "../slides/Lesson 4 - Publish It.dc.html"
+built_deck: "../slides/AI Prototyping - Lesson 4.html"
 last_synced: 2026-10-03
 ---
 
-> **Reverse-synced from the built deck on 2026-10-03 (second pass).** The deck was restructured in the design tool after the first sync: Collaboration moved up to Section 5, the AI-tool material was pulled into one closing Section 6, the "Simulate One Oops" section was removed, and speaker notes were rewritten in Vietnamese with Figma analogies. This outline mirrors that deck. The lesson file (`lesson-3-4-stub.md`) was fully re-synced to this deck the same day; unresolved gaps are listed under "Drift to resolve" here and "Open decisions" there.
+> **Reverse-synced from the built deck on 2026-10-03 (third pass).** The deck was reworked again in the design tool: the team-collaboration section became a **solo "Try Ideas Safely" section on the mentee's own repo** (branch, self-reviewed pull request, merge), a localhost-preview slide was added before the first commit, and a **Homework** slide was added before the close. The sandbox repo and Clone slide are gone from the deck. The lesson file (`lesson-3-4-stub.md`) was re-synced the same day.
 > **Speaker notes are Vietnamese bullets, copied from the deck.** Each carries a Figma-based analogy ("Ví dụ"). English slide copy stays English. Checkpoints ("Kiểm tra") live in the notes, not on a slide.
-> **The ten-word glossary (slide 4) is the reference for the whole lesson** — notes tell the facilitator to come back to it for Branch, Main and Pull request in Section 5.
-> **Previous local version archived** at `slides/_archive/Lesson 4 - Publish It (2026-10-03 local, pre-reimport).dc.html` — it had a standalone "ask your AI tool to run the loop" slide that the new deck replaces with the six-prompt reference card (slide 21).
+> **The ten-word glossary (slide 4) is the reference for the whole lesson** — notes tell the facilitator to come back to it for Branch, Main and Pull request in Section 5. In this version Main is "your live site", and a pull request on your own repo is a self-review.
+> **Previous versions archived** in `slides/_archive/` — including the collaboration-based deck with the Clone slide and the sandbox-repo walkthrough.
 
 ---
 
@@ -25,24 +25,25 @@ last_synced: 2026-10-03
 | Stage | Develop |
 | Prior session | Lesson 3: Scaling the Prototype |
 | Next session | Lesson 5: Beyond the Pattern (optional bonus) |
-| Running example | The mentee's own anchor project, then a public sandbox team repo |
-| Deck file | `slides/Lesson 4 - Publish It.dc.html` |
+| Running example | The mentee's own anchor project and its live site |
+| Deck file | `slides/AI Prototyping - Lesson 4.html` |
 
-## Slide structure — 23 slides
+## Slide structure — 25 slides
 
 | # | Section | Slides | Minutes |
 |---|---|---|---|
 | 0 | Opening | 2 | — |
-| 1 | The Local-vs-Published Mental Model | 4 | 10 |
+| 1 | The Local-vs-Published Mental Model | 3 | 10 |
 | 2 | Setup & Connect | 2 | 10 |
-| 3 | First Publish | 3 | 20 |
+| 3 | First Publish | 4 | 20 |
 | 4 | Make It Live | 3 | 15 |
-| 5 | The Collaboration | 5 | 25 |
+| 5 | Try Ideas Safely | 5 | 25 |
 | 6 | The AI-Tool Shortcut | 4 | 10 |
-| 7 | Closing | 1 | — |
+| 7 | Homework | 1 | — |
+| 8 | Closing | 1 | — |
 
 > **Agenda adds up to 90 minutes** (10 + 10 + 20 + 15 + 25 + 10) under a "One hundred minutes" title; the Agenda notes say "about 90 minutes of content, the rest for transitions and Q&A".
-> **Section 5 is hands-on against a public sandbox repo** the facilitator owns. The mentee is invited as a collaborator beforehand (public repos can be forked by anyone, but only collaborators push branches). A one-page `CONTRIBUTING.md` is the team SOP — template at `materials/contributing-template.md`.
+> **Section 5 runs on the mentee's own repo, not a sandbox.** Main is the live site, so every push is public; branches are how a solo designer tests an idea safely. A one-page `CONTRIBUTING.md` is the mentee's own rulebook — template at `materials/contributing-template.md`, and Homework 2 has them copy it.
 
 ---
 
@@ -62,7 +63,7 @@ last_synced: 2026-10-03
 
 ### AGENDA · One Hundred Minutes
 - Title: One hundred minutes\nLocal becomes\nlive.
-- On-slide, numbered with minutes: 01 Local vs. Published (10) · 02 Setup & Connect (10) · 03 First Publish (20) · 04 Make It Live (15) · 05 The Collaboration (25) · 06 The AI-Tool Shortcut (10)
+- On-slide, numbered with minutes: 01 Local vs. Published (10) · 02 Setup & Connect (10) · 03 First Publish (20) · 04 Make It Live (15) · 05 Try Ideas Safely (25) · 06 The AI-Tool Shortcut (10)
 - Speaker notes:
   - Tổng cộng khoảng 90 phút nội dung, phần còn lại dành cho chuyển tiếp và hỏi đáp
   - Nói rõ lộ trình: từ prototype trên máy đến một link ai cũng bấm thử được, rồi tập làm việc nhóm
@@ -97,7 +98,7 @@ last_synced: 2026-10-03
 ### GLOSSARY · The Words You'll Hear Today
 - Kicker: Ten words, defined our way
 - Title: The words you'll\nhear today.
-- On-slide, ten terms: Repo — the project's home on GitHub, with all its files and history · Clone — download a copy of a project from GitHub to your laptop · Commit — a saved snapshot, with a short note describing what changed · Push — sending your commits up to GitHub · Pull — bringing the team's latest changes down to your laptop · Branch — your own copy of the project to try changes in, without touching the original · Main — the team's official version; everyone relies on it, so never edit it directly · Pull request — asking a teammate to review your branch before it joins main (GitLab calls it a Merge Request) · Merge — adding your approved changes into main · Clash — two people changed the same thing, so you choose which version to keep
+- On-slide, ten terms: Repo — the project's home on GitHub, with all its files and history · Clone — download a copy of a project from GitHub to your laptop · Commit — a saved snapshot, with a short note describing what changed · Push — sending your commits up to GitHub · Pull — bringing the latest changes from GitHub down to your laptop · Branch — your own copy of the project to try changes in, without touching the original · Main — the official version, and your live site; never edit it directly · Pull request — asking for a review of your branch before it joins main; alone, you review it yourself (GitLab: Merge Request) · Merge — adding your approved changes into main · Clash — two copies changed the same thing, so you choose which version to keep
 - Speaker notes:
   - Mười từ này được định nghĩa theo cách của lớp mình, không phải từ điển. Quay lại slide này mỗi khi có từ mới, nhất là Branch, Main và Pull request ở Phần 5
   - Repo: như một file Figma của dự án, chứa mọi màn hình và lịch sử các lần sửa
@@ -144,6 +145,19 @@ last_synced: 2026-10-03
 - Speaker notes:
   - Luôn xem thử trên máy trước khi đăng: chắc chắn prototype vẫn chạy rồi mới bấm Commit hay Push
   - Ví dụ: bấm thử prototype một lượt để chắc nút nào cũng chuyển đúng màn hình trước khi gửi cho khách
+
+### PROMPT · Preview It Through Your AI Tool
+- Kicker: Before every commit
+- Title: Preview it first,\nthen publish.
+- On-slide prompt: "Run localhost so I can preview my work."
+- On-slide cards: What is localhost? — a private preview that only opens on your own computer; nobody else can see it yet · Use this every time — before you commit, so you only publish work you have clicked through
+- Speaker notes:
+  - Đây là câu lệnh dùng trước mỗi lần commit, nên nói rõ 'mỗi lần'
+  - localhost là bản xem thử riêng chỉ mở được trên máy mình, giống mở prototype ở chế độ Preview trước khi bấm Share
+  - Cho xem cách làm: gõ câu lệnh, công cụ AI mở một địa chỉ như http://localhost:3000, bấm thử vài nút
+  - Nếu bản xem thử sai thì sửa ngay, vì những gì được commit và push sẽ lên mạng thật
+  - Kiểm tra: bản xem thử đã mở trên trình duyệt và chạy đúng
+- 🎨 Visual: Dark chat-bubble prompt card, two light explainer cards beneath.
 
 ### STEPS · Open GitHub Desktop, Then Commit
 - Kicker: Step 2
@@ -202,65 +216,64 @@ last_synced: 2026-10-03
 
 ---
 
-## 5. The Collaboration
+## 5. Try Ideas Safely
 
-### SECTION DIVIDER · Section 5: The Collaboration
+### SECTION DIVIDER · Section 5: Try Ideas Safely
 - Kicker: Section 5
-- Title: The\nCollaboration
-- On-slide: Join a teammate's project, work on your own copy, then ask for a review.
+- Title: Try Ideas\nSafely
+- On-slide: Work on a branch, review it yourself, then merge it into main.
 - Speaker notes:
-  - Từ đầu đến giờ là dự án của chính mình, giờ chúng ta tham gia một dự án do người khác tạo
-  - Ví dụ: trước đây thiết kế app một mình, giờ vào file chung của team để cùng làm các màn hình
+  - Từ đầu đến giờ mọi thay đổi đi thẳng vào bản chính. Giờ mình học cách thử ý tưởng mà không làm hỏng bản đang chạy
+  - Ví dụ: không sửa thẳng lên file Figma đang bàn giao cho khách, mà duplicate ra một trang nháp để thử rồi mới đưa vào
 
-### DIAGRAM · Not Alone in This Repo for Long
-- Kicker: What changes with a team
-- Title: Right now you're the only one in this repo.\nThat won't last.
-- On-slide diagram: You, local branch (`feature/rules-v2`) → push / pull → GitHub shared team repo (`rules.md · v2 merged`) → pull / push → teammate's laptop
-- On-slide captions: You push your branch to the shared repo — that's the workspace everyone can see · Your teammate pulls it down; nothing syncs by itself · Pull when you sit down, push when you stand up, and clashes stay small
+### DIAGRAM · Every Push Goes Live
+- Kicker: Why branches matter, even alone
+- Title: Right now every push\ngoes straight to your live site.
+- On-slide diagram: You, local branch (`try/new-nav`) → push / pull → GitHub: your repo + live site (`main · live site`) → pull / push → your other laptop
+- On-slide captions: You push your branch to GitHub; your live site, main, stays untouched · On another laptop, pull to bring it down; nothing syncs by itself · Try the idea on a branch. Only what you merge reaches main.
 - Speaker notes:
-  - Mở đầu 25 phút tiếp theo: trước giờ là dự án của mình, giờ mình vào dự án của người khác
-  - Ví dụ: như file thiết kế chung của team nhưng không tự đồng bộ. Mình phải tự đẩy phần mình lên và tự tải phần của bạn về
-  - Push là 'đứng dậy thì gửi phần mình lên', Pull là 'ngồi xuống thì xem bạn có cập nhật gì không'
-  - Khi hai người sửa cùng một chỗ, công cụ sẽ hỏi giữ bản nào. Ví dụ: hai người cùng đổi màu một nút. Chọn bản nào là quyết định thiết kế, không phải lỗi
-  - Nói to: dự án mẫu là công khai, ai cũng nhìn thấy mọi thứ đã đẩy lên. Không bao giờ để mật khẩu hay key
-- 🎨 Visual: Three-node sync diagram (laptop → GitHub → teammate's laptop) with push/pull arrows.
+  - Mở đầu phần này: làm một mình nhưng vẫn cần an toàn, vì mỗi lần push vào main là live site đổi ngay
+  - Ví dụ: sửa thẳng trên bản đang chạy giống như chỉnh prototype khi khách đang xem. Branch giống duplicate ra một trang nháp để thử
+  - Push là 'đứng dậy thì gửi lên', Pull là 'ngồi xuống ở máy khác thì tải về'. Dùng hai laptop hoặc để công cụ AI push thay thì Pull càng quan trọng
+  - Nếu thử hỏng thì bỏ branch đi, main không bị ảnh hưởng
+  - Nói to: repo công khai thì ai cũng thấy mọi thứ đã đẩy lên. Không bao giờ để mật khẩu hay key
+- 🎨 Visual: Three-node sync diagram with push/pull arrows.
 
-### STEPS · Clone the Team's Repo
-- Kicker: Step 1: joining
-- Title: Clone the team's project,\nthen read it first.
-- On-slide, three columns: 1. Accept the invite — open the invite email or GitHub notification, click Accept, do this once; it lets your account add your work to the team's project · 2. Clone — in GitHub Desktop: File → Clone Repository, paste the project link, pick a fresh folder · 3. Read first — README: how the project works; rules file and CONTRIBUTING.md: how the team works; do this before you change anything
-- Screenshot: `clone-repo.png`
+### STEPS · Branch Before You Change Anything
+- Kicker: Step 1: branch
+- Title: Make a branch,\nthen work on it.
+- On-slide, three columns: 1. New branch — in GitHub Desktop: Current Branch → New Branch; name it for the idea, like `try/new-nav` · 2. Change and commit — make the change, preview it with localhost; commit with a note on what changed and why · 3. Publish branch — click Publish branch; your live site, main, stays untouched
+- On-slide flag: Never work directly on main. It is your live site.
 - Speaker notes:
-  - Dự án mẫu công khai nhưng muốn đẩy bài lên phải được mời. Gửi lời mời trước buổi học và xác nhận mọi người đã nhận
-  - Clone là tải về một dự án đã có trên GitHub. Add Local Repository là chỉ vào thư mục đã có sẵn trên máy
-  - Ví dụ: Clone giống Duplicate file của team về mục Drafts để làm việc. Add là mở lại file đã có sẵn trên máy
-  - Chọn một thư mục mới cho bản clone, không dùng thư mục dự án của chính mình
-  - Luôn đọc README, rules file và CONTRIBUTING.md trước khi sửa. Ví dụ: đọc design guideline của team trước khi thiết kế màn hình mới
-  - Kiểm tra: dự án mẫu đã mở trong GitHub Desktop và ba file trên đã được đọc
-- 🎨 Visual: Three numbered columns with the Clone Repository dialog screenshot.
+  - Làm thật trên dự án của mình, không cần dự án mẫu
+  - Ví dụ: Branch giống duplicate trang Figma để thử bố cục mới. Không ai bàn giao từ trang nháp
+  - Luôn xem thử bằng localhost trước khi commit
+  - Nói to: không bao giờ làm trực tiếp trên main vì main là live site
+  - Kiểm tra: branch mới đã được publish và hiện trong GitHub Desktop
+- 🎨 Visual: Three numbered columns.
 
-### NUMBERED · The Team Loop
+### NUMBERED · The Safe Loop
 - Kicker: The loop you'll repeat
-- Title: Pull. Branch. Commit.\nPush. Pull request. Pull.
-- On-slide, six cells: 1 Pull — check for new work from the team every time you sit down · 2 Branch — a new branch for each change, like `tokens/update-spacing`; your own copy to try things in; never work directly on main · 3 Commit — save it with one clear note on what changed and why · 4 Push the branch — Publish branch sends your copy to GitHub and leaves the team's main version alone · 5 Pull request — describe your change; a teammate looks it over and approves it, then it is merged into main · 6 Pull again — bring in the approved result, then start your next branch
+- Title: Pull. Branch. Commit.\nPush. Pull request. Merge.
+- On-slide, six cells: 1 Pull — check GitHub for new changes before you start, especially with two laptops or when your AI tool pushes for you · 2 Branch — a new branch for each idea, like `tokens/update-spacing`; your own copy to try things in · 3 Commit — one clear note on what changed and why · 4 Push the branch — Publish branch sends your copy to GitHub and leaves main alone · 5 Pull request — open it on your own repo and read the changes as if someone else wrote them · 6 Merge, then pull — merge into main and your live site updates; pull, then start your next branch
 - Speaker notes:
-  - Đi qua sáu bước theo thứ tự một lần, rồi chạy thật trên dự án mẫu với một thay đổi rất nhỏ (đổi một token hoặc một dòng trong rules file)
-  - Vì sao cần Branch: Main là file chính của cả nhóm, đẩy sai lên đó thì ai cũng bị hỏng. Ví dụ: không ai sửa thẳng design system đang dùng, mọi người thử ý tưởng trong một branch riêng
-  - Vì sao cần Pull request: đây là chỗ duy nhất để bạn khác nói 'tên token này bị trùng rồi' trước khi thay đổi vào file chính. Ví dụ: nhờ đồng nghiệp comment vào màn hình trước khi bàn giao
-  - Khi hai người sửa cùng một dòng, GitHub Desktop sẽ hỏi giữ bản nào. Ví dụ: hai người cùng đổi spacing của một nút, phải bàn xem chọn số nào
-  - Kiểm tra: pull request đã mở trên GitHub và đã được merge
+  - Đi qua sáu bước theo thứ tự một lần, rồi chạy thật trên dự án của mình với một thay đổi rất nhỏ (đổi một token hoặc một dòng trong rules file)
+  - Vì sao cần Branch: main là live site, đẩy sai lên đó thì ai mở link cũng thấy lỗi. Thử ý tưởng trong branch riêng thì hỏng cũng không sao
+  - Vì sao cần Pull request khi làm một mình: đây là lúc đọc lại thay đổi như người khác viết, giống xem lại màn hình trước khi bàn giao. Công cụ AI có thể sửa nhiều file cùng lúc nên bước này bắt lỗi rất tốt
+  - Merge xong thì live site tự cập nhật, đó là phần thưởng của vòng lặp
+  - Kiểm tra: pull request đã mở trên GitHub, được đọc lại và merge
 - 🎨 Visual: Two-row grid of six cards.
 
-### TWO-CARD · The Working Agreement Ships With the Repo
-- Kicker: The team's one-page SOP
-- Title: The working agreement\nships with the repo.
-- Left card — CONTRIBUTING.md: never work directly on main, one branch per change · check for new work before you start each session · branch names `area/short-description` · commit notes say what changed and why
-- Right card — Pull requests & staying safe: every pull request has a short summary, a screenshot if the UI changed, and which tokens or components you touched · one teammate reviews, the owner merges · two people changed the same file? stop and ask who owns it · this project is public, so never add passwords, keys or `.env` files
+### TWO-CARD · Your Rules Ship With the Repo
+- Kicker: Your one-page rulebook
+- Title: Your rules\nship with the repo.
+- Left card — CONTRIBUTING.md: never work directly on main, one branch per idea · pull before you start each session · branch names `area/short-description` · commit notes say what changed and why
+- Right card — Pull requests & staying safe: every pull request has a short summary, a screenshot if the UI changed, and which tokens or components you touched · read your own changes before you merge · something broke? delete the branch, main is untouched · public repo: never add passwords, keys or `.env` files
 - Speaker notes:
-  - Bản thỏa thuận làm việc chỉ dài một trang, nằm ngay trong dự án với tên CONTRIBUTING.md, cả người và công cụ AI đều đọc được
-  - Nói to: đây lại là ý tưởng rules file, một tài liệu viết ra chứ không phải lời dặn miệng. Ví dụ: design guideline của team được ghi lại để ai vào cũng làm theo
-  - Mở file CONTRIBUTING.md thật của dự án mẫu trên màn hình, không đọc lại slide
-  - Câu hỏi cuối phần: ai là người duyệt và ai là người merge trong team của mình?
+  - Bản rulebook chỉ dài một trang, nằm ngay trong dự án với tên CONTRIBUTING.md, cả mình và công cụ AI đều đọc được
+  - Nói to: đây lại là ý tưởng rules file, một tài liệu viết ra chứ không phải nhớ trong đầu. Ví dụ: design guideline được ghi lại để lần sau làm theo mà không phải nghĩ lại
+  - Mở file CONTRIBUTING.md mẫu trên màn hình, không đọc lại slide
+  - Câu hỏi cuối phần: nếu hỏng thì làm gì? Trả lời: xóa branch, main vẫn nguyên
 - 🎨 Visual: Lavender background; two white cards with mono labels.
 
 ---
@@ -301,7 +314,7 @@ last_synced: 2026-10-03
 ### CARD GRID · More Things to Ask Your AI Tool
 - Kicker: Beyond commit and push
 - Title: Six more things\nto ask for.
-- On-slide, six prompt cards: Get the team's latest — "Check if my teammates added anything new, and bring it into my project." · Start a new branch — "Create a new branch called tokens/update-spacing and switch to it. Don't touch main." · See what changed — "Show me what I've changed since my last commit, in plain language." · Ask for a review — "Open a pull request for this branch. Write a short summary of what changed and why." · Join a team project — "Clone https://github.com/<username>/<repo>.git into a new folder and tell me what's in it." · Go back one step — "Undo my last commit but keep my changes, so I can edit them again."
+- On-slide, six prompt cards: Get the latest — "Check if GitHub has anything new for this project, and bring it into my folder." · Start a new branch — "Create a new branch called tokens/update-spacing and switch to it. Don't touch main." · See what changed — "Show me what I've changed since my last commit, in plain language." · Open a pull request — "Open a pull request for this branch. Write a short summary of what changed and why." · Set up on another laptop — "Clone https://github.com/<username>/<repo>.git into a new folder and tell me what's in it." · Go back one step — "Undo my last commit but keep my changes, so I can edit them again."
 - Speaker notes:
   - Cùng một thói quen: mô tả điều muốn làm, không cần nhớ tên nút
   - Chọn hai thẻ để làm thử trực tiếp, bốn thẻ còn lại để tra cứu
@@ -313,12 +326,29 @@ last_synced: 2026-10-03
 
 ---
 
-## 7. Closing
+## 7. Homework
+
+### HOMEWORK · Three Things Before Next Time
+- Kicker: Homework
+- Title: Three things\nbefore next time.
+- On-slide, three tasks, each with a "Done when": 1. Start a new repo — pick a project not on GitHub yet; preview it with localhost, create the repo and commit; publish it for the first time on your own, then turn on Pages. Done when: the project has its own live URL · 2. Write your project's rules — copy the CONTRIBUTING.md template; fill in branch names and how you write commit notes; save it in your project and push it. Done when: the file is on GitHub · 3. Practice the loop solo — make a new branch; commit one tiny change and publish the branch; open a pull request on your own repo, review it yourself, then merge it. Done when: your pull request is merged
+- Speaker notes:
+  - Giao bài tập về nhà ngay trước phần kết, để mình ra về với việc cụ thể
+  - Việc 1 là tự tạo repo mới và push lần đầu cho một dự án khác, đúng như checklist ở slide cuối đã hứa về commit tự làm. Có thể dùng GitHub Desktop hoặc câu lệnh nhờ công cụ AI
+  - Việc 2 dùng lại ý tưởng rules file: viết luật ra giấy để chính mình và công cụ AI cùng làm theo, không phải nhớ trong đầu
+  - Việc 3: dù làm một mình, vẫn tạo branch và pull request cho dự án của mình. Tự xem lại thay đổi trước khi merge giống như xem lại màn hình trước khi bàn giao. Main luôn sạch, và thử hỏng thì bỏ branch đi
+  - Việc 1 và 3 đều nên xem thử bằng localhost trước khi commit
+  - Gửi link kết quả hoặc ảnh chụp trước buổi sau để được góp ý
+- 🎨 Visual: Three numbered task cards, each ending in a Done-when line.
+
+---
+
+## 8. Closing
 
 ### CLOSING · What You've Got
 - Kicker: Lesson 4: arc complete
 - Title: What You've\nGot.
-- On-slide checklist: ✓ Project connected to a real GitHub repo · ✓ At least two commits pushed, one of them unaided · ✓ A live, self-updating URL · ✓ A pull request merged into a team repo
+- On-slide checklist: ✓ Project connected to a real GitHub repo · ✓ At least two commits pushed, one of them unaided · ✓ A live, self-updating URL · ✓ A pull request merged into your own repo
 - On-slide line: Exit ticket — publish one more thing on your own this week.
 - Author: Winnie Nguyen
 - Speaker notes:
@@ -331,14 +361,14 @@ last_synced: 2026-10-03
 
 ## Drift to resolve
 
-Where the deck and the lesson stub (`lesson-3-4-stub.md`) disagree. The lesson file wins per the sync rule, but it is still an objectives-only stub, so this needs a decision rather than a silent overwrite.
+Where the deck and the lesson file (`lesson-3-4-stub.md`) may still disagree after this pass; the lesson file's "Open decisions" list is the working copy.
 
-- **No "Simulate One Oops" section.** The stub plans "simulate one mistake and recover from it" — "the part students actually need". The deck now has only the "Go back one step" prompt card (slide 21). The Discard Changes and Amend Commit screenshots were never recoverable.
-- **No solo practice rep, no SHOW teach-back, no presentation coaching.** The closing checklist still promises "at least two commits pushed, one of them unaided", but no slide makes that second commit happen.
-- **Agenda is 90 minutes against a 100-minute title.** The notes say the rest is transitions and Q&A. Confirm that is intended.
-- **"You published the method too" line is gone.** The stub's instructor notes ask the close to say the rules file ships with the repo. The CONTRIBUTING.md slide (17) says it for the SOP, but not for the Lesson 1/3 rules file.
-- **Setup slide wording.** Slide 6 step 2 says "Create a new Repo" while its notes warn against the "Create New" habit and say to use Add. One of them is stale.
-- **Closing notes call Lesson 5 an optional bonus**, as the previous deck did — confirm against the Lesson 5 outline.
+- **Agenda is 90 minutes against a "One hundred minutes" title.** The Agenda notes say the remainder is transitions and Q&A. Homework adds no in-session time.
+- **No "simulate a mistake and recover" beat, no teach-back, no presentation coaching.** Recovery survives only as the "Go back one step" prompt card and the "delete the branch, main is untouched" line.
+- **The "unaided second commit" promised on the closing checklist is now Homework task 1**, so the checklist is satisfied after the session, not during it.
+- **Setup slide wording.** Slide 6 step 2 says "Create a new Repo" while its notes warn against the "Create New" habit and say to use Add.
+- **Closing notes call Lesson 5 an optional bonus** — confirm against the Lesson 5 outline.
+- **Team collaboration is no longer taught here.** Clone, a shared repo and teammates' review appear only in the glossary and the "Set up on another laptop" prompt. If Lesson 5 is meant to pick that up, check its outline expects it.
 
 ---
 
