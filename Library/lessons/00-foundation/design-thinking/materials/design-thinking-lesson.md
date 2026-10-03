@@ -3,6 +3,7 @@ title: "Design Thinking for UX Designer"
 subtitle: "From solving requirements to solving real problems"
 type: lesson
 program: ux-class
+keywords: [double diamond, design process, diamond]
 tags: [design-thinking, empathise, define, ideate, prototype, test, ux-process, mixed]
 level: mixed
 duration: "90 min"

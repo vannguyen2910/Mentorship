@@ -1522,6 +1522,106 @@ def print_health(report):
     return total
 
 
+def lesson_terms(lessons):
+    """{slug: set of words} from each lesson's title, subtitle, tags and section headings, plus the document frequency of
+    each word across lessons (rare words identify a lesson; common ones like 'design' don't)."""
+    import math
+    terms = {}
+    for l in lessons:
+        if not l["has_page"]:
+            continue
+        text = [l["title"], l["subtitle"]]
+        for v in l["variants"]:
+            text += [v["title"], v["subtitle"]] + list(v["tags"]) + list(v["meta"].get("keywords") or []) + re.findall(r"^#{2,3}\s+(.+)$", v["body"], re.M)
+        terms[l["slug"]] = {w for t in text for w in toks(str(t)) if len(w) > 2}
+    df = {}
+    for ws in terms.values():
+        for w in ws:
+            df[w] = df.get(w, 0) + 1
+    n = max(len(terms), 1)
+    return terms, {w: math.log(n / c) for w, c in df.items()}
+
+
+def homework_by_content(f, lessons, owner="", cache={}):
+    """Lesson front matter can add `keywords: [double diamond, ...]` for terms the lesson text doesn't contain.
+    Best lesson by distinctive shared words between the file (its name, and its text if .md/.txt) and the lesson
+    content. Needs a clear winner: enough weight, and well ahead of the runner-up."""
+    key = id(lessons)
+    if key not in cache:
+        cache.clear()
+        cache[key] = lesson_terms(lessons)
+    terms, idf = cache[key]
+    words = toks(re.sub(rf"^{re.escape(owner)}[-_ ]", "", f.stem, flags=re.I)) - toks(owner.replace("-", " "))
+    if f.suffix.lower() in (".md", ".txt"):
+        words |= toks(f.read_text(encoding="utf-8", errors="ignore")[:20000])
+    scores = sorted(((sum(idf[w] for w in words & ws), slug) for slug, ws in terms.items()), reverse=True)
+    if scores and scores[0][0] >= 2.0 and (len(scores) < 2 or scores[0][0] >= 1.3 * scores[1][0]):
+        return next(l for l in lessons if l["slug"] == scores[0][1])
+    return None
+
+
+def homework_lesson_for(f, m, lessons):
+    """Which lesson a loose homework file belongs to, and why. (1) the file name names the lesson, (2) its name or text matches lesson content (tags, headings), else (3) the
+    mentee's latest dated session on or before the file's modified date, else (4) their last completed session."""
+    pages = [l for l in lessons if l["has_page"]]
+    name = re.sub(r"[^a-z0-9]+", " ", f.stem.lower())
+    ft = toks(f.stem)
+    best, best_n = None, 0
+    for l in pages:
+        slug_hit = len(l["slug"]) > 3 and l["slug"].replace("-", " ") in name
+        n = 99 if slug_hit else len(ft & toks(l["title"]))
+        if n > best_n and (slug_hit or n >= 2):
+            best, best_n = l, n
+    if best:
+        return best, "file name matches the lesson"
+    hit = homework_by_content(f, lessons, m["slug"])
+    if hit:
+        return hit, "file name / text matches the lesson content"
+    from datetime import datetime
+    when = datetime.fromtimestamp(f.stat().st_mtime)
+    dated, done = [], []
+    for r in mentee_rows(m):
+        l = lesson_for(r, m, lessons)
+        if not l:
+            continue
+        if r["status"].lower().startswith("completed"):
+            done.append(l)
+        try:
+            dated.append((datetime.strptime(r["date"], "%d %b %Y"), l))
+        except ValueError:
+            pass
+    before = [x for x in dated if x[0].date() <= when.date()]
+    if before:
+        return max(before, key=lambda x: x[0])[1], "latest session on or before the file date"
+    if done:
+        return done[-1], "last completed session"
+    return None, ""
+
+
+def sort_loose_homework(mentees, lessons):
+    """Files dropped straight into Mentees/<name>/homework/ are moved into homework/<lesson-slug>/ so the lesson page
+    picks them up. Returns the number moved. Files that can't be matched stay put (shown under 'General')."""
+    moved = 0
+    for m in mentees:
+        hw = MENTEES / m["slug"] / "homework"
+        if not hw.is_dir():
+            continue
+        for f in sorted(x for x in hw.iterdir() if x.is_file() and visible(x)):
+            lesson, why = homework_lesson_for(f, m, lessons)
+            if not lesson:
+                print(f"  homework: no lesson found for {m['slug']}/{f.name}; left in place (add a lesson name to the file name)")
+                continue
+            dest_dir = hw / lesson["slug"]
+            dest_dir.mkdir(exist_ok=True)
+            dest = dest_dir / f.name
+            if dest.exists():
+                dest = dest_dir / f"{f.stem}-{int(f.stat().st_mtime)}{f.suffix}"
+            shutil.move(str(f), str(dest))
+            moved += 1
+            print(f"  homework: {m['slug']}/{f.name} -> {lesson['slug']}/ ({why})")
+    return moved
+
+
 def build():
     FALLBACK_USED.clear()
     for needed in (DESIGN_SYSTEM, PROGRAMS_SRC, LESSONS_DIR):
@@ -1537,6 +1637,10 @@ def build():
     lessons = load_lessons()
     MENTEE_PUBLISHED.clear()
     mentees = load_mentees()
+    if sort_loose_homework(mentees, lessons):   # loose homework files were filed into lesson folders: reload
+        lessons = load_lessons()
+        MENTEE_PUBLISHED.clear()
+        mentees = load_mentees()
     prune_mentee_assets()
 
     stage_rank = {s: i for i, s in enumerate(STAGES.values())}
