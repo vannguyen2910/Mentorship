@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Design Thinking for UX Designer</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
@@ -54,7 +55,7 @@
   .cover__title { font-family: var(--font-display); font-size: 120px; font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; color: var(--ink); margin: 0; }
   .cover__title em { font-style: normal; font-weight: 700; color: var(--sienna); }
   .cover__sub { font-family: var(--font-body); font-size: var(--text-xl); color: var(--ink-soft); margin-top: 28px; max-width: 740px; }
-  .cover__right { background: var(--sienna); color: var(--paper); padding: var(--slide-pad); display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; background-image: linear-gradient(180deg, rgba(26,19,37,0.30) 0%, rgba(26,19,37,0.55) 45%, rgba(26,19,37,0.92) 100%), url('https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1400&q=80'); background-size: cover; background-position: center; }
+  .cover__right { background: var(--sienna); color: var(--paper); padding: var(--slide-pad); display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; background-image: linear-gradient(180deg, rgba(26,19,37,0.30) 0%, rgba(26,19,37,0.55) 45%, rgba(26,19,37,0.92) 100%), url('../assets/unsplash-cover.jpg'); background-size: cover; background-position: center; }
   .cover__right::after { content: ''; position: absolute; bottom: -120px; left: -120px; width: 320px; height: 320px; border-radius: 50%; background: var(--ochre); opacity: 0.35; mix-blend-mode: screen; }
   .cover__author { position: relative; z-index: 1; }
   .cover__name { font-family: var(--font-display); font-weight: 500; font-size: 56px; line-height: 1.05; margin: 0 0 16px; }
@@ -241,19 +242,22 @@
   @media (prefers-reduced-motion: reduce) { .slide[data-deck-active] * { animation: none !important; } }
 </style>
 </helmet>
-<x-import component-from-global-scope="deck-stage" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
 
-  <section class="slide cover" data-label="Cover" data-screen-label="Cover" data-speaker-notes="Welcome. Day 1 of the UX series. Today: how design thinking turns vague briefs into the right problem, solved the right way.">
+  <section class="slide cover" data-label="Cover" data-screen-label="Cover" data-speaker-notes="• Chào mừng cả lớp đến Ngày 1 của chuỗi UX.
+• Hôm nay chúng ta học cách Design Thinking biến một brief mơ hồ thành đúng vấn đề, rồi giải quyết nó đúng cách.
+• Giới thiệu ngắn về bản thân: đang là Senior Product Designer tại NAB, từng làm ở Go1 và giảng dạy tại StayLab.
+• Nói rõ mục tiêu buổi học: cuối buổi mỗi bạn có một bản nháp quy trình thiết kế cho dự án thật của mình.">
     <div class="cover__left">
       <div class="cover__year">2026 · Winnie Nguyen</div>
       <div>
-        <div class="cover__day">Session 01</div>
+        <div class="cover__day">FOUNDATION</div>
         <h1 class="cover__title">Design<br>Thinking<br><em>for UX</em></h1>
         <p class="cover__sub">From solving requirements to solving real problems.</p>
       </div>
     </div>
     <div class="cover__right">
-      <div class="cover__badge"><span class="dot"></span>Session 01 · 90 min</div>
+      
       <div class="cover__author">
         <h2 class="cover__name">Winnie<br>Nguyen</h2>
         <div class="cover__credentials">
@@ -265,7 +269,11 @@
     </div>
   </section>
 
-  <section class="slide milestone" data-label="Opening Activity" data-screen-label="Opening Activity" data-speaker-notes="Two minutes silent thinking, then a few shares. Keep it real — a moment they personally struggled.">
+  <section class="slide milestone" data-label="Opening Activity" data-screen-label="Opening Activity" data-speaker-notes="• Hoạt động mở đầu, khoảng 10 phút.
+• Cho cả lớp 2 phút im lặng nghĩ về một lần các bạn thật sự gặp khó khi bắt đầu một dự án hoặc sáng kiến mới.
+• Sau đó mời vài bạn chia sẻ.
+• Khuyến khích ví dụ thật, không cần đẹp.
+• Ghi lại vài từ khóa trên bảng, vì ta sẽ quay lại ở các slide sau.">
     <div class="milestone__inner">
       <div class="milestone__kicker">Let's start here</div>
       <div class="milestone__num">10</div>
@@ -274,7 +282,11 @@
     </div>
   </section>
 
-  <section class="slide numbered" data-label="Sound Familiar" data-screen-label="Sound Familiar" data-speaker-notes="These three patterns are the symptom. Ask the room which one they recognise most.">
+  <section class="slide numbered" data-label="Sound Familiar" data-screen-label="Sound Familiar" data-speaker-notes="• Ba biểu hiện này là triệu chứng.
+• Đọc lần lượt: thiết kế theo brief, nhảy vào hi-fi, làm việc một mình.
+• Hỏi lớp: bạn nào nhận ra mình nhiều nhất ở điểm nào?
+• Giơ tay hoặc nêu ví dụ.
+• Kết bằng câu hỏi ở cuối slide: «Liệu điều này có thật sự làm người dùng hài lòng không?»">
     <div class="numbered__head">
       <div class="slide-kicker">Sound familiar?</div>
       <h2 class="slide-title">We're designing for <em>requirements</em>, not for people</h2>
@@ -305,18 +317,27 @@
     <div class="numbered__foot">"But does it really make the people happy?"</div>
   </section>
 
-  <section class="slide statement" data-label="The Real Gap" data-screen-label="The Real Gap" data-speaker-notes="Reframe: the gap is rarely craft. It's the thinking that happens before the craft.">
+  <section class="slide statement" data-label="The Real Gap" data-screen-label="The Real Gap" data-speaker-notes="• Định khung lại: khoảng cách thực sự hiếm khi nằm ở kỹ năng thiết kế.
+• Nó nằm ở phần tư duy diễn ra trước khi bắt tay vào thiết kế.
+• Giữa lúc chưa biết gì và lúc có giải pháp tự tin là một vùng «lộn xộn ở giữa»: hiểu con người, xác định đúng vấn đề, khám phá các lựa chọn.
+• Đó là nơi Design Thinking hoạt động.">
     <div class="statement__kicker">The real gap</div>
     <h2 class="statement__title">The problem isn't a lack of design skill. It's a lack of <em>design thinking.</em></h2>
     <p class="statement__lead">Between knowing nothing and a confident solution sits a messy middle — understanding people, framing the real problem, exploring options. That middle is where design thinking lives.</p>
   </section>
 
-  <section class="slide statement slide--deeper" data-label="What Is Design Thinking" data-screen-label="What Is Design Thinking" data-speaker-notes="Read the definition slowly. Emphasise human-centered and challenge assumptions.">
+  <section class="slide statement slide--deeper" data-label="What Is Design Thinking" data-screen-label="What Is Design Thinking" data-speaker-notes="• Phần lý thuyết.
+• Đọc định nghĩa thật chậm.
+• Nhấn mạnh hai ý: lấy con người làm trung tâm (human-centered) và thách thức các giả định (challenge assumptions).
+• Nhắc lại: đây là một phương pháp giải quyết vấn đề, không phải một bộ công cụ hay một workshop một lần.">
     <div class="statement__kicker">Theory</div>
     <h2 class="statement__title">Design Thinking is a <em>human-centered problem-solving</em> method — to understand needs, challenge assumptions, and create solutions.</h2>
   </section>
 
-  <section class="slide pyramid" data-label="Capability Pyramid" data-screen-label="Capability Pyramid" data-speaker-notes="90% of hiring and craft talk lives at the base. Senior impact comes from the layers above — process is the first of them.">
+  <section class="slide pyramid" data-label="Capability Pyramid" data-screen-label="Capability Pyramid" data-speaker-notes="• Slide này nói về vị trí của quy trình trong sự nghiệp.
+• Phần lớn các cuộc nói chuyện về tuyển dụng và tay nghề nằm ở đáy kim tự tháp: công cụ, UX và visual design.
+• Tác động ở cấp senior đến từ các tầng phía trên, và quy trình thiết kế là tầng đầu tiên.
+• Ghi nguồn: @Artiom Dashinsky.">
     <div class="pyramid__meta">
       <div class="slide-kicker">Where process fits</div>
       <h2 class="slide-title">Most talk lives at the bottom. <em>Growth lives at the top.</em></h2>
@@ -358,7 +379,10 @@
     </div>
   </section>
 
-  <section class="slide compare" data-label="Why Process Matters" data-screen-label="Why Process Matters" data-speaker-notes="Process is what makes a design decision defensible. Contrast the two columns directly.">
+  <section class="slide compare" data-label="Why Process Matters" data-screen-label="Why Process Matters" data-speaker-notes="• Quy trình là thứ khiến một quyết định thiết kế có thể bảo vệ được.
+• So sánh trực tiếp hai cột.
+• Không có quy trình: giải pháp được chọn trước khi hiểu vấn đề, brief bị coi là sự thật, giả định ẩn đi cho đến khi quá muộn, đổi hướng muộn rất tốn kém.
+• Có quy trình: quyết định dựa trên bằng chứng, giả định lộ ra sớm, nghiên cứu thật sự thay đổi sản phẩm, ít bất ngờ khi ra mắt.">
     <div class="compare__head">
       <div class="slide-kicker">Why process matters</div>
       <h2 class="slide-title">Process is what makes decisions <em>defensible</em></h2>
@@ -385,7 +409,10 @@
     </div>
   </section>
 
-  <section class="slide process" data-label="The 5-Stage Cycle" data-screen-label="The 5-Stage Cycle" data-speaker-notes="The five stages. Stress it is non-linear — you loop back as you learn.">
+  <section class="slide process" data-label="The 5-Stage Cycle" data-screen-label="The 5-Stage Cycle" data-speaker-notes="• Giới thiệu năm giai đoạn: Empathise, Define, Ideate, Prototype, Test.
+• Với mỗi giai đoạn, đọc câu hỏi chính của nó.
+• Nhấn mạnh quy trình không tuyến tính: ta quay lại các giai đoạn trước khi có insight mới.
+• Đừng dừng lâu ở đây, từng giai đoạn sẽ được đào sâu phía sau.">
     <div class="process__head">
       <div class="slide-kicker">The framework</div>
       <h2 class="slide-title">The 5-stage cycle</h2>
@@ -395,37 +422,40 @@
         <div class="process__step-num">01</div>
         <h3>Empathise</h3>
         <p>What is actually going on with users — not what we assume?</p>
-        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><circle cx="40" cy="25" r="8" fill="currentColor"/><path d="M32 35h16v12H32z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M28 35h24M40 32v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><circle cx="40" cy="25" r="8" fill="currentColor"></circle><path d="M32 35h16v12H32z" fill="none" stroke="currentColor" stroke-width="2"></path><path d="M28 35h24M40 32v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>
       </div>
       <div class="process__step">
         <div class="process__step-num">02</div>
         <h3>Define</h3>
         <p>What is the real problem worth solving?</p>
-        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><circle cx="30" cy="40" r="14" fill="none" stroke="currentColor" stroke-width="2"/><path d="m50 58 12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><circle cx="30" cy="40" r="14" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="m50 58 12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
       </div>
       <div class="process__step">
         <div class="process__step-num">03</div>
         <h3>Ideate</h3>
         <p>What are all the possible ways to solve it?</p>
-        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><path d="M40 15 L50 45 L30 45 Z" fill="currentColor"/><circle cx="40" cy="55" r="6" fill="currentColor"/></svg>
+        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><path d="M40 15 L50 45 L30 45 Z" fill="currentColor"></path><circle cx="40" cy="55" r="6" fill="currentColor"></circle></svg>
       </div>
       <div class="process__step">
         <div class="process__step-num">04</div>
         <h3>Prototype</h3>
         <p>What is the fastest way to make this testable?</p>
-        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><rect x="20" y="18" width="40" height="36" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><line x1="20" y1="28" x2="60" y2="28" stroke="currentColor" stroke-width="1.5"/><circle cx="40" cy="46" r="4" fill="currentColor"/></svg>
+        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><rect x="20" y="18" width="40" height="36" rx="2" fill="none" stroke="currentColor" stroke-width="2"></rect><line x1="20" y1="28" x2="60" y2="28" stroke="currentColor" stroke-width="1.5"></line><circle cx="40" cy="46" r="4" fill="currentColor"></circle></svg>
       </div>
       <div class="process__step">
         <div class="process__step-num">05</div>
         <h3>Test</h3>
         <p>Were we right? What do we need to change?</p>
-        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><circle cx="40" cy="40" r="18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M32 40 L38 46 L52 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><circle cx="40" cy="40" r="18" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="M32 40 L38 46 L52 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </div>
     </div>
     <div class="process__foot">Non-linear, move freely between stages as insights emerge.</div>
   </section>
 
-  <section class="slide process" data-label="The Pattern Teams Follow" data-screen-label="The Pattern Teams Follow" data-speaker-notes="The trap: teams start at Ideate, skipping Empathise and Define. A brief is not a problem definition.">
+  <section class="slide process" data-label="The Pattern Teams Follow" data-screen-label="The Pattern Teams Follow" data-speaker-notes="• Cái bẫy phổ biến: nhiều đội bắt đầu ở Ideate, bỏ qua Empathise và Define.
+• Chỉ vào mũi tên «teams start here».
+• Nhắc lại câu cuối: một brief không phải là một định nghĩa vấn đề.
+• Hỏi lớp: dự án gần nhất của bạn bắt đầu từ giai đoạn nào?">
     <div class="process__head">
       <div class="slide-kicker">The reality</div>
       <h2 class="slide-title">Most teams skip stages 1 and 2</h2>
@@ -435,38 +465,43 @@
         <div class="process__step-num">01</div>
         <h3>Empathise</h3>
         <p>What is actually going on with users?</p>
-        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><circle cx="40" cy="25" r="8" fill="currentColor"/><path d="M32 35h16v12H32z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M28 35h24M40 32v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><circle cx="40" cy="25" r="8" fill="currentColor"></circle><path d="M32 35h16v12H32z" fill="none" stroke="currentColor" stroke-width="2"></path><path d="M28 35h24M40 32v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>
       </div>
       <div class="process__step process__step--faded">
         <div class="process__step-num">02</div>
         <h3>Define</h3>
         <p>What is the real problem worth solving?</p>
-        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><circle cx="30" cy="40" r="14" fill="none" stroke="currentColor" stroke-width="2"/><path d="m50 58 12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><circle cx="30" cy="40" r="14" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="m50 58 12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
       </div>
       <div class="process__step process__step--active">
         <div class="process__step-num">03</div>
         <h3>Ideate</h3>
         <p>What are all the possible ways to solve it?</p>
         <span class="process__flag">← teams start here</span>
-        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--paper)"><path d="M40 15 L50 45 L30 45 Z" fill="currentColor"/><circle cx="40" cy="55" r="6" fill="currentColor"/></svg>
+        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--paper)"><path d="M40 15 L50 45 L30 45 Z" fill="currentColor"></path><circle cx="40" cy="55" r="6" fill="currentColor"></circle></svg>
       </div>
       <div class="process__step">
         <div class="process__step-num">04</div>
         <h3>Prototype</h3>
         <p>What is the fastest way to make this testable?</p>
-        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><rect x="20" y="18" width="40" height="36" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><line x1="20" y1="28" x2="60" y2="28" stroke="currentColor" stroke-width="1.5"/><circle cx="40" cy="46" r="4" fill="currentColor"/></svg>
+        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><rect x="20" y="18" width="40" height="36" rx="2" fill="none" stroke="currentColor" stroke-width="2"></rect><line x1="20" y1="28" x2="60" y2="28" stroke="currentColor" stroke-width="1.5"></line><circle cx="40" cy="46" r="4" fill="currentColor"></circle></svg>
       </div>
       <div class="process__step">
         <div class="process__step-num">05</div>
         <h3>Test</h3>
         <p>Were we right? What needs to change?</p>
-        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><circle cx="40" cy="40" r="18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M32 40 L38 46 L52 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 80 80" style="width:120px;height:120px;margin-top:auto;margin-bottom:0;color:var(--sienna)"><circle cx="40" cy="40" r="18" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="M32 40 L38 46 L52 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </div>
     </div>
     <div class="process__foot">A brief is <em>not</em> a problem definition.</div>
   </section>
 
-  <section class="slide numbered" data-label="What Good Process Looks Like" data-screen-label="What Good Process Looks Like" data-speaker-notes="Each stage produces a concrete output. Five stages, five outputs the team can point to.">
+  <section class="slide numbered" data-label="What Good Process Looks Like" data-screen-label="What Good Process Looks Like" data-speaker-notes="• Cách làm đúng: năm giai đoạn, năm đầu ra cụ thể mà cả đội có thể chỉ vào.
+• Một: hiểu người dùng trước, với research brief, phỏng vấn, assumption map.
+• Hai: định khung vấn đề thật, với insight statement, problem statement, JTBD.
+• Ba: tổ chức theo nhu cầu người dùng, với sitemap và task flow.
+• Bốn: xây để trả lời câu hỏi, với wireframe, prototype, decision log.
+• Năm: biết mình đúng hay sai, với tổng hợp kết quả test và prototype đã lặp lại.">
     <div class="numbered__head">
       <div class="slide-kicker">The right path</div>
       <h2 class="slide-title">Five stages, <em>five outputs</em></h2>
@@ -510,7 +545,10 @@
     </div>
   </section>
 
-  <section class="slide section-divider" data-label="Stage 1 — Empathise" data-screen-label="Stage 1 — Empathise" data-speaker-notes="Stage one. Before any solution thinking — understand the people.">
+  <section class="slide section-divider" data-label="Stage 1 — Empathise" data-screen-label="Stage 1 — Empathise" data-speaker-notes="• Giai đoạn một: Empathise.
+• Trước mọi suy nghĩ về giải pháp, hãy hiểu con người.
+• Câu hỏi dẫn dắt: điều gì thực sự đang diễn ra với người dùng, không phải điều ta giả định.
+• Chuyển sang slide tiếp theo để xem các cách tiếp cận.">
     <div class="section-divider__inner">
       <div class="section-divider__kicker"><span class="num">01</span><span>Stage One</span></div>
       <h2 class="section-divider__title">Empathise</h2>
@@ -518,7 +556,9 @@
     </div>
   </section>
 
-  <section class="slide modes" data-label="Empathise Modes" data-screen-label="Empathise Modes" data-speaker-notes="Four overlapping modes of empathic research — not a checklist, but ways of seeing the same person.">
+  <section class="slide modes" data-label="Empathise Modes" data-screen-label="Empathise Modes" data-speaker-notes="• Bốn chế độ nghiên cứu đồng cảm: Observe (quan sát), Interview (phỏng vấn), Immerse (nhập vai, trải nghiệm), Engage (tương tác, đồng sáng tạo).
+• Đây không phải checklist mà là bốn cách nhìn cùng một con người.
+• Nhấn mạnh: hiểu con người, không chỉ hành động của họ.">
     <div class="modes__meta">
       <div class="slide-kicker">Before any solution thinking</div>
       <h2 class="slide-title">Understand people — not just their <em>actions</em></h2>
@@ -538,7 +578,17 @@
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Desk research" data-screen-label="Activity — Desk research" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="Desk research — drop in your own competitor audit.">
+  <section class="slide example" data-label="Activity — Desk research" data-screen-label="Activity — Desk research" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: việc thu thập thông tin có sẵn: đối thủ, báo cáo thị trường, analytics
+• Khi nào dùng: ở đầu Discovery, trước khi gặp người dùng, để có giả định xuất phát
+• Cách làm: chọn 3–5 đối thủ, ghi lại tính năng và luồng chính, rồi tổng hợp khoảng trống và câu hỏi cần kiểm chứng
+
+LỜI DẪN LỚP
+• Desk research: rà soát đối thủ, báo cáo thị trường, analytics.
+• Làm trước nghiên cứu sơ cấp để có giả định xuất phát có cơ sở.
+• Thời lượng khoảng nửa ngày.
+• Nguồn: cieden.com.
+• Thay ảnh bằng bản audit đối thủ của chính bạn nếu có.">
     <div class="example__meta">
       <div class="example__kicker">Stage 1 · Discovery</div>
       <h2 class="example__title">Desk research</h2>
@@ -550,12 +600,20 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-deskresearch" shape="rect" fit="cover" placeholder="Drop your desk research example" src="uploads/assets/deskresearch.png"></image-slot>
+      <image-slot id="act-deskresearch" shape="rect" fit="cover" placeholder="Drop your desk research example" src="../assets/deskresearch.png"></image-slot>
       <div class="example__source"><b>Source</b> <a href="https://cieden.com/how-to-conduct-effective-desk-research-in-3-easy-steps" target="_blank" rel="noopener">cieden.com</a></div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — User survey" data-screen-label="Activity — User survey" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="User survey — drop in your own survey results.">
+  <section class="slide example" data-label="Activity — User survey" data-screen-label="Activity — User survey" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: bộ câu hỏi gửi cho nhiều người để có số liệu định lượng
+• Khi nào dùng: khi cần xác nhận một mẫu hình ở quy mô lớn, sau hoặc song song với phỏng vấn
+• Cách làm: xác định mục tiêu, viết 8–10 câu ngắn, gửi thử cho 2–3 người, rồi phát hành và phân tích
+
+LỜI DẪN LỚP
+• Khảo sát người dùng: cho cái nhìn định lượng ở quy mô lớn, mất khoảng 5 đến 10 phút mỗi người trả lời.
+• Dùng để bổ sung cho phỏng vấn, không bao giờ thay thế phỏng vấn.
+• Thay bằng kết quả khảo sát của bạn nếu có.">
     <div class="example__meta">
       <div class="example__kicker">Stage 1 · Discovery</div>
       <h2 class="example__title">User survey</h2>
@@ -567,11 +625,20 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-survey" shape="rect" fit="cover" placeholder="Drop your user survey example" src="uploads/assets/survey.jpg"></image-slot>
+      <image-slot id="act-survey" shape="rect" fit="cover" placeholder="Drop your user survey example" src="../assets/survey.jpg"></image-slot>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — User interviews" data-screen-label="Activity — User interviews" style="--stage-tint: var(--purple-tint); --stage-deep: var(--purple-deep); left: 2px" data-speaker-notes="User interviews — drop in your own interview recording.">
+  <section class="slide example" data-label="Activity — User interviews" data-screen-label="Activity — User interviews" style="--stage-tint: var(--purple-tint); --stage-deep: var(--purple-deep); left: 2px" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: cuộc trò chuyện 1:1 với câu hỏi mở để hiểu động cơ và hành vi
+• Khi nào dùng: khi cần hiểu «vì sao», đặc biệt ở đầu dự án
+• Cách làm: viết kịch bản 6–8 câu, hỏi về trải nghiệm đã xảy ra, đào sâu bằng «kể thêm cho mình nghe», ghi âm và trích dẫn
+
+LỜI DẪN LỚP
+• Phỏng vấn người dùng: câu hỏi mở và đào sâu cẩn thận.
+• Đây là nguồn định tính giàu nhất trong cả quy trình.
+• Mỗi buổi 45 đến 60 phút.
+• Nhắc: hỏi về hành vi đã xảy ra trong quá khứ, tránh hỏi người ta «sẽ làm gì».">
     <div class="example__meta">
       <div class="example__kicker">Stage 1 · Discovery</div>
       <h2 class="example__title">User interviews</h2>
@@ -583,12 +650,21 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-interviews" shape="rect" fit="cover" placeholder="Drop your user interviews example" src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?fm=jpg&amp;q=80&amp;w=1600&amp;auto=format&amp;fit=crop" credit="Photo by Christina @ wocintechchat.com on Unsplash" credit-href="https://unsplash.com/@wocintechchat"></image-slot>
+      <image-slot id="act-interviews" shape="rect" fit="cover" placeholder="Drop your user interviews example" src="../assets/unsplash-interviews.jpg" credit="Photo by Christina @ wocintechchat.com on Unsplash" credit-href="https://unsplash.com/@wocintechchat"></image-slot>
       
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Shadowing" data-screen-label="Activity — Shadowing" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="Shadowing — drop in your own field notes.">
+  <section class="slide example" data-label="Activity — Shadowing" data-screen-label="Activity — Shadowing" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: quan sát người dùng làm việc trong bối cảnh thật mà không can thiệp
+• Khi nào dùng: khi người dùng khó diễn đạt thói quen, hoặc quy trình có nhiều bước tay
+• Cách làm: xin phép, ngồi quan sát 1–2 giờ, ghi lại hành động, workaround và điểm vướng, hỏi lại sau khi kết thúc
+
+LỜI DẪN LỚP
+• Shadowing: quan sát người dùng mà không can thiệp.
+• Cách này bộc lộ những cách làm tạm (workaround) mà họ không nghĩ đến việc kể.
+• Diễn ra ngay trong bối cảnh thật.
+• Thay bằng ghi chú thực địa của bạn nếu có.">
     <div class="example__meta">
       <div class="example__kicker">Stage 1 · Discovery</div>
       <h2 class="example__title">Shadowing</h2>
@@ -600,12 +676,20 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-shadowing" shape="rect" fit="cover" placeholder="Drop your shadowing example" src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?fm=jpg&amp;q=80&amp;w=1600&amp;auto=format&amp;fit=crop" credit="Photo by KOBU Agency on Unsplash" credit-href="https://unsplash.com/@kobuagency"></image-slot>
+      <image-slot id="act-shadowing" shape="rect" fit="cover" placeholder="Drop your shadowing example" src="../assets/unsplash-shadowing.jpg" credit="Photo by KOBU Agency on Unsplash" credit-href="https://unsplash.com/@kobuagency"></image-slot>
       
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Stakeholder interviews" data-screen-label="Activity — Stakeholder interviews" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="Stakeholder interviews — drop in your own stakeholder notes.">
+  <section class="slide example" data-label="Activity — Stakeholder interviews" data-screen-label="Activity — Stakeholder interviews" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: cuộc nói chuyện với người đại diện cho phía kinh doanh
+• Khi nào dùng: để hiểu mục tiêu, ràng buộc và tiêu chí thành công trước khi thiết kế
+• Cách làm: chuẩn bị 5–8 câu, hỏi về mục tiêu, rủi ro, điều đã thử, và ai bị ảnh hưởng; ghi lại điểm lệch giữa các stakeholder
+
+LỜI DẪN LỚP
+• Phỏng vấn các bên liên quan: lấy bối cảnh kinh doanh, mục tiêu và ràng buộc.
+• Mất khoảng 30 đến 45 phút.
+• Nhấn mạnh: không bao giờ thay thế việc nói chuyện với người dùng thật.">
     <div class="example__meta">
       <div class="example__kicker">Stage 1 · Discovery</div>
       <h2 class="example__title">Stakeholder interviews</h2>
@@ -617,12 +701,20 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-stakeholder" shape="rect" fit="cover" placeholder="Drop your stakeholder interviews example" src="https://images.unsplash.com/photo-1622674777904-386b3ef30c4a?fm=jpg&amp;q=80&amp;w=1600&amp;auto=format&amp;fit=crop" credit="Photo by Mapbox on Unsplash" credit-href="https://unsplash.com/@mapbox"></image-slot>
+      <image-slot id="act-stakeholder" shape="rect" fit="cover" placeholder="Drop your stakeholder interviews example" src="../assets/unsplash-stakeholder.jpg" credit="Photo by Mapbox on Unsplash" credit-href="https://unsplash.com/@mapbox"></image-slot>
       
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Support &amp; NPS analysis" data-screen-label="Activity — Support &amp; NPS analysis" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="Support &amp; NPS analysis — drop in your own support dashboard.">
+  <section class="slide example" data-label="Activity — Support &amp; NPS analysis" data-screen-label="Activity — Support &amp; NPS analysis" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: phân tích ticket hỗ trợ và điểm NPS có sẵn để tìm mẫu hình
+• Khi nào dùng: khi sản phẩm đã có người dùng, trước khi tuyển người phỏng vấn mới
+• Cách làm: xuất dữ liệu 1–3 tháng gần nhất, gắn nhãn theo chủ đề, đếm tần suất, chọn các trích dẫn tiêu biểu
+
+LỜI DẪN LỚP
+• Phân tích support và NPS: khai thác ticket và phản hồi có sẵn để tìm mẫu hình trước khi nói chuyện với ai mới.
+• Đây là dữ liệu sẵn có, làm liên tục.
+• Nguồn: support dashboard.">
     <div class="example__meta">
       <div class="example__kicker">Stage 1 · Discovery</div>
       <h2 class="example__title">Support &amp; NPS analysis</h2>
@@ -634,12 +726,20 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-support" shape="rect" fit="cover" placeholder="Drop your support &amp; nps analysis example" src="uploads/assets/net-promoter-score.webp"></image-slot>
+      <image-slot id="act-support" shape="rect" fit="cover" placeholder="Drop your support &amp; nps analysis example" src="../assets/net-promoter-score.webp"></image-slot>
       <div class="example__source"><b>Source</b> Support dashboard</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Lean UX canvas" data-screen-label="Activity — Lean UX canvas" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="Lean UX canvas — drop in your own lean ux canvas.">
+  <section class="slide example" data-label="Activity — Lean UX canvas" data-screen-label="Activity — Lean UX canvas" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: một trang gom vấn đề, người dùng, giả thuyết, chỉ số và giả định
+• Khi nào dùng: khi cả đội cần thống nhất hướng đi trước khi nghiên cứu sâu
+• Cách làm: điền lần lượt từng ô cùng đội, ưu tiên ô giả định rủi ro nhất, rồi biến chúng thành thử nghiệm
+
+LỜI DẪN LỚP
+• Lean UX canvas: gom vấn đề, người dùng, giả thuyết giải pháp, chỉ số và giả định vào một góc nhìn duy nhất.
+• Khoảng 60 phút.
+• Hữu ích để cả đội thống nhất trước khi đi sâu.">
     <div class="example__meta">
       <div class="example__kicker">Stage 1 · Discovery</div>
       <h2 class="example__title">Lean UX canvas</h2>
@@ -651,12 +751,22 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-leancanvas" shape="rect" fit="contain" placeholder="Drop your lean ux canvas example" src="uploads/assets/leanuxcanvas.png"></image-slot>
+      <image-slot id="act-leancanvas" shape="rect" fit="contain" placeholder="Drop your lean ux canvas example" src="../assets/leanuxcanvas.png"></image-slot>
       <div class="example__source"><b>Source</b> Lean UX canvas</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Empathy mapping" data-screen-label="Activity — Empathy mapping" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="Empathy mapping — drop in your own nn/g template.">
+  <section class="slide example" data-label="Activity — Empathy mapping" data-screen-label="Activity — Empathy mapping" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: bản đồ bốn phần Say, Think, Do, Feel của một nhóm người dùng
+• Khi nào dùng: sau nghiên cứu để tổng hợp những gì đã nghe và thấy
+• Cách làm: dán ghi chú nghiên cứu vào bốn ô, tách phần quan sát khỏi phần suy diễn, rồi tìm mâu thuẫn giữa Say và Do
+
+LỜI DẪN LỚP
+• Giai đoạn tổng hợp.
+• Empathy map gồm Say, Think, Do, Feel.
+• Ghi lại những gì người dùng thực sự nói và làm, tách riêng khỏi những gì bạn suy diễn.
+• Workshop 30 đến 45 phút.
+• Nguồn: mẫu của NN/g.">
     <div class="example__meta">
       <div class="example__kicker">Stage 1 · Synthesis</div>
       <h2 class="example__title">Empathy mapping</h2>
@@ -668,12 +778,21 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-empathy" shape="rect" fit="cover" placeholder="Drop your empathy mapping example" src="uploads/assets/empathymap.png"></image-slot>
+      <image-slot id="act-empathy" shape="rect" fit="cover" placeholder="Drop your empathy mapping example" src="../assets/empathymap.png"></image-slot>
       <div class="example__source"><b>Source</b> NN/g template</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Assumption map" data-screen-label="Activity — Assumption map" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="Assumption map — drop in your own workshop board.">
+  <section class="slide example" data-label="Activity — Assumption map" data-screen-label="Activity — Assumption map" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: bảng xếp các giả định theo mức độ đã biết và mức độ rủi ro
+• Khi nào dùng: để quyết định cần kiểm chứng điều gì trước
+• Cách làm: liệt kê giả định, xếp vào Unknown hoặc Known, chuyển sang Confirmed hoặc Unconfirmed sau khi có bằng chứng
+
+LỜI DẪN LỚP
+• Assumption map: chuyển mỗi niềm tin từ Unknown sang Confirmed hoặc Unconfirmed.
+• Mục đích là làm lộ ra các giả định chưa được kiểm chứng.
+• Khoảng 30 phút.
+• Nguồn: Maze.">
     <div class="example__meta">
       <div class="example__kicker">Stage 1 · Synthesis</div>
       <h2 class="example__title">Assumption map</h2>
@@ -684,13 +803,22 @@
         <span class="tag">30 min</span>
       </div>
     </div>
-    <div class="example__visual" style="align-items: center; justify-content: center; background: url(&quot;./1729699281-assumption-matrix-filled-in-msiypy7b-tcpi.avif&quot;) center / contain no-repeat">
-      <image-slot id="act-assumption" shape="rect" fit="contain" placeholder="Drop your assumption map example" src="uploads/assets/assumptionmap.png" data-hug="" style="flex: none; width: 100%; height: auto; max-height: 100%; margin: auto;"></image-slot>
+    <div class="example__visual" style="align-items: center; justify-content: center; background: none">
+      <image-slot id="act-assumption" shape="rect" fit="contain" placeholder="Drop your assumption map example" src="../assets/assumptionmap.png" data-hug="" style="flex: none; width: 100%; height: auto; max-height: 100%; margin: auto;"></image-slot>
       <div class="example__source"><b>Source</b> Maze</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Research log update" data-screen-label="Activity — Research log update" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="Research log update — drop in your own research repo.">
+  <section class="slide example" data-label="Activity — Research log update" data-screen-label="Activity — Research log update" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: nhật ký nghiên cứu, mỗi mục gồm trích dẫn, hành vi và bối cảnh
+• Khi nào dùng: sau mỗi cuộc trò chuyện để bằng chứng không bị mất
+• Cách làm: ghi trong 24 giờ, gắn thẻ theo chủ đề, và liên kết tới insight liên quan
+
+LỜI DẪN LỚP
+• Cập nhật research log: ghi một mục sau mỗi cuộc trò chuyện gồm trích dẫn, hành vi và bối cảnh.
+• Việc này xây nên kho bằng chứng thật cho cả đội.
+• Làm liên tục.
+• Nguồn: haversstock media.">
     <div class="example__meta">
       <div class="example__kicker">Stage 1 · Synthesis</div>
       <h2 class="example__title">Research log update</h2>
@@ -701,14 +829,16 @@
         <span class="tag">Ongoing</span>
       </div>
     </div>
-    <div class="example__visual" style="background: url(&quot;./screenshot-2026-08-07-at-20-12-46-msiyt9vn-61fb.png&quot;) center / contain no-repeat">
-      <image-slot id="act-log" shape="rect" fit="contain" placeholder="Drop your research log update example" src="uploads/researchlog.png" data-hug="" style="flex: none; width: 100%; height: auto; max-height: 100%; margin: auto;"></image-slot>
+    <div class="example__visual" style="background: none">
+      <image-slot id="act-log" shape="rect" fit="contain" placeholder="Drop your research log update example" src="../assets/researchlog.png" data-hug="" style="flex: none; width: 100%; height: auto; max-height: 100%; margin: auto;"></image-slot>
       <div class="example__source"><b>Source</b>haversstock media</div>
     </div>
   </section>
 
 
-  <section class="slide section-divider" data-label="Stage 2 — Define" data-screen-label="Stage 2 — Define" data-speaker-notes="Stage two. Turn research into a clear, validated problem statement.">
+  <section class="slide section-divider" data-label="Stage 2 — Define" data-screen-label="Stage 2 — Define" data-speaker-notes="• Giai đoạn hai: Define.
+• Biến kết quả nghiên cứu thành một problem statement rõ ràng và đã được kiểm chứng.
+• Câu hỏi dẫn dắt: vấn đề thật sự đáng giải quyết là gì?">
     <div class="section-divider__inner">
       <div class="section-divider__kicker"><span class="num">02</span><span>Stage Two</span></div>
       <h2 class="section-divider__title">Define</h2>
@@ -716,7 +846,16 @@
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Jobs-to-be-done" data-screen-label="Activity — Jobs-to-be-done" style="--stage-tint:var(--sage-tint); --stage-deep:var(--sage);" data-speaker-notes="Jobs-to-be-done — drop in your own jtbd map.">
+  <section class="slide example" data-label="Activity — Jobs-to-be-done" data-screen-label="Activity — Jobs-to-be-done" style="--stage-tint:var(--sage-tint); --stage-deep:var(--sage);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: khung mô tả công việc người dùng muốn hoàn thành: chức năng, cảm xúc, xã hội
+• Khi nào dùng: khi chuyển từ insight sang vấn đề cần giải quyết
+• Cách làm: viết câu «Khi [tình huống], tôi muốn [động lực], để [kết quả]», rồi phân loại thành ba nhóm job
+
+LỜI DẪN LỚP
+• Jobs-to-be-done: có ba loại job là chức năng, cảm xúc và xã hội.
+• Phần lớn thiết kế bỏ sót hai loại sau.
+• Hỏi lớp: sản phẩm của bạn giúp người dùng đạt được điều gì về mặt cảm xúc?
+• Khoảng 45 phút.">
     <div class="example__meta">
       <div class="example__kicker">Stage 2 · Define</div>
       <h2 class="example__title">Jobs-to-be-done</h2>
@@ -728,12 +867,21 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-jtbd" shape="rect" fit="contain" placeholder="Drop your jobs-to-be-done example" src="uploads/assets/jobs-to-be-done-example-scaled.png"></image-slot>
+      <image-slot id="act-jtbd" shape="rect" fit="contain" placeholder="Drop your jobs-to-be-done example" src="../assets/jobs-to-be-done-example-scaled.png"></image-slot>
       <div class="example__source"><b>Source</b> JTBD map</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — How might we" data-screen-label="Activity — How might we" style="--stage-tint:var(--sage-tint); --stage-deep:var(--sage);" data-speaker-notes="How might we — drop in your own hmw wall.">
+  <section class="slide example" data-label="Activity — How might we" data-screen-label="Activity — How might we" style="--stage-tint:var(--sage-tint); --stage-deep:var(--sage);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: cách chuyển insight thành câu hỏi mở bắt đầu bằng «How might we»
+• Khi nào dùng: sau khi có insight và trước khi lên ý tưởng
+• Cách làm: mỗi insight viết 2–3 câu HMW, kiểm tra độ rộng, rồi chọn 1–2 câu hay nhất
+
+LỜI DẪN LỚP
+• How might we: chuyển mỗi insight thành một cơ hội thiết kế.
+• Câu hỏi không quá rộng, không quá hẹp.
+• Cho ví dụ nhanh một câu HMW tốt và một câu quá rộng.
+• Khoảng 20 phút.">
     <div class="example__meta">
       <div class="example__kicker">Stage 2 · Define</div>
       <h2 class="example__title">How might we</h2>
@@ -745,12 +893,20 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-hmw" shape="rect" fit="cover" placeholder="Drop your how might we example" src="uploads/assets/How-might-we.-EN-1200x808-1.png"></image-slot>
+      <image-slot id="act-hmw" shape="rect" fit="cover" placeholder="Drop your how might we example" src="../assets/How-might-we.-EN-1200x808-1.png"></image-slot>
       <div class="example__source"><b>Source</b> HMW wall</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Current-state journey" data-screen-label="Activity — Current-state journey" style="--stage-tint:var(--sage-tint); --stage-deep:var(--sage);" data-speaker-notes="Current-state journey — drop in your own journey map.">
+  <section class="slide example" data-label="Activity — Current-state journey" data-screen-label="Activity — Current-state journey" style="--stage-tint:var(--sage-tint); --stage-deep:var(--sage);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: bản đồ các bước, cảm xúc và điểm đau của trải nghiệm hiện tại
+• Khi nào dùng: để cả đội thấy cùng một bức tranh và chọn chỗ cần cải thiện
+• Cách làm: chọn một persona, liệt kê các giai đoạn, ghi hành động, suy nghĩ, cảm xúc, rồi đánh dấu điểm đau
+
+LỜI DẪN LỚP
+• Hành trình hiện tại (current-state journey): vẽ trải nghiệm đúng như hôm nay, không phải như ta muốn nó là.
+• Khoảng 60 phút.
+• Nhấn mạnh: đây là chỗ thấy rõ điểm đau và khoảnh khắc cảm xúc thấp.">
     <div class="example__meta">
       <div class="example__kicker">Stage 2 · Define</div>
       <h2 class="example__title">Current-state journey</h2>
@@ -762,12 +918,16 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-journey" shape="rect" fit="cover" placeholder="Drop your current-state journey example" src="uploads/assets/journeymap.png"></image-slot>
+      <image-slot id="act-journey" shape="rect" fit="cover" placeholder="Drop your current-state journey example" src="../assets/journeymap.png"></image-slot>
       <div class="example__source"><b>Source</b> Journey map</div>
     </div>
   </section>
 
-  <section class="slide section-divider" data-label="Stage 3 — Ideate" data-screen-label="Stage 3 — Ideate" data-speaker-notes="Stage three. Explore widely before committing. Quantity first.">
+  <section class="slide section-divider" data-label="Stage 3 — Ideate" data-screen-label="Stage 3 — Ideate" data-speaker-notes="• Giai đoạn ba: Ideate.
+• Khám phá rộng trước khi chọn.
+• Số lượng trước, chất lượng sau.
+• Câu hỏi dẫn dắt: có bao nhiêu cách để giải quyết vấn đề này?
+• Nhắc lớp tạm dừng việc đánh giá ý tưởng.">
     <div class="section-divider__inner">
       <div class="section-divider__kicker"><span class="num">03</span><span>Stage Three</span></div>
       <h2 class="section-divider__title">Ideate</h2>
@@ -775,7 +935,16 @@
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Crazy 8s" data-screen-label="Activity — Crazy 8s" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="Crazy 8s — drop in your own crazy 8s sheet.">
+  <section class="slide example" data-label="Activity — Crazy 8s" data-screen-label="Activity — Crazy 8s" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: bài phác tám ý tưởng trong tám phút, mỗi ý một phút
+• Khi nào dùng: khi cần nhiều hướng nhanh và vượt qua ý tưởng đầu tiên
+• Cách làm: gấp giấy thành 8 ô, đặt hẹn giờ 8 phút, phác thô, rồi chia sẻ và chọn
+
+LỜI DẪN LỚP
+• Crazy 8s: tám bản phác trong tám phút.
+• Ép số lượng và xóa bỏ chủ nghĩa hoàn hảo.
+• Có thể cho cả lớp thử nhanh một vòng nếu còn thời gian.
+• Thay bằng tờ Crazy 8s của bạn.">
     <div class="example__meta">
       <div class="example__kicker">Stage 3 · Generate</div>
       <h2 class="example__title">Crazy 8s</h2>
@@ -787,12 +956,21 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-crazy8s" shape="rect" fit="cover" placeholder="Drop your crazy 8s example" src="uploads/assets/crazy 8.jpeg"></image-slot>
+      <image-slot id="act-crazy8s" shape="rect" fit="cover" placeholder="Drop your crazy 8s example" src="../assets/crazy 8.jpeg"></image-slot>
       <div class="example__source"><b>Source</b> Crazy 8s sheet</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — HMW ideation" data-screen-label="Activity — HMW ideation" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="HMW ideation — drop in your own idea wall.">
+  <section class="slide example" data-label="Activity — HMW ideation" data-screen-label="Activity — HMW ideation" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: việc nghĩ 5–10 ý tưởng cho mỗi câu HMW
+• Khi nào dùng: ngay sau khi đã có các câu HMW
+• Cách làm: chọn một câu HMW, viết ý tưởng lên note, không đánh giá, rồi nhóm các ý tương tự
+
+LỜI DẪN LỚP
+• HMW ideation: năm đến mười ý tưởng cho mỗi câu hỏi.
+• Chính câu hỏi là ràng buộc hữu ích.
+• Khoảng 15 phút.
+• Nối trực tiếp từ các câu HMW ở giai đoạn Define.">
     <div class="example__meta">
       <div class="example__kicker">Stage 3 · Generate</div>
       <h2 class="example__title">HMW ideation</h2>
@@ -804,12 +982,21 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-hmwideation" shape="rect" fit="cover" placeholder="Drop your hmw ideation example"></image-slot>
+      <image-slot id="act-hmwideation" shape="rect" fit="contain" placeholder="Drop your hmw ideation example" src="../assets/hmw-healthcare.png"></image-slot>
       <div class="example__source"><b>Source</b> Idea wall</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Brainwriting" data-screen-label="Activity — Brainwriting" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="Brainwriting — drop in your own brainwriting grid.">
+  <section class="slide example" data-label="Activity — Brainwriting" data-screen-label="Activity — Brainwriting" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: cách tạo ý tưởng im lặng và song song, mỗi người viết rồi chuyền cho người kế
+• Khi nào dùng: khi nhóm có người nói to chi phối hoặc người ngại phát biểu
+• Cách làm: mỗi người viết 3 ý trong 5 phút, chuyền lưới, người nhận phát triển thêm, lặp 3–4 vòng
+
+LỜI DẪN LỚP
+• Brainwriting: tạo ý tưởng song song và im lặng.
+• Ngăn người nói to nhất lái cả phòng.
+• Khoảng 20 phút.
+• Phù hợp với nhóm có người hướng nội.">
     <div class="example__meta">
       <div class="example__kicker">Stage 3 · Generate</div>
       <h2 class="example__title">Brainwriting</h2>
@@ -821,12 +1008,20 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-brainwriting" shape="rect" fit="cover" placeholder="Drop your brainwriting example" src="uploads/assets/brainwritting.png"></image-slot>
+      <image-slot id="act-brainwriting" shape="rect" fit="cover" placeholder="Drop your brainwriting example" src="../assets/brainwritting.png"></image-slot>
       <div class="example__source"><b>Source</b> Brainwriting grid</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Ideate workshop" data-screen-label="Activity — Ideate workshop" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="Ideate workshop — drop in your own workshop board.">
+  <section class="slide example" data-label="Activity — Ideate workshop" data-screen-label="Activity — Ideate workshop" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: buổi workshop kết hợp Crazy 8s và HMW liên tiếp
+• Khi nào dùng: khi cần nhiều ý tưởng từ cả đội trong một buổi
+• Cách làm: nhắc lại HMW, chạy Crazy 8s, chia sẻ, rồi dot-vote để chọn ý tưởng
+
+LỜI DẪN LỚP
+• Workshop Ideate: Crazy 8s và HMW làm liên tiếp, thu về hơn năm mươi ý tưởng để dot-vote.
+• Khoảng 90 phút.
+• Nhấn mạnh việc chuẩn bị bảng và người điều phối.">
     <div class="example__meta">
       <div class="example__kicker">Stage 3 · Generate</div>
       <h2 class="example__title">Ideate workshop</h2>
@@ -838,12 +1033,21 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-ideateworkshop" shape="rect" fit="cover" placeholder="Drop your ideate workshop example" src="uploads/assets/ideate workshop.jpeg"></image-slot>
+      <image-slot id="act-ideateworkshop" shape="rect" fit="cover" placeholder="Drop your ideate workshop example" src="../assets/ideate workshop.jpeg"></image-slot>
       <div class="example__source"><b>Source</b> Workshop board</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Impact vs effort" data-screen-label="Activity — Impact vs effort" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="Impact vs effort — drop in your own 2×2 matrix.">
+  <section class="slide example" data-label="Activity — Impact vs effort" data-screen-label="Activity — Impact vs effort" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: ma trận 2×2 giữa giá trị người dùng và công sức xây dựng
+• Khi nào dùng: để chọn ý tưởng nào làm trước
+• Cách làm: vẽ hai trục, đặt ý tưởng lên ma trận cùng đội, ưu tiên góc tác động cao và công sức thấp
+
+LỜI DẪN LỚP
+• Giai đoạn chọn lọc.
+• Impact vs effort: đặt ý tưởng theo giá trị người dùng so với chi phí xây dựng.
+• Bắt đầu từ góc trên bên trái, tác động cao và công sức thấp.
+• Khoảng 30 phút.">
     <div class="example__meta">
       <div class="example__kicker">Stage 3 · Select</div>
       <h2 class="example__title">Impact vs effort</h2>
@@ -855,12 +1059,20 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-impacteffort" shape="rect" fit="cover" placeholder="Drop your impact vs effort example" src="uploads/assets/impact-effort-nng.png"></image-slot>
+      <image-slot id="act-impacteffort" shape="rect" fit="cover" placeholder="Drop your impact vs effort example" src="../assets/impact-effort-nng.png"></image-slot>
       <div class="example__source"><b>Source</b> 2×2 matrix</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Concept sketching" data-screen-label="Activity — Concept sketching" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="Concept sketching — drop in your own concept sketches.">
+  <section class="slide example" data-label="Activity — Concept sketching" data-screen-label="Activity — Concept sketching" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: việc phát triển 2–3 hướng hàng đầu thành bản phác đầy đủ hơn
+• Khi nào dùng: sau khi đã chọn ý tưởng và trước khi làm prototype
+• Cách làm: mỗi hướng vẽ vài màn chính kèm một câu chuyện ngắn, rồi trình bày cho đội để nhận phản hồi
+
+LỜI DẪN LỚP
+• Concept sketching: phát triển hai đến ba hướng hàng đầu thành bản phác đầy đủ hơn, có kèm câu chuyện.
+• Khoảng 45 phút.
+• Mục tiêu là để người khác hiểu được ý tưởng mà không cần bạn giải thích.">
     <div class="example__meta">
       <div class="example__kicker">Stage 3 · Select</div>
       <h2 class="example__title">Concept sketching</h2>
@@ -872,12 +1084,20 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-concept" shape="rect" fit="cover" placeholder="Drop your concept sketching example" src="uploads/assets/conceptsketching.jpeg"></image-slot>
+      <image-slot id="act-concept" shape="rect" fit="cover" placeholder="Drop your concept sketching example" src="../assets/conceptsketching.jpeg"></image-slot>
       <div class="example__source"><b>Source</b> Concept sketches</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Storyboarding" data-screen-label="Activity — Storyboarding" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="Storyboarding — drop in your own storyboard.">
+  <section class="slide example" data-label="Activity — Storyboarding" data-screen-label="Activity — Storyboarding" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: chuỗi khung tranh kể cách người dùng trải nghiệm giải pháp trong bối cảnh thật
+• Khi nào dùng: khi cần truyền đạt concept cho stakeholder
+• Cách làm: chọn một tình huống, chia 6–8 khung gồm bối cảnh, vấn đề, giải pháp, kết quả, rồi kèm chú thích ngắn
+
+LỜI DẪN LỚP
+• Storyboarding: cho thấy concept diễn ra thế nào với người dùng trong bối cảnh thật của họ.
+• Khoảng 45 phút.
+• Ví dụ được tạo bởi StoryTribe.">
     <div class="example__meta">
       <div class="example__kicker">Stage 3 · Select</div>
       <h2 class="example__title">Storyboarding</h2>
@@ -889,12 +1109,21 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-storyboard" shape="rect" fit="cover" placeholder="Drop your storyboarding example" src="uploads/assets/storyboard.avif"></image-slot>
+      <image-slot id="act-storyboard" shape="rect" fit="cover" placeholder="Drop your storyboarding example" src="../assets/storyboard.avif"></image-slot>
       <div class="example__source"><b>Source</b> Example UX storyboard created by StoryTribe</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Proposed process map" data-screen-label="Activity — Proposed process map" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="Proposed process map — drop in your own process map.">
+  <section class="slide example" data-label="Activity — Proposed process map" data-screen-label="Activity — Proposed process map" style="--stage-tint:var(--coral-tint); --stage-deep:var(--coral);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: bản đồ quy trình trong trạng thái tương lai khi giải pháp đã được xây
+• Khi nào dùng: để so sánh với current-state journey và thấy điều gì thay đổi
+• Cách làm: lấy journey hiện tại làm nền, vẽ lại các bước mới, đánh dấu điểm đau được giải quyết
+
+LỜI DẪN LỚP
+• Quy trình đề xuất (proposed process map): vẽ trải nghiệm như nó nên cảm nhận được khi giải pháp đã được xây.
+• Đây là trạng thái tương lai.
+• Nguồn: Anh Truong.
+• Dùng để đối chiếu với current-state journey ở phần Define.">
     <div class="example__meta">
       <div class="example__kicker">Stage 3 · Select</div>
       <h2 class="example__title">Proposed process map</h2>
@@ -906,12 +1135,15 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-processmap" shape="rect" fit="contain" placeholder="Drop your proposed process map example" src="./screenshot-2026-08-07-at-20-16-52-msiyyo8b-njrl.png"></image-slot>
+      <image-slot id="act-processmap" shape="rect" fit="contain" placeholder="Drop your proposed process map example" src="./screenshot-process-map.png"></image-slot>
       <div class="example__source"><b>Source</b>ANH TRUONG</div>
     </div>
   </section>
 
-  <section class="slide section-divider" data-label="Stage 4 — Prototype" data-screen-label="Stage 4 — Prototype" data-speaker-notes="Stage four. The fastest way to make an idea testable — an argument, not a product.">
+  <section class="slide section-divider" data-label="Stage 4 — Prototype" data-screen-label="Stage 4 — Prototype" data-speaker-notes="• Giai đoạn bốn: Prototype.
+• Cách nhanh nhất để biến một ý tưởng thành thứ có thể kiểm thử.
+• Prototype là một lập luận, không phải một sản phẩm.
+• Câu hỏi dẫn dắt: cách nhanh nhất để làm cho nó test được là gì?">
     <div class="section-divider__inner">
       <div class="section-divider__kicker"><span class="num">04</span><span>Stage Four</span></div>
       <h2 class="section-divider__title">Prototype</h2>
@@ -919,7 +1151,15 @@
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Wireframes" data-screen-label="Activity — Wireframes" style="--stage-tint:var(--yellow-tint); --stage-deep:var(--yellow-deep);" data-speaker-notes="Wireframes — drop in your own wireframe set.">
+  <section class="slide example" data-label="Activity — Wireframes" data-screen-label="Activity — Wireframes" style="--stage-tint:var(--yellow-tint); --stage-deep:var(--yellow-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: bản vẽ cấu trúc bố cục, không màu và không thương hiệu
+• Khi nào dùng: khi cần thống nhất cấu trúc và luồng trước khi thiết kế chi tiết
+• Cách làm: liệt kê nội dung chính, phác bố cục từng màn, nối các màn thành luồng, rồi xem lại cùng đội
+
+LỜI DẪN LỚP
+• Wireframe: chỉ có cấu trúc bố cục, không màu, không thương hiệu, không gây xao nhãng.
+• Độ trung thực thấp và làm rất nhanh.
+• Giúp cả đội tranh luận về cấu trúc thay vì về màu sắc.">
     <div class="example__meta">
       <div class="example__kicker">Stage 4 · Build fast</div>
       <h2 class="example__title">Wireframes</h2>
@@ -931,12 +1171,20 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-wireframes" shape="rect" fit="cover" placeholder="Drop your wireframes example" src="uploads/assets/website-wireframe-services.webp"></image-slot>
+      <image-slot id="act-wireframes" shape="rect" fit="cover" placeholder="Drop your wireframes example" src="../assets/website-wireframe-services.webp"></image-slot>
       <div class="example__source"><b>Source</b> Wireframe set</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Interactive prototype" data-screen-label="Activity — Interactive prototype" style="--stage-tint:var(--yellow-tint); --stage-deep:var(--yellow-deep);" data-speaker-notes="Interactive prototype — drop in your own figma prototype.">
+  <section class="slide example" data-label="Activity — Interactive prototype" data-screen-label="Activity — Interactive prototype" style="--stage-tint:var(--yellow-tint); --stage-deep:var(--yellow-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: bản mẫu có thể bấm, gồm trạng thái và điều hướng
+• Khi nào dùng: khi cần test luồng với người dùng
+• Cách làm: chọn luồng chính, dựng các trạng thái default, loading, empty, error, success, rồi nối bằng tương tác
+
+LỜI DẪN LỚP
+• Prototype tương tác: có trạng thái và điều hướng, gồm default, loading, empty, error, success.
+• Có thể bấm được, độ trung thực trung bình.
+• Nhắc đừng quên các trạng thái ngoại lệ.">
     <div class="example__meta">
       <div class="example__kicker">Stage 4 · Build fast</div>
       <h2 class="example__title">Interactive prototype</h2>
@@ -948,12 +1196,20 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-prototype" shape="rect" fit="cover" placeholder="Drop your interactive prototype example" src="uploads/assets/prototype.png"></image-slot>
+      <image-slot id="act-prototype" shape="rect" fit="cover" placeholder="Drop your interactive prototype example" src="../assets/prototype.png"></image-slot>
       <div class="example__source"><b>Source</b> Figma prototype</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Proof of concept" data-screen-label="Activity — Proof of concept" style="--stage-tint:var(--yellow-tint); --stage-deep:var(--yellow-deep);" data-speaker-notes="Proof of concept — drop in your own poc build.">
+  <section class="slide example" data-label="Activity — Proof of concept" data-screen-label="Activity — Proof of concept" style="--stage-tint:var(--yellow-tint); --stage-deep:var(--yellow-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: bản thử rất thô để trả lời một câu hỏi: ý tưởng này có hoạt động không
+• Khi nào dùng: khi có rủi ro kỹ thuật hoặc ý tưởng mới chưa chắc khả thi
+• Cách làm: viết ra câu hỏi cần trả lời, làm bản nhỏ nhất đủ để trả lời, đo kết quả, rồi quyết định tiếp tục hay bỏ
+
+LỜI DẪN LỚP
+• Proof of concept: chỉ trả lời một câu hỏi, ý tưởng này có thật sự hoạt động không?
+• Giữ thô và nhanh, sẵn sàng bỏ đi.
+• Khác với prototype dành cho người dùng, POC thường phục vụ đội kỹ thuật và sản phẩm.">
     <div class="example__meta">
       <div class="example__kicker">Stage 4 · Build fast</div>
       <h2 class="example__title">Proof of concept</h2>
@@ -965,12 +1221,14 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-poc" shape="rect" fit="cover" placeholder="Drop your proof of concept example"></image-slot>
-      <div class="example__source"><b>Source</b> POC build</div>
+      <image-slot id="act-poc" shape="rect" fit="contain" placeholder="Drop your proof of concept example" src="../assets/poc-prototype-mvp.png"></image-slot>
+      <div class="example__source"><b>Source</b> program-ace.com</div>
     </div>
   </section>
 
-  <section class="slide section-divider" data-label="Stage 5 — Test" data-screen-label="Stage 5 — Test" data-speaker-notes="Stage five. Find out if the design solves the problem — and change what doesn't.">
+  <section class="slide section-divider" data-label="Stage 5 — Test" data-screen-label="Stage 5 — Test" data-speaker-notes="• Giai đoạn năm: Test.
+• Tìm hiểu xem thiết kế có giải quyết được vấn đề không, và thay đổi những gì chưa ổn.
+• Câu hỏi dẫn dắt: ta có đúng không, và cần thay đổi gì?">
     <div class="section-divider__inner">
       <div class="section-divider__kicker"><span class="num">05</span><span>Stage Five</span></div>
       <h2 class="section-divider__title">Test</h2>
@@ -978,7 +1236,16 @@
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Internal feedback" data-screen-label="Activity — Internal feedback" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="Internal feedback — drop in your own critique notes.">
+  <section class="slide example" data-label="Activity — Internal feedback" data-screen-label="Activity — Internal feedback" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: buổi phản hồi trong nội bộ với khung I noticed, I wonder, What if
+• Khi nào dùng: trước khi test với người dùng để bắt lỗi rõ ràng
+• Cách làm: trình bày 5 phút, mỗi người ghi theo ba câu mẫu, rồi nhóm phản hồi và chọn việc cần sửa
+
+LỜI DẪN LỚP
+• Phản hồi nội bộ: dùng khung «I noticed, I wonder, What if».
+• Ghi lại quyết định trước khi bất cứ thứ gì được phát hành.
+• Khoảng 30 phút.
+• Giúp phản hồi cụ thể và bớt mang tính cá nhân.">
     <div class="example__meta">
       <div class="example__kicker">Stage 5 · Find out</div>
       <h2 class="example__title">Internal feedback</h2>
@@ -990,12 +1257,20 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-internalfeedback" shape="rect" fit="cover" placeholder="Drop your internal feedback example" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?fm=jpg&amp;q=80&amp;w=1600&amp;auto=format&amp;fit=crop" credit="Photo by charlesdeluvio on Unsplash" credit-href="https://unsplash.com/@charlesdeluvio"></image-slot>
+      <image-slot id="act-internalfeedback" shape="rect" fit="cover" placeholder="Drop your internal feedback example" src="../assets/unsplash-internal-feedback.jpg" credit="Photo by charlesdeluvio on Unsplash" credit-href="https://unsplash.com/@charlesdeluvio"></image-slot>
       <div class="example__source"><b>Source</b> Critique notes</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Concept testing" data-screen-label="Activity — Concept testing" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="Concept testing — drop in your own test session.">
+  <section class="slide example" data-label="Activity — Concept testing" data-screen-label="Activity — Concept testing" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: cách cho vài người dùng xem concept để kiểm tra mức độ hiểu
+• Khi nào dùng: trước khi xây để biết giá trị có rõ không
+• Cách làm: tuyển 5 người, cho xem concept, hỏi họ nhắc lại bằng lời của mình và mức độ muốn dùng
+
+LỜI DẪN LỚP
+• Concept testing: cho một vài người dùng xem concept và đo mức độ hiểu trước khi xây.
+• Định tính, khoảng 20 phút.
+• Chi phí thấp nhất để phát hiện hiểu lầm.">
     <div class="example__meta">
       <div class="example__kicker">Stage 5 · Find out</div>
       <h2 class="example__title">Concept testing</h2>
@@ -1007,12 +1282,21 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-concepttest" shape="rect" fit="cover" placeholder="Drop your concept testing example" src="uploads/assets/5 second.png"></image-slot>
+      <image-slot id="act-concepttest" shape="rect" fit="cover" placeholder="Drop your concept testing example" src="../assets/5 second.png"></image-slot>
       <div class="example__source"><b>Source</b> Test session</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — Usability testing" data-screen-label="Activity — Usability testing" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="Usability testing — drop in your own usability session.">
+  <section class="slide example" data-label="Activity — Usability testing" data-screen-label="Activity — Usability testing" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: buổi quan sát người dùng làm tác vụ trên prototype hoặc sản phẩm
+• Khi nào dùng: khi cần tìm điểm vướng trong luồng
+• Cách làm: viết 3–5 tác vụ, mời 5 người, yêu cầu nói to suy nghĩ, ghi lại chỗ vướng và đánh giá mức độ nghiêm trọng
+
+LỜI DẪN LỚP
+• Usability testing: dùng think-aloud.
+• Năm người dùng phát hiện khoảng 85% các vấn đề nghiêm trọng.
+• Có người điều phối, 30 đến 45 phút mỗi buổi.
+• Nhắc: quan sát hành vi, đừng dẫn dắt.">
     <div class="example__meta">
       <div class="example__kicker">Stage 5 · Find out</div>
       <h2 class="example__title">Usability testing</h2>
@@ -1024,12 +1308,20 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-usability" shape="rect" fit="cover" placeholder="Drop your usability testing example" src="https://images.unsplash.com/photo-1585624882829-f92c2d4cd89d?fm=jpg&amp;q=80&amp;w=1600&amp;auto=format&amp;fit=crop" credit="Photo by UX Indonesia on Unsplash" credit-href="https://unsplash.com/@uxindo"></image-slot>
+      <image-slot id="act-usability" shape="rect" fit="cover" placeholder="Drop your usability testing example" src="../assets/unsplash-usability.jpg" credit="Photo by UX Indonesia on Unsplash" credit-href="https://unsplash.com/@uxindo"></image-slot>
       <div class="example__source"><b>Source</b> Usability session</div>
     </div>
   </section>
 
-  <section class="slide example" data-label="Activity — A/B testing" data-screen-label="Activity — A/B testing" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="A/B testing — drop in your own experiment results.">
+  <section class="slide example" data-label="Activity — A/B testing" data-screen-label="Activity — A/B testing" style="--stage-tint:var(--purple-tint); --stage-deep:var(--purple-deep);" data-speaker-notes="GIỚI THIỆU PHƯƠNG PHÁP
+• Là gì: thử nghiệm so sánh hai phiên bản trên người dùng thật
+• Khi nào dùng: khi sản phẩm đã chạy và có đủ lượng truy cập
+• Cách làm: đặt giả thuyết và chỉ số, chia lưu lượng ngẫu nhiên, chạy đủ lâu, rồi đọc kết quả cùng dữ liệu định tính
+
+LỜI DẪN LỚP
+• A/B testing: so sánh hai phiên bản đang chạy thật.
+• Trả lời được phiên bản nào tốt hơn, nhưng không giải thích vì sao.
+• Vì vậy cần kết hợp với kiểm thử định tính.">
     <div class="example__meta">
       <div class="example__kicker">Stage 5 · Find out</div>
       <h2 class="example__title">A/B testing</h2>
@@ -1041,12 +1333,16 @@
       </div>
     </div>
     <div class="example__visual">
-      <image-slot id="act-abtest" shape="rect" fit="cover" placeholder="Drop your a/b testing example" src="uploads/assets/ab testing.png"></image-slot>
+      <image-slot id="act-abtest" shape="rect" fit="cover" placeholder="Drop your a/b testing example" src="../assets/ab testing.png"></image-slot>
       <div class="example__source"><b>Source</b> Experiment results</div>
     </div>
   </section>
 
-  <section class="slide milestone" data-label="Activity — Draft Process" data-screen-label="Activity — Draft Process" data-speaker-notes="Hands-on. Use a real project. One activity and one output per stage on the shared board.">
+  <section class="slide milestone" data-label="Activity — Draft Process" data-screen-label="Activity — Draft Process" data-speaker-notes="• Thực hành, 10 phút.
+• Mở bảng chung và dùng dự án thật của bạn.
+• Với mỗi giai đoạn, viết một hoạt động và một đầu ra.
+• Cuối giờ, mỗi bạn quay lại với một giai đoạn tự tin và một giai đoạn đang bí.
+• Đi quanh lớp hỗ trợ từng người.">
     <div class="milestone__inner">
       <div class="milestone__kicker">Activity · Your turn</div>
       <div class="milestone__num">10</div>
@@ -1055,24 +1351,41 @@
     </div>
   </section>
 
-  <section class="slide" data-label="Mentee Examples" data-screen-label="Mentee Examples" data-speaker-notes="Two drafts from previous mentees. Different formats, same structure: one activity and one output per stage.">
+  <section class="slide" data-label="Mentee Examples" data-screen-label="Mentee Examples" data-speaker-notes="• Tham khảo hai bản nháp của các mentee trước: Anh Truong và Tam Nguyen.
+• Hình thức khác nhau nhưng cấu trúc giống nhau, mỗi giai đoạn một hoạt động và một đầu ra.
+• Hình hơi nhỏ nên hãy đọc to những điểm đáng chú ý.
+• Nhấn mạnh: không có bản duy nhất đúng.">
     <div style="margin-bottom:56px">
       <div class="slide-kicker">Reference</div>
       <h2 class="slide-title">Examples from <em>other mentees</em></h2>
     </div>
     <div style="display:grid;grid-template-columns:1.47fr 1fr;gap:40px;align-items:start">
       <div style="display:flex;flex-direction:column;gap:24px">
-        <img src="mentee/Anh-Truong-Strand-Butler-Process.png" alt="Anh Truong — Strand Butler process" style="width:100%;display:block;border:2px solid var(--ink);border-radius:var(--radius-lg);background:#fff">
+        <img src="../assets/Anh-Truong-Strand-Butler-Process.png" alt="Anh Truong — Strand Butler process" style="width:100%;display:block;border:2px solid var(--ink);border-radius:var(--radius-lg);background:#fff">
         <div style="display:flex;align-items:baseline;gap:16px"><span style="font-family:var(--font-mono);font-size:var(--text-sm);letter-spacing:var(--tracking-mono);text-transform:uppercase;color:var(--sienna-deep)">Made by</span><span style="font-family:var(--font-display);font-weight:600;font-size:36px;color:var(--ink)">Anh Truong</span></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:24px">
-        <img src="mentee/Tam-Nguyen-Design-Process-Double-Diamond.png" alt="Tam Nguyen — Double Diamond design process" style="width:100%;display:block;border:2px solid var(--ink);border-radius:var(--radius-lg);background:#fff">
+        <img src="../assets/Tam-Nguyen-Design-Process-Double-Diamond.png" alt="Tam Nguyen — Double Diamond design process" style="width:100%;display:block;border:2px solid var(--ink);border-radius:var(--radius-lg);background:#fff">
         <div style="display:flex;align-items:baseline;gap:16px"><span style="font-family:var(--font-mono);font-size:var(--text-sm);letter-spacing:var(--tracking-mono);text-transform:uppercase;color:var(--sienna-deep)">Made by</span><span style="font-family:var(--font-display);font-weight:600;font-size:36px;color:var(--ink)">Tam Nguyen</span></div>
       </div>
     </div>
   </section>
 
-  <section class="slide aiprac" data-label="AI in Practice" data-screen-label="AI in Practice" data-speaker-notes="Use AI to draft one stage at a time. Paste the prompt, then refine — never accept the first answer.">
+  <section class="slide" data-label="Full Process Example" data-screen-label="Full Process Example" data-speaker-notes="• Ví dụ một quy trình hoàn chỉnh cho dự án Urban Farming trên một bảng chung.
+• Đọc từ trái sang phải: Affinity Clustering, Lean Canvas, Research synthesis, Persona, Problem Statement, Ideation Workshop.
+• Dưới mỗi cột là các đầu ra cụ thể như Survey Findings, Interviews, 5 whys, Crazy 8s, Concept Sketching.
+• Nhấn mạnh: mỗi giai đoạn có một hoạt động và một đầu ra mà cả đội có thể chỉ vào.">
+    <div style="margin-bottom:48px">
+      <div class="slide-kicker">Reference</div>
+      <h2 class="slide-title">Full process example: <em>Urban Farming</em></h2>
+    </div>
+    <img src="../assets/full process.png" alt="Urban Farming full design process board" style="width:100%;display:block;border:2px solid var(--ink);border-radius:var(--radius-lg)">
+  </section>
+
+  <section class="slide aiprac" data-label="AI in Practice" data-screen-label="AI in Practice" data-speaker-notes="• Dùng AI để nháp từng giai đoạn một.
+• Dán prompt, điền dự án và người dùng của bạn vào hai chỗ trống, rồi tinh chỉnh.
+• Nhắc: không bao giờ chấp nhận câu trả lời đầu tiên.
+• Hỏi AI thêm dấu hiệu sẵn sàng để chuyển giai đoạn và rủi ro lớn nhất nếu bỏ qua.">
     <div class="aiprac__head">
       <div class="slide-kicker">AI in practice</div>
       <h2 class="slide-title">Draft your process — <em>one stage at a time</em></h2>
@@ -1110,7 +1423,11 @@
     </div>
   </section>
 
-  <section class="slide practice" data-label="Assignments 1 + 2" data-screen-label="Assignments 1 + 2" data-speaker-notes="Two assignments before next session: set up the board, and draft the design brief.">
+  <section class="slide practice" data-label="Assignments 1 + 2" data-screen-label="Assignments 1 + 2" data-speaker-notes="• Hai bài tập trước buổi sau.
+• Bài 1: dựng bảng quy trình.
+• Chọn dự án thật, thêm ít nhất một hoạt động và một đầu ra cho mỗi giai đoạn, thiết lập trong công cụ quản lý dự án, thống nhất không gian làm việc với đội.
+• Bài 2: hoàn thành brief.
+• Viết problem statement thành ba phiên bản bằng prompt AI, mô tả người dùng chính trong 2 đến 3 câu, liệt kê ba mục tiêu thiết kế.">
     <div class="practice__head">
       <div class="slide-kicker">Before next session</div>
       <h2 class="slide-title">Set up <em>+</em> document</h2>
@@ -1139,7 +1456,11 @@
     </div>
   </section>
 
-  <section class="slide practice" data-label="Assignments 3 + 4" data-screen-label="Assignments 3 + 4" data-speaker-notes="Two more: capture current screens, and run a stakeholder interview. We use both in Session 2.">
+  <section class="slide practice" data-label="Assignments 3 + 4" data-screen-label="Assignments 3 + 4" data-speaker-notes="• Hai bài tập nữa.
+• Bài 3: chụp các màn hình hiện tại.
+• Xác định các trải nghiệm chính như onboarding, tác vụ cốt lõi, checkout, cài đặt; chụp và gắn nhãn từng trạng thái; sắp xếp theo luồng màn hình.
+• Bài 4: phỏng vấn stakeholder với kịch bản 5 đến 8 câu.
+• Cả hai bài sẽ được dùng ở Buổi 2 để phân tích friction.">
     <div class="practice__head">
       <div class="slide-kicker">Before next session</div>
       <h2 class="slide-title">Capture <em>+</em> interview</h2>
@@ -1168,7 +1489,13 @@
     </div>
   </section>
 
-  <section class="slide end" data-label="Close" data-screen-label="Close" data-speaker-notes="Close on the one idea: design thinking is a habit, not a checklist. See you next session.">
+  <section class="slide end" data-label="Close" data-screen-label="Close" data-speaker-notes="• Kết lại bằng một ý: Design Thinking là một thói quen, không phải một checklist.
+• Bắt đầu bằng sự đồng cảm.
+• Xác định đúng vấn đề.
+• Tạo ý tưởng trước khi đánh giá.
+• Xây để học.
+• Kiểm thử trước khi phát hành.
+• Hẹn gặp lại các bạn ở buổi sau.">
     <div class="end__inner">
       <div class="end__kicker">One thing to carry forward</div>
       <h2 class="end__title">Not a checklist.<br>A <em>habit.</em></h2>
