@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#1c1a24">
+  <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+    <rect width="120" height="80" fill="#1c1a24"/>
+    <text x="60" y="46" font-family="sans-serif" font-size="28" font-weight="700" fill="#f4d35e" text-anchor="middle">4</text>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/winnie-s-teaching-deck-system-f71af009-7bce-47bd-9393-2e3f4f495055/tokens.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <script src="_ds/winnie-s-teaching-deck-system-f71af009-7bce-47bd-9393-2e3f4f495055/_ds_bundle.js"></script>
+  <style>
+    body { margin:0; background:var(--paper-deeper); }
+    a { color:var(--purple); }
+    a:hover { color:var(--purple-deep); }
+    .material-symbols-rounded { font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 40; }
+  </style>
+  <script src="./image-slot.js"></script>
+</helmet>
+
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+
+<section data-label="Cover" data-screen-label="0" data-speaker-notes="Cold open with a real repo's before/after, not this slide's words • Land the mental model in one line before naming any tool: local is the draft, GitHub is published, push is the button" style="width:100%;height:100%;display:grid;grid-template-columns:1.1fr 1fr;background:var(--paper);font-family:var(--font-body);">
+  <div style="padding:112px;display:flex;flex-direction:column;justify-content:space-between;">
+    <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);display:flex;align-items:center;gap:16px;">
+      <span>SYSTEMATIC AI PROTOTYPING</span><span style="flex:1;height:1px;background:var(--ink-ghost);"></span>
+    </div>
+    <div>
+      <div style="font-family:var(--font-display);font-weight:600;font-size:24px;letter-spacing:-0.01em;color:var(--ink-muted);margin-bottom:20px;">LESSON 4</div>
+      <h1 style="font-family:var(--font-display);font-size:104px;font-weight:700;line-height:0.98;letter-spacing:-0.03em;color:var(--ink);margin:0;">Publish <font color="#6b3fee">It</font></h1>
+      <p style="font-family:var(--font-body);font-size:26px;color:var(--ink-soft);margin-top:36px;max-width:700px;line-height:1.5;">Git and GitHub Desktop for non-technical designers.</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:20px;">
+      <image-slot id="instructor-avatar-4" shape="circle" placeholder="Your photo" style="width:72px;height:72px;flex-shrink:0;"></image-slot>
+      <div style="font-family:var(--font-display);font-weight:500;font-size:32px;color:var(--ink);">Winnie Nguyen<div style="font-family:var(--font-body);font-weight:400;font-size:20px;color:var(--ink-muted);margin-top:6px;">UX Product Design Instructor</div></div>
+    </div>
+  </div>
+  <div style="background:var(--purple);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;top:-160px;right:-140px;width:460px;height:460px;border-radius:50%;background:var(--purple-deep);opacity:0.5;"></div>
+    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="Code on a screen" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;">
+  </div>
+</section>
+
+<section data-label="Agenda" data-screen-label="0.1" data-speaker-notes="100 minutes, not 90 — top of the source guide's own 90–100 min range" style="width:100%;height:100%;background:var(--paper);padding:88px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="margin-bottom:48px;">
+    <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:20px;">One hundred minutes</div>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:68px;line-height:1.05;letter-spacing:-0.025em;color:var(--ink);margin:0;">Local becomes<br><em style="font-style:normal;color:var(--purple);">live.</em></h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:30px 28px;"><div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;"><span style="font-family:var(--font-mono);font-size:16px;letter-spacing:0.08em;text-transform:uppercase;color:var(--purple-deep);">01</span><span style="font-family:var(--font-mono);font-size:16px;color:var(--ink-muted);">10 min</span></div><div style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);line-height:1.3;">Local vs. Published</div></div>
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:30px 28px;"><div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;"><span style="font-family:var(--font-mono);font-size:16px;letter-spacing:0.08em;text-transform:uppercase;color:var(--purple-deep);">02</span><span style="font-family:var(--font-mono);font-size:16px;color:var(--ink-muted);">10 min</span></div><div style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);line-height:1.3;">Setup &amp; Connect</div></div>
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:30px 28px;"><div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;"><span style="font-family:var(--font-mono);font-size:16px;letter-spacing:0.08em;text-transform:uppercase;color:var(--purple-deep);">03</span><span style="font-family:var(--font-mono);font-size:16px;color:var(--ink-muted);">20 min</span></div><div style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);line-height:1.3;">First Publish</div></div>
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:30px 28px;"><div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;"><span style="font-family:var(--font-mono);font-size:16px;letter-spacing:0.08em;text-transform:uppercase;color:var(--purple-deep);">04</span><span style="font-family:var(--font-mono);font-size:16px;color:var(--ink-muted);">15 min</span></div><div style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);line-height:1.3;">Make It Live</div></div>
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:30px 28px;"><div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;"><span style="font-family:var(--font-mono);font-size:16px;letter-spacing:0.08em;text-transform:uppercase;color:var(--purple-deep);">05</span><span style="font-family:var(--font-mono);font-size:16px;color:var(--ink-muted);">5 min</span></div><div style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);line-height:1.3;">The AI-Tool Shortcut</div></div>
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:30px 28px;"><div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;"><span style="font-family:var(--font-mono);font-size:16px;letter-spacing:0.08em;text-transform:uppercase;color:var(--purple-deep);">06</span><span style="font-family:var(--font-mono);font-size:16px;color:var(--ink-muted);">10 min</span></div><div style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);line-height:1.3;">Simulate One "Oops"</div></div>
+    <div style="grid-column:1 / -1;background:var(--purple-tint);border-radius:16px;padding:30px 28px;"><div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;"><span style="font-family:var(--font-mono);font-size:16px;letter-spacing:0.08em;text-transform:uppercase;color:var(--purple-deep);">07</span><span style="font-family:var(--font-mono);font-size:16px;color:var(--ink-muted);">30 min</span></div><div style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);line-height:1.3;">The Collaboration — clone a team repo, branch, pull request</div></div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 1 — LOCAL-VS-PUBLISHED MENTAL MODEL ═══ -->
+
+<section data-label="Section — The Local-vs-Published Mental Model" data-screen-label="1" data-speaker-notes="Everything built in Lessons 1–3 lives in one tool, on one machine — today that changes" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:0 96px;background:var(--ink);color:var(--paper);position:relative;overflow:hidden;font-family:var(--font-body);">
+  <div style="position:absolute;top:52px;left:72px;font-family:var(--font-display);font-weight:800;font-size:280px;line-height:0.88;letter-spacing:-0.03em;color:rgba(255,255,255,0.08);">1</div>
+  <div style="max-width:1400px;width:100%;position:relative;z-index:1;">
+    <div style="font-family:var(--font-mono);font-size:22px;letter-spacing:0.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:32px;">Section 1</div>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:96px;line-height:1.0;letter-spacing:-0.03em;color:var(--paper);margin:0;">The Local-vs-Published<br>Mental Model</h2>
+    <p style="font-family:var(--font-body);font-size:32px;color:rgba(250,244,235,0.8);margin-top:32px;max-width:1100px;line-height:1.5;">Everything built so far lives on one machine. That changes now.</p>
+  </div>
+</section>
+
+<section data-label="Local Is the Draft, GitHub Is Published" data-screen-label="1.1" data-speaker-notes="Show, don't explain — pull up a real repo's before (plain folder) and after (commit history + live URL) first • Anchor to something he already knows: a Figma file vs. a published Figma library • The file is where work happens; the published library is what other people actually consume" style="width:100%;height:100%;background:var(--paper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:24px;">The mental model</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:64px;line-height:1.12;letter-spacing:-0.025em;color:var(--ink);margin:0 0 56px;max-width:1600px;">Local folder = draft.&nbsp;<br><em style="font-style: normal; color: var(--purple);">GitHub = published.</em></h2>
+  <div style="display:flex;align-items:center;gap:32px;max-width:1500px;">
+    <div style="flex:1;background:var(--paper-deeper);border-radius:18px;padding:40px 36px;text-align:center;">
+      <span class="material-symbols-rounded" style="font-size:64px;color:var(--ink-muted);display:block;margin-bottom:16px;">folder</span>
+      <div style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);">Local folder</div>
+      <div style="font-family:var(--font-body);font-size:19px;color:var(--ink-soft);margin-top:8px;">A draft only you can see</div>
+    </div>
+    <span class="material-symbols-rounded" style="font-size:48px;color:var(--ink-muted);">arrow_forward</span>
+    <div style="flex:1;background:var(--purple-tint);border-radius:18px;padding:40px 36px;text-align:center;">
+      <div style="display:flex;justify-content:center;gap:16px;margin-bottom:16px;">
+        <span class="material-symbols-rounded" style="font-size:64px;color:var(--purple-deep);">history</span>
+        <span class="material-symbols-rounded" style="font-size:64px;color:var(--purple-deep);">public</span>
+      </div>
+      <div style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);">GitHub</div>
+      <div style="font-family:var(--font-body);font-size:19px;color:var(--ink-soft);margin-top:8px;">Commit history + a live URL</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="Repo, Commit, Push" data-screen-label="1.2" data-speaker-notes="Three words, defined in this course's own terms, not a glossary • Commit message discipline = rules file discipline — vague either one costs more later" style="width:100%;height:100%;background:var(--paper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:20px;">Three words, defined our way</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:64px;line-height:1.08;letter-spacing:-0.025em;color:var(--ink);margin:0 0 48px;">Repo, Commit,<br><em style="font-style:normal;color:var(--purple);">Push.</em></h2>
+  <div style="display:flex;flex-direction:column;gap:16px;max-width:1600px;">
+    <div style="display:flex;gap:28px;align-items:flex-start;background:var(--purple-tint);border-radius:16px;padding:26px 32px;"><span style="font-family:var(--font-mono);font-weight:700;font-size:30px;color:var(--purple-deep);width:40px;">1</span><span style="font-family:var(--font-body);font-size:25px;color:var(--ink);line-height:1.4;"><strong style="font-family:var(--font-display);font-weight:600;">Repo</strong> — the folder's home on GitHub</span></div>
+    <div style="display:flex;gap:28px;align-items:flex-start;background:var(--purple-tint);border-radius:16px;padding:26px 32px;"><span style="font-family:var(--font-mono);font-weight:700;font-size:30px;color:var(--purple-deep);width:40px;">2</span><span style="font-family:var(--font-body);font-size:25px;color:var(--ink);line-height:1.4;"><strong style="font-family:var(--font-display);font-weight:600;">Commit</strong> — a saved snapshot, with a short note describing what changed</span></div>
+    <div style="display:flex;gap:28px;align-items:flex-start;background:var(--purple-tint);border-radius:16px;padding:26px 32px;"><span style="font-family:var(--font-mono);font-weight:700;font-size:30px;color:var(--purple-deep);width:40px;">3</span><span style="font-family:var(--font-body);font-size:25px;color:var(--ink);line-height:1.4;"><strong style="font-family:var(--font-display);font-weight:600;">Push</strong> — sending commits up to GitHub</span></div>
+  </div>
+</section>
+
+<section data-label="A Share Link Isn't a Real Publish" data-screen-label="1.3" data-speaker-notes="A design-tool link is borrowed access. A GitHub Pages URL is yours • A Figma share link or an AI tool's own preview link depends on that tool's account staying active • A GitHub Pages URL doesn't expire when a trial ends or a seat gets reassigned • Checkpoint: he can say the mental model back unprompted before moving on" style="width:100%;height:100%;background:var(--paper-deeper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:32px;">Checkpoint</div>
+  <h2 style="font-family:var(--font-display);font-weight:600;font-style:italic;font-size:64px;line-height:1.25;letter-spacing:-0.02em;color:var(--ink);margin:0;max-width:1500px;">A design-tool link is borrowed access.<br><em style="font-style:italic;color:var(--purple);">A GitHub Pages URL is yours.</em></h2>
+</section>
+
+<!-- ═══ SECTION 2 — SETUP & CONNECT ═══ -->
+
+<section data-label="Section — Setup &amp; Connect" data-screen-label="2" data-speaker-notes="Confirm prework in 30 seconds, don't spend session time on it — account + Desktop install were Lesson 3 homework" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:0 96px;background:var(--ink);color:var(--paper);position:relative;overflow:hidden;font-family:var(--font-body);">
+  <div style="position:absolute;top:52px;left:72px;font-family:var(--font-display);font-weight:800;font-size:280px;line-height:0.88;letter-spacing:-0.03em;color:rgba(255,255,255,0.08);">2</div>
+  <div style="max-width:1400px;width:100%;position:relative;z-index:1;">
+    <div style="font-family:var(--font-mono);font-size:22px;letter-spacing:0.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:32px;">Section 2</div>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:120px;line-height:1.0;letter-spacing:-0.03em;color:var(--paper);margin:0;">Setup &amp; Connect</h2>
+    <p style="font-family:var(--font-body);font-size:32px;color:rgba(250,244,235,0.8);margin-top:32px;max-width:1100px;line-height:1.5;">Confirm the prework, then connect the tool to the real project.</p>
+  </div>
+</section>
+
+<section data-label="Connect GitHub Desktop to Your Project" data-screen-label="2.1" data-speaker-notes="Say the Add-vs-Create distinction out loud — habit reaches for 'Create New,' which spins up a second, empty repo next to the real one • The Changes tab will list every file as new — there's no history yet, that's expected here too • Checkpoint: Desktop open, signed in, showing his own project folder, before moving on" style="width:100%;height:100%;background:var(--paper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:24px;">Step 1</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:60px;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);margin:0 0 48px;">Connect GitHub Desktop<br><em style="font-style:normal;color:var(--purple);">to your project.</em></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;max-width:1700px;margin-bottom:28px;">
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:26px 26px;display:flex;flex-direction:column;">
+      <div style="width:44px;height:44px;border-radius:50%;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:20px;margin-bottom:18px;">1</div>
+      <div style="font-family:var(--font-body);font-size:20px;color:var(--ink);line-height:1.4;margin-bottom:16px;">Open GitHub Desktop, confirm signed in</div>
+      <img src="../assets/gh-desktop-diff-warning.png" alt="GitHub Desktop showing the current repository and branch, confirming a signed-in session" style="width:100%;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.15);display:block;">
+    </div>
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:26px 26px;display:flex;flex-direction:column;">
+      <div style="width:44px;height:44px;border-radius:50%;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:20px;margin-bottom:18px;">2</div>
+      <div style="font-family:var(--font-body);font-size:20px;color:var(--ink);line-height:1.4;margin-bottom:16px;">Create a new Repo</div>
+      <img src="../assets/gh-desktop-create-new-repo.png" alt="GitHub Desktop's Create a New Repository dialog with Name and Local Path fields" style="width:100%;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.15);display:block;">
+    </div>
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:26px 26px;display:flex;flex-direction:column;">
+      <div style="width:44px;height:44px;border-radius:50%;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:20px;margin-bottom:18px;">3</div>
+      <div style="font-family:var(--font-body);font-size:20px;color:var(--ink);line-height:1.4;margin-bottom:16px;">Point it at the existing project folder</div>
+      <img src="../assets/gh-desktop-repo-connected.png" alt="GitHub Desktop showing the project folder connected as a repository" style="width:100%;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.15);display:block;">
+    </div>
+  </div>
+  
+</section>
+
+<!-- ═══ SECTION 3 — FIRST PUBLISH ═══ -->
+
+<section data-label="Section — First Publish" data-screen-label="3" data-speaker-notes="Local preview before publish, always — confirm the project still runs before touching Commit or Push" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:0 96px;background:var(--ink);color:var(--paper);position:relative;overflow:hidden;font-family:var(--font-body);">
+  <div style="position:absolute;top:52px;left:72px;font-family:var(--font-display);font-weight:800;font-size:280px;line-height:0.88;letter-spacing:-0.03em;color:rgba(255,255,255,0.08);">3</div>
+  <div style="max-width:1400px;width:100%;position:relative;z-index:1;">
+    <div style="font-family:var(--font-mono);font-size:22px;letter-spacing:0.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:32px;">Section 3</div>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:120px;line-height:1.0;letter-spacing:-0.03em;color:var(--paper);margin:0;">First Publish</h2>
+    <p style="font-family:var(--font-body);font-size:32px;color:rgba(250,244,235,0.8);margin-top:32px;max-width:1100px;line-height:1.5;">One commit, one push — the repo goes live for the first time.</p>
+  </div>
+</section>
+
+<section data-label="Open GitHub Desktop, Then Commit" data-screen-label="3.1" data-speaker-notes="Confirm GitHub Desktop is open and the project repo is selected before touching anything else • Flag the first-commit quirk before he asks — weeks-old finished files will still read as new" style="width:100%;height:100%;background:var(--paper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:24px;">Step 2</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:60px;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);margin:0 0 48px;">Open it,<br><em style="font-style:normal;color:var(--purple);">then commit.</em></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1700px;">
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:30px 32px;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;"><span style="width:44px;height:44px;border-radius:50%;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:20px;flex-shrink:0;">1</span><span style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);">Open GitHub Desktop</span></div>
+      <div style="height:380px;border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.12);">
+        <img src="../assets/gh-desktop-open-app.png" alt="GitHub Desktop open with the project repository selected and changed files listed" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+      </div>
+      <div style="font-family:var(--font-body);font-size:18px;font-style:italic;color:var(--ink-muted);margin-top:16px;">Use this to check the right repo is selected before touching anything.</div>
+    </div>
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:30px 32px;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;"><span style="width:44px;height:44px;border-radius:50%;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:20px;flex-shrink:0;">2</span><span style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);">Write a message, commit</span></div>
+      <div style="height:380px;display:flex;align-items:center;justify-content:center;background:var(--paper);border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.12);">
+        <img src="../assets/gh-desktop-commit-message.png" alt="GitHub Desktop commit message field and Commit button, highlighted" style="max-width:100%;max-height:100%;object-fit:contain;display:block;">
+      </div>
+      <div style="font-family:var(--font-body);font-size:18px;font-style:italic;color:var(--ink-muted);margin-top:16px;">Use this every time you save a change, before it can be pushed anywhere.</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="Publish, Then Push" data-screen-label="3.2" data-speaker-notes="Publish repository does two things at once: creates the remote repo AND sends the first push • Checkpoint: repo exists on GitHub, Changes tab back in Desktop is empty" style="width:100%;height:100%;background:var(--paper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:24px;">Step 2, continued</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:60px;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);margin:0 0 48px;">Publish,<br><em style="font-style:normal;color:var(--purple);">then push.</em></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1700px;margin-bottom:32px;">
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:30px 32px;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;"><span style="width:44px;height:44px;border-radius:50%;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:20px;flex-shrink:0;">3</span><span style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);">Click Publish repository</span></div>
+      <div style="height:340px;display:flex;align-items:center;justify-content:center;background:var(--paper);border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.12);">
+        <img src="../assets/gh-desktop-publish-repository.png" alt="GitHub Desktop's Publish repository button, highlighted" style="max-width:100%;max-height:100%;object-fit:contain;display:block;">
+      </div>
+      <div style="font-family:var(--font-body);font-size:18px;font-style:italic;color:var(--ink-muted);margin-top:16px;">Use this the first time — the repo doesn't exist on GitHub yet.</div>
+    </div>
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:30px 32px;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;"><span style="width:44px;height:44px;border-radius:50%;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:20px;flex-shrink:0;">4</span><span style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);">Push origin sends it up</span></div>
+      <div style="height:340px;display:flex;align-items:center;justify-content:center;background:var(--paper);border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.12);">
+        <img src="../assets/gh-desktop-push-origin.png" alt="GitHub Desktop's Push origin button, highlighted" style="max-width:100%;max-height:100%;object-fit:contain;display:block;">
+      </div>
+      <div style="font-family:var(--font-body);font-size:18px;font-style:italic;color:var(--ink-muted);margin-top:16px;">Use this every time after — the repo already exists, this sends new commits.</div>
+    </div>
+  </div>
+  <div style="background:var(--yellow-tint);border-radius:14px;padding:22px 32px;font-family:var(--font-body);font-size:20px;color:var(--ink);max-width:1700px;">Everything shows as new or added — there's no prior commit to compare against yet.</div>
+</section>
+
+<!-- ═══ SECTION 4 — MAKE IT LIVE ═══ -->
+
+<section data-label="Section — Make It Live" data-screen-label="4" data-speaker-notes="This is the payoff moment of the whole lesson — don't rush past it" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:0 96px;background:var(--ink);color:var(--paper);position:relative;overflow:hidden;font-family:var(--font-body);">
+  <div style="position:absolute;top:52px;left:72px;font-family:var(--font-display);font-weight:800;font-size:280px;line-height:0.88;letter-spacing:-0.03em;color:rgba(255,255,255,0.08);">4</div>
+  <div style="max-width:1400px;width:100%;position:relative;z-index:1;">
+    <div style="font-family:var(--font-mono);font-size:22px;letter-spacing:0.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:32px;">Section 4</div>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:120px;line-height:1.0;letter-spacing:-0.03em;color:var(--paper);margin:0;">Make It Live</h2>
+    <p style="font-family:var(--font-body);font-size:32px;color:rgba(250,244,235,0.8);margin-top:32px;max-width:1100px;line-height:1.5;">Turn the repo into a URL that updates itself.</p>
+  </div>
+</section>
+
+<section data-label="Find Pages, Then Pick a Branch" data-screen-label="4.1" data-speaker-notes="Confirm he's in the right repo's Settings before scrolling for Pages • Branch defaults to None until a branch is chosen — that's expected, not broken" style="width:100%;height:100%;background:var(--paper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:24px;">Step 3 — the payoff</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:60px;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);margin:0 0 48px;">Find Pages,<br><em style="font-style:normal;color:var(--purple);">then pick a branch.</em></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1700px;">
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:30px 32px;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;"><span style="width:44px;height:44px;border-radius:50%;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:20px;flex-shrink:0;">1</span><span style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);">Repo Settings → Pages</span></div>
+      <div style="height:340px;display:flex;align-items:center;justify-content:center;background:var(--paper);border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.12);">
+        <img src="../assets/gh-pages-settings-tab.png" alt="GitHub repo top nav with the Settings tab highlighted" style="max-width:100%;max-height:100%;object-fit:contain;display:block;">
+      </div>
+      <div style="font-family:var(--font-body);font-size:18px;font-style:italic;color:var(--ink-muted);margin-top:16px;">Use this to open the repo's settings, where the Pages config lives.</div>
+    </div>
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:30px 32px;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;"><span style="width:44px;height:44px;border-radius:50%;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:20px;flex-shrink:0;">2</span><span style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);">Open the branch dropdown</span></div>
+      <div style="height:340px;display:flex;align-items:center;justify-content:center;background:var(--paper);border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.12);">
+        <img src="../assets/gh-pages-branch-none.png" alt="GitHub Pages Branch section showing the branch dropdown set to None" style="max-width:100%;max-height:100%;object-fit:contain;display:block;">
+      </div>
+      <div style="font-family:var(--font-body);font-size:18px;font-style:italic;color:var(--ink-muted);margin-top:16px;">Use this the first time — it defaults to None until a branch is chosen.</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="Pick a Folder, Then Visit the Site" data-screen-label="4.2" data-speaker-notes="First deploy takes a minute or two — use the wait to preview what's next rather than sitting in silence • Name 'self-updating' explicitly — it's the actual objective of this lesson, easy to let it pass as a footnote • Checkpoint: a working URL is open in the browser, showing the real prototype, not a file listing" style="width:100%;height:100%;background:var(--paper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:24px;">Step 3, continued — the payoff</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:60px;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);margin:0 0 48px;">Pick a folder,<br><em style="font-style:normal;color:var(--purple);">then visit the site.</em></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1700px;margin-bottom:32px;">
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:30px 32px;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;"><span style="width:44px;height:44px;border-radius:50%;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:20px;flex-shrink:0;">3</span><span style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);">Select branch, folder, Save</span></div>
+      <div style="height:340px;display:flex;align-items:center;justify-content:center;background:var(--paper);border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.12);">
+        <img src="../assets/gh-pages-branch-selected.png" alt="GitHub Pages Branch section with main and /(root) selected, Save button active" style="max-width:100%;max-height:100%;object-fit:contain;display:block;">
+      </div>
+      <div style="font-family:var(--font-body);font-size:18px;font-style:italic;color:var(--ink-muted);margin-top:16px;">Use this to tell Pages which branch and folder hold the stitched index.html.</div>
+    </div>
+    <div style="background:var(--paper-deeper);border-radius:16px;padding:30px 32px;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;"><span style="width:44px;height:44px;border-radius:50%;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:20px;flex-shrink:0;">4</span><span style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);">Wait for the build, visit the URL</span></div>
+      <div style="height:340px;display:flex;align-items:center;justify-content:center;background:var(--paper);border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.12);">
+        <img src="../assets/gh-pages-live-url.png" alt="GitHub Pages panel showing the site is live with a Visit site button" style="max-width:100%;max-height:100%;object-fit:contain;display:block;">
+      </div>
+      <div style="font-family:var(--font-body);font-size:18px;font-style:italic;color:var(--ink-muted);margin-top:16px;">Use this once it says "Your site is live" — confirms the deploy and gives the shareable link.</div>
+    </div>
+  </div>
+  
+</section>
+
+<!-- ═══ SECTION 5 — THE AI-TOOL SHORTCUT ═══ -->
+
+<section data-label="Section — The AI-Tool Shortcut" data-screen-label="5" data-speaker-notes="Five minutes, not a re-teach — he's worked AI-tool-first since Lesson 1, this is the same habit pointed at a new outcome" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:0 96px;background:var(--ink);color:var(--paper);position:relative;overflow:hidden;font-family:var(--font-body);">
+  <div style="position:absolute;top:52px;left:72px;font-family:var(--font-display);font-weight:800;font-size:280px;line-height:0.88;letter-spacing:-0.03em;color:rgba(255,255,255,0.08);">5</div>
+  <div style="max-width:1400px;width:100%;position:relative;z-index:1;">
+    <div style="font-family:var(--font-mono);font-size:22px;letter-spacing:0.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:32px;">Section 5</div>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:110px;line-height:1.0;letter-spacing:-0.03em;color:var(--paper);margin:0;">The AI-Tool<br>Shortcut</h2>
+    <p style="font-family:var(--font-body);font-size:32px;color:rgba(250,244,235,0.8);margin-top:32px;max-width:1100px;line-height:1.5;">The same commit-and-push habit, asked for in plain language.</p>
+  </div>
+</section>
+
+<section data-label="First Push Through Your AI Tool" data-screen-label="5.1" data-speaker-notes="Use this once per project, right after creating the empty repo on GitHub • Paste the repo URL, name the folder, and state the commit message and branch so nothing is left to guess • After this, the everyday prompt on the next slide takes over" style="width:100%;height:100%;background:var(--paper);padding:72px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:20px;">Once per project</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:56px;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);margin:0 0 32px;">Set up the first push<br><em style="font-style:normal;color:var(--purple);">through your AI tool.</em></h2>
+  <div style="background:var(--ink);border-radius:18px;overflow:hidden;max-width:1600px;margin-bottom:24px;">
+    <div style="display:flex;align-items:center;gap:8px;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.1);">
+      <span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.2);"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.2);"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.2);"></span>
+      <span style="font-family:var(--font-mono);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(250,244,235,0.55);margin-left:10px;">Prompt to use</span>
+    </div>
+    <div style="padding:22px 30px 26px;display:flex;gap:18px;align-items:flex-start;">
+      <div style="width:36px;height:36px;border-radius:50%;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:13px;flex-shrink:0;">You</div>
+      <div style="background:rgba(255,255,255,0.07);border-radius:4px 16px 16px 16px;padding:18px 22px;">
+        <div style="font-family:var(--font-mono);font-size:19px;line-height:1.6;color:rgba(250,244,235,0.92);"><div>Push the [Project Name] folder to my new GitHub repo: https://github.com/&lt;username&gt;/&lt;repo&gt;.git</div><div>Init git if needed, commit everything as "Initial commit", and push to main.</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:32px;max-width:1600px;">
+    <div style="flex:1;font-family:var(--font-body);font-size:24px;font-style:italic;color:var(--ink-muted);line-height:1.45;">Example result: the repo on GitHub with every file under “Initial commit”. Swap in your own folder name and repo URL, and create the empty repo first.</div>
+  </div>
+</section>
+
+<section data-label="Publish Through Your AI Tool" data-screen-label="5.2" data-speaker-notes="Demo the auth popup on your own machine now so it isn't a surprise when he hits it alone later • Keep tool references generic ('your AI coding tool') — this works regardless of which one he uses • GitHub Desktop stays the backbone underneath either path" style="width:100%;height:100%;background:var(--paper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:24px;">The same habit, pointed at GitHub</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:60px;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);margin:0 0 40px;">Publish through<br><em style="font-style:normal;color:var(--purple);">your AI tool.</em></h2>
+  <div style="background:var(--ink);border-radius:18px;overflow:hidden;max-width:1600px;margin-bottom:28px;">
+    <div style="display:flex;align-items:center;gap:8px;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.1);">
+      <span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.2);"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.2);"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.2);"></span>
+      <span style="font-family:var(--font-mono);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(250,244,235,0.55);margin-left:10px;">Prompt to use</span>
+    </div>
+    <div style="padding:26px 30px 32px;display:flex;gap:18px;align-items:flex-start;">
+      <div style="width:36px;height:36px;border-radius:50%;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:13px;flex-shrink:0;">You</div>
+      <div style="background:rgba(255,255,255,0.07);border-radius:4px 16px 16px 16px;padding:18px 22px;">
+        <div style="font-family:var(--font-mono);font-size:19px;line-height:1.6;color:rgba(250,244,235,0.92);">"Commit these changes with a short message describing what changed, and push them to GitHub."</div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<!-- ═══ SECTION 6 — SIMULATE ONE "OOPS" ═══ -->
+
+<section data-label="Section — Simulate One Oops" data-screen-label="6" data-speaker-notes="Break something small on purpose — a placeholder API key, or a genuinely broken file — so recovery is real, not hypothetical" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:0 96px;background:var(--ink);color:var(--paper);position:relative;overflow:hidden;font-family:var(--font-body);">
+  <div style="position:absolute;top:52px;left:72px;font-family:var(--font-display);font-weight:800;font-size:280px;line-height:0.88;letter-spacing:-0.03em;color:rgba(255,255,255,0.08);">6</div>
+  <div style="max-width:1400px;width:100%;position:relative;z-index:1;">
+    <div style="font-family:var(--font-mono);font-size:22px;letter-spacing:0.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:32px;">Section 6</div>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:110px;line-height:1.0;letter-spacing:-0.03em;color:var(--paper);margin:0;">Simulate One<br>"Oops"</h2>
+    <p style="font-family:var(--font-body);font-size:32px;color:rgba(250,244,235,0.8);margin-top:32px;max-width:1100px;line-height:1.5;">Break something small on purpose, then fix it for real.</p>
+  </div>
+</section>
+
+<section data-label="Two Ways to Undo" data-screen-label="6.1" data-speaker-notes="Hold the line on note-and-move-on — this teaches one clean recovery, not a general debugging session • Both paths are worth showing even though only one applies to today's mistake" style="width:100%;height:100%;background:var(--paper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:24px;">Recovery, one clean way</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:64px;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);margin:0 0 48px;">Two ways<br><em style="font-style:normal;color:var(--purple);">to undo.</em></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1700px;">
+    <div style="background:var(--paper-deeper);border-radius:18px;padding:34px 36px;display:flex;flex-direction:column;">
+      <div style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);margin-bottom:20px;">Uncommitted file</div>
+      <div style="font-family:var(--font-body);font-size:22px;color:var(--ink-soft);line-height:1.6;margin-bottom:20px;">Right-click in Changes → <strong style="color:var(--ink);">Discard Changes</strong></div>
+      <div style="font-family:var(--font-body);font-size:18px;font-style:italic;color:var(--ink-muted);margin-top:16px;">Use this when the mistake hasn't been committed yet — it just erases the edit.</div>
+    </div>
+    <div style="background:var(--purple-tint);border-radius:18px;padding:34px 36px;display:flex;flex-direction:column;">
+      <div style="font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink);margin-bottom:20px;">Already-committed change</div>
+      <div style="font-family:var(--font-body);font-size:22px;color:var(--ink);line-height:1.6;margin-bottom:20px;">Right-click in History → <strong>Amend Commit</strong> → fix the file → re-commit</div>
+      <div style="font-family:var(--font-body);font-size:18px;font-style:italic;color:var(--ink);margin-top:16px;">Use this when the mistake is already committed — it fixes and replaces that commit.</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="Ask Your AI Tool to Fix It" data-screen-label="6.2" data-speaker-notes="Flag this as a real prompt he'll likely need someday, not just a classroom demo • Same recovery, described as an outcome instead of clicked through manually" style="width:100%;height:100%;background:var(--paper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:24px;">The same recovery, as an outcome</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:60px;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);margin:0 0 40px;">Ask your AI tool<br><em style="font-style:normal;color:var(--purple);">to fix it.</em></h2>
+  <div style="background:var(--ink);border-radius:18px;overflow:hidden;max-width:1600px;">
+    <div style="display:flex;align-items:center;gap:8px;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.1);">
+      <span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.2);"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.2);"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.2);"></span>
+      <span style="font-family:var(--font-mono);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(250,244,235,0.55);margin-left:10px;">Prompt to use</span>
+    </div>
+    <div style="padding:26px 30px 32px;display:flex;gap:18px;align-items:flex-start;">
+      <div style="width:36px;height:36px;border-radius:50%;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:13px;flex-shrink:0;">You</div>
+      <div style="background:rgba(255,255,255,0.07);border-radius:4px 16px 16px 16px;padding:18px 22px;">
+        <div style="font-family:var(--font-mono);font-size:19px;line-height:1.6;color:rgba(250,244,235,0.92);">"I accidentally committed my API key — help me remove it from the last commit."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 7 — THE COLLABORATION ═══ -->
+
+<section data-label="Section — The Collaboration" data-screen-label="7" data-speaker-notes="1:1 teach-back beats pairing here — probe where the explanation gets shaky and reinforce it right there" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:0 96px;background:var(--ink);color:var(--paper);position:relative;overflow:hidden;font-family:var(--font-body);">
+  <div style="position:absolute;top:52px;left:72px;font-family:var(--font-display);font-weight:800;font-size:280px;line-height:0.88;letter-spacing:-0.03em;color:rgba(255,255,255,0.08);">7</div>
+  <div style="max-width:1400px;width:100%;position:relative;z-index:1;">
+    <div style="font-family:var(--font-mono);font-size:22px;letter-spacing:0.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:32px;">Section 7</div>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:110px;line-height:1.0;letter-spacing:-0.03em;color:var(--paper);margin:0;">The<br>Collaboration</h2>
+    <p style="font-family:var(--font-body);font-size:32px;color:rgba(250,244,235,0.8);margin-top:32px;max-width:1100px;line-height:1.5;">Clone a teammate's repo, work on a branch, send it back for review.</p>
+  </div>
+</section>
+
+<section data-label="Not Alone in This Repo for Long" data-screen-label="7.1" data-speaker-notes="Frame the next 30 minutes: everything so far was a repo you own — now you join one someone else made • Anchor: a shared cloud drive with autosave switched off • Clash in one line: the tool merges small ones and asks you on direct ones. Whose version to keep is a design call • Say it out loud: the sandbox repo is public, so anything pushed is visible to everyone — no keys, ever" style="width:100%;height:100%;background:var(--paper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:24px;">What changes with a team</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:52px;line-height:1.15;letter-spacing:-0.025em;color:var(--ink);margin:0 0 40px;max-width:1600px;">Right now you're the only one in this repo.<br><em style="font-style:normal;color:var(--purple);">That won't last.</em></h2>
+  <div style="background:var(--ink);border-radius:20px;padding:52px 56px;max-width:1780px;position:relative;overflow:hidden;">
+    <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:8px;position:relative;">
+      <div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--paper);margin-bottom:8px;">You, local branch</div>
+        <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.08);border-radius:8px;padding:10px 16px;">
+          <span class="material-symbols-rounded" style="font-size:20px;color:#5b8def;">call_split</span>
+          <span style="font-family:var(--font-mono);font-size:15px;color:var(--paper);">feature/rules-v2</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 6px;">
+        <div style="display:flex;align-items:center;gap:4px;"><span class="material-symbols-rounded" style="font-size:26px;color:#5b8def;">arrow_forward</span><span style="font-family:var(--font-display);font-weight:700;font-size:16px;color:#5b8def;">push</span></div>
+        <div style="display:flex;align-items:center;gap:4px;"><span style="font-family:var(--font-display);font-weight:700;font-size:16px;color:#4fbf7a;">pull</span><span class="material-symbols-rounded" style="font-size:26px;color:#4fbf7a;transform:scaleX(-1);">arrow_forward</span></div>
+      </div>
+      <div style="text-align:center;">
+        <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:10px;">
+          <svg viewBox="0 0 16 16" width="34" height="34" fill="var(--paper)"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <div style="text-align:left;">
+            <div style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--paper);">GitHub</div>
+            <div style="font-family:var(--font-body);font-size:15px;color:rgba(250,244,235,0.6);">Shared team repo</div>
+          </div>
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.08);border-radius:8px;padding:10px 16px;">
+          <span class="material-symbols-rounded" style="font-size:20px;color:var(--yellow);">description</span>
+          <span style="font-family:var(--font-mono);font-size:15px;color:var(--paper);">rules.md · v2 merged</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 6px;">
+        <div style="display:flex;align-items:center;gap:4px;"><span style="font-family:var(--font-display);font-weight:700;font-size:16px;color:#4fbf7a;">pull</span><span class="material-symbols-rounded" style="font-size:26px;color:#4fbf7a;">arrow_forward</span></div>
+        <div style="display:flex;align-items:center;gap:4px;"><span class="material-symbols-rounded" style="font-size:26px;color:#5b8def;transform:scaleX(-1);">arrow_forward</span><span style="font-family:var(--font-display);font-weight:700;font-size:16px;color:#5b8def;">push</span></div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:20px;color:var(--paper);margin-bottom:6px;">Teammate's laptop</div>
+        <div style="display:inline-block;background:var(--paper);border-radius:10px 10px 3px 3px;padding:12px 14px 26px;box-shadow:0 12px 28px rgba(0,0,0,0.35);">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;"><span style="width:6px;height:6px;border-radius:50%;background:#e0603e;"></span><span style="width:6px;height:6px;border-radius:50%;background:#e0b23e;"></span><span style="width:6px;height:6px;border-radius:50%;background:#3ea05f;"></span></div>
+          <div style="width:170px;height:80px;background:var(--paper-deeper);border-radius:6px;display:flex;align-items:center;justify-content:center;">
+            <span class="material-symbols-rounded" style="font-size:36px;color:var(--ink-muted);">devices</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:14px;margin-top:36px;max-width:1700px;">
+    <div style="font-family:var(--font-body);font-size:23px;color:var(--ink);line-height:1.5;">You <strong style="color: rgb(91, 141, 239);">push</strong> your branch to the shared repo — that's the sharable workspace. <br>Your teammate <strong style="color: rgb(79, 191, 122);">pulls</strong> it down. Nothing syncs by itself.</div>
+    <div style="font-family:var(--font-body);font-size:19px;color:var(--ink-soft);line-height:1.5;">Pull when you sit down, push when you stand up, and clashes stay small.</div>
+  </div>
+</section>
+
+<section data-label="Clone the Team's Repo" data-screen-label="7.2" data-speaker-notes="Sandbox repo is public but pushing needs an invite — send it before the session and confirm the mentee accepted • Clone vs. Add Local Repository: Clone downloads a repo that already exists on GitHub, Add points at a folder already on the laptop • Pick a fresh folder for the clone, not the mentee's own project folder • Checkpoint: the sandbox repo is open in GitHub Desktop and the mentee has read the README, the rules file and CONTRIBUTING.md before touching anything" style="width:100%;height:100%;background:var(--paper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:20px;">Step 1 — joining</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:60px;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);margin:0 0 44px;">Clone the team's repo,<br><em style="font-style:normal;color:var(--purple);">then read it first.</em></h2>
+  <div style="display:flex;flex-direction:column;gap:16px;max-width:1600px;">
+    <div style="display:flex;gap:28px;align-items:flex-start;background:var(--purple-tint);border-radius:16px;padding:24px 32px;"><span style="font-family:var(--font-mono);font-weight:700;font-size:30px;color:var(--purple-deep);width:40px;">1</span><span style="font-family:var(--font-body);font-size:25px;color:var(--ink);line-height:1.4;"><strong style="font-family:var(--font-display);font-weight:600;">Accept the invite</strong><br><span style="font-size:20px;color:var(--ink-soft);">Use this once — it gives your account permission to push branches to the repo.</span></span></div>
+    <div style="display:flex;gap:28px;align-items:flex-start;background:var(--purple-tint);border-radius:16px;padding:24px 32px;"><span style="font-family:var(--font-mono);font-weight:700;font-size:30px;color:var(--purple-deep);width:40px;">2</span><span style="font-family:var(--font-body);font-size:25px;color:var(--ink);line-height:1.4;"><strong style="font-family:var(--font-display);font-weight:600;">File → Clone Repository → paste the repo URL</strong><br><span style="font-size:20px;color:var(--ink-soft);">Use this when the repo already exists on GitHub and you want your own working copy of it.</span></span></div>
+    <div style="display:flex;gap:28px;align-items:flex-start;background:var(--purple-tint);border-radius:16px;padding:24px 32px;"><span style="font-family:var(--font-mono);font-weight:700;font-size:30px;color:var(--purple-deep);width:40px;">3</span><span style="font-family:var(--font-body);font-size:25px;color:var(--ink);line-height:1.4;"><strong style="font-family:var(--font-display);font-weight:600;">Read the README, the rules file and CONTRIBUTING.md</strong><br><span style="font-size:20px;color:var(--ink-soft);">Use this before touching anything — the repo tells you how the team works.</span></span></div>
+  </div>
+  <div style="margin-top:28px;font-family:var(--font-body);font-size:22px;font-style:italic;color:var(--ink-muted);max-width:1600px;">Clone, not Add Local Repository — nothing on your laptop yet. Choose a fresh folder, not your own project.</div>
+</section>
+
+<section data-label="The Team Loop" data-screen-label="7.3" data-speaker-notes="Walk the six in order once, then run it live on the sandbox repo with a tiny real change (a token tweak or one line in the rules file) • Why a branch: main is the team's source of truth — a bad push there breaks everyone's prototype • Why a pull request: it is the only place a teammate can say 'that token name clashes' before it lands • Name the clash case: if two people edited the same line, GitHub Desktop asks which version to keep — that's a design call, not a tool error • Checkpoint: the mentee's PR is open on GitHub and you have merged it" style="width:100%;height:100%;background:var(--paper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:20px;">The loop you'll repeat</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:60px;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);margin:0 0 44px;">Pull. Branch. Commit.<br><em style="font-style:normal;color:var(--purple);">Push. Pull request. Pull.</em></h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1700px;">
+    <div style="background:var(--purple-tint);border-radius:16px;padding:28px 30px;"><div style="font-family:var(--font-mono);font-weight:700;font-size:26px;color:var(--purple-deep);margin-bottom:10px;">1</div><div style="font-family:var(--font-display);font-weight:600;font-size:28px;color:var(--ink);margin-bottom:8px;">Pull</div><div style="font-family:var(--font-body);font-size:20px;color:var(--ink-soft);line-height:1.4;">Fetch origin, then Pull — every time you sit down.</div></div>
+    <div style="background:var(--purple-tint);border-radius:16px;padding:28px 30px;"><div style="font-family:var(--font-mono);font-weight:700;font-size:26px;color:var(--purple-deep);margin-bottom:10px;">2</div><div style="font-family:var(--font-display);font-weight:600;font-size:28px;color:var(--ink);margin-bottom:8px;">Branch</div><div style="font-family:var(--font-body);font-size:20px;color:var(--ink-soft);line-height:1.4;">New branch per change, e.g. tokens/update-spacing. Never work on main.</div></div>
+    <div style="background:var(--purple-tint);border-radius:16px;padding:28px 30px;"><div style="font-family:var(--font-mono);font-weight:700;font-size:26px;color:var(--purple-deep);margin-bottom:10px;">3</div><div style="font-family:var(--font-display);font-weight:600;font-size:28px;color:var(--ink);margin-bottom:8px;">Commit</div><div style="font-family:var(--font-body);font-size:20px;color:var(--ink-soft);line-height:1.4;">One clear message about what changed and why.</div></div>
+    <div style="background:var(--purple-tint);border-radius:16px;padding:28px 30px;"><div style="font-family:var(--font-mono);font-weight:700;font-size:26px;color:var(--purple-deep);margin-bottom:10px;">4</div><div style="font-family:var(--font-display);font-weight:600;font-size:28px;color:var(--ink);margin-bottom:8px;">Push the branch</div><div style="font-family:var(--font-body);font-size:20px;color:var(--ink-soft);line-height:1.4;">Publish branch — your work goes up, main stays untouched.</div></div>
+    <div style="background:var(--purple-tint);border-radius:16px;padding:28px 30px;"><div style="font-family:var(--font-mono);font-weight:700;font-size:26px;color:var(--purple-deep);margin-bottom:10px;">5</div><div style="font-family:var(--font-display);font-weight:600;font-size:28px;color:var(--ink);margin-bottom:8px;">Pull request</div><div style="font-family:var(--font-body);font-size:20px;color:var(--ink-soft);line-height:1.4;">Describe the change; a teammate reviews and merges.</div></div>
+    <div style="background:var(--yellow-tint);border-radius:16px;padding:28px 30px;"><div style="font-family:var(--font-mono);font-weight:700;font-size:26px;color:var(--purple-deep);margin-bottom:10px;">6</div><div style="font-family:var(--font-display);font-weight:600;font-size:28px;color:var(--ink);margin-bottom:8px;">Pull again</div><div style="font-family:var(--font-body);font-size:20px;color:var(--ink-soft);line-height:1.4;">Get the merged result, then start the next branch.</div></div>
+  </div>
+</section>
+
+<section data-label="Ask Your AI Tool to Run the Loop" data-screen-label="7.4" data-speaker-notes="Same habit as Section 5, pointed at the team loop — click path first, now the outcome in plain language • The prompt names the guardrails, not just the task: the SOP becomes the AI tool's instructions, same idea as the rules file • Opening the pull request from the AI tool usually needs the GitHub command-line tool (gh) installed and signed in — check on the mentee's machine beforehand • If it isn't set up, the tool still pushes the branch and the mentee clicks Create pull request in GitHub Desktop — that is fine to show • Review the diff in GitHub Desktop before anything is pushed: AI tools sometimes edit more files than asked • Keep tool references generic ('your AI tool')" style="width:100%;height:100%;background:var(--paper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:24px;">The same loop, as an outcome</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:60px;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);margin:0 0 40px;">Ask your AI tool<br><em style="font-style:normal;color:var(--purple);">to run the loop.</em></h2>
+  <div style="background:var(--ink);border-radius:18px;overflow:hidden;max-width:1600px;margin-bottom:28px;">
+    <div style="display:flex;align-items:center;gap:8px;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.1);">
+      <span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.2);"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.2);"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.2);"></span>
+      <span style="font-family:var(--font-mono);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(250,244,235,0.55);margin-left:10px;">Prompt to use</span>
+    </div>
+    <div style="padding:26px 30px 32px;display:flex;gap:18px;align-items:flex-start;">
+      <div style="width:36px;height:36px;border-radius:50%;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:13px;flex-shrink:0;">You</div>
+      <div style="background:rgba(255,255,255,0.07);border-radius:4px 16px 16px 16px;padding:18px 22px;">
+        <div style="font-family:var(--font-mono);font-size:19px;line-height:1.6;color:rgba(250,244,235,0.92);">"Read CONTRIBUTING.md first. Pull the latest, create a branch named for this change, make [the change], commit with a clear message, push the branch and open a pull request. Never touch main."</div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;gap:16px;align-items:flex-start;max-width:1600px;background:var(--yellow-tint);border-radius:14px;padding:20px 26px;"><span class="material-symbols-rounded" style="font-size:28px;color:var(--ink);">visibility</span><span style="font-family:var(--font-body);font-size:22px;color:var(--ink);line-height:1.45;"><strong>Check before it pushes.</strong> Open the changes in GitHub Desktop — AI tools sometimes edit more files than you asked for.</span></div>
+</section>
+
+<section data-label="The Working Agreement Ships With the Repo" data-screen-label="7.5" data-speaker-notes="The SOP is one page, lives in the repo as CONTRIBUTING.md, and is read by people and AI tools alike • Say it out loud: this is the rules file idea again — an artifact, not a conversation • Show the sandbox repo's real CONTRIBUTING.md on screen, don't read this slide aloud • Public repo: nothing secret in it — ever, and that includes API keys in commit history • Exit ticket for the section: the mentee names who reviews and who merges on their own team" style="width:100%;height:100%;background:var(--paper-deeper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:20px;">The team's one-page SOP</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:60px;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);margin:0 0 40px;">The working agreement<br><em style="font-style:normal;color:var(--purple);">ships with the repo.</em></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1700px;">
+    <div style="background:var(--paper);border-radius:18px;padding:36px 40px;box-shadow:var(--shadow-sm);">
+      <div style="font-family:var(--font-mono);font-size:18px;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:18px;">CONTRIBUTING.md</div>
+      <ul style="margin:0;padding-left:28px;font-size:23px;color:var(--ink);line-height:1.4;">
+      <li style="margin-bottom:12px;">Never commit to <strong>main</strong> — one branch per change</li>
+      <li style="margin-bottom:12px;">Pull before you start each session</li>
+      <li style="margin-bottom:12px;">Branch names: <code>area/short-description</code></li>
+      <li style="margin-bottom:12px;">Commit messages say what changed and why</li>
+      </ul>
+    </div>
+    <div style="background:var(--paper);border-radius:18px;padding:36px 40px;box-shadow:var(--shadow-sm);">
+      <div style="font-family:var(--font-mono);font-size:18px;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:18px;">Pull requests &amp; safety</div>
+      <ul style="margin:0;padding-left:28px;font-size:23px;color:var(--ink);line-height:1.4;">
+      <li style="margin-bottom:12px;">Every PR: summary, screenshot if the UI changed, tokens or components touched</li>
+      <li style="margin-bottom:12px;">One reviewer approves; the owner merges</li>
+      <li style="margin-bottom:12px;">Clash on a shared file? Stop and ask who owns it</li>
+      <li style="margin-bottom:12px;">Public repo: no keys, no <code>.env</code>, ever</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CLOSING ═══ -->
+
+<section data-label="Closing" data-screen-label="9" data-speaker-notes="Recap in the mentee's own words if time allows — same close pattern as Lessons 1–3 • This is the last session in the arc — name that plainly, then point once more to Lesson 5 as the optional bonus the bridge slide just previewed" style="width:100%;height:100%;background:var(--paper-deeper);padding:96px 112px;display:flex;flex-direction:column;justify-content:center;font-family:var(--font-body);">
+  <div style="font-family:var(--font-mono);font-size:20px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple);margin-bottom:28px;">Lesson 4 — arc complete</div>
+  <h2 style="font-family:var(--font-display);font-weight:500;font-style:italic;font-size:58px;line-height:1.2;letter-spacing:-0.02em;color:var(--ink);margin:0;max-width:1500px;">What You've <em style="font-style:italic;color:var(--purple);">Got.</em></h2>
+  <div style="display:flex;flex-direction:column;gap:24px;margin-top:48px;">
+    <div style="display:flex;gap:16px;align-items:flex-start;"><span style="width:28px;height:28px;border-radius:6px;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">✓</span><span style="font-family:var(--font-body);font-size:23px;color:var(--ink);line-height:1.4;">Project connected to a real GitHub repo</span></div>
+    <div style="display:flex;gap:16px;align-items:flex-start;"><span style="width:28px;height:28px;border-radius:6px;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">✓</span><span style="font-family:var(--font-body);font-size:23px;color:var(--ink);line-height:1.4;">At least two commits pushed, one of them unaided</span></div>
+    <div style="display:flex;gap:16px;align-items:flex-start;"><span style="width:28px;height:28px;border-radius:6px;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">✓</span><span style="font-family:var(--font-body);font-size:23px;color:var(--ink);line-height:1.4;">A live, self-updating URL</span></div>
+    <div style="display:flex;gap:16px;align-items:flex-start;"><span style="width:28px;height:28px;border-radius:6px;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">✓</span><span style="font-family:var(--font-body);font-size:23px;color:var(--ink);line-height:1.4;">One recovered mistake behind you</span></div>
+    <div style="display:flex;gap:16px;align-items:flex-start;"><span style="width:28px;height:28px;border-radius:6px;background:var(--purple);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">✓</span><span style="font-family:var(--font-body);font-size:23px;color:var(--ink);line-height:1.4;">A pull request merged into a team repo</span></div>
+  </div>
+  <p style="font-family:var(--font-body);font-size:22px;color:var(--ink-muted);margin-top:36px;">Exit ticket — publish one more thing on your own this week.</p>
+  <div style="font-family:var(--font-display);font-size:32px;color:var(--purple-deep);margin-top:36px;font-style:italic;text-align:right;">— Winnie Nguyen</div>
+</section>
+
+</x-import>
+</x-dc>
+</body>
+</html>

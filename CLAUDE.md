@@ -30,6 +30,18 @@ Specifically:
 
 ---
 
+## Site rebuild rule
+
+The Homepage site (`Homepage/`) is generated, not live. Lesson pages, slide-deck links and copied assets only update when `_System/scripts/build-home.py` runs. It already covers every lesson, framework, guide, mentee and program, so this rule applies everywhere.
+
+**After adding, moving, renaming or editing anything under `Library/` (lessons, frameworks, guides, slides, their `materials/`, `slides/` or `assets/` folders) or `Mentees/`, run `python3 _System/scripts/build-home.py` in the same response**, then tell the user it was rebuilt. Don't ask first.
+
+- Decks must be `.html` files directly inside the item's `slides/` folder (not `_archive/`, not nested) to get a deck link.
+- Images and files a deck uses belong in `slides/` or `assets/`; both are copied to `Homepage/assets/`.
+- If the user edits files by hand outside Claude, they can run `python3 _System/scripts/build-home.py --watch` to rebuild automatically.
+
+---
+
 ## Testimonial capture rule
 
 Whenever a prompt includes feedback from a student or mentee about Winnie's teaching/mentoring — praise, a reaction, a quote, however casually mentioned — automatically add it to the central quote bank at `Showcase/testimonials.md`, in the same response, without being asked.
