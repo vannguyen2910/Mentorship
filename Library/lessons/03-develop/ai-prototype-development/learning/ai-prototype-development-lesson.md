@@ -600,6 +600,6 @@ Everything else is optional depth. Students who finish the hands-on early can ex
 |---|---|
 | Problem Understanding | Defines the user goal that drives the interaction pattern |
 | Synthesis & Problem Definition | Defines what success looks like — used to evaluate prototype completeness |
-| Design Framework (Atomic Design) | Produces the component inventory and Template that this lesson builds from |
+| Design System (Atomic Design) | Produces the component inventory and Template that this lesson builds from |
 | **This session** | Translates the design system into a working prototype using AI |
 | Next session | TBD |

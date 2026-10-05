@@ -1,9 +1,9 @@
 ---
-title: "Design Once. Use Everywhere."
+title: "Design System"
 subtitle: "How to build a design system that scales — from your first sketch to every screen"
 type: lesson
 program: ux-class
-tags: [design-system, atomic-design, components, system-thinking, design-framework, intermediate, figma]
+tags: [design-system, atomic-design, components, system-thinking, intermediate, figma]
 level: intermediate
 duration: "45 min"
 date: 2026-05-15
@@ -18,13 +18,13 @@ programs: [mid-to-senior:06]
 
 In the previous session, students validated a concept with real users or stakeholders. They know *what* to build. This session answers *how* to build it — systematically, at scale, in a way that holds together across every screen, every team member, and every iteration.
 
-Atomic Design is a methodology created by Brad Frost that gives designers a mental model and practical framework for building UI from the ground up. In this lesson it is not treated as an abstract component organisation technique. It is treated as the methodology for **translating a validated concept into a buildable design framework** — one that encodes the product's visual language, defines its reusable parts, and produces screens that can be handed directly to a developer or an AI tool.
+Atomic Design is a methodology created by Brad Frost that gives designers a mental model and practical framework for building UI from the ground up. In this lesson it is not treated as an abstract component organisation technique. It is treated as the methodology for **translating a validated concept into a buildable design system** — one that encodes the product's visual language, defines its reusable parts, and produces screens that can be handed directly to a developer or an AI tool.
 
 The previous session told you what users responded to. This session turns that into something you can actually build from.
 
 Every design decision in this lesson connects directly to the validated concept. Tokens encode the product's personality — the trust, the energy, the approachability that came through in user feedback. Atoms are the building blocks that carry that personality into every screen. Molecules and Organisms are the functional patterns users will actually interact with. Templates validate that the structure works. Pages prove that the concept survives contact with reality.
 
-**The end goal of this session is tangible:** students leave with a completed Template and at least one Page built directly from their own validated concept. Atoms, Molecules, and Organisms are the construction process. Templates and Pages are the output — the proof that the design framework works, and the foundation that every design decision going forward is made against.
+**The end goal of this session is tangible:** students leave with a completed Template and at least one Page built directly from their own validated concept. Atoms, Molecules, and Organisms are the construction process. Templates and Pages are the output — the proof that the design system works, and the foundation that every design decision going forward is made against.
 
 > **Looking ahead:** In the next session, students will use AI tools (Cursor or Claude) to build working prototypes directly from the Templates they create here. The Template is not just a deliverable for this session — it is the structural input for the prototype build. Treat the naming, the Organism structure, and the layout with that in mind.
 
@@ -127,7 +127,7 @@ A skeleton is a stripped-down layout of one key screen — every image replaced 
 Think of it like the frame of a building before the walls go up. You can see exactly how many rooms there are, how big each one is, and how they connect — without any furniture or decoration getting in the way.
 
 **Why do this, not just look at the sketch?**
-A concept sketch is full of content decisions (this product photo here, this heading copy there) that make it hard to see the structure underneath. Stripping it to a skeleton forces you to separate *layout* from *content* — and layout is what the design framework actually needs to encode.
+A concept sketch is full of content decisions (this product photo here, this heading copy there) that make it hard to see the structure underneath. Stripping it to a skeleton forces you to separate *layout* from *content* — and layout is what the design system actually needs to encode.
 
 **How to do it:**
 Open your key screen from Step 1. Create a new blank frame the same size. Using only rectangles, redraw the zones — not the content inside them. Label each rectangle with what it *is*, not what it contains:
@@ -178,7 +178,7 @@ This table is your **build list** for Steps 4 and 5. You are no longer building 
 
 ### Experience Architecture — Why the System Scales
 
-Before diving into Phase 2, show students why building a design system matters beyond one product, one screen, or one journey. This is the framing that separates "I made a component library" from "I built a design framework."
+Before diving into Phase 2, show students why building a design system matters beyond one product, one screen, or one journey. This is the framing that separates "I made a component library" from "I built a design system."
 
 **The four-level model:**
 
@@ -282,7 +282,7 @@ A completed Page answers: *does the framework survive contact with reality?*
 
 ---
 
-### The Atomic Design Framework — Level Reference
+### The Atomic Design System — Level Reference
 
 Atomic Design was introduced by Brad Frost in 2013, drawing a direct analogy from chemistry. Just as all physical matter is made of atoms that combine into molecules, which combine into organisms, which combine into living systems — all UI is made of small elements that combine into progressively larger and more complex structures. The naming is not decorative. It is literal.
 

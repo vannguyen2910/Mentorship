@@ -13,11 +13,11 @@
 ## Prompt to use
 
 ```
-Using the outline in this file, create an HTML slide deck for Building a Design Framework from a Validated Concept.
+Using the outline in this file, create an HTML slide deck for Building a Design System from a Validated Concept.
 
 Follow the rules in _Config/rules/SLIDE_DECK_RULES.md exactly.
-Save the file to Library/lessons/design-framework/materials/deck.html.
-Copy tokens.css and deck-stage.js locally into Library/lessons/design-framework/ so the deck is self-contained.
+Save the file to Library/lessons/03-develop/design-system/materials/deck.html.
+Copy tokens.css and deck-stage.js locally into Library/lessons/03-develop/design-system/ so the deck is self-contained.
 
 VISUAL DESIGN DIRECTION — apply globally to every slide:
 
@@ -49,7 +49,7 @@ VISUAL DESIGN DIRECTION — apply globally to every slide:
 
 | Field | Value |
 |---|---|
-| Session title | Building a Design Framework from a Validated Concept |
+| Session title | Building a Design System from a Validated Concept |
 | Methodology | Atomic Design |
 | Instructor | Winnie Nguyen |
 | Program | UX Class |
@@ -74,8 +74,8 @@ VISUAL DESIGN DIRECTION — apply globally to every slide:
 
 ### COVER
 - Year: 2026
-- Day label: Design Framework
-- Title: Design Once.\n*Use Everywhere.*
+- Day label: Design System
+- Title: Design\n*System*
 - Subtitle: How to build a design system that scales — from your first sketch to every screen
 - Author: Winnie Nguyen
 - Right panel photo: Unsplash — UX design system or UI component library feel: a designer's desk with wireframe printouts, sticky notes, and a laptop showing Figma; or a close-up of a phone screen with clean UI components visible; or a flat-lay of design artefacts (sketches, colour swatches, component cards). Warm, human, and design-focused — not abstract or corporate. Search terms: "UX design workspace", "UI design system", "designer desk Figma".
@@ -86,7 +86,7 @@ VISUAL DESIGN DIRECTION — apply globally to every slide:
 - Kicker: Where we left off
 - Title: You know *what*\nto build.\nNow build it *right.*
 - Lead: Last session, real people told you what worked about your concept. That's a big deal — don't waste it. This session is about turning that feedback into a design system that actually holds together, no matter how many screens you add or how many times things change.
-- 🎨 Visual hint: Two nodes connected by a bold arrow. Left: speech bubble icon + "Validated concept" (--ochre fill). Right: clean phone frame + "Design framework" (--sienna border). Minimal — no clutter.
+- 🎨 Visual hint: Two nodes connected by a bold arrow. Left: speech bubble icon + "Validated concept" (--ochre fill). Right: clean phone frame + "Design system" (--sienna border). Minimal — no clutter.
 
 ---
 
@@ -109,7 +109,7 @@ VISUAL DESIGN DIRECTION — apply globally to every slide:
 ### DIAGRAM · Experience architecture
 - Kicker: Why a design system matters
 - Title: Every screen\nshares the same\n*building blocks.*
-- Lead: Think about any app you use: food delivery, shopping, social media. The screens all look different, but underneath they're all built from the same types of pieces: forms, buttons, cards, navigation bars. A design framework is how you build those pieces once, and use them everywhere.
+- Lead: Think about any app you use: food delivery, shopping, social media. The screens all look different, but underneath they're all built from the same types of pieces: forms, buttons, cards, navigation bars. A design system is how you build those pieces once, and use them everywhere.
 - 4 levels (outer to inner):
   - **Level 1 · User journey** — Everything a user does to reach one goal, across multiple screens. *"Laura orders dinner for delivery."* / *"Laura updates her profile."*
   - **Level 2 · User story** — One specific step inside that journey. *"Laura enters her delivery address."* / *"Laura changes her phone number."*

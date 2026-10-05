@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Building a Design System from a Validated Concept</title>
+<link rel="stylesheet" href="tokens.css"/>
+<style>
+  /* ===========================================================
+     TYPE SCALE & SPACING — for 1920×1080 projection
+     Built on the Winnie's Teaching Deck System tokens.
+     =========================================================== */
+  :root {
+    --type-hero:     118px;
+    --type-section:  140px;
+    --type-statement: 88px;
+    --type-title:     72px;
+    --type-lead:      34px;
+    --type-body:      28px;
+    --type-small:     24px;
+    --type-num:      280px;
+    --pad:           96px;
+    --gap-head:      52px;
+  }
+
+  /* ==== Slide shell ==== */
+  .slide {
+    width: 1920px; height: 1080px;
+    background: var(--paper);
+    color: var(--ink);
+    padding: var(--pad);
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+    font-family: var(--font-body);
+  }
+  .slide--deeper { background: var(--paper-deeper); }
+
+  /* shared kicker + title */
+  .kick {
+    font-family: var(--font-mono);
+    font-size: var(--type-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--sienna-deep);
+    display: flex; align-items: center; gap: 16px;
+  }
+  .kick::before { content: ''; width: 44px; height: 2px; background: var(--sienna); }
+  .s-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--type-title); line-height: 1.05;
+    letter-spacing: -0.025em; color: var(--ink); margin: 0; max-width: 1500px;
+  }
+  .s-title em { font-style: normal; color: var(--sienna); font-weight: 700; }
+
+  /* ============================================================ COVER */
+  .cover { padding: 0; display: grid; grid-template-columns: 1.1fr 1fr; }
+  .cover__left { padding: var(--pad); display: flex; flex-direction: column; justify-content: space-between; }
+  .cover__year {
+    font-family: var(--font-mono); font-size: var(--type-small);
+    letter-spacing: var(--tracking-mono); color: var(--sienna-deep);
+    display: flex; align-items: center; gap: 16px;
+  }
+  .cover__year::after { content: ''; flex: 1; height: 1px; background: var(--ink-ghost); }
+  .cover__day {
+    font-family: var(--font-mono); font-size: var(--type-lead); color: var(--ink-muted);
+    letter-spacing: var(--tracking-mono); text-transform: uppercase; margin-bottom: 26px;
+  }
+  .cover__title {
+    font-family: var(--font-display); font-size: var(--type-hero); font-weight: 700;
+    line-height: 0.96; letter-spacing: -0.03em; color: var(--ink); margin: 0;
+  }
+  .cover__title em { font-style: normal; font-weight: 700; color: var(--sienna); }
+  .cover__title--hero { font-size: 100px; line-height: 0.96; }
+  .cover__foot { display: flex; flex-direction: column; gap: 26px; }
+  .cover__sub {
+    font-family: var(--font-body); font-size: var(--type-lead); color: var(--ink-soft);
+    margin-top: 30px; max-width: 700px; line-height: var(--leading-snug);
+  }
+  .cover__byline { font-family: var(--font-display); font-weight: 600; font-size: 34px; color: var(--ink); display: flex; align-items: baseline; gap: 16px; }
+  .cover__byline span { font-family: var(--font-mono); font-weight: 400; font-size: 24px; color: var(--ink-muted); letter-spacing: 0.01em; }
+  .cover__right {
+    color: var(--paper); padding: var(--pad);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    position: relative; overflow: hidden; background-color: #6b4a2b;
+    background-image:
+      linear-gradient(180deg, rgba(20,16,12,0.10) 0%, rgba(20,16,12,0.30) 48%, rgba(20,16,12,0.78) 78%, rgba(20,16,12,0.94) 100%),
+      url('assets/atomic-design-product.jpg');
+    background-size: cover; background-position: center;
+  }
+  .cover__right::after {
+    content: ''; position: absolute; bottom: -120px; left: -120px; width: 320px; height: 320px;
+    border-radius: 50%; background: var(--ochre); opacity: 0.34; mix-blend-mode: screen;
+  }
+  .cover__badge {
+    position: absolute; top: var(--pad); right: var(--pad);
+    font-family: var(--font-mono); font-size: var(--type-small);
+    letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--paper); z-index: 1;
+    display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.24);
+    padding: 12px 18px; border-radius: 999px; backdrop-filter: blur(8px);
+  }
+  .cover__badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--paper); }
+  .cover__author { position: relative; z-index: 1; }
+  .cover__name { font-family: var(--font-display); font-weight: 500; font-size: 58px; line-height: 1.05; margin: 0 0 18px; }
+  .cover__credentials { font-family: var(--font-body); font-size: var(--type-small); line-height: 1.55; opacity: 0.88; }
+  .cover__credentials div + div { margin-top: 4px; }
+
+  /* ============================================================ SECTION DIVIDER */
+  .section-divider { background: var(--paper-deeper); align-items: center; justify-content: center; padding: 0 var(--pad); }
+  .section-divider__inner { max-width: 1520px; width: 100%; }
+  .section-divider__kicker {
+    font-family: var(--font-mono); font-size: var(--type-lead); letter-spacing: var(--tracking-mono);
+    text-transform: uppercase; color: var(--sienna); display: flex; align-items: baseline; gap: 28px; margin-bottom: 24px;
+  }
+  .section-divider__kicker .num {
+    font-family: var(--font-display); font-size: 132px; font-weight: 700;
+    color: var(--sienna); letter-spacing: -0.03em; line-height: 1;
+  }
+  .section-divider__title {
+    font-family: var(--font-display); font-size: var(--type-section); font-weight: 700;
+    line-height: 0.98; letter-spacing: -0.03em; color: var(--ink); margin: 0;
+  }
+  .section-divider__title em { font-style: normal; color: var(--sienna); font-weight: 700; }
+  .section-divider__sub {
+    font-family: var(--font-body); font-size: var(--type-lead); color: var(--ink-soft);
+    margin-top: 38px; max-width: 1040px; line-height: var(--leading-relaxed);
+  }
+
+  /* ============================================================ STATEMENT */
+  .statement { justify-content: center; }
+  .statement__kicker {
+    font-family: var(--font-mono); font-size: var(--type-small); letter-spacing: var(--tracking-mono);
+    text-transform: uppercase; color: var(--sienna-deep); margin-bottom: 30px;
+  }
+  .statement__title {
+    font-family: var(--font-display); font-size: var(--type-statement); font-weight: 700;
+    line-height: 1.02; letter-spacing: -0.025em; color: var(--ink); max-width: 1560px; margin: 0;
+  }
+  .statement__title em { font-style: normal; color: var(--sienna); font-weight: 700; }
+  .statement__lead {
+    font-family: var(--font-body); font-size: var(--type-lead); color: var(--ink-soft);
+    line-height: var(--leading-relaxed); max-width: 1180px; margin-top: 42px;
+  }
+  .statement--split { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 84px; align-items: center; }
+  .statement--split .statement__title { font-size: 74px; }
+  .statement--split .statement__lead { font-size: var(--type-body); margin-top: 34px; max-width: 740px; }
+  .statement__visual { display: flex; align-items: center; justify-content: center; }
+  .statement__visual svg { width: 100%; height: auto; max-height: 780px; }
+
+  /* ============================================================ DISCUSS (engage the room) */
+  .discuss { display: flex; flex-direction: column; background: var(--paper-deeper); }
+  .discuss__head { margin-bottom: 56px; max-width: 1400px; }
+  .discuss__head .kick { margin-bottom: 22px; }
+  .discuss__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; flex: 1; align-content: center; }
+  .qcard { background: var(--paper); border-radius: var(--radius-lg); padding: 44px 48px; display: flex; align-items: flex-start; gap: 28px; border-left: 5px solid var(--sienna); }
+  .qcard__n { font-family: var(--font-display); font-weight: 700; font-size: 44px; color: var(--sienna); line-height: 0.9; flex-shrink: 0; }
+  .qcard__q { font-family: var(--font-display); font-weight: 600; font-size: 34px; color: var(--ink); margin: 0; line-height: 1.18; letter-spacing: -0.01em; }
+  .qcard__q span { display: block; font-family: var(--font-body); font-weight: 400; font-size: 24px; color: var(--ink-muted); margin-top: 12px; line-height: 1.4; }
+
+  /* ============================================================ NUMBERED (3-col) */
+  .numbered { display: flex; flex-direction: column; }
+  .numbered__head { margin-bottom: var(--gap-head); }
+  .numbered__head .kick { margin-bottom: 22px; }
+  .numbered__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; flex: 1; align-content: start; }
+  .ncard { display: flex; flex-direction: column; }
+  .ncard__num { font-family: var(--font-display); font-size: 64px; font-weight: 700; color: var(--sienna); line-height: 0.9; letter-spacing: -0.02em; margin-bottom: 22px; }
+  .ncard h3 { font-family: var(--font-display); font-weight: 600; font-size: 32px; color: var(--ink); margin: 0 0 16px; line-height: var(--leading-snug); }
+  .ncard p { font-family: var(--font-body); font-size: var(--type-body); color: var(--ink-soft); margin: 0; line-height: var(--leading-relaxed); }
+  .ncard code, .mono-tag {
+    font-family: var(--font-mono); font-size: 0.82em; background: var(--purple-tint);
+    color: var(--sienna-deep); padding: 2px 8px; border-radius: 6px;
+  }
+
+  /* ============================================================ MILESTONE / ACTIVITY */
+  .milestone { background: var(--sienna); color: var(--paper); justify-content: center; position: relative; overflow: hidden; }
+  .milestone::before { content: ''; position: absolute; top: -200px; right: -200px; width: 720px; height: 720px; border-radius: 50%; background: var(--sienna-deep); opacity: 0.55; }
+  .milestone::after { content: ''; position: absolute; bottom: -160px; left: -120px; width: 440px; height: 440px; border-radius: 50%; background: var(--ochre); opacity: 0.42; }
+  .milestone__inner { position: relative; z-index: 1; max-width: 1420px; }
+  .milestone__kicker { font-family: var(--font-mono); font-size: var(--type-small); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--ochre-tint); margin-bottom: 22px; }
+  .milestone__row { display: flex; align-items: baseline; gap: 40px; }
+  .milestone__num { font-family: var(--font-display); font-size: var(--type-num); font-weight: 700; line-height: 0.82; letter-spacing: -0.03em; color: var(--paper); margin: 0; }
+  .milestone__title { font-family: var(--font-display); font-weight: 700; font-size: 92px; line-height: 0.98; letter-spacing: -0.025em; margin: 0; color: var(--ochre-tint); }
+  .milestone__sub { font-family: var(--font-body); font-size: var(--type-lead); line-height: var(--leading-relaxed); color: rgba(255,255,255,0.9); max-width: 1240px; margin-top: 36px; }
+
+  /* ============================================================ PROCESS MAP (slide 4) */
+  .pmap { display: flex; flex-direction: column; }
+  .pmap__head { margin-bottom: 40px; }
+  .pmap__head .kick { margin-bottom: 20px; }
+  .pmap__grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; flex: 1; align-items: stretch; }
+  .pphase { border-radius: var(--radius-lg); padding: 38px 44px; display: flex; flex-direction: column; }
+  .pphase--1 { background: var(--ochre-tint); }
+  .pphase--2 { background: var(--sienna-tint); }
+  .pphase__label { font-family: var(--font-mono); font-size: 22px; letter-spacing: var(--tracking-mono); text-transform: uppercase; margin-bottom: 8px; }
+  .pphase--1 .pphase__label { color: var(--ochre-deep, #9a6a00); }
+  .pphase--2 .pphase__label { color: var(--sienna-deep); }
+  .pphase__dir { font-family: var(--font-body); font-size: 20px; color: var(--ink-muted); margin-bottom: 28px; }
+  .pstep { display: flex; align-items: center; gap: 20px; padding: 9px 0; }
+  .pstep__n { flex-shrink: 0; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 22px; }
+  .pphase--1 .pstep__n { background: var(--ochre); color: var(--ink); }
+  .pphase--2 .pstep__n { background: var(--sienna); color: var(--paper); }
+  .pstep__t { font-family: var(--font-body); font-size: 26px; color: var(--ink); line-height: 1.2; }
+  .pphase--2 .pstep--out .pstep__t { font-weight: 600; }
+  .pbridge { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 220px; padding: 0 18px; }
+  .pbridge__arrow { width: 100%; }
+  .pbridge__cap { font-family: var(--font-mono); font-size: 16px; line-height: 1.5; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sienna-deep); text-align: center; margin-top: 18px; }
+
+  /* ============================================================ STEP RAIL (5-step map) */
+  .srail { display: flex; align-items: flex-start; justify-content: center; gap: 16px; }
+  .srail-step { width: 230px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; }
+  .srail-dot { width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 40px; flex-shrink: 0; }
+  .srail-dot--read { background: var(--ochre-tint); color: var(--ochre-deep, #9a6a00); border: 3px solid var(--ochre); }
+  .srail-dot--build { background: var(--sienna-tint); color: var(--sienna-deep); border: 3px solid var(--sienna); }
+  .srail-dot--bridge { width: 124px; height: 124px; font-size: 50px; background: var(--sienna); color: var(--paper); border: 3px solid var(--sienna); }
+  .srail-title { font-family: var(--font-display); font-weight: 600; font-size: 26px; color: var(--ink); line-height: 1.16; }
+  .srail-tag { font-family: var(--font-mono); font-size: 16px; color: var(--sienna-deep); background: var(--sienna-tint); padding: 7px 14px; border-radius: var(--radius-pill); line-height: 1.3; }
+  .srail-arrow { align-self: flex-start; margin-top: 34px; color: var(--ink-ghost); font-size: 36px; }
+  .srail-legend { display: flex; justify-content: center; gap: 44px; margin-top: 52px; }
+  .srail-legend span { font-family: var(--font-mono); font-size: 19px; display: flex; align-items: center; gap: 12px; }
+  .srail-legend span::before { content: ''; width: 16px; height: 16px; border-radius: 50%; }
+  .srail-legend .lg-read::before { background: var(--ochre); }
+  .srail-legend .lg-build::before { background: var(--sienna); }
+
+  /* ============================================================ ZONE→PATTERN MAP (step 3) */
+  .zmap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 0 40px; width: 100%; }
+  .zmap__col { display: flex; flex-direction: column; gap: 22px; }
+  .zmap__h { font-family: var(--font-mono); font-size: 19px; letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--ink-muted); margin-bottom: 4px; }
+  .zmap__h--p { color: var(--sienna-deep); }
+  .zchip { font-family: var(--font-body); font-size: 27px; padding: 18px 26px; border-radius: var(--radius-md); }
+  .zchip--zone { background: var(--paper-deeper); color: var(--ink); border: var(--hairline); }
+  .zchip--pat { background: var(--sienna-tint); color: var(--sienna-deep); font-weight: 600; }
+  .zmap__arrows { display: flex; flex-direction: column; gap: 22px; color: var(--sienna); }
+  .zmap__arrows span { height: 62px; display: flex; align-items: center; font-size: 32px; }
+
+  /* ============================================================ STEP PANELS (slide 6) */
+  .steps { display: flex; flex-direction: column; }
+  .steps__head { margin-bottom: 44px; }
+  .steps__head .kick { margin-bottom: 22px; }
+  .steps__grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; flex: 1; align-items: stretch; }
+  .stepcard { background: var(--paper-deeper); border-radius: var(--radius-lg); padding: 36px 40px; display: flex; flex-direction: column; border-top: 4px solid var(--ochre); }
+  .stepcard__n { font-family: var(--font-mono); font-size: 20px; letter-spacing: var(--tracking-mono); color: var(--ochre-deep, #9a6a00); margin-bottom: 14px; }
+  .stepcard h3 { font-family: var(--font-display); font-weight: 600; font-size: 32px; color: var(--ink); margin: 0 0 16px; line-height: 1.08; }
+  .stepcard p { font-family: var(--font-body); font-size: var(--type-small); color: var(--ink-soft); margin: 0 0 26px; line-height: var(--leading-relaxed); }
+  .stepcard__vis { margin-top: auto; display: flex; align-items: center; justify-content: center; }
+  .stepcard__vis svg { width: 100%; height: auto; max-height: 240px; }
+  .stepcard__out { font-family: var(--font-mono); font-size: 17px; color: var(--sienna-deep); margin-top: 22px; padding-top: 18px; border-top: var(--hairline); }
+
+  /* ============================================================ TOKEN ROWS (slide 10) */
+  .tokrows { display: flex; flex-direction: column; gap: 26px; width: 100%; }
+  .tokrow { display: grid; grid-template-columns: 1fr auto 1.1fr; align-items: center; gap: 32px; background: var(--paper-deeper); border-radius: var(--radius-md); padding: 26px 34px; }
+  .tokrow__fb { font-family: var(--font-body); font-size: 28px; color: var(--ink); }
+  .tokrow__fb span { display: inline-block; background: var(--ochre-tint); color: var(--ink); font-family: var(--font-mono); font-size: 20px; padding: 6px 14px; border-radius: var(--radius-pill); margin-bottom: 10px; }
+  .tokrow__arrow { color: var(--sienna); font-size: 30px; }
+  .tokrow__dec { display: flex; align-items: center; gap: 20px; }
+  .tokrow__tok { font-family: var(--font-mono); font-size: 22px; color: var(--sienna-deep); }
+  .tokrow__val { font-family: var(--font-body); font-size: 21px; color: var(--ink-muted); }
+  .tokrow__swatch { width: 56px; height: 56px; border-radius: 12px; flex-shrink: 0; }
+
+  /* ============================================================ IMAGE DUO (slide 13) */
+  .duo { display: flex; flex-direction: column; }
+  .duo__head { margin-bottom: 36px; }
+  .duo__head .kick { margin-bottom: 20px; }
+  .duo__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 34px; }
+  .duo__fig { display: flex; flex-direction: column; }
+  .duo__frame { border-radius: var(--radius-md); overflow: hidden; border: var(--hairline); height: 430px; background: var(--paper-deeper); display: flex; align-items: center; justify-content: center; }
+  .duo__frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .duo__frame--contain { background: #14110f; }
+  .duo__frame--contain img { object-fit: contain; }
+  .duo__cap { font-family: var(--font-mono); font-size: 20px; color: var(--sienna-deep); margin-top: 16px; letter-spacing: 0.02em; }
+  .duo__pts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; border-top: var(--hairline); padding-top: 30px; }
+  .duo__pt { display: flex; gap: 18px; }
+  .duo__pt b { font-family: var(--font-display); font-weight: 700; font-size: 30px; color: var(--sienna); line-height: 1; }
+  .duo__pt p { font-family: var(--font-body); font-size: 21px; color: var(--ink-soft); margin: 0; line-height: var(--leading-snug); }
+  .duo__pt p strong { color: var(--ink); font-weight: 600; }
+
+  /* ============================================================ HOMEWORK RAIL (slide 14) */
+  .hw { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 80px; align-items: center; }
+  .hw__title { font-family: var(--font-display); font-weight: 700; font-size: 76px; line-height: 1.02; letter-spacing: -0.025em; color: var(--ink); margin: 0; }
+  .hw__title em { font-style: normal; color: var(--sienna); }
+  .hw__note { margin-top: 32px; display: inline-flex; align-items: center; gap: 12px; background: var(--sienna-tint); color: var(--sienna-deep); font-family: var(--font-mono); font-size: 20px; padding: 14px 22px; border-radius: var(--radius-md); line-height: 1.4; }
+  .hw__deliver { margin-top: 24px; font-family: var(--font-body); font-size: 22px; color: var(--ink-muted); }
+  .hwrail { position: relative; display: flex; flex-direction: column; gap: 20px; padding-left: 8px; }
+  .hwrail::before { content: ''; position: absolute; left: 31px; top: 28px; bottom: 28px; width: 2px; background: var(--ink-ghost); }
+  .hwstep { display: flex; align-items: center; gap: 26px; position: relative; }
+  .hwstep__n { flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; background: var(--paper-deeper); border: 2px solid var(--ink-ghost); display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 24px; color: var(--ink); position: relative; z-index: 1; }
+  .hwstep--out .hwstep__n { background: var(--sienna); border-color: var(--sienna); color: var(--paper); }
+  .hwstep__t { font-family: var(--font-body); font-size: 27px; color: var(--ink); line-height: 1.25; }
+  .hwstep__t b { font-family: var(--font-display); font-weight: 600; }
+  .hwstep--out .hwstep__t b { color: var(--sienna-deep); }
+  .hw__links { margin-top: 30px; display: flex; flex-direction: column; gap: 12px; max-width: 660px; }
+  .hw__links-label { font-family: var(--font-mono); font-size: 18px; letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--sienna-deep); display: flex; align-items: center; gap: 14px; }
+  .hw__links-label::before { content: ''; width: 30px; height: 2px; background: var(--sienna); }
+  .hw__link { display: flex; align-items: center; gap: 16px; font-family: var(--font-body); font-size: 22px; color: var(--ink); text-decoration: none; background: var(--paper-deeper); border: var(--hairline); border-radius: var(--radius-md); padding: 15px 22px; }
+  .hw__link-ico { color: var(--sienna); font-weight: 700; font-family: var(--font-mono); }
+  .hw__link-src { margin-left: auto; font-family: var(--font-mono); font-size: 16px; color: var(--ink-muted); white-space: nowrap; }
+
+  /* ============================================================ END */
+  .end { background: var(--ink); color: var(--paper); justify-content: center; align-items: flex-start; padding: 0 var(--pad); }
+  .end__inner { max-width: 1580px; }
+  .end__kicker { font-family: var(--font-mono); font-size: var(--type-small); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--ochre); margin-bottom: 28px; }
+  .end__title { font-family: var(--font-display); font-weight: 500; font-style: italic; font-size: 104px; line-height: 1.02; letter-spacing: -0.025em; color: var(--paper); margin: 0; }
+  .end__title em { font-style: italic; color: var(--ochre); font-weight: 500; }
+  .end__lead { font-family: var(--font-body); font-size: var(--type-body); color: rgba(255,255,255,0.82); line-height: var(--leading-relaxed); max-width: 1200px; margin-top: 40px; }
+  .end__sign { font-family: var(--font-display); font-size: 40px; color: var(--ochre); margin-top: 34px; font-style: italic; }
+
+  /* ============================================================ SVG helpers */
+  .dgm-label { font-family: var(--font-mono); font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; fill: var(--ink-muted); }
+  .dgm-name { font-family: var(--font-display); font-weight: 600; fill: var(--ink); }
+  .dgm-desc { font-family: var(--font-body); fill: var(--ink-soft); }
+  .dgm-mono { font-family: var(--font-mono); }
+
+  /* ============================================================ ENTRANCE ANIM */
+  @keyframes rise { from { opacity:0; transform: translateY(18px);} to {opacity:1; transform:none;} }
+  @keyframes fade { from { opacity:0; } to { opacity:1; } }
+  @media (prefers-reduced-motion: no-preference) {
+    .slide[data-deck-active] > * { animation: rise 0.6s cubic-bezier(0.2,0.8,0.2,1) both; }
+    .slide[data-deck-active] > *:nth-child(1){ animation-delay:.05s; }
+    .slide[data-deck-active] > *:nth-child(2){ animation-delay:.15s; }
+    .slide[data-deck-active] > *:nth-child(3){ animation-delay:.25s; }
+    .slide[data-deck-active] .ncard, .slide[data-deck-active] .stepcard,
+    .slide[data-deck-active] .tokrow, .slide[data-deck-active] .duo__fig,
+    .slide[data-deck-active] .hwstep { animation: rise .55s cubic-bezier(0.2,0.8,0.2,1) both; }
+    .slide[data-deck-active] .ncard:nth-child(1), .slide[data-deck-active] .stepcard:nth-child(1){ animation-delay:.24s; }
+    .slide[data-deck-active] .ncard:nth-child(2), .slide[data-deck-active] .stepcard:nth-child(2){ animation-delay:.34s; }
+    .slide[data-deck-active] .ncard:nth-child(3), .slide[data-deck-active] .stepcard:nth-child(3){ animation-delay:.44s; }
+    .slide[data-deck-active].cover .cover__right { animation: fade .8s ease both; }
+  }
+</style>
+<script type="application/json" id="speaker-notes">
+[
+  "Welcome back, everyone. Last week you found what to build — today is all about how to build it so it actually holds together. By the end you'll have a real framework you could hand to a teammate, or even to an AI.",
+  "Real people told you what works about your concept — that's gold, and most teams waste it. Today we turn that feedback into a system that survives every new screen and every change.",
+  "Before I show you anything, I want to hear how you work now. Go round the room on these — does anyone use a design system, and how? Where does your own work feel inconsistent? Has anyone rebuilt a component that already existed? Don't rush it; their answers are the whole reason today matters. [~4 min, keep it conversational]",
+  "We've all opened that file — twelve buttons, three versions of one card, nobody remembers why. It isn't carelessness; it's what happens with no system. Tie it back to what they just told you.\n- each screen each design decision",
+  "Build it once, reuse it everywhere — without a system, you'd rebuild it every time.\nThis one journey — ordering food — splits into two experiences: finding a restaurant and adding to cart, each with its own interaction patterns. But watch the highlighted form field: that single component is reused across patterns in BOTH experiences. \n\nThis is how system thinking works\nBUT how to do",
+  "This is Atomic Design, named by Brad Frost in 2013. A system is built in layers: an Atom is a single button, a Molecule is a few atoms like a search bar, an Organism is a whole section, a Template is the empty layout, a Page is it filled in. Under everything sit tokens — your saved values.",
+  "And this isn't classroom theory. Every mature product is already built this way. On the left, one login screen traced all the way back to its type tokens; on the right, a real design system with every layer laid out side by side. Point out how the small pieces just repeat.",
+  "So how do you actually build one? Five steps, one system. The first three are discovery — reading the sketch you already have. The last two are building. Step three is the bridge: it's where your plain zones turn into the language of a design system. Keep this map in mind — everything else hangs off it.",
+  "You don't open Figma yet. Two moves: find the two or three screens that capture what users responded to, then take your most important one and strip it to grey boxes — name each zone. That stripped-down layout is your Template skeleton.",
+  "Your turn — eight minutes on the clock. Open your sketch, pick your key screens, draw one skeleton, name each zone. [Timer: 8 min] I'll come round. Come back with your list of zones.",
+  "Here's the reveal. Look at the zones you just named — navigation, content, action bar. Ask what the user is doing in each: navigating, searching, adding, confirming. Those are interaction patterns — and interaction patterns are exactly how design systems name their Organisms. You already mapped your system without knowing it.",
+  "Before any components, you need a foundation. Two paths: define your own tokens from your concept's personality, or adopt an existing system like Material or Ant and override the few tokens that matter. Either way, every value should trace back to what users told you — if you can't say why, it's a preference, not a token.",
+  "Step five is where it all assembles: Atoms into Molecules, Molecules into Organisms, Organisms into your Template, and the Template filled with real content becomes a Page. Notice the dual labels — your Atomic pieces map exactly onto the experience architecture from earlier. The system is how you build; the Page is what users see.",
+  "Steps four and five are your homework. Set your foundation — your own tokens, or adopt an existing system and override three. Then build: three Atoms, two Molecules, at least two Organisms from your zone list, assemble your Template, and fill one Page. Bring the Figma link — that Template is your ticket into next session.",
+  "Next time we hand your Template to an AI tool and watch it become a working prototype. The cleaner your system, the better the result — so the work you do this week really pays off.",
+  "So: find the screen, sketch the zones, map the patterns, build from tokens, ship to the Page. Five steps from sketch to system — and the Template and Page prove it works. Go build something you can trust."
+]
+</script>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- 01 · COVER -->
+  <section data-speaker-notes="Welcome back, everyone. Last week you found what to build — today is all about how to build it so it actually holds together. By the end you'll have a real framework you could hand to a teammate, or even to an AI." class="slide cover" data-label="Cover" data-screen-label="01">
+    <div class="cover__left">
+      <div class="cover__year">Design system
+· Winnie Nguyen</div>
+      <div>
+        <div class="cover__day">Design System</div>
+        <h1 class="cover__title cover__title--hero">Design Once.<br/><em>Use Everywhere.</em></h1>
+        <p class="cover__sub">Build a design system that scales — from your first sketch to every screen.</p>
+      </div>
+    </div>
+    <div class="cover__right">
+      <div class="cover__badge"><span class="dot"></span>45 min</div>
+      <div class="cover__author">
+        <h2 class="cover__name">Winnie Nguyen</h2>
+        <div class="cover__credentials">
+          <div>Senior Product Designer, NAB</div>
+          <div>UX Design Instructor</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · STATEMENT — bridge from last session -->
+  <section data-speaker-notes="Real people told you what works about your concept — that's gold, and most teams waste it. Today we turn that feedback into a system that survives every new screen and every change." class="slide statement statement--split" data-label="The bridge" data-screen-label="02">
+    <div>
+      <div class="statement__kicker">Where we left off</div>
+      <h2 class="statement__title">You know <em>what</em><br/>to build.<br/>Now build it <em>right.</em></h2>
+      <p class="statement__lead">Turn last session's feedback into a system that holds together — no matter how many screens you add.</p>
+    </div>
+    <div class="statement__visual">
+      <svg viewBox="0 0 720 520" role="img" aria-label="A validated concept connected by an arrow to a design system">
+        <!-- left node: validated concept (speech bubble) -->
+        <g transform="translate(60 150)">
+          <path d="M0 30 a30 30 0 0 1 30 -30 h160 a30 30 0 0 1 30 30 v110 a30 30 0 0 1 -30 30 h-110 l-44 44 v-44 h-6 a30 30 0 0 1 -30 -30 z" fill="var(--ochre)"/>
+          <circle cx="70" cy="85" r="9" fill="var(--ink)"/><circle cx="110" cy="85" r="9" fill="var(--ink)"/><circle cx="150" cy="85" r="9" fill="var(--ink)"/>
+        </g>
+        <text class="dgm-name" font-size="26" text-anchor="middle" x="170" y="380">Validated concept</text>
+        <text class="dgm-desc" font-size="19" text-anchor="middle" x="170" y="412" fill="var(--ink-muted)">what to build</text>
+        <!-- arrow -->
+        <g stroke="var(--sienna)" stroke-width="6" fill="var(--sienna)">
+          <line x1="372" y1="230" x2="470" y2="230" stroke-linecap="round"/>
+          <path d="M470 230 l-20 -11 v22 z" stroke="none"/>
+        </g>
+        <!-- right node: design system (phone) -->
+        <g transform="translate(500 110)">
+          <rect x="0" y="0" width="170" height="240" rx="24" fill="var(--paper)" stroke="var(--sienna)" stroke-width="4"/>
+          <rect x="22" y="24" width="126" height="30" rx="8" fill="var(--sienna-tint)"/>
+          <rect x="22" y="68" width="126" height="64" rx="10" fill="var(--sienna-tint)"/>
+          <rect x="22" y="146" width="92" height="13" rx="6" fill="var(--ink-ghost)"/>
+          <rect x="22" y="166" width="126" height="11" rx="5" fill="var(--ink-ghost)"/>
+          <rect x="22" y="200" width="126" height="30" rx="10" fill="var(--sienna)"/>
+        </g>
+        <text class="dgm-name" font-size="26" text-anchor="middle" x="585" y="380">Design framework</text>
+        <text class="dgm-desc" font-size="19" text-anchor="middle" x="585" y="412" fill="var(--ink-muted)">how to build it</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 03 · DISCUSS — engage the room -->
+  <section data-speaker-notes="Before I show you anything, I want to hear how you work now. Go round the room on these — does anyone use a design system, and how? Where does your own work feel inconsistent? Has anyone rebuilt a component that already existed? Don't rush it; their answers are the whole reason today matters. [~4 min, keep it conversational]" class="slide discuss" data-label="Discussion" data-screen-label="03">
+    <div class="discuss__head">
+      <div class="kick">First — let's hear from you</div>
+      <h2 class="s-title">How do you design <em>today?</em></h2>
+    </div>
+    <div class="discuss__grid">
+      <div class="qcard">
+        <div class="qcard__n">01</div>
+        <p class="qcard__q">Do you use a design system?<span>If yes — how do you actually use it day to day?</span></p>
+      </div>
+      <div class="qcard">
+        <div class="qcard__n">02</div>
+        <p class="qcard__q">Where does your work feel inconsistent?<span>Buttons, spacing, colours that never quite match.</span></p>
+      </div>
+      <div class="qcard">
+        <div class="qcard__n">03</div>
+        <p class="qcard__q">Ever rebuilt something that already existed?<span>A component you redrew instead of reusing.</span></p>
+      </div>
+      <div class="qcard">
+        <div class="qcard__n">04</div>
+        <p class="qcard__q">What slows you down the most?<span>The part of designing you wish were easier.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · STATEMENT — the drift -->
+  <section data-speaker-notes="We've all opened that file — twelve buttons, three versions of one card, nobody remembers why. It isn't carelessness; it's what happens with no system. Tie it back to what they just told you.
+- each screen each design decision" class="slide statement statement--split" data-label="The drift" data-screen-label="04">
+    <div>
+      <div class="statement__kicker">You've seen this before</div>
+      <h2 class="statement__title">Without a system,<br/>the concept <em>drifts.</em></h2>
+      <p class="statement__lead">Nobody planned it — it just happened, one screen at a time. That's how a concept users loved becomes something nobody recognises.</p>
+    </div>
+    <div class="statement__visual">
+      <svg viewBox="0 0 760 640" role="img" aria-label="A chaotic Figma canvas of mislabelled frames, with a clean phone barely visible underneath">
+        <rect x="0" y="0" width="760" height="640" fill="var(--paper-deeper)" rx="20"/>
+        <!-- faint clean phone buried in the centre -->
+        <g opacity="0.5">
+          <rect x="300" y="170" width="160" height="300" rx="22" fill="none" stroke="var(--sienna)" stroke-width="2.5" stroke-dasharray="4 6"/>
+          <rect x="320" y="194" width="120" height="26" rx="7" fill="none" stroke="var(--sienna)" stroke-width="1.5"/>
+          <rect x="320" y="234" width="120" height="60" rx="9" fill="none" stroke="var(--sienna)" stroke-width="1.5"/>
+          <rect x="320" y="420" width="120" height="28" rx="9" fill="none" stroke="var(--sienna)" stroke-width="1.5"/>
+        </g>
+        <!-- messy overlapping frames on top -->
+        <g stroke="var(--ink-ghost)" stroke-width="2" fill="var(--paper)" fill-opacity="0.92">
+          <g transform="rotate(-5 180 140)"><rect x="60" y="70" width="240" height="150" rx="6"/></g>
+          <g transform="rotate(4 480 130)"><rect x="370" y="60" width="300" height="170" rx="6"/></g>
+          <g transform="rotate(-3 200 470)"><rect x="70" y="400" width="270" height="160" rx="6"/></g>
+          <g transform="rotate(7 560 470)"><rect x="450" y="390" width="220" height="190" rx="6"/></g>
+        </g>
+        <g class="dgm-mono" font-size="15" fill="var(--ink-muted)">
+          <text transform="rotate(-5 0 0)" x="78" y="98">Frame 47</text>
+          <text transform="rotate(4 0 0)" x="390" y="88">Button copy (2)</text>
+          <text transform="rotate(-3 0 0)" x="88" y="430">Card FINAL v3</text>
+          <text transform="rotate(7 0 0)" x="470" y="428">Group 12</text>
+        </g>
+        <g fill="none" stroke="var(--ink-ghost)" stroke-width="2">
+          <rect transform="rotate(12 150 300)" x="118" y="288" width="84" height="30" rx="15"/>
+          <rect transform="rotate(-8 620 300)" x="580" y="282" width="100" height="34" rx="6"/>
+        </g>
+        <text class="dgm-mono" font-size="13" fill="var(--ink-soft)" x="688" y="606" text-anchor="end">the concept is in there somewhere</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 05 · DIAGRAM — Experience architecture (concentric) -->
+  <section data-speaker-notes="Build it once, reuse it everywhere — without a system, you'd rebuild it every time.
+This one journey — ordering food — splits into two experiences: finding a restaurant and adding to cart, each with its own interaction patterns. But watch the highlighted form field: that single component is reused across patterns in BOTH experiences. 
+
+This is how system thinking works
+BUT how to do" class="slide" data-label="Experience architecture" data-screen-label="05" style="display:flex;flex-direction:column;">
+    <div style="margin-bottom:6px;">
+      <div class="kick" style="margin-bottom:16px;">Why a design system matters</div>
+      <h2 class="s-title">Build a piece once. Use it <em>everywhere.</em></h2>
+      <p style="font-family:var(--font-body);font-size:25px;color:var(--ink-soft);max-width:1520px;margin:16px 0 0;line-height:1.4;">The same <strong style="color:var(--ink);font-weight:600;">Add</strong> and <strong style="color:var(--ink);font-weight:600;">Confirm</strong> patterns serve both experiences — and shared components like the <strong style="color:var(--ink);font-weight:600;">form field</strong> and <strong style="color:var(--ink);font-weight:600;">buttons</strong> power them underneath. Reuse compounds at every level: build once, use everywhere.</p>
+    </div>
+    <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:0;">
+      <svg viewBox="0 0 1728 692" role="img" aria-label="One user journey splits into two experiences (find a restaurant, add to cart). Four interaction patterns sit below; the shared Add and Confirm patterns each connect up to both experiences, and two shared components — the form field and the CTAs/buttons — each power both of those patterns." style="height:100%;width:auto;max-width:100%;">
+        <!-- legend -->
+        <g font-family="var(--font-mono)" font-size="17">
+          <line x1="40" y1="40" x2="80" y2="40" stroke="var(--sienna)" stroke-width="4" stroke-linecap="round"/>
+          <text x="92" y="46" fill="var(--ink)">reused everywhere</text>
+          <line x1="40" y1="72" x2="80" y2="72" stroke="var(--ink-muted)" stroke-width="2" stroke-dasharray="7 6"/>
+          <text x="92" y="78" fill="var(--ink-muted)">secondary link</text>
+        </g>
+        <!-- ===== HIERARCHY + LOCAL LINKS (gray, solid) ===== -->
+        <g stroke="var(--ink-muted)" stroke-width="2.5" fill="var(--ink-muted)">
+          <!-- journey -> 2 stories -->
+          <path d="M430 168 V128 H1298 V168" fill="none"/>
+          <line x1="864" y1="128" x2="864" y2="100" stroke-linecap="round"/>
+          <path d="M864 96 l-8 13 h16 z" stroke="none"/>
+          <!-- Search pattern -> Find a restaurant -->
+          <path d="M250 372 V336 H360 V276" fill="none"/><path d="M360 272 l-8 13 h16 z" stroke="none"/>
+          <!-- Notifying pattern -> Add to cart -->
+          <path d="M1478 372 V336 H1368 V276" fill="none"/><path d="M1368 272 l-8 13 h16 z" stroke="none"/>
+          <!-- Search input -> Search (1:1) -->
+          <path d="M430 584 V536 H250 V480" fill="none"/><path d="M250 476 l-8 13 h16 z" stroke="none"/>
+          <!-- CTAs -> Notifying (1:1) -->
+          <path d="M1340 584 V536 H1478 V480" fill="none"/><path d="M1478 476 l-8 13 h16 z" stroke="none"/>
+        </g>
+        <!-- ===== CTAs -> Search (secondary, dashed) ===== -->
+        <g stroke="var(--ink-muted)" stroke-width="2" fill="var(--ink-muted)">
+          <path d="M1240 584 V560 H300 V480" fill="none" stroke-dasharray="7 6"/>
+          <path d="M300 476 l-8 13 h16 z" stroke="none"/>
+        </g>
+        <!-- ===== PRIMARY REUSE — shared PATTERNS: Add & Confirm -> both experiences ===== -->
+        <g stroke="var(--sienna)" stroke-width="3.5" fill="var(--sienna)">
+          <!-- Add -> both (lane y=344) -->
+          <path d="M660 372 V344" fill="none"/>
+          <path d="M410 344 H1280" fill="none"/>
+          <path d="M410 344 V276" fill="none"/><path d="M410 272 l-8 13 h16 z" stroke="none"/>
+          <path d="M1280 344 V276" fill="none"/><path d="M1280 272 l-8 13 h16 z" stroke="none"/>
+          <!-- Confirm -> both (lane y=310) -->
+          <path d="M1068 372 V310" fill="none"/>
+          <path d="M450 310 H1316" fill="none"/>
+          <path d="M450 310 V276" fill="none"/><path d="M450 272 l-8 13 h16 z" stroke="none"/>
+          <path d="M1316 310 V276" fill="none"/><path d="M1316 272 l-8 13 h16 z" stroke="none"/>
+        </g>
+        <!-- ===== PRIMARY REUSE — shared COMPONENTS: Form field & CTAs -> Add & Confirm ===== -->
+        <g stroke="var(--sienna)" stroke-width="3.5" fill="var(--sienna)">
+          <!-- Form field -> Add & Confirm (lane y=524) -->
+          <path d="M864 584 V524" fill="none"/>
+          <path d="M640 524 H1048" fill="none"/>
+          <path d="M640 524 V480" fill="none"/><path d="M640 476 l-8 13 h16 z" stroke="none"/>
+          <path d="M1048 524 V480" fill="none"/><path d="M1048 476 l-8 13 h16 z" stroke="none"/>
+          <!-- CTAs -> Add & Confirm (lane y=502) -->
+          <path d="M1298 584 V502" fill="none"/>
+          <path d="M700 502 H1298" fill="none"/>
+          <path d="M700 502 V480" fill="none"/><path d="M700 476 l-8 13 h16 z" stroke="none"/>
+          <path d="M1108 502 V480" fill="none"/><path d="M1108 476 l-8 13 h16 z" stroke="none"/>
+        </g>
+        <!-- journey -->
+        <rect x="684" y="8" width="360" height="88" rx="14" fill="var(--paper)" stroke="var(--ink-soft)" stroke-width="2.5"/>
+        <text x="864" y="46" text-anchor="middle" font-family="var(--font-display)" font-weight="700" font-size="24" fill="var(--ink)">User journey</text>
+        <text x="864" y="74" text-anchor="middle" font-family="var(--font-body)" font-size="19" fill="var(--ink-muted)">Order food delivery</text>
+        <!-- stories -->
+        <rect x="280" y="168" width="300" height="104" rx="14" fill="var(--paper)" stroke="var(--ink-soft)" stroke-width="2.5"/>
+        <text x="430" y="206" text-anchor="middle" font-family="var(--font-display)" font-weight="700" font-size="22" fill="var(--ink)">Stories / Experience</text>
+        <text x="430" y="236" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--ink-muted)">Find a restaurant</text>
+        <rect x="1148" y="168" width="300" height="104" rx="14" fill="var(--paper)" stroke="var(--ink-soft)" stroke-width="2.5"/>
+        <text x="1298" y="206" text-anchor="middle" font-family="var(--font-display)" font-weight="700" font-size="22" fill="var(--ink)">Stories / Experience</text>
+        <text x="1298" y="236" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--ink-muted)">Add to cart</text>
+        <!-- interaction patterns (4 unique) -->
+        <g>
+          <rect x="135" y="372" width="230" height="104" rx="14" fill="var(--paper)" stroke="var(--ink-soft)" stroke-width="2.5"/>
+          <rect x="545" y="372" width="230" height="104" rx="14" fill="var(--sienna-tint)" stroke="var(--sienna)" stroke-width="3"/>
+          <rect x="953" y="372" width="230" height="104" rx="14" fill="var(--sienna-tint)" stroke="var(--sienna)" stroke-width="3"/>
+          <rect x="1363" y="372" width="230" height="104" rx="14" fill="var(--paper)" stroke="var(--ink-soft)" stroke-width="2.5"/>
+          <g font-family="var(--font-display)" font-weight="600" font-size="19" fill="var(--ink)" text-anchor="middle">
+            <text x="250" y="406">Interaction pattern</text>
+            <text x="660" y="406">Interaction pattern</text>
+            <text x="1068" y="406">Interaction pattern</text>
+            <text x="1478" y="406">Interaction pattern</text>
+          </g>
+          <g font-family="var(--font-body)" font-size="18" text-anchor="middle">
+            <text x="250" y="436" fill="var(--ink-muted)">Search</text>
+            <text x="660" y="436" fill="var(--sienna-deep)">Add</text>
+            <text x="1068" y="436" fill="var(--sienna-deep)">Confirm</text>
+            <text x="1478" y="436" fill="var(--ink-muted)">Notifying</text>
+          </g>
+        </g>
+        <!-- components -->
+        <g>
+          <rect x="310" y="584" width="240" height="92" rx="14" fill="var(--paper)" stroke="var(--ink-soft)" stroke-width="2.5"/>
+          <rect x="744" y="584" width="240" height="92" rx="14" fill="var(--sienna)" stroke="var(--sienna-deep)" stroke-width="3"/>
+          <rect x="1178" y="584" width="240" height="92" rx="14" fill="var(--sienna)" stroke="var(--sienna-deep)" stroke-width="3"/>
+          <g font-family="var(--font-display)" font-weight="600" font-size="20" text-anchor="middle">
+            <text x="430" y="624" fill="var(--ink)">Component</text>
+            <text x="864" y="624" fill="var(--paper)">Component</text>
+            <text x="1298" y="624" fill="var(--paper)">Component</text>
+          </g>
+          <g font-family="var(--font-body)" font-size="18" text-anchor="middle">
+            <text x="430" y="650" fill="var(--ink-muted)">Search input</text>
+            <text x="864" y="650" fill="var(--paper)">Form field</text>
+            <text x="1298" y="650" fill="var(--paper)">CTAs</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 06 · PROCESS — The Atomic hierarchy (built in layers) -->
+  <section data-speaker-notes="This is Atomic Design, named by Brad Frost in 2013. A system is built in layers: an Atom is a single button, a Molecule is a few atoms like a search bar, an Organism is a whole section, a Template is the empty layout, a Page is it filled in. Under everything sit tokens — your saved values." class="slide" data-label="The Atomic hierarchy" data-screen-label="06" style="display:flex;flex-direction:column;">
+    <div style="margin-bottom:14px;">
+      <div class="kick" style="margin-bottom:18px;">Meet Atomic Design · Brad Frost, 2013</div>
+      <h2 class="s-title">A design system is built in <em>layers.</em></h2>
+    </div>
+    <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:0;">
+      <svg viewBox="0 0 1680 410" role="img" aria-label="Five growing levels: Atom, Molecule, Organism, Template, Page" style="width:100%;height:auto;max-height:640px;">
+        <g stroke="var(--sienna)" stroke-width="3.5" fill="var(--sienna)">
+          <line x1="196" y1="150" x2="392" y2="150" stroke-linecap="round"/><path d="M392 150 l-16 -9 v18 z" stroke="none"/>
+          <line x1="508" y1="150" x2="698" y2="150" stroke-linecap="round"/><path d="M698 150 l-16 -9 v18 z" stroke="none"/>
+          <line x1="842" y1="150" x2="1030" y2="150" stroke-linecap="round"/><path d="M1030 150 l-16 -9 v18 z" stroke="none"/>
+          <line x1="1208" y1="150" x2="1392" y2="150" stroke-linecap="round"/><path d="M1392 150 l-16 -9 v18 z" stroke="none"/>
+        </g>
+        <g fill="var(--paper-deeper)" stroke="var(--sienna)" stroke-width="3">
+          <circle cx="150" cy="150" r="38"/>
+          <circle cx="450" cy="150" r="50"/>
+          <circle cx="770" cy="150" r="64"/>
+          <circle cx="1120" cy="150" r="80"/>
+          <circle cx="1500" cy="150" r="100"/>
+        </g>
+        <circle cx="150" cy="150" r="11" fill="var(--sienna)"/>
+        <g><line x1="436" y1="150" x2="464" y2="150" stroke="var(--ink)" stroke-width="3"/><circle cx="436" cy="150" r="10" fill="var(--ink)"/><circle cx="464" cy="150" r="10" fill="var(--ink)"/></g>
+        <g fill="var(--ink)"><rect x="754" y="134" width="14" height="14" rx="2"/><rect x="772" y="134" width="14" height="14" rx="2"/><rect x="754" y="152" width="14" height="14" rx="2"/><rect x="772" y="152" width="14" height="14" rx="2"/></g>
+        <g fill="none" stroke="var(--ink)" stroke-width="2.5"><rect x="1098" y="110" width="44" height="80" rx="6" stroke-dasharray="5 4"/><line x1="1106" y1="128" x2="1134" y2="128"/><line x1="1106" y1="146" x2="1134" y2="146"/><line x1="1106" y1="164" x2="1122" y2="164"/></g>
+        <g><rect x="1470" y="100" width="60" height="100" rx="8" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.5"/><rect x="1470" y="100" width="60" height="20" rx="8" fill="var(--sienna)"/><rect x="1478" y="130" width="44" height="9" rx="2" fill="var(--ink)"/><rect x="1478" y="144" width="44" height="9" rx="2" fill="var(--ink-ghost)"/><rect x="1478" y="172" width="44" height="14" rx="4" fill="var(--ochre)"/></g>
+        <g text-anchor="middle">
+          <text class="dgm-name" x="150" y="306" font-size="30" fill="var(--ink)">Atom</text>
+          <text class="dgm-name" x="450" y="306" font-size="30" fill="var(--ink)">Molecule</text>
+          <text class="dgm-name" x="770" y="306" font-size="30" fill="var(--ink)">Organism</text>
+          <text class="dgm-name" x="1120" y="306" font-size="30" fill="var(--ink)">Template</text>
+          <text class="dgm-name" x="1500" y="306" font-size="30" fill="var(--sienna-deep)">Page</text>
+          <g class="dgm-mono" font-size="18" fill="var(--ink-muted)">
+            <text x="150" y="342">one button or input</text>
+            <text x="450" y="342">a few atoms together</text>
+            <text x="770" y="342">a whole section</text>
+            <text x="1120" y="342">the layout, empty</text>
+            <text x="1500" y="342">the layout, filled in</text>
+          </g>
+        </g>
+        <text class="dgm-mono" x="840" y="398" text-anchor="middle" font-size="17" fill="var(--ink-soft)">Beneath it all sit <tspan fill="var(--sienna-deep)">tokens</tspan> — your saved colour, spacing and radius values.</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 07 · NUMBERED (image duo) — see it in a real product -->
+  <section data-speaker-notes="And this isn't classroom theory. Every mature product is already built this way. On the left, one login screen traced all the way back to its type tokens; on the right, a real design system with every layer laid out side by side. Point out how the small pieces just repeat." class="slide duo" data-label="See it in a real product" data-screen-label="07">
+    <div class="duo__head">
+      <div class="kick">What it looks like in practice</div>
+      <h2 class="s-title">Every app you use is already built <em>this way.</em></h2>
+    </div>
+    <div class="duo__grid" style="flex:1;margin-bottom:0;">
+      <div class="duo__fig" style="height:100%;">
+        <div class="duo__frame duo__frame--contain" style="flex:1;min-height:0;height:auto;"><img src="assets/page-traced.png" alt="A single login Page traced back through type tokens, Atoms, Molecules, Organisms, Templates and Pages"/></div>
+        <div class="duo__cap">One Page traced back through every level — type tokens to final screen.</div>
+      </div>
+      <div class="duo__fig" style="height:100%;">
+        <div class="duo__frame" style="flex:1;min-height:0;height:auto;"><img src="assets/many-screens.jpg" alt="A full design system board: Atoms, Molecules, Organisms, Templates and Pages side by side"/></div>
+        <div class="duo__cap">A real design system — Atoms to Pages, side by side.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · PROCESS MAP — five steps, one system -->
+  <section data-speaker-notes="So how do you actually build one? Five steps, one system. The first three are discovery — reading the sketch you already have. The last two are building. Step three is the bridge: it's where your plain zones turn into the language of a design system. Keep this map in mind — everything else hangs off it." class="slide pmap" data-label="5-step map" data-screen-label="08">
+    <div class="pmap__head">
+      <div class="kick">The method</div>
+      <h2 class="s-title">Five steps. <em>One system.</em></h2>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;">
+      <div class="srail">
+        <div class="srail-step">
+          <div class="srail-dot srail-dot--read">1</div>
+          <div class="srail-title">Find your screens</div>
+        </div>
+        <div class="srail-arrow">→</div>
+        <div class="srail-step">
+          <div class="srail-dot srail-dot--read">2</div>
+          <div class="srail-title">Sketch your zones</div>
+        </div>
+        <div class="srail-arrow">→</div>
+        <div class="srail-step">
+          <div class="srail-dot srail-dot--bridge">3</div>
+          <div class="srail-title">Map to interaction patterns</div>
+        </div>
+        <div class="srail-arrow">→</div>
+        <div class="srail-step">
+          <div class="srail-dot srail-dot--build">4</div>
+          <div class="srail-title">Define your tokens</div>
+          <div class="srail-tag">build your own or pick one →</div>
+        </div>
+        <div class="srail-arrow">→</div>
+        <div class="srail-step">
+          <div class="srail-dot srail-dot--build">5</div>
+          <div class="srail-title">Build the system</div>
+        </div>
+      </div>
+      <div class="srail-legend">
+        <span class="lg-read">Steps 1–3 · read what you have</span>
+        <span class="lg-build">Steps 4–5 · build the system</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 · STEPS 1–2 — read what you already have -->
+  <section data-speaker-notes="You don't open Figma yet. Two moves: find the two or three screens that capture what users responded to, then take your most important one and strip it to grey boxes — name each zone. That stripped-down layout is your Template skeleton." class="slide steps" data-label="Steps 1–2" data-screen-label="09">
+    <div class="steps__head">
+      <div class="kick">Before you open Figma</div>
+      <h2 class="s-title">Your concept sketch is already a <em>design blueprint.</em></h2>
+    </div>
+    <div class="steps__grid" style="grid-template-columns:1fr 1fr;gap:48px;max-width:1400px;">
+      <div class="stepcard">
+        <div class="stepcard__n">Step 01</div>
+        <h3>Find your screens</h3>
+        <p>Pick the 2–3 screens that capture what users responded to. Write their names — these are your Pages, the destination.</p>
+        <div class="stepcard__vis">
+          <svg viewBox="0 0 320 220" role="img" aria-label="A rough concept sketch of a phone screen">
+            <rect x="118" y="14" width="120" height="192" rx="16" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+            <path d="M132 40 q10 -8 26 -2 q14 5 30 -1 q14 -5 26 2" fill="none" stroke="var(--ink-soft)" stroke-width="2.5"/>
+            <path d="M134 78 q40 -14 76 0" fill="none" stroke="var(--ink-soft)" stroke-width="2.5"/>
+            <path d="M132 104 h44 M132 120 h70 M132 136 h54" stroke="var(--ink-ghost)" stroke-width="3" stroke-linecap="round"/>
+            <rect x="134" y="166" width="72" height="24" rx="8" fill="none" stroke="var(--ink-soft)" stroke-width="2.5" stroke-dasharray="4 4"/>
+            <text class="dgm-mono" font-size="14" fill="var(--ink-muted)" x="160" y="206" text-anchor="middle"></text>
+          </svg>
+        </div>
+        <div class="stepcard__out">→ your concept sketch</div>
+      </div>
+      <div class="stepcard">
+        <div class="stepcard__n">Step 02</div>
+        <h3>Sketch your zones</h3>
+        <p>Strip one screen of everything — text, images, colour. Draw a grey rectangle for each section and give it a plain name: nav, content, action. That's your Template skeleton.</p>
+        <div class="stepcard__vis">
+          <svg viewBox="0 0 320 220" role="img" aria-label="The same screen reduced to grey labelled zones">
+            <rect x="118" y="14" width="120" height="192" rx="16" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+            <rect x="132" y="30" width="92" height="26" rx="5" fill="var(--ink-ghost)"/>
+            <text class="dgm-mono" font-size="11" fill="var(--ink-muted)" x="178" y="47" text-anchor="middle">nav</text>
+            <rect x="132" y="66" width="92" height="92" rx="5" fill="var(--ink-ghost)"/>
+            <text class="dgm-mono" font-size="11" fill="var(--ink-muted)" x="178" y="116" text-anchor="middle">content</text>
+            <rect x="132" y="168" width="92" height="24" rx="5" fill="var(--ink-ghost)"/>
+            <text class="dgm-mono" font-size="11" fill="var(--ink-muted)" x="178" y="184" text-anchor="middle">action</text>
+          </svg>
+        </div>
+        <div class="stepcard__out">→ the Template skeleton</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · MILESTONE — Activity 1 (steps 1–2) -->
+  <section data-speaker-notes="Your turn — eight minutes on the clock. Open your sketch, pick your key screens, draw one skeleton, name each zone. [Timer: 8 min] I'll come round. Come back with your list of zones." class="slide milestone" data-label="Activity 1" data-screen-label="10">
+    <div class="milestone__inner">
+      <div class="milestone__kicker">Activity 01 · your turn</div>
+      <div class="milestone__row">
+        <div class="milestone__num">8</div>
+        <h2 class="milestone__title">Minutes</h2>
+      </div>
+      <p class="milestone__sub">Open your concept sketch. Pick your 2–3 most important screens. Draw the skeleton for one of them — grey rectangles only. Give every section a plain name. Come back with your list of zones.</p>
+    </div>
+  </section>
+
+  <!-- 11 · STATEMENT — Step 3: zones → interaction patterns -->
+  <section data-speaker-notes="Here's the reveal. Look at the zones you just named — navigation, content, action bar. Ask what the user is doing in each: navigating, searching, adding, confirming. Those are interaction patterns — and interaction patterns are exactly how design systems name their Organisms. You already mapped your system without knowing it." class="slide statement statement--split" data-label="Step 3 · zones to patterns" data-screen-label="11">
+    <div>
+      <div class="statement__kicker">Step 3 · From zones to patterns</div>
+      <h2 class="statement__title" style="font-size:64px;">Those zones? They each have a <em>name in design.</em></h2>
+      <p class="statement__lead">Think about what a user <em style="font-style:normal;color:var(--ink);font-weight:600;">does</em> in each zone — navigating, searching, adding, confirming. Those are interaction patterns, and they're exactly how design systems name their Organisms. You already mapped your system without knowing it.</p>
+    </div>
+    <div class="statement__visual">
+      <div class="zmap">
+        <div class="zmap__col">
+          <div class="zmap__h">Your zones</div>
+          <div class="zchip zchip--zone">Navigation area</div>
+          <div class="zchip zchip--zone">Search zone</div>
+          <div class="zchip zchip--zone">Checkout summary</div>
+        </div>
+        <div class="zmap__arrows">
+          <div class="zmap__h" style="visibility:hidden;">x</div>
+          <span>→</span><span>→</span><span>→</span>
+        </div>
+        <div class="zmap__col">
+          <div class="zmap__h zmap__h--p">Patterns <span style="font-style:italic;text-transform:none;letter-spacing:0;">= Organisms</span></div>
+          <div class="zchip zchip--pat">Navigating</div>
+          <div class="zchip zchip--pat">Searching</div>
+          <div class="zchip zchip--pat">Confirming</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (five-levels moved up to slide 05) -->
+
+  <!-- 12 · STATEMENT — tokens come from the concept -->
+  <section data-speaker-notes="Before any components, you need a foundation. Two paths: define your own tokens from your concept's personality, or adopt an existing system like Material or Ant and override the few tokens that matter. Either way, every value should trace back to what users told you — if you can't say why, it's a preference, not a token." class="slide statement statement--split" data-label="Principles to tokens" data-screen-label="12">
+    <div>
+      <div class="statement__kicker">Step 4 · Build your foundation — or borrow one</div>
+      <h2 class="statement__title" style="font-size:60px;">“Trustworthy” is a colour. “Approachable” is a <em>corner radius.</em></h2>
+      <p class="statement__lead">Build your own tokens from your concept's personality — or adopt an existing system and override the few that matter. Either way, every value traces back to what users told you.</p>
+    </div>
+    <div class="statement__visual">
+      <div class="tokrows">
+        <div class="tokrow">
+          <div class="tokrow__fb"><span>"felt trustworthy"</span><br/>Deep, calm blue — not bright.</div>
+          <div class="tokrow__arrow">→</div>
+          <div class="tokrow__dec">
+            <div class="tokrow__swatch" style="background:#1d4ed8;"></div>
+            <div><div class="tokrow__tok">color/primary</div><div class="tokrow__val">#1D4ED8</div></div>
+          </div>
+        </div>
+        <div class="tokrow">
+          <div class="tokrow__fb"><span>"too corporate"</span><br/>Soften the edges.</div>
+          <div class="tokrow__arrow">→</div>
+          <div class="tokrow__dec">
+            <div class="tokrow__swatch" style="background:var(--paper);border:3px solid var(--sienna);border-radius:18px;"></div>
+            <div><div class="tokrow__tok">radius/md</div><div class="tokrow__val">8px rounded</div></div>
+          </div>
+        </div>
+        <div class="tokrow">
+          <div class="tokrow__fb"><span>"easy to scan"</span><br/>Breathing room.</div>
+          <div class="tokrow__arrow">→</div>
+          <div class="tokrow__dec">
+            <div class="tokrow__swatch" style="background:transparent;display:flex;flex-direction:column;justify-content:space-between;padding:6px 0;">
+              <div style="height:14px;background:var(--ink-ghost);border-radius:3px;"></div>
+              <div style="height:14px;background:var(--ink-ghost);border-radius:3px;"></div>
+            </div>
+            <div><div class="tokrow__tok">space/section</div><div class="tokrow__val">32px</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:24px;display:flex;align-items:center;justify-content:center;gap:16px;font-family:var(--font-mono);font-size:18px;">
+        <span style="background:var(--paper-deeper);border:var(--hairline);padding:8px 16px;border-radius:var(--radius-pill);color:var(--ink);">Build your own</span>
+        <span style="color:var(--sienna);font-size:22px;">↔</span>
+        <span style="background:var(--paper-deeper);border:var(--hairline);padding:8px 16px;border-radius:var(--radius-pill);color:var(--ink);">Adopt + override 3</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 · STATEMENT — Templates & Pages are the output -->
+  <section data-speaker-notes="Step five is where it all assembles: Atoms into Molecules, Molecules into Organisms, Organisms into your Template, and the Template filled with real content becomes a Page. Notice the dual labels — your Atomic pieces map exactly onto the experience architecture from earlier. The system is how you build; the Page is what users see." class="slide statement statement--split" data-label="The output" data-screen-label="13">
+    <div>
+      <div class="statement__kicker">Step 5 · What you're actually building toward</div>
+      <h2 class="statement__title">The system <em>builds.</em><br/>The product <em>ships.</em></h2>
+      <p class="statement__lead">Atoms → Molecules → Organisms is the system. Template → Page is the product. And each layer maps straight onto the experience architecture you saw earlier.</p>
+    </div>
+    <div class="statement__visual">
+      <svg viewBox="0 0 720 560" role="img" aria-label="A system column of Atom, Molecule, Organism outputs a Template skeleton and a filled Page">
+        <!-- divider -->
+        <line x1="250" y1="40" x2="250" y2="520" stroke="var(--ink-ghost)" stroke-width="2" stroke-dasharray="4 6"/>
+        <!-- labels -->
+        <text class="dgm-mono" font-size="20" letter-spacing="0.1em" fill="var(--ink-muted)" x="120" y="40" text-anchor="middle">SYSTEM</text>
+        <text class="dgm-mono" font-size="20" letter-spacing="0.1em" fill="var(--sienna-deep)" x="500" y="40" text-anchor="middle">PRODUCT</text>
+        <!-- system: A M O stacked -->
+        <g>
+          <circle cx="120" cy="130" r="40" fill="var(--paper-deeper)" stroke="var(--ink-muted)" stroke-width="3"/>
+          <circle cx="120" cy="130" r="11" fill="var(--ink-muted)"/>
+          <text class="dgm-name" font-size="20" x="120" y="196" text-anchor="middle" fill="var(--ink-soft)">Atom</text>
+          <text font-family="var(--font-mono)" font-style="italic" font-size="14" x="120" y="217" text-anchor="middle" fill="var(--ink-muted)">Component</text>
+          <g stroke="var(--ink-muted)" stroke-width="3" fill="var(--ink-muted)">
+            <circle cx="104" cy="280" r="16" fill="var(--paper-deeper)"/><circle cx="136" cy="280" r="16" fill="var(--paper-deeper)"/>
+            <line x1="104" y1="280" x2="136" y2="280"/>
+          </g>
+          <text class="dgm-name" font-size="20" x="120" y="330" text-anchor="middle" fill="var(--ink-soft)">Molecule</text>
+          <text font-family="var(--font-mono)" font-style="italic" font-size="14" x="120" y="351" text-anchor="middle" fill="var(--ink-muted)">Component</text>
+          <g fill="var(--ink-muted)" stroke="none">
+            <rect x="96" y="392" width="16" height="16" rx="3"/><rect x="116" y="392" width="16" height="16" rx="3"/>
+            <rect x="96" y="412" width="16" height="16" rx="3"/><rect x="116" y="412" width="16" height="16" rx="3"/>
+          </g>
+          <text class="dgm-name" font-size="20" x="120" y="460" text-anchor="middle" fill="var(--ink-soft)">Organism</text>
+          <text font-family="var(--font-mono)" font-style="italic" font-size="14" x="120" y="481" text-anchor="middle" fill="var(--ink-muted)">Interaction pattern</text>
+        </g>
+        <!-- big arrow across divider -->
+        <g stroke="var(--sienna)" stroke-width="6" fill="var(--sienna)">
+          <line x1="196" y1="280" x2="300" y2="280" stroke-linecap="round"/>
+          <path d="M300 280 l-20 -11 v22 z" stroke="none"/>
+        </g>
+        <text class="dgm-mono" font-size="16" letter-spacing="0.08em" fill="var(--sienna-deep)" x="248" y="262" text-anchor="middle">OUTPUTS</text>
+        <!-- product: Template phone -->
+        <g transform="translate(350 70)">
+          <rect x="0" y="0" width="150" height="200" rx="20" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.5"/>
+          <rect x="18" y="18" width="114" height="22" rx="6" fill="var(--ink-ghost)"/>
+          <rect x="18" y="50" width="114" height="78" rx="8" fill="var(--ink-ghost)"/>
+          <rect x="18" y="140" width="80" height="11" rx="5" fill="var(--ink-ghost)"/>
+          <rect x="18" y="172" width="114" height="20" rx="7" fill="none" stroke="var(--ink-ghost)" stroke-width="2.5" stroke-dasharray="4 4"/>
+          <text class="dgm-name" font-size="19" x="75" y="232" text-anchor="middle" fill="var(--ink)">Template</text>
+          <text font-family="var(--font-mono)" font-style="italic" font-size="13" x="75" y="252" text-anchor="middle" fill="var(--ink-muted)">User story</text>
+        </g>
+        <!-- product: Page phone (heavier) -->
+        <g transform="translate(540 70)">
+          <rect x="0" y="0" width="160" height="200" rx="20" fill="var(--paper)" stroke="var(--sienna)" stroke-width="3.5"/>
+          <rect x="18" y="18" width="124" height="22" rx="6" fill="var(--sienna-tint)"/>
+          <circle cx="30" cy="29" r="6" fill="var(--sienna)"/><rect x="44" y="25" width="60" height="8" rx="4" fill="var(--sienna-deep)"/>
+          <rect x="18" y="50" width="124" height="78" rx="8" fill="var(--sienna-tint)"/>
+          <circle cx="80" cy="89" r="22" fill="var(--sienna)" opacity="0.5"/>
+          <rect x="18" y="140" width="96" height="13" rx="4" fill="var(--ink)"/>
+          <text x="18" y="172" font-family="var(--font-display)" font-weight="700" font-size="15" fill="var(--sienna-deep)">189.000₫</text>
+          <rect x="18" y="180" width="124" height="12" rx="6" fill="var(--sienna)"/>
+          <text class="dgm-name" font-size="19" x="80" y="232" text-anchor="middle" fill="var(--sienna-deep)">Page</text>
+          <text font-family="var(--font-mono)" font-style="italic" font-size="13" x="80" y="252" text-anchor="middle" fill="var(--sienna)">User journey</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- (image duo moved up to slide 06) -->
+
+  <!-- 14 · PRACTICE — homework -->
+  <section data-speaker-notes="Steps four and five are your homework. Set your foundation — your own tokens, or adopt an existing system and override three. Then build: three Atoms, two Molecules, at least two Organisms from your zone list, assemble your Template, and fill one Page. Bring the Figma link — that Template is your ticket into next session." class="slide hw" data-label="Homework" data-screen-label="14">
+    <div>
+      <div class="kick" style="margin-bottom:24px;">Your turn to build</div>
+      <h2 class="hw__title">Steps 4 and 5<br/>are yours to <em>build.</em></h2>
+      <div class="hw__note">★ Your Template is the input for the next session.</div>
+      <div class="hw__deliver"><strong style="color:var(--ink);">Deliverable —</strong> a Figma link with tokens, Atoms, Molecules, Organisms, a Template and a Page.</div>
+      <div class="hw__links">
+        <div class="hw__links-label">Keep learning</div>
+        <a class="hw__link" href="https://www.figma.com/blog/creating-atomic-components-in-figma/" target="_blank" rel="noopener"><span class="hw__link-ico">↗</span>Creating Atomic Components in Figma<span class="hw__link-src">figma.com/blog</span></a>
+        <a class="hw__link" href="https://www.figma.com/design/iSFZ36kcdbXEiCKjIDikH7/Atomic-Design-System--Community-?node-id=303-7" target="_blank" rel="noopener"><span class="hw__link-ico">↗</span>Atomic Design System — Community file<span class="hw__link-src">figma.com</span></a>
+      </div>
+    </div>
+    <div class="hwrail">
+      <div class="hwstep"><div class="hwstep__n">4</div><div class="hwstep__t"><b>Set your foundation</b> — define your tokens, or adopt a system and override 3. One sentence of “why” per custom token.</div></div>
+      <div class="hwstep hwstep--out"><div class="hwstep__n">5</div><div class="hwstep__t"><b>Build the system</b> — 3 Atoms → 2 Molecules → 2 Organisms → assemble your Template → fill a Page. Note what breaks.</div></div>
+    </div>
+  </section>
+
+  <!-- 15 · STATEMENT — what comes next -->
+  <section data-speaker-notes="Next time we hand your Template to an AI tool and watch it become a working prototype. The cleaner your system, the better the result — so the work you do this week really pays off." class="slide statement statement--split" data-label="What's next" data-screen-label="15">
+    <div>
+      <div class="statement__kicker">Next session</div>
+      <h2 class="statement__title">Your Template<br/>is not the end.<br/>It's the <em>input.</em></h2>
+      <p class="statement__lead">Hand it to an AI tool — Cursor or Claude — and watch it become a prototype. The better your system, the better the result.</p>
+    </div>
+    <div class="statement__visual">
+      <svg viewBox="0 0 660 480" role="img" aria-label="A Figma Template with labelled Organism zones hands off to a code window of named components">
+        <rect x="20" y="70" width="200" height="340" rx="22" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.5"/>
+        <rect x="42" y="92" width="156" height="42" rx="8" fill="var(--paper-deeper)" stroke="var(--ink-ghost)" stroke-width="1.5"/>
+        <text class="dgm-mono" font-size="13" x="120" y="118" text-anchor="middle" fill="var(--ink-muted)">nav</text>
+        <rect x="42" y="144" width="156" height="150" rx="8" fill="var(--paper-deeper)" stroke="var(--ink-ghost)" stroke-width="1.5"/>
+        <text class="dgm-mono" font-size="13" x="120" y="223" text-anchor="middle" fill="var(--ink-muted)">content feed</text>
+        <rect x="42" y="306" width="156" height="82" rx="8" fill="var(--paper-deeper)" stroke="var(--ink-ghost)" stroke-width="1.5"/>
+        <text class="dgm-mono" font-size="13" x="120" y="351" text-anchor="middle" fill="var(--ink-muted)">action bar</text>
+        <text class="dgm-mono" font-size="15" x="120" y="438" text-anchor="middle" fill="var(--ink-soft)">You build (today)</text>
+        <g stroke="var(--sienna)" stroke-width="5" fill="var(--sienna)">
+          <line x1="246" y1="240" x2="320" y2="240" stroke-linecap="round"/>
+          <path d="M320 240 l-18 -10 v20 z" stroke="none"/>
+        </g>
+        <rect x="346" y="70" width="294" height="340" rx="14" fill="var(--ink)"/>
+        <g fill="var(--ink-muted)"><circle cx="368" cy="94" r="5"/><circle cx="386" cy="94" r="5"/><circle cx="404" cy="94" r="5"/></g>
+        <line x1="346" y1="114" x2="640" y2="114" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+        <g font-family="var(--font-mono)" font-size="18" fill="var(--paper)">
+          <text x="372" y="182"><tspan fill="var(--ochre)">&lt;NavBar /&gt;</tspan></text>
+          <text x="372" y="242"><tspan fill="#9ad0b0">&lt;ContentFeed /&gt;</tspan></text>
+          <text x="372" y="302"><tspan fill="var(--ochre)">&lt;ActionBar /&gt;</tspan></text>
+        </g>
+        <text class="dgm-mono" font-size="15" x="493" y="438" text-anchor="middle" fill="var(--ink-soft)">AI builds (next session)</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 16 · END — closing -->
+  <section data-speaker-notes="So: find the screen, sketch the zones, map the patterns, build from tokens, ship to the Page. Five steps from sketch to system — and the Template and Page prove it works. Go build something you can trust." class="slide end" data-label="Closing" data-screen-label="16">
+    <div class="end__inner">
+      <div class="end__kicker">One thing to carry forward</div>
+      <h2 class="end__title" style="font-size:80px;">“Find the screen.<br/>Sketch the zones.<br/>Map the patterns.<br/>Build from tokens.<br/>Ship to the <em>Page.</em>”</h2>
+      <p class="end__lead">Five steps from sketch to system. The Template and Page prove it works.</p>
+      <div class="end__sign">— Winnie Nguyen</div>
+    </div>
+  </section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+</body>
+</html>
