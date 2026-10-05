@@ -11,7 +11,7 @@ draft: true
 slides: ""
 previous-session: "Concept validation (user/stakeholder feedback)"
 next-session: "AI-assisted prototype development (Cursor / Claude)"
-programs: [mid-to-senior:06]
+programs: [ui-ux-fundamentals:07, mid-to-senior:06]
 ---
 
 ## Overview

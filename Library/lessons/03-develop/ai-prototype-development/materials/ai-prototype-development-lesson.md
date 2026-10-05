@@ -10,7 +10,7 @@ tags: [prototype, AI, figma, design-system, pattern-first, system-thinking]
 draft: true
 previous-session: "Design Once. Use Everywhere. (Atomic Design)"
 recovered: "rebuilt from the rendered lesson page of 2026-10-02 (not the original file); check formatting"
-programs: [ui-ux-fundamentals:07, junior-to-mid-level:07, mid-to-senior:07]
+programs: [ui-ux-fundamentals:09, junior-to-mid-level:07, mid-to-senior:07]
 ---
 
 ## Overview

@@ -4,7 +4,7 @@
 **Duration:** 90–120 minutes
 **Audience:** Intermediate
 **Methods:** Card Sorting · Sitemaps · Tree Testing · User Flows
-**Programs:** ui-ux-fundamentals:05, junior-to-mid-level:05
+**Programs:** ui-ux-fundamentals:04, junior-to-mid-level:05
 
 ---
 

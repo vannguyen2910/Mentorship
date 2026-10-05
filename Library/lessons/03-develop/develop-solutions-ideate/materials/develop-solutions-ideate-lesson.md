@@ -7,7 +7,7 @@ duration: "90 min"
 date:
 tags: [Opportunity Tree Mapping, Flow Review, Crazy 8s, Concept Sketching, Storyboarding, Concept Validation, Prioritisation, AI-Assisted Workflow]
 draft: false
-programs: [ui-ux-fundamentals:04, junior-to-mid-level:04]
+programs: [ui-ux-fundamentals:03, junior-to-mid-level:04]
 ---
 
 ## Key Concepts

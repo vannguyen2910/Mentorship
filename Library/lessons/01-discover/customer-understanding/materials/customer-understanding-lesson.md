@@ -11,7 +11,7 @@ draft: false
 slides: ""
 previous-session: "Design Thinking for UX Designer"
 next-session: ""
-programs: [ui-ux-fundamentals:02, junior-to-mid-level:02]
+programs: [junior-to-mid-level:02]
 ---
 
 ## Overview

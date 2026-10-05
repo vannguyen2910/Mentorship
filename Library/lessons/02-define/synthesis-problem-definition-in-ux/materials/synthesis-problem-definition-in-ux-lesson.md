@@ -8,7 +8,7 @@ date:
 tags: [Affinity Mapping, Insight Statements, How Might We (HMW), Problem Statement]
 draft: false
 recovered: "rebuilt from the rendered lesson page of 2026-10-02 (not the original file); check formatting"
-programs: [ui-ux-fundamentals:03, junior-to-mid-level:03]
+programs: [junior-to-mid-level:03]
 ---
 
 ## Key Concepts

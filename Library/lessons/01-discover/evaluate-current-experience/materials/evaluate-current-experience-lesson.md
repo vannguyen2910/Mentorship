@@ -7,6 +7,7 @@ tags: [evaluation, heuristic-evaluation, cognitive-walkthrough, severity-rating,
 level: junior, mid
 duration: "90 min"
 date: 2026-10-01
+programs: [ui-ux-fundamentals:02]
 draft: true
 slides: ""
 previous-session: "Design Thinking for UX Designer"
