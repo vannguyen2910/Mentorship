@@ -1,0 +1,1274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Solution Validation & User Testing — Session 7</title>
+<link rel="stylesheet" href="tokens.css"/>
+<style>
+  /* ============================================================
+     SHELL
+     ============================================================ */
+  .slide {
+    width: 1920px; height: 1080px;
+    background: var(--paper);
+    color: var(--ink);
+    padding: var(--slide-pad);
+    display: flex; flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-body);
+  }
+  .slide--deeper { background: var(--paper-deeper); }
+  .slide--ink    { background: var(--ink); color: var(--paper); }
+  .slide--sienna { background: var(--sienna); color: var(--paper); }
+
+  /* shared heading helpers */
+  .slide-kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--sienna-deep);
+    margin: 0 0 22px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .slide-kicker::before {
+    content: ''; width: 42px; height: 2px; background: var(--sienna);
+  }
+  .slide-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 78px;
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0;
+    max-width: 1560px;
+  }
+  .slide-title em { font-style: normal; color: var(--sienna); }
+  .slide-lead {
+    font-family: var(--font-body);
+    font-size: var(--text-xl);
+    color: var(--ink-soft);
+    line-height: var(--leading-relaxed);
+    max-width: 1480px;
+    margin: 26px 0 0;
+  }
+
+  /* ============================================================
+     COVER
+     ============================================================ */
+  .cover { padding: 0; display: grid; grid-template-columns: 1.12fr 1fr; }
+  .cover__left { padding: var(--slide-pad); display: flex; flex-direction: column; justify-content: space-between; }
+  .cover__year {
+    font-family: var(--font-mono); font-size: var(--text-sm);
+    letter-spacing: var(--tracking-mono); color: var(--sienna-deep);
+    display: flex; align-items: center; gap: 16px; text-transform: uppercase;
+  }
+  .cover__year::after { content: ''; flex: 1; height: 1px; background: var(--ink-ghost); }
+  .cover__day {
+    font-family: var(--font-mono); font-size: var(--text-lg); color: var(--ink-muted);
+    letter-spacing: var(--tracking-mono); text-transform: uppercase; margin-bottom: 26px;
+  }
+  .cover__title {
+    font-family: var(--font-display); font-size: 126px; font-weight: 700;
+    line-height: 0.94; letter-spacing: -0.03em; color: var(--ink); margin: 0;
+  }
+  .cover__title em { font-style: italic; font-weight: 700; color: var(--sienna); }
+  .cover__sub {
+    font-family: var(--font-body); font-size: var(--text-xl); color: var(--ink-soft);
+    margin-top: 34px; max-width: 760px; line-height: var(--leading-relaxed);
+  }
+  .cover__right {
+    background: var(--sienna); color: var(--paper); padding: var(--slide-pad);
+    display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden;
+    background-image: linear-gradient(180deg, rgba(26,19,37,0.20) 0%, rgba(26,19,37,0.55) 48%, rgba(26,19,37,0.92) 100%), url('https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1400&q=80');
+    background-size: cover; background-position: center;
+  }
+  .cover__right::after {
+    content: ''; position: absolute; bottom: -120px; left: -120px; width: 320px; height: 320px;
+    border-radius: 50%; background: var(--ochre); opacity: 0.32; mix-blend-mode: screen;
+  }
+  .cover__author { position: relative; z-index: 1; }
+  .cover__name { font-family: var(--font-display); font-weight: 600; font-size: 60px; line-height: 1.04; margin: 0 0 18px; }
+  .cover__credentials { font-family: var(--font-body); font-size: var(--text-base); line-height: 1.55; opacity: 0.88; }
+  .cover__credentials div + div { margin-top: 4px; }
+  .cover__badge {
+    position: absolute; top: var(--slide-pad); right: var(--slide-pad);
+    font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: var(--tracking-mono);
+    text-transform: uppercase; color: var(--paper); z-index: 1; display: flex; align-items: center; gap: 10px;
+    background: rgba(0,0,0,0.24); padding: 11px 18px; border-radius: 999px; backdrop-filter: blur(8px);
+  }
+  .cover__badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ochre); }
+
+  /* ============================================================
+     PART INTRO (full-bleed sienna)
+     ============================================================ */
+  .partintro { background: var(--sienna); color: var(--paper); justify-content: center; align-items: flex-start; position: relative; overflow: hidden; }
+  .partintro__ghost {
+    position: absolute; bottom: -210px; right: -50px;
+    font-family: var(--font-display); font-weight: 800; font-size: 820px; line-height: 0.8;
+    color: rgba(255,255,255,0.09); user-select: none; pointer-events: none;
+  }
+  .partintro__title {
+    font-family: var(--font-display); font-weight: 700; font-size: 150px; line-height: 0.96;
+    letter-spacing: -0.03em; color: var(--paper); margin: 0; max-width: 1500px; position: relative; z-index: 1;
+  }
+  .partintro__label {
+    position: absolute; bottom: 78px; left: var(--slide-pad);
+    font-family: var(--font-mono); font-size: var(--text-lg); letter-spacing: var(--tracking-mono);
+    text-transform: uppercase; color: rgba(255,255,255,0.62);
+  }
+
+  /* ============================================================
+     STATEMENT
+     ============================================================ */
+  .statement { justify-content: center; }
+  .statement__title {
+    font-family: var(--font-display); font-size: 96px; font-weight: 700;
+    line-height: 1.02; letter-spacing: -0.025em; color: var(--ink); max-width: 1620px; margin: 0;
+  }
+  .statement__title em { font-style: italic; color: var(--sienna); font-weight: 700; }
+
+  /* ============================================================
+     AGENDA — numbered card list
+     ============================================================ */
+  .agenda__list { display: flex; flex-direction: column; gap: 12px; margin-top: 44px; }
+  .agenda__item {
+    display: grid; grid-template-columns: 88px 1fr; align-items: center; gap: 32px;
+    background: var(--paper-deeper); border-radius: var(--radius-md); padding: 16px 40px;
+  }
+  .agenda__num {
+    width: 68px; height: 68px; border-radius: 50%; background: var(--sienna); color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 700; font-size: 34px;
+  }
+  .agenda__txt { display: flex; align-items: baseline; gap: 22px; flex-wrap: wrap; }
+  .agenda__name { font-family: var(--font-display); font-weight: 600; font-size: 38px; color: var(--ink); }
+  .agenda__desc { font-family: var(--font-body); font-style: italic; font-size: var(--text-lg); color: var(--ink-muted); }
+
+  /* ============================================================
+     TWO PANEL (opinion vs evidence)
+     ============================================================ */
+  .twopanel__stage { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 0; flex: 1; margin-top: 44px; }
+  .panel { border-radius: var(--radius-lg); padding: 56px 56px; display: flex; flex-direction: column; justify-content: center; gap: 28px; }
+  .panel--opinion { background: var(--paper-deeper); }
+  .panel--evidence { background: var(--sienna-tint); }
+  .panel__tag {
+    font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono);
+    text-transform: uppercase; align-self: flex-start; padding: 8px 18px; border-radius: 999px;
+  }
+  .panel--opinion .panel__tag { background: var(--ink-ghost); color: var(--ink-muted); }
+  .panel--evidence .panel__tag { background: var(--sienna); color: var(--paper); }
+  .panel__bubble {
+    font-family: var(--font-display); font-weight: 600; font-size: 46px; line-height: 1.12; color: var(--ink);
+  }
+  .panel--opinion .panel__bubble { color: var(--ink-muted); }
+  .panel__note { font-family: var(--font-body); font-size: var(--text-base); color: var(--ink-soft); line-height: var(--leading-relaxed); }
+  .panel--evidence .panel__bubble em { font-style: italic; color: var(--sienna-deep); }
+  .twopanel__vs {
+    display: flex; align-items: center; justify-content: center; padding: 0 44px;
+    font-family: var(--font-display); font-weight: 700; font-size: 92px; color: var(--sienna);
+  }
+
+  /* ============================================================
+     THREE CARDS (what are you testing)
+     ============================================================ */
+  .cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; flex: 1; margin-top: 48px; }
+  .qcard { background: var(--paper-deeper); border-radius: var(--radius-lg); padding: 48px 44px; display: flex; flex-direction: column; }
+  .qcard__icon {
+    width: 88px; height: 88px; border-radius: 50%; background: var(--sienna-tint);
+    display: flex; align-items: center; justify-content: center; margin-bottom: 30px;
+  }
+  .qcard__icon svg { width: 46px; height: 46px; stroke: var(--sienna-deep); fill: none; stroke-width: 2.2; }
+  .qcard h3 { font-family: var(--font-display); font-weight: 700; font-size: 46px; color: var(--ink); margin: 0 0 16px; }
+  .qcard p { font-family: var(--font-body); font-size: var(--text-base); color: var(--ink-soft); line-height: var(--leading-relaxed); margin: 0 0 30px; flex: 1; }
+  .qcard__method {
+    font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--sienna-deep); border-top: 2px solid var(--sienna); padding-top: 18px;
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .qcard__method .arrow { color: var(--sienna); font-weight: 700; }
+
+  /* ============================================================
+     FLOW (Go1 case)
+     ============================================================ */
+  .flow { display: flex; align-items: center; justify-content: center; gap: 0; flex: 1; margin-top: 44px; }
+  .flow__node {
+    background: var(--paper-deeper); border: 2px solid var(--ink-ghost); border-radius: var(--radius-lg);
+    padding: 40px 38px; width: 320px; min-height: 240px; display: flex; flex-direction: column; gap: 14px;
+  }
+  .flow__node--final { background: var(--sienna); border-color: var(--sienna); color: var(--paper); }
+  .flow__node .step { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--sienna-deep); }
+  .flow__node--final .step { color: var(--ochre); }
+  .flow__node h3 { font-family: var(--font-display); font-weight: 700; font-size: 40px; line-height: 1.05; margin: 0; color: var(--ink); }
+  .flow__node--final h3 { color: var(--paper); }
+  .flow__node p { font-family: var(--font-body); font-size: var(--text-base); color: var(--ink-soft); line-height: var(--leading-snug); margin: 0; }
+  .flow__node--final p { color: rgba(255,255,255,0.82); }
+  .flow__arrow { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 0 22px; }
+  .flow__arrow .lbl { font-family: var(--font-mono); font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); }
+  .flow__arrow svg { width: 56px; height: 22px; }
+
+  /* ============================================================
+     SPECTRUM BAR + TABLE
+     ============================================================ */
+  .spectrum-bar { display: flex; align-items: center; gap: 24px; margin: 0 0 8px; }
+  .spectrum-bar .cap { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+  .spectrum-bar .cap--lo { color: var(--sage); }
+  .spectrum-bar .cap--hi { color: var(--sienna-deep); }
+  .spectrum-bar .track { flex: 1; height: 16px; border-radius: 999px; background: linear-gradient(90deg, var(--sage) 0%, var(--ochre) 52%, var(--sienna) 100%); }
+  /* bar-labelled diagram */
+  .specdiagram { position: relative; margin: 56px 0 20px; padding: 92px 0 96px; }
+  .specdiagram .track { height: 20px; border-radius: 999px; background: linear-gradient(90deg, var(--sage) 0%, var(--ochre) 52%, var(--sienna) 100%); }
+  .spectick { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 8px; transform: translateX(-50%); }
+  .spectick--above { bottom: calc(100% - 92px + 20px); }
+  .spectick--below { top: calc(92px + 20px); }
+  .spectick--above .spectick__stem { order: 2; }
+  .spectick--above .spectick__label { order: 1; }
+  .spectick__stem { width: 2px; height: 26px; background: var(--ink-ghost); }
+  .spectick__label { font-family: var(--font-body); font-size: 19px; color: var(--ink-soft); white-space: nowrap; text-align: center; line-height: 1.15; }
+  .spectick--hot .spectick__stem { background: var(--sienna); width: 3px; }
+  .spectick--hot .spectick__label { font-family: var(--font-display); font-weight: 700; font-size: 24px; color: var(--sienna-deep); }
+  .speccaps { display: flex; justify-content: space-between; margin: 4px 0 0; }
+  .speccaps .cap { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+  .speccaps .cap--lo { color: var(--sage); }
+  .speccaps .cap--hi { color: var(--sienna-deep); }
+  .slist { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .slist__head { display: grid; grid-template-columns: 1.55fr 240px 230px; gap: 32px; padding: 0 32px 4px; }
+  .slist__head span { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--ink-muted); }
+  .smethod { display: grid; grid-template-columns: 1.55fr 240px 230px; align-items: center; gap: 32px; padding: 13px 32px; border-radius: var(--radius-md); background: var(--paper-deeper); }
+  .smethod--hot { background: var(--sienna-tint); }
+  .smethod__main { display: flex; flex-direction: column; gap: 5px; }
+  .smethod__name { font-family: var(--font-display); font-weight: 600; font-size: 30px; color: var(--ink); display: flex; align-items: center; gap: 14px; flex-wrap: wrap; line-height: 1.05; }
+  .smethod__name .soft { color: var(--ink-muted); font-family: var(--font-body); font-weight: 400; font-size: 22px; }
+  .smethod__tag { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--paper); background: var(--sienna); padding: 5px 13px; border-radius: 999px; }
+  .smethod__ans { font-family: var(--font-body); font-size: 21px; color: var(--ink-soft); line-height: 1.3; }
+  .smethod__fid { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-soft); }
+  .smethod__effort { display: flex; align-items: center; gap: 16px; }
+  .smethod__elabel { font-family: var(--font-body); font-size: 19px; color: var(--ink-muted); min-width: 104px; }
+  .meter { display: flex; gap: 5px; }
+  .meter span { width: 13px; height: 20px; border-radius: 3px; background: var(--ink-ghost); }
+  .meter span.on { background: var(--sienna); }
+  .slist--focus { flex: 1; justify-content: center; gap: 24px; }
+  .slist--focus .smethod { grid-template-columns: 1.55fr 1fr; padding: 30px 36px; }
+  .slist--focus .smethod__name { font-size: 36px; }
+  .slist--focus .smethod__ans { font-size: 24px; }
+  .sother { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-top: 8px; padding-top: 22px; border-top: 1px solid var(--ink-ghost); }
+  .sother__label { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--ink-muted); margin-right: 6px; }
+  .sother__item { font-family: var(--font-body); font-size: 20px; color: var(--ink-soft); background: var(--paper-deeper); padding: 8px 20px; border-radius: 999px; }
+
+  /* ============================================================
+     WHY / WHAT compare + image
+     ============================================================ */
+  .whywhat { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; flex: 1; margin-top: 14px; }
+  .wwcard { border-radius: var(--radius-lg); padding: 44px 44px; display: flex; flex-direction: column; }
+  .wwcard--why { background: var(--sage-tint); }
+  .wwcard--what { background: var(--ochre-tint); }
+  .wwcard__big { font-family: var(--font-display); font-weight: 800; font-size: 92px; line-height: 0.96; letter-spacing: -0.02em; margin: 0 0 8px; }
+  .wwcard--why .wwcard__big { color: var(--sage); }
+  .wwcard--what .wwcard__big { color: #9A7B00; }
+  .wwcard__role { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--ink-muted); margin-bottom: 24px; }
+  .wwcard p { font-family: var(--font-body); font-size: var(--text-base); color: var(--ink-soft); line-height: var(--leading-relaxed); margin: 0; }
+  .wwcard p strong { color: var(--ink); font-weight: 600; }
+
+  /* ============================================================
+     MODERATED vs UNMODERATED decision
+     ============================================================ */
+  .modu { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+  .mcard { border-radius: var(--radius-lg); padding: 38px 44px; min-height: 500px; display: flex; flex-direction: column; }
+  .mcard--mod { background: var(--sage-tint); }
+  .mcard--unmod { background: var(--ochre-tint); }
+  .mcard__top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 20px; margin-bottom: 6px; border-bottom: 2px solid rgba(26,19,37,0.10); }
+  .mcard__name { font-family: var(--font-display); font-weight: 700; font-size: 48px; letter-spacing: -0.02em; color: var(--ink); }
+  .mcard__kw { font-family: var(--font-display); font-weight: 800; font-size: 40px; letter-spacing: -0.01em; }
+  .mcard--mod .mcard__kw { color: var(--sage); }
+  .mcard--unmod .mcard__kw { color: #9A7B00; }
+  .mrow { display: grid; grid-template-columns: 150px 1fr; gap: 22px; padding: 18px 0; }
+  .mrow + .mrow { border-top: 1px solid rgba(26,19,37,0.08); }
+  .mrow__lbl { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--ink-muted); padding-top: 3px; }
+  .mrow__val { font-family: var(--font-body); font-size: 23px; color: var(--ink-soft); line-height: 1.42; }
+  .mrow__val strong { color: var(--ink); font-weight: 600; }
+  .decide { margin-top: 16px; display: flex; align-items: center; gap: 36px; background: var(--sienna); color: var(--paper); border-radius: var(--radius-lg); padding: 22px 44px; }
+  .decide__q { font-family: var(--font-display); font-weight: 700; font-size: 36px; line-height: 1.08; letter-spacing: -0.01em; white-space: nowrap; }
+  .decide__q em { font-style: normal; color: var(--ochre); }
+  .decide__note { font-family: var(--font-body); font-style: italic; font-size: var(--text-base); color: rgba(255,255,255,0.82); line-height: var(--leading-snug); border-left: 2px solid rgba(255,255,255,0.3); padding-left: 28px; }
+
+  /* ============================================================
+     SINGLE-METHOD content page
+     ============================================================ */
+  .method { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 72px; flex: 1; margin-top: 44px; align-items: stretch; }
+  .method__side { border-radius: var(--radius-lg); padding: 56px 52px; display: flex; flex-direction: column; justify-content: center; gap: 22px; }
+  .method--mod .method__side { background: var(--sage-tint); }
+  .method--unmod .method__side { background: var(--ochre-tint); }
+  .method__answers { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--ink-muted); }
+  .method__kw { font-family: var(--font-display); font-weight: 800; font-size: 132px; line-height: 0.88; letter-spacing: -0.03em; margin: -6px 0 0; }
+  .method--mod .method__kw { color: var(--sage); }
+  .method--unmod .method__kw { color: #9A7B00; }
+  .method__best { font-family: var(--font-body); font-size: var(--text-lg); color: var(--ink-soft); line-height: var(--leading-snug); margin-top: 10px; }
+  .method__best strong { color: var(--ink); font-weight: 600; }
+  .method__rows { display: flex; flex-direction: column; justify-content: center; gap: 30px; }
+  .method__row { display: grid; grid-template-columns: 200px 1fr; gap: 28px; align-items: start; padding-bottom: 30px; border-bottom: 1px solid var(--ink-ghost); }
+  .method__row:last-child { border-bottom: none; padding-bottom: 0; }
+  .method__rlabel { display: flex; align-items: center; gap: 16px; font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--sienna-deep); padding-top: 8px; }
+  .method__rnum { width: 44px; height: 44px; border-radius: 50%; background: var(--sienna); color: var(--paper); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 22px; flex: none; }
+  .method__rval { font-family: var(--font-body); font-size: 30px; color: var(--ink); line-height: 1.32; }
+  .method__rval strong { font-weight: 600; }
+  .method__rval em { font-style: normal; color: var(--sienna-deep); font-weight: 600; }
+
+  /* ============================================================
+     FRAMED IMAGE
+     ============================================================ */
+  .framed { display: flex; flex-direction: column; }
+  .framed__box {
+    background: #fff; border: 1px solid var(--ink-ghost); border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md); padding: 14px; flex: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; min-height: 0;
+  }
+  .framed__box img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; display: block; }
+  .framed__cap { font-family: var(--font-body); font-style: italic; font-size: var(--text-base); color: var(--ink-muted); margin-top: 16px; line-height: var(--leading-snug); }
+  .framed__cap b { font-style: normal; font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sienna-deep); display: block; margin-bottom: 6px; }
+
+  /* ============================================================
+     FULL-PAGE EXAMPLE (real screenshot as its own slide)
+     ============================================================ */
+  .expage { background: var(--paper-deeper); }
+  .expage__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 28px; }
+  .expage__heading { max-width: 1280px; }
+  .expage__kicker { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--sienna-deep); margin: 0 0 14px; display: flex; align-items: center; gap: 16px; }
+  .expage__kicker::before { content: ''; width: 42px; height: 2px; background: var(--sienna); }
+  .expage__title { font-family: var(--font-display); font-weight: 700; font-size: 58px; line-height: 1.04; letter-spacing: -0.02em; color: var(--ink); margin: 0; }
+  .expage__title em { font-style: normal; color: var(--sienna); }
+  .expage__tag { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: 0.05em; text-transform: uppercase; color: var(--paper); background: var(--sienna); padding: 12px 22px; border-radius: 999px; white-space: nowrap; }
+  .expage__frame { flex: 1; min-height: 0; background: #fff; border: 1px solid var(--ink-ghost); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); padding: 22px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .expage__frame img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; display: block; }
+  .expage__cap { font-family: var(--font-body); font-style: italic; font-size: var(--text-base); color: var(--ink-muted); margin: 20px 0 0; line-height: var(--leading-snug); max-width: 1640px; }
+  /* split variant: why-it-matters beside the example */
+  .exsplit { display: grid; grid-template-columns: 1fr 1.1fr; gap: 76px; flex: 1; min-height: 0; align-items: stretch; }
+  .exmeta { display: flex; flex-direction: column; justify-content: center; }
+  .exmeta__title { font-family: var(--font-display); font-weight: 700; font-size: 66px; line-height: 1.04; letter-spacing: -0.025em; color: var(--ink); margin: 8px 0 48px; }
+  .exmeta__title em { font-style: normal; color: var(--sienna); }
+  .exwhy { display: flex; flex-direction: column; gap: 30px; }
+  .exwhy__lead { font-family: var(--font-body); font-size: var(--text-lg); color: var(--ink-soft); line-height: var(--leading-relaxed); margin: 0 0 8px; }
+  .exwhy__lead strong { color: var(--ink); font-weight: 600; }
+  .exreason { display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: start; }
+  .exreason__icon { width: 52px; height: 52px; border-radius: 50%; background: var(--sienna-tint); display: flex; align-items: center; justify-content: center; flex: none; }
+  .exreason__icon svg { width: 27px; height: 27px; stroke: var(--sienna-deep); fill: none; stroke-width: 2; }
+  .exreason h3 { font-family: var(--font-display); font-weight: 600; font-size: 30px; color: var(--ink); margin: 0 0 5px; line-height: 1.12; }
+  .exreason p { font-family: var(--font-body); font-size: 21px; color: var(--ink-soft); line-height: 1.4; margin: 0; }
+  .exfig { display: flex; flex-direction: column; min-height: 0; }
+  .exfig .expage__frame { flex: 1; padding: 18px; }
+  .exfig__cap { font-family: var(--font-body); font-style: italic; font-size: var(--text-sm); color: var(--ink-muted); margin: 16px 0 0; line-height: var(--leading-snug); }
+  .exsplit .expage__frame { padding: 16px; }
+
+  /* ============================================================
+     GOOD / BAD tasks
+     ============================================================ */
+  .goodbad { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; flex: 1; margin-top: 44px; }
+  .gbcol { display: flex; flex-direction: column; gap: 24px; }
+  .gbcol__head { display: flex; align-items: center; gap: 16px; font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; }
+  .gbcol--bad .gbcol__head { color: var(--ink-muted); }
+  .gbcol--good .gbcol__head { color: var(--sienna-deep); }
+  .gbmark { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 700; }
+  .gbcol--bad .gbmark { background: var(--ink-ghost); color: var(--ink-soft); }
+  .gbcol--good .gbmark { background: var(--sienna); color: var(--paper); }
+  .gbitem { border-radius: var(--radius-md); padding: 28px 32px; }
+  .gbcol--bad .gbitem { background: var(--paper-deeper); }
+  .gbcol--good .gbitem { background: var(--sienna-tint); }
+  .gbitem .task { font-family: var(--font-display); font-weight: 500; font-size: 30px; line-height: 1.18; color: var(--ink); margin: 0 0 10px; }
+  .gbitem .why { font-family: var(--font-body); font-size: var(--text-base); color: var(--ink-soft); margin: 0; }
+
+  /* ============================================================
+     AI PROMPT + CHECKLIST
+     ============================================================ */
+  .aigrid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; flex: 1; margin-top: 44px; }
+  .promptcard { background: var(--ink); color: var(--paper); border-radius: var(--radius-lg); padding: 52px 56px; display: flex; flex-direction: column; gap: 28px; }
+  .promptcard__label { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--ochre); display: flex; align-items: center; gap: 12px; }
+  .promptcard__label .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--ochre); }
+  .promptcard__text { font-family: var(--font-mono); font-style: italic; font-size: 30px; line-height: 1.5; color: rgba(255,255,255,0.92); }
+  .promptcard__text b { color: var(--ochre); font-style: normal; font-weight: 500; }
+  .checklist { display: flex; flex-direction: column; gap: 20px; justify-content: center; }
+  .checklist__head { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--sienna-deep); margin-bottom: 4px; }
+  .checkitem { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; background: var(--paper-deeper); border-radius: var(--radius-md); padding: 26px 30px; }
+  .checkbox { width: 40px; height: 40px; border-radius: 9px; border: 2px solid var(--sienna); display: flex; align-items: center; justify-content: center; color: var(--sienna); font-weight: 700; font-size: 22px; }
+  .checkitem p { font-family: var(--font-body); font-size: var(--text-lg); color: var(--ink); line-height: var(--leading-snug); margin: 0; }
+
+  /* ============================================================
+     MODERATOR — statement + prompt bubbles
+     ============================================================ */
+  .modgrid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; flex: 1; }
+  .bigstack { font-family: var(--font-display); font-weight: 700; font-size: 128px; line-height: 0.98; letter-spacing: -0.03em; color: var(--ink); margin: 0; }
+  .bigstack em { font-style: italic; color: var(--sienna); }
+  .bubbles { display: flex; flex-direction: column; gap: 24px; }
+  .bubbles__label { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--sienna-deep); margin-bottom: 4px; }
+  .bubble { background: var(--ochre-tint); border-radius: 24px 24px 24px 6px; padding: 30px 36px; font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 38px; line-height: 1.2; color: var(--ink); }
+
+  /* ============================================================
+     SIX PRINCIPLES grid + image
+     ============================================================ */
+  .princ { flex: 1; margin-top: 40px; display: flex; align-items: center; }
+  .princ__grid { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; align-content: center; gap: 36px 56px; }
+  .pcard { display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: start; }
+  .pcard__num { font-family: var(--font-display); font-weight: 700; font-size: 60px; color: var(--sienna); line-height: 0.9; }
+  .pcard h3 { font-family: var(--font-display); font-weight: 600; font-size: 30px; color: var(--ink); margin: 0 0 10px; line-height: 1.12; }
+  .pcard p { font-family: var(--font-body); font-size: 21px; color: var(--ink-soft); line-height: 1.4; margin: 0; }
+
+  /* ============================================================
+     MILESTONE
+     ============================================================ */
+  .milestone { background: var(--sienna); color: var(--paper); justify-content: center; position: relative; overflow: hidden; }
+  .milestone::before { content: ''; position: absolute; top: -200px; right: -180px; width: 680px; height: 680px; border-radius: 50%; background: var(--sienna-deep); opacity: 0.55; }
+  .milestone::after { content: ''; position: absolute; bottom: -160px; left: -120px; width: 420px; height: 420px; border-radius: 50%; background: var(--ochre); opacity: 0.42; }
+  .milestone__inner { position: relative; z-index: 1; max-width: 1500px; }
+  .milestone__kicker { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--ochre-tint); margin-bottom: 18px; }
+  .milestone__row { display: flex; align-items: baseline; gap: 40px; }
+  .milestone__num { font-family: var(--font-display); font-size: 300px; font-weight: 800; line-height: 0.82; letter-spacing: -0.04em; color: var(--paper); margin: 0; }
+  .milestone__unit { font-family: var(--font-display); font-weight: 600; font-size: 80px; color: var(--ochre); }
+  .milestone__sub { font-family: var(--font-body); font-size: var(--text-2xl); line-height: var(--leading-relaxed); color: rgba(255,255,255,0.92); max-width: 1280px; margin-top: 30px; }
+
+  /* ============================================================
+     CAPTURE GRID 2x2 + image
+     ============================================================ */
+  .capwrap { display: flex; flex: 1; margin-top: 40px; min-height: 0; }
+  .capgrid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 16px; }
+  .quad { border-radius: var(--radius-md); padding: 36px 42px; display: flex; flex-direction: column; gap: 12px; }
+  .quad--likes { background: var(--sage-tint); }
+  .quad--crit { background: var(--sienna-tint); }
+  .quad--q { background: var(--paper-deeper); }
+  .quad--ideas { background: var(--ochre-tint); }
+  .quad__head { display: flex; align-items: center; gap: 12px; }
+  .quad__icon { font-family: var(--font-display); font-weight: 700; font-size: 30px; width: 46px; height: 46px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; }
+  .quad--likes .quad__icon { color: var(--sage); }
+  .quad--crit .quad__icon { color: var(--sienna); }
+  .quad--q .quad__icon { color: var(--ink-muted); }
+  .quad--ideas .quad__icon { color: #9A7B00; }
+  .quad h3 { font-family: var(--font-display); font-weight: 700; font-size: 42px; color: var(--ink); margin: 0; }
+  .quad p { font-family: var(--font-body); font-size: 24px; color: var(--ink-soft); line-height: 1.45; margin: 0; }
+  .caprule { margin-top: 18px; font-family: var(--font-body); font-style: italic; font-size: var(--text-base); color: var(--ink-soft); line-height: 1.4; max-width: 1640px; padding-left: 22px; border-left: 3px solid var(--sienna); }
+  .caprule b { font-style: normal; color: var(--ink); }
+
+  /* ============================================================
+     PIPELINE (observation -> finding)
+     ============================================================ */
+  .pipewrap { display: flex; flex: 1; margin-top: 44px; }
+  .pipe { flex: 1; display: flex; flex-direction: column; gap: 40px; justify-content: center; }
+  .pipe__formula { font-family: var(--font-mono); font-size: var(--text-base); letter-spacing: 0.02em; color: var(--sienna-deep); background: var(--sienna-tint); padding: 16px 24px; border-radius: var(--radius-pill); align-self: flex-start; }
+  .pipe__row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 0; }
+  .pipe__box { border-radius: var(--radius-lg); padding: 36px 38px; display: flex; flex-direction: column; gap: 12px; }
+  .pipe__box--obs { background: var(--paper-deeper); }
+  .pipe__box--find { background: var(--sienna); color: var(--paper); }
+  .pipe__box .lbl { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: var(--tracking-mono); text-transform: uppercase; }
+  .pipe__box--obs .lbl { color: var(--ink-muted); }
+  .pipe__box--find .lbl { color: var(--ochre); }
+  .pipe__box .txt { font-family: var(--font-display); font-weight: 500; font-size: 38px; line-height: 1.22; }
+  .pipe__box--obs .txt { color: var(--ink); }
+  .pipe__box--find .txt { color: var(--paper); font-weight: 600; }
+  .pipe__mid { display: flex; align-items: center; justify-content: center; padding: 0 28px; color: var(--sienna); }
+  .pipe__mid svg { width: 60px; height: 30px; }
+
+  /* ============================================================
+     2x2 MATRIX (severity / feasibility)
+     ============================================================ */
+  .mx { display: grid; grid-template-columns: 80px 1fr; grid-template-rows: 1fr 64px; gap: 0; flex: 1; margin-top: 36px; }
+  .mx__ylab { grid-column: 1; grid-row: 1; writing-mode: vertical-rl; transform: rotate(180deg); display: flex; align-items: center; justify-content: space-between; font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--ink-soft); padding: 20px 0; }
+  .mx__xlab { grid-column: 2; grid-row: 2; display: flex; align-items: center; justify-content: space-between; font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--ink-soft); padding: 18px 26px 0; }
+  .mx__pole { color: var(--sienna-deep); font-weight: 700; }
+  .mx__grid { grid-column: 2; grid-row: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 3px; background: var(--ink-ghost); border: 2px solid var(--ink); border-radius: var(--radius-lg); overflow: hidden; }
+  .mxq { background: var(--paper); padding: 38px 42px; display: flex; flex-direction: column; gap: 14px; position: relative; }
+  .mxq--hero { background: var(--ink); color: var(--paper); }
+  .mxq--hi { background: var(--sienna-tint); }
+  .mxq--mid { background: var(--ochre-tint); }
+  .mxq--low { background: var(--paper-deeper); }
+  .mxq__dot { width: 30px; height: 30px; border-radius: 50%; }
+  .mxq__lbl { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--ink-muted); }
+  .mxq--hero .mxq__lbl { color: var(--ochre); }
+  .mxq__title { font-family: var(--font-display); font-weight: 700; font-size: 46px; line-height: 1.0; letter-spacing: -0.02em; color: var(--ink); margin: 0; }
+  .mxq--hero .mxq__title { color: var(--paper); }
+  .mxq__desc { font-family: var(--font-body); font-size: var(--text-base); color: var(--ink-soft); line-height: var(--leading-snug); margin: 0; }
+  .mxq--hero .mxq__desc { color: rgba(255,255,255,0.82); }
+  .mx__corner { grid-column: 1; grid-row: 2; }
+
+  /* ============================================================
+     LOOP
+     ============================================================ */
+  .loopwrap { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 60px; margin-top: 24px; }
+  .loop { display: flex; align-items: center; justify-content: center; gap: 0; }
+  .loopnode { background: var(--paper-deeper); border: 2px solid var(--ink-ghost); border-radius: var(--radius-lg); width: 272px; min-height: 188px; padding: 30px 22px; display: flex; flex-direction: column; gap: 12px; justify-content: center; text-align: center; position: relative; }
+  .loopnode--here { background: var(--sienna); border-color: var(--sienna); color: var(--paper); }
+  .loopnode .n { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--sienna-deep); }
+  .loopnode--here .n { color: var(--ochre); }
+  .loopnode h3 { font-family: var(--font-display); font-weight: 700; font-size: 33px; color: var(--ink); margin: 0; letter-spacing: -0.01em; }
+  .loopnode--here h3 { color: var(--paper); }
+  .loopnode .here-tag { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); background: var(--ochre); color: var(--ink); font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; white-space: nowrap; }
+  .loop__arrow { padding: 0 12px; color: var(--sienna); display: flex; align-items: center; }
+  .loop__arrow svg { width: 46px; height: 24px; }
+  .loopback { display: flex; align-items: center; gap: 24px; padding: 0 8px; }
+  .loopback__head { flex: none; display: flex; align-items: center; }
+  .loopback__head svg { width: 38px; height: 22px; display: block; }
+  .loopback__track { flex: 1; height: 3px; background: var(--sienna-deep); border-radius: 2px; }
+  .loopback__label { flex: none; font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: 0.05em; text-transform: uppercase; color: var(--sienna-deep); }
+
+  /* ============================================================
+     PRACTICE (3 column assignment)
+     ============================================================ */
+  .pr3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; flex: 1; margin-top: 40px; }
+  .prcol { background: var(--paper-deeper); border-radius: var(--radius-lg); padding: 40px 40px; display: flex; flex-direction: column; }
+  .prcol__phase { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--sienna-deep); margin-bottom: 8px; }
+  .prcol h3 { font-family: var(--font-display); font-weight: 700; font-size: 44px; color: var(--ink); margin: 0 0 26px; }
+  .prcol ol { list-style: none; counter-reset: s; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px; }
+  .prcol li { counter-increment: s; display: grid; grid-template-columns: auto 1fr; gap: 16px; font-family: var(--font-body); font-size: var(--text-base); color: var(--ink-soft); line-height: var(--leading-snug); }
+  .prcol li::before { content: counter(s); font-family: var(--font-mono); font-size: var(--text-sm); color: var(--sienna); font-weight: 600; width: 30px; height: 30px; border-radius: 50%; background: var(--sienna-tint); display: flex; align-items: center; justify-content: center; }
+  .deliverable { margin-top: 28px; display: flex; align-items: flex-start; gap: 22px; background: var(--sienna-tint); border-radius: var(--radius-md); padding: 26px 32px; }
+  .deliverable__tag { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--paper); background: var(--sienna); padding: 8px 16px; border-radius: 999px; white-space: nowrap; }
+  .deliverable p { font-family: var(--font-body); font-size: var(--text-lg); color: var(--ink); line-height: var(--leading-snug); margin: 0; }
+
+  /* Assignment A — phased playbook timeline */
+  .aflow { display: flex; align-items: center; gap: 0; flex: 1; margin-top: 40px; }
+  .aphase { flex: 1; background: var(--paper-deeper); border-radius: var(--radius-lg); padding: 40px 32px; display: flex; flex-direction: column; justify-content: center; }
+  .aphase__tag { align-self: flex-start; font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--paper); background: var(--sienna); padding: 8px 18px; border-radius: 999px; margin-bottom: 22px; }
+  .aphase ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 20px; }
+  .aphase li { display: grid; grid-template-columns: auto 1fr; gap: 14px; font-family: var(--font-body); font-size: 22px; color: var(--ink-soft); line-height: 1.4; }
+  .aphase li::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--sienna); margin-top: 9px; }
+  .aphase--deliver { flex: 1.05; background: var(--sienna); color: var(--paper); justify-content: center; }
+  .aphase--deliver .aphase__tag { background: var(--ochre); color: var(--ink); }
+  .aphase--deliver p { font-family: var(--font-display); font-weight: 500; font-size: 28px; line-height: 1.5; color: var(--paper); margin: 0; }
+  .aphase--deliver p strong { font-weight: 700; color: var(--ochre); }
+  .aflow__arrow { flex: none; display: flex; align-items: center; padding: 0 18px; color: var(--sienna); }
+  .aflow__arrow svg { width: 44px; height: 22px; }
+
+  /* Assignment B two cards */
+  .choose { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--sienna-deep); margin: 8px 0 22px; }
+  .bcards { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; flex: 1; }
+  .bcard { background: var(--paper-deeper); border: 2px solid var(--ink); border-radius: var(--radius-lg); padding: 56px 56px; display: flex; flex-direction: column; gap: 28px; }
+  .bcard__icon { width: 96px; height: 96px; border-radius: 50%; background: var(--sienna-tint); display: flex; align-items: center; justify-content: center; }
+  .bcard__icon svg { width: 50px; height: 50px; stroke: var(--sienna-deep); fill: none; stroke-width: 2; }
+  .bcard h3 { font-family: var(--font-display); font-weight: 700; font-size: 56px; color: var(--ink); margin: 0; }
+  .bcard p { font-family: var(--font-body); font-size: var(--text-xl); color: var(--ink-soft); line-height: var(--leading-relaxed); margin: 0; }
+
+  /* ============================================================
+     END
+     ============================================================ */
+
+  /* AI chain */
+  .tline { display: flex; align-items: flex-start; margin: auto 0; padding-top: 0; }
+  .tstep { width: 150px; flex: none; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; }
+  .tstep__dot { width: 72px; height: 72px; border-radius: 50%; background: var(--paper); border: 3px solid var(--sienna); color: var(--sienna); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 32px; }
+  .tconn { position: relative; flex: 1; height: 72px; }
+  .tconn::before { content: ''; position: absolute; left: 0; right: 4px; top: 34px; height: 3px; background: var(--sienna); }
+  .tconn::after { content: ''; position: absolute; right: 4px; top: 27px; width: 14px; height: 14px; border-top: 3px solid var(--sienna); border-right: 3px solid var(--sienna); transform: rotate(45deg); }
+  .tconn span { position: absolute; left: 4px; right: 18px; bottom: 50px; text-align: center; font-family: var(--font-body); font-style: italic; font-size: 20px; line-height: 1.2; color: var(--ink-soft); }
+  .tfoot { margin: 56px 0 auto; align-self: flex-end; font-family: var(--font-display); font-weight: 600; font-size: 30px; color: var(--ink); background: var(--sienna-tint); padding: 18px 30px; border-radius: var(--radius-md); display: flex; align-items: center; gap: 20px; }
+  .tfoot span { font-family: var(--font-mono); font-weight: 500; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sienna-deep); }
+  .tstep h3 { font-family: var(--font-display); font-weight: 700; font-size: 28px; line-height: 1.08; color: var(--ink); margin: 0; }
+  .tfmt { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .tfmt i { font-style: normal; color: var(--sienna); font-size: 20px; line-height: 1; }
+  .tfmt small { font-family: var(--font-body); font-size: 18px; line-height: 1.25; color: var(--ink-muted); margin-top: 4px; }
+  .chip { font-family: var(--font-mono); font-size: 17px; letter-spacing: 0.02em; padding: 6px 16px; border-radius: 999px; background: var(--paper-deeper); border: 2px solid var(--ink-ghost); color: var(--ink); }
+  .chip--web { background: var(--sienna-tint); border-color: var(--sienna-tint); color: var(--sienna-deep); }
+  .chip--tkt { background: var(--ochre-tint); border-color: var(--ochre); color: var(--ink); }
+  .hand__fmt { font-family: var(--font-mono); font-size: 17px; color: var(--sienna-deep); }
+  .tstep--end .tstep__dot { background: var(--sienna); color: var(--paper); }
+
+  .chain { display: grid; grid-template-columns: repeat(7, 1fr); gap: 30px; margin-top: 56px; }
+  .chain__phase { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--sienna-deep); border-bottom: 3px solid var(--sienna); padding-bottom: 12px; margin-bottom: 4px; }
+  .cnode { position: relative; background: var(--paper-deeper); border-radius: var(--radius-lg); padding: 28px 20px 26px; display: flex; flex-direction: column; gap: 14px; min-height: 330px; }
+  .cnode:not(:last-child)::after { content: ''; position: absolute; right: -24px; top: 54px; width: 18px; height: 18px; border-top: 3px solid var(--sienna); border-right: 3px solid var(--sienna); transform: rotate(45deg); }
+  .cnode__n { width: 48px; height: 48px; border-radius: 50%; background: var(--sienna); color: var(--paper); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 24px; }
+  .cnode h3 { font-family: var(--font-display); font-weight: 700; font-size: 29px; line-height: 1.08; color: var(--ink); margin: 0; }
+  .cnode__out { margin-top: auto; border-top: 2px solid var(--ink-ghost); padding-top: 14px; font-family: var(--font-body); font-size: 20px; line-height: 1.3; color: var(--ink-soft); }
+  .cnode__out b { display: block; font-family: var(--font-mono); font-weight: 500; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sienna-deep); margin-bottom: 6px; }
+  .cnode--end { background: var(--sienna); }
+  .cnode--end h3 { color: var(--paper); }
+  .cnode--end .cnode__n { background: var(--ochre); color: var(--ink); }
+  .cnode--end .cnode__out { border-color: rgba(255,255,255,0.35); color: rgba(255,255,255,0.92); }
+  .cnode--end .cnode__out b { color: var(--ochre); }
+  .hands { display: flex; flex-direction: column; gap: 24px; flex: 1; margin-top: 36px; justify-content: center; }
+  .hand { display: grid; grid-template-columns: 1fr 44px 1.45fr 44px 1.15fr; align-items: stretch; gap: 0; }
+  .hand__box { border-radius: var(--radius-md); padding: 24px 28px; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+  .hand__lbl { font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .hand__txt { font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 1.15; color: var(--ink); }
+  .hand__box--in { background: var(--paper-deeper); }
+  .hand__box--in .hand__lbl { color: var(--ink-muted); }
+  .hand__box--ai { background: var(--ink); }
+  .hand__box--ai .hand__lbl { color: var(--ochre); }
+  .hand__box--ai .hand__txt { font-family: var(--font-mono); font-weight: 400; font-style: italic; font-size: 22px; line-height: 1.4; color: rgba(255,255,255,0.92); }
+  .hand__box--out { background: var(--sienna-tint); }
+  .hand__box--out .hand__lbl { color: var(--sienna-deep); }
+  .hand__chk { font-family: var(--font-body); font-size: 19px; line-height: 1.3; color: var(--ink-soft); border-top: 2px solid var(--sienna); margin-top: 8px; padding-top: 10px; }
+  .hand__chk b { font-family: var(--font-mono); font-weight: 500; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sienna-deep); margin-right: 8px; }
+  .hand__arrow { display: flex; align-items: center; justify-content: center; color: var(--sienna); }
+  .hand__arrow svg { width: 28px; height: 20px; }
+  .hands.hands--one { justify-content: center; gap: 40px; margin-top: 20px; }
+  .hands--one .hand { grid-template-columns: 1fr 48px 1.5fr 48px 1.1fr; }
+  .hands--one .hand .hand__box { padding: 40px 34px; gap: 14px; }
+  .hands--one .hand .hand__lbl { font-size: 16px; }
+  .hands--one .hand .hand__txt { font-size: 36px; line-height: 1.18; }
+  .hands--one .hand .hand__box--ai .hand__txt { font-size: 28px; line-height: 1.45; }
+  .hands--one .hand .hand__fmt { font-size: 20px; }
+  .hcheck { display: flex; align-items: center; gap: 28px; background: var(--sienna); color: var(--paper); border-radius: var(--radius-md); padding: 28px 40px; font-family: var(--font-display); font-weight: 600; font-size: 34px; line-height: 1.2; }
+  .hcheck span { flex: none; font-family: var(--font-mono); font-weight: 500; font-size: 16px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); background: var(--ochre); padding: 8px 16px; border-radius: 999px; }
+  .guards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; flex: 1; margin-top: 44px; }
+  .guard { background: var(--paper-deeper); border-radius: var(--radius-lg); padding: 48px 44px; display: flex; flex-direction: column; gap: 22px; }
+  .guard:nth-child(3) { background: var(--sienna); }
+  .guard__n { font-family: var(--font-display); font-weight: 800; font-size: 96px; line-height: 0.9; color: var(--sienna); }
+  .guard h3 { font-family: var(--font-display); font-weight: 700; font-size: 44px; line-height: 1.06; color: var(--ink); margin: 0; }
+  .guard p { font-family: var(--font-body); font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--ink-soft); margin: 0; }
+  .guard:nth-child(3) .guard__n { color: var(--ochre); }
+  .guard:nth-child(3) h3 { color: var(--paper); }
+  .guard:nth-child(3) p { color: rgba(255,255,255,0.9); }
+  .achain { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; flex: 1; margin-top: 40px; }
+  .astep { background: var(--paper-deeper); border-radius: var(--radius-md); padding: 26px 28px; display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; }
+  .astep .cnode__n { width: 52px; height: 52px; }
+  .astep h3 { font-family: var(--font-display); font-weight: 700; font-size: 28px; line-height: 1.1; color: var(--ink); margin: 0 0 4px; }
+  .astep p { font-family: var(--font-body); font-size: 20px; line-height: 1.3; color: var(--ink-soft); margin: 0; }
+  .astep--deliver { background: var(--sienna); }
+  .astep--deliver h3, .astep--deliver p { color: var(--paper); }
+  .astep--deliver .cnode__n { background: var(--ochre); color: var(--ink); }
+  .end { background: var(--ink); color: var(--paper); justify-content: center; align-items: flex-start; }
+  .end__kicker { font-family: var(--font-mono); font-size: var(--text-lg); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--ochre); margin-bottom: 36px; }
+  .end__quote { font-family: var(--font-display); font-weight: 500; font-style: italic; font-size: 112px; line-height: 1.04; letter-spacing: -0.02em; color: var(--paper); margin: 0; max-width: 1640px; }
+  .end__quote em { font-style: italic; color: var(--ochre); }
+  .end__lead { font-family: var(--font-body); font-size: var(--text-xl); color: rgba(255,255,255,0.78); line-height: var(--leading-relaxed); max-width: 1280px; margin-top: 44px; }
+  .end__sign { font-family: var(--font-display); font-style: italic; font-size: var(--text-2xl); color: var(--ochre); margin-top: 36px; }
+
+  /* ============================================================
+     ENTRANCE ANIMATIONS
+     ============================================================ */
+  @keyframes slideRise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes slideFade { from { opacity: 0; } to { opacity: 1; } }
+  .slide[data-deck-active] > *, .slide[data-deck-active] .animate-in { animation: slideRise 0.6s cubic-bezier(0.2,0.8,0.2,1) both; }
+  .slide[data-deck-active] > *:nth-child(1) { animation-delay: 0.05s; }
+  .slide[data-deck-active] > *:nth-child(2) { animation-delay: 0.15s; }
+  .slide[data-deck-active] > *:nth-child(3) { animation-delay: 0.25s; }
+  .slide[data-deck-active] > *:nth-child(4) { animation-delay: 0.33s; }
+  .slide[data-deck-active] .agenda__item, .slide[data-deck-active] .qcard, .slide[data-deck-active] .pcard,
+  .slide[data-deck-active] .mxq, .slide[data-deck-active] .quad, .slide[data-deck-active] .prcol,
+  .slide[data-deck-active] .gbitem, .slide[data-deck-active] .checkitem, .slide[data-deck-active] .loopnode {
+    animation: slideRise 0.55s cubic-bezier(0.2,0.8,0.2,1) both;
+  }
+  .slide[data-deck-active] .agenda__item:nth-child(2){animation-delay:.14s}
+  .slide[data-deck-active] .agenda__item:nth-child(3){animation-delay:.22s}
+  .slide[data-deck-active] .agenda__item:nth-child(4){animation-delay:.30s}
+  .slide[data-deck-active] .agenda__item:nth-child(5){animation-delay:.38s}
+  @media (prefers-reduced-motion: reduce) { .slide[data-deck-active] > *, .slide[data-deck-active] * { animation: none !important; } }
+</style>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- 01 · COVER -->
+  <section class="slide cover" data-label="Cover" data-screen-label="01 Cover" data-speaker-notes="Set the frame: you arrived with a working prototype. Today is not about showing it off — it is about finding out if it works. A prototype is a hypothesis.">
+    <div class="cover__left">
+      <div class="cover__year">2026 · WINNIE NGUYEN</div>
+      <div>
+        <h1 class="cover__title">Solution<br/>Validation<br/><em>& User Testing</em></h1>
+        <p class="cover__sub">Your prototype is a hypothesis. Testing is how you find out if it's right.</p>
+      </div>
+    </div>
+    <div class="cover__right">
+      <div class="cover__author">
+        <h2 class="cover__name">Winnie<br/>Nguyen</h2>
+        <div class="cover__credentials">
+          <div>Senior Product Designer at NAB</div>
+          <div>Former Sr Product Designer at Go1</div>
+          <div>Former Product Design Instructor at StayLab</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · AGENDA -->
+  <section class="slide" data-label="Agenda" data-screen-label="02 Agenda" data-speaker-notes="Six parts that follow the natural order of a testing cycle. Each is a prerequisite for the next; the loop closes back to the hypothesis we open with.">
+    <div class="slide-kicker">What we're covering today</div>
+    <h2 class="slide-title">Six parts. <em>One loop closed.</em></h2>
+    <div class="agenda__list">
+      <div class="agenda__item"><div class="agenda__num">1</div><div class="agenda__txt"><span class="agenda__name">Validation mindset</span><span class="agenda__desc">What are you actually testing for?</span></div></div>
+      <div class="agenda__item"><div class="agenda__num">2</div><div class="agenda__txt"><span class="agenda__name">Choose your method</span><span class="agenda__desc">Right tool for the right question</span></div></div>
+      <div class="agenda__item"><div class="agenda__num">3</div><div class="agenda__txt"><span class="agenda__name">Write your test plan</span><span class="agenda__desc">Goals, tasks, scenarios, criteria</span></div></div>
+      <div class="agenda__item"><div class="agenda__num">4</div><div class="agenda__txt"><span class="agenda__name">Run the session</span><span class="agenda__desc">Facilitation and think-aloud</span></div></div>
+      <div class="agenda__item"><div class="agenda__num">5</div><div class="agenda__txt"><span class="agenda__name">Synthesise &amp; prioritise</span><span class="agenda__desc">From observations to decisions</span></div></div>
+      <div class="agenda__item"><div class="agenda__num">6</div><div class="agenda__txt"><span class="agenda__name">AI-assisted workflow</span><span class="agenda__desc">Each output becomes the next input</span></div></div>
+    </div>
+  </section>
+
+  <!-- 03 · PART 1 INTRO -->
+  <section class="slide partintro" data-label="Part 1" data-screen-label="03 Part 1" data-speaker-notes="Part one: the mindset shift that makes everything else work.">
+    <div class="partintro__ghost">1</div>
+    <h2 class="partintro__title">Validation<br/>Mindset</h2>
+    
+  </section>
+
+  <!-- 04 · PROTOTYPE IS A HYPOTHESIS -->
+  <section class="slide statement" data-label="Hypothesis" data-screen-label="04 Hypothesis" data-speaker-notes="Asking 'what do you think?' produces opinions. Testing starts with a question and lets evidence answer it. That is the difference between guessing and knowing.">
+    <div class="slide-kicker">Before we test</div>
+    <h2 class="statement__title">A prototype is not a deliverable. <em>It's a hypothesis.</em></h2>
+    <div class="twopanel__stage">
+      <div class="panel panel--opinion">
+        <span class="panel__tag">Opinion</span>
+        <div class="panel__bubble">"What do you<br/>think?"</div>
+        <p class="panel__note">Showing people your prototype and asking for reactions produces opinions — useful for ideas, not for decisions.</p>
+      </div>
+      <div class="twopanel__vs">≠</div>
+      <div class="panel panel--evidence">
+        <span class="panel__tag">Evidence</span>
+        <div class="panel__bubble">"We believe <em>[this design]</em> will help <em>[this user]</em> do <em>[this task]</em> — we'll know we're right when <em>[this signal]</em>."</div>
+        <p class="panel__note">Testing starts with a question and lets evidence answer it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · WHAT ARE YOU TESTING -->
+  <section class="slide" data-label="Three questions" data-screen-label="05 What to test" data-speaker-notes="Three different questions need three different tests. Decide which question your prototype must answer before you design the test. Most student prototypes need a usability test.">
+    <div class="slide-kicker">Three questions</div>
+    <h2 class="slide-title">Different questions <em>need different tests.</em></h2>
+    <div class="cards3">
+      <div class="qcard">
+        <div class="qcard__icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Usability</h3>
+        <p>Can users complete the task? Where do they get stuck?</p>
+        <div class="qcard__method"><span class="arrow">→</span><span>Moderated task-based test</span></div>
+      </div>
+      <div class="qcard">
+        <div class="qcard__icon"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <h3>Desirability</h3>
+        <p>Do users want what this offers? Does it feel right?</p>
+        <div class="qcard__method"><span class="arrow">→</span><span>Concept test or post-task debrief</span></div>
+      </div>
+      <div class="qcard">
+        <div class="qcard__icon"><svg viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg></div>
+        <h3>Comprehension</h3>
+        <p>Do users understand what this is and what to do?</p>
+        <div class="qcard__method"><span class="arrow">→</span><span>Five-second test or think-aloud on lo-fi</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="slide partintro" data-label="Part 2" data-screen-label="07 Part 2" data-speaker-notes="Part two: choosing the right method for the question you're asking.">
+    <div class="partintro__ghost">2</div>
+    <h2 class="partintro__title">Choose<br/>Your Method</h2>
+    
+  </section>
+
+  <!-- 08 · TESTING SPECTRUM -->
+  <section class="slide" data-label="Spectrum" data-screen-label="08 Testing spectrum" data-speaker-notes="Methods sit on a spectrum from low effort to high rigour. No single method is best. At the prototype stage, moderated and unmoderated usability tests are the most relevant.">
+    <div class="slide-kicker">The spectrum</div>
+    <h2 class="slide-title">Right method for <em>the right question.</em></h2>
+    <div class="specdiagram">
+      <span class="spectick spectick--above" style="left:4%"><span class="spectick__stem"></span><span class="spectick__label">Hallway<br/>test</span></span>
+      <span class="spectick spectick--below" style="left:16%"><span class="spectick__stem"></span><span class="spectick__label">Five-second<br/>test</span></span>
+      <span class="spectick spectick--above" style="left:30%"><span class="spectick__stem"></span><span class="spectick__label">Concept<br/>test</span></span>
+      <span class="spectick spectick--below spectick--hot" style="left:50%"><span class="spectick__stem"></span><span class="spectick__label">Moderated</span></span>
+      <span class="spectick spectick--above spectick--hot" style="left:64%"><span class="spectick__stem"></span><span class="spectick__label">Unmoderated</span></span>
+      <span class="spectick spectick--below" style="left:88%"><span class="spectick__stem"></span><span class="spectick__label">A/B<br/>test</span></span>
+      <div class="track"></div>
+    </div>
+    <div class="speccaps"><span class="cap cap--lo">Low effort</span><span class="cap cap--hi">High rigour</span></div>
+    <div class="slist slist--focus">
+      <div class="smethod smethod--hot">
+        <div class="smethod__main"><div class="smethod__name">Moderated usability test <span class="smethod__tag">Most relevant now</span></div><div class="smethod__ans">Can users complete tasks? Where do they struggle?</div></div>
+        <div class="smethod__effort"><span class="smethod__elabel">Medium effort</span><span class="meter"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span></div>
+      </div>
+      <div class="smethod smethod--hot">
+        <div class="smethod__main"><div class="smethod__name">Unmoderated test <span class="soft">(Maze, Lyssna)</span> <span class="smethod__tag">Most relevant now</span></div><div class="smethod__ans">Task completion + drop-off, at scale</div></div>
+        <div class="smethod__effort"><span class="smethod__elabel">Low–medium</span><span class="meter"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 · METHOD 1 · MODERATED (content) -->
+  <section class="slide" data-label="Moderated" data-screen-label="09 Moderated" data-speaker-notes="Method one: moderated testing. A live session — you watch one user attempt tasks and ask follow-ups. It gives you the why behind behaviour.">
+    <div class="slide-kicker">Method 1 of 2</div>
+    <h2 class="slide-title">Moderated testing.</h2>
+    <div class="method method--mod">
+      <div class="method__side">
+        <div class="method__answers">Answers</div>
+        <div class="method__kw">the WHY</div>
+        <div class="method__best">Best for <strong>understanding the why</strong> behind what users do — behaviour, hesitation, and motivation.</div>
+      </div>
+      <div class="method__rows">
+        <div class="method__row"><div class="method__rlabel"><span class="method__rnum">1</span>What it is</div><div class="method__rval">A live session where you watch one user attempt tasks and ask follow-up questions in the moment.</div></div>
+        <div class="method__row"><div class="method__rlabel"><span class="method__rnum">2</span>Why choose it</div><div class="method__rval">To understand <em>behaviour and motivation</em> — why users hesitate, and where their reasoning breaks down.</div></div>
+        <div class="method__row"><div class="method__rlabel"><span class="method__rnum">3</span>How to run it</div><div class="method__rval">Schedule 1:1 sessions, give tasks as scenarios, use think-aloud, and probe with neutral prompts. Around 5 users.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09b · MODERATED in action (Dovetail) -->
+  <section class="slide expage" data-label="Moderated · in action" data-screen-label="09b Moderated in action" data-speaker-notes="This is what moderated testing produces: a recorded session in Dovetail, with video synced to a timestamped transcript so the team can revisit exactly what the user did and said.">
+    <div class="expage__head">
+      <div class="expage__heading">
+        <div class="expage__kicker">Moderated · In action</div>
+        <h2 class="expage__title">A live session, <em>captured.</em></h2>
+      </div>
+      <div class="expage__tag">Dovetail</div>
+    </div>
+    <div class="expage__frame" style="background-color: #F0F5FE"><img src="media/Recording.png" alt="Moderated interview recording with video and timestamped transcript in Dovetail"/></div>
+    <p class="expage__cap">A moderated interview from Go1 — the recording is synced to an auto-timestamped transcript, so every observation stays anchored to what actually happened.</p>
+  </section>
+
+  <!-- 09c · METHOD 2 · UNMODERATED (content) -->
+  <section class="slide" data-label="Unmoderated" data-screen-label="09c Unmoderated" data-speaker-notes="Method two: unmoderated testing. A self-serve test users do on their own; the tool records everything. It gives you the what, at scale.">
+    <div class="slide-kicker">Method 2 of 2</div>
+    <h2 class="slide-title">Unmoderated testing.</h2>
+    <div class="method method--unmod">
+      <div class="method__side">
+        <div class="method__answers">Answers</div>
+        <div class="method__kw">the WHAT</div>
+        <div class="method__best">Best for <strong>measuring the what</strong> across many users, fast — completion, drop-off, click patterns.</div>
+      </div>
+      <div class="method__rows">
+        <div class="method__row"><div class="method__rlabel"><span class="method__rnum">1</span>What it is</div><div class="method__rval">A self-serve test users complete on their own time, while the tool records every action they take.</div></div>
+        <div class="method__row"><div class="method__rlabel"><span class="method__rnum">2</span>Why choose it</div><div class="method__rval">To measure the <em>what, at scale</em> — completion rates, drop-off, and click patterns across many users.</div></div>
+        <div class="method__row"><div class="method__rlabel"><span class="method__rnum">3</span>How to run it</div><div class="method__rval">Publish a link (Maze, Lyssna), send it to a customer segment, and read the aggregate report. Larger samples.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09d · UNMODERATED in action (Maze) -->
+  <section class="slide expage" data-label="Unmoderated · in action" data-screen-label="09d Unmoderated in action" data-speaker-notes="This is what unmoderated results look like: a Maze report giving task completion rate, success rate, and step-by-step navigation drop-off at a glance, at scale.">
+    <div class="expage__head">
+      <div class="expage__heading">
+        <div class="expage__kicker">Unmoderated · In action</div>
+        <h2 class="expage__title">Results, <em>at scale.</em></h2>
+      </div>
+      <div class="expage__tag">Maze</div>
+    </div>
+    <div class="expage__frame" style="background-color: #F0F5FE"><img src="media/Unmoderated testing.png" alt="Maze unmoderated test report for the Pinbus app"/></div>
+    <p class="expage__cap">A Maze test report — task completion rate, success rate, and the step-by-step navigation overview show exactly where users dropped off.</p>
+  </section>
+
+  <!-- 09e · THE DECIDING QUESTION -->
+  <section class="slide statement" data-label="Make the call" data-screen-label="09e Make the call" data-speaker-notes="The choice comes down to one question: do you need to know why, or just what? The 5-user rule applies to moderated qualitative testing only.">
+    <div class="slide-kicker">Make the call</div>
+    <h2 class="statement__title">Do you need the <em>why</em>,<br/>or just the <em>what?</em></h2>
+    <div style="display:flex;gap:28px;margin-top:48px;">
+      <div style="display:flex;align-items:center;gap:22px;background:var(--sage-tint);border-radius:var(--radius-pill);padding:20px 38px;">
+        <span style="font-family:var(--font-display);font-weight:700;font-size:32px;color:var(--ink);">Moderated</span>
+        <span style="font-family:var(--font-mono);font-size:var(--text-base);color:var(--ink-muted);">→</span>
+        <span style="font-family:var(--font-display);font-weight:800;font-size:32px;color:var(--sage);">the WHY</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:22px;background:var(--ochre-tint);border-radius:var(--radius-pill);padding:20px 38px;">
+        <span style="font-family:var(--font-display);font-weight:700;font-size:32px;color:var(--ink);">Unmoderated</span>
+        <span style="font-family:var(--font-mono);font-size:var(--text-base);color:var(--ink-muted);">→</span>
+        <span style="font-family:var(--font-display);font-weight:800;font-size:32px;color:#9A7B00;">the WHAT</span>
+      </div>
+    </div>
+    <p style="font-family:var(--font-body);font-style:italic;font-size:var(--text-xl);color:var(--ink-muted);margin:48px 0 0;max-width:1360px;line-height:var(--leading-relaxed);">The 5-user rule applies to moderated qualitative testing only — unmoderated and A/B tests need larger samples to be valid.</p>
+  </section>
+
+  <!-- 10 · MILESTONE PICK METHOD -->
+  <section class="slide milestone" data-label="Activity · Pick method" data-screen-label="10 Activity 5min" data-speaker-notes="Five minutes. Each student picks moderated or unmoderated for their own prototype and justifies it in one sentence. Share back.">
+    <div class="milestone__inner">
+      <div class="milestone__kicker">Activity</div>
+      <div class="milestone__row"><span class="milestone__num">5</span><span class="milestone__unit">minutes</span></div>
+      <p class="milestone__sub">Look at your prototype. What's the one thing you most want to know? Pick moderated or unmoderated — and write one sentence justifying the choice. Share back.</p>
+    </div>
+  </section>
+
+  <!-- 11 · PART 3 INTRO -->
+  <section class="slide partintro" data-label="Part 3" data-screen-label="11 Part 3" data-speaker-notes="Part three: writing a test plan that produces useful data.">
+    <div class="partintro__ghost">3</div>
+    <h2 class="partintro__title">Write Your<br/>Test Plan</h2>
+    
+  </section>
+
+  <!-- 12 · TEST PLAN COMPONENTS -->
+  <section class="slide" data-label="Plan components" data-screen-label="12 Test plan components" data-speaker-notes="A test plan is one page. Five components: goal, participant profile, tasks, scenarios, success criteria. Define success criteria before the session, not after.">
+    <div class="slide-kicker">What goes in</div>
+    <h2 class="slide-title">Five components. <em>One page.</em></h2>
+    <div class="agenda__list">
+      <div class="agenda__item"><div class="agenda__num">1</div><div class="agenda__txt"><span class="agenda__name">Goal</span><span class="agenda__desc">What question does this test answer? One sentence, linked to the hypothesis.</span></div></div>
+      <div class="agenda__item"><div class="agenda__num">2</div><div class="agenda__txt"><span class="agenda__name">Participant profile</span><span class="agenda__desc">Who are you testing with? The characteristics that matter for this prototype.</span></div></div>
+      <div class="agenda__item"><div class="agenda__num">3</div><div class="agenda__txt"><span class="agenda__name">Tasks</span><span class="agenda__desc">Specific actions participants attempt — realistic and neutral, no hints.</span></div></div>
+      <div class="agenda__item"><div class="agenda__num">4</div><div class="agenda__txt"><span class="agenda__name">Scenarios</span><span class="agenda__desc">Context that sets up the task without giving away the answer.</span></div></div>
+      <div class="agenda__item"><div class="agenda__num">5</div><div class="agenda__txt"><span class="agenda__name">Success criteria</span><span class="agenda__desc">How you'll know the task was completed — defined before the session.</span></div></div>
+    </div>
+  </section>
+
+  <!-- 12b · EXAMPLE · RESEARCH PLAN (Go1) -->
+  <section class="slide expage" data-label="Example · Research plan" data-screen-label="12b Example Research plan" data-speaker-notes="A real research plan from the Go1 Content Curation project — the same five components captured on a single page before testing began.">
+    <div class="expage__head">
+      <div class="expage__heading">
+        <div class="expage__kicker">Real example · Test plan</div>
+        <h2 class="expage__title">One page, <em>ready to run.</em></h2>
+      </div>
+      <div class="expage__tag">Go1</div>
+    </div>
+    <div class="expage__frame" style="background-color: #F0F5FE"><img src="media/Research plan.png" alt="Research plan document from the Go1 Content Curation project"/></div>
+    <p class="expage__cap">A research plan document from the Go1 Content Curation project — goal, participants, tasks, scenarios, and success criteria, all on one page.</p>
+  </section>
+
+  <!-- 13 · GOOD VS BAD TASKS -->
+  <section class="slide" data-label="Good vs bad tasks" data-screen-label="13 Good vs bad tasks" data-speaker-notes="The difference between a good task and a bad one is neutrality and realism. Bad tasks give away where to click, ask for opinion, or are too vague. Good tasks give a realistic situation with a clear goal and no hints.">
+    <div class="slide-kicker">Write it right</div>
+    <h2 class="slide-title">Neutral language. <em>No hints.</em></h2>
+    <div class="goodbad">
+      <div class="gbcol gbcol--bad">
+        <div class="gbcol__head"><span class="gbmark">✗</span>Bad tasks</div>
+        <div class="gbitem"><p class="task">"Click the Buy Now button to purchase the item."</p><p class="why">Gives away where to click.</p></div>
+        <div class="gbitem"><p class="task">"Would you use this checkout flow?"</p><p class="why">Asks for opinion, not behaviour.</p></div>
+        <div class="gbitem"><p class="task">"Imagine you want to buy something. What would you do?"</p><p class="why">Too vague — no context.</p></div>
+      </div>
+      <div class="gbcol gbcol--good">
+        <div class="gbcol__head"><span class="gbmark">✓</span>Good tasks</div>
+        <div class="gbitem"><p class="task">"You've decided to buy a gift for a friend. Show me how you'd complete the purchase."</p><p class="why">Realistic context, neutral, clear goal.</p></div>
+        <div class="gbitem"><p class="task">"You need to update your billing address before your next payment. How would you do that?"</p><p class="why">Specific situation, no hints.</p></div>
+        <div class="gbitem"><p class="task">"You've just joined a new team. Set up your profile so teammates can find you."</p><p class="why">A role and a reason to act.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 · MILESTONE WRITE TEST PLAN -->
+  <section class="slide milestone" data-label="Activity · Test plan" data-screen-label="15 Activity 10min" data-speaker-notes="Ten minutes. Write a draft, then tighten it: cut leading language, fix success criteria, adjust the profile to your real user. Leave with a plan you can use this week.">
+    <div class="milestone__inner">
+      <div class="milestone__kicker">Activity</div>
+      <div class="milestone__row"><span class="milestone__num">10</span><span class="milestone__unit">minutes</span></div>
+      <p class="milestone__sub">Write a draft test plan. Then tighten it: cut any leading language, fix the success criteria, adjust the participant profile to match your real user. You leave with a test plan you can use this week.</p>
+    </div>
+  </section>
+
+  <!-- 16 · PART 4 INTRO -->
+  <section class="slide partintro" data-label="Part 4" data-screen-label="16 Part 4" data-speaker-notes="Part four: running the session — facilitation and the think-aloud protocol.">
+    <div class="partintro__ghost">4</div>
+    <h2 class="partintro__title">Run the<br/>Session</h2>
+    
+  </section>
+
+  <!-- 17 · MODERATOR ROLE -->
+  <section class="slide" data-label="Moderator role" data-screen-label="17 Watch Listen Don't help" data-speaker-notes="The moment you help a struggling user, you lose the data. A user who gets stuck is giving you exactly what you need. Resist the rescue instinct — ask a neutral prompt instead.">
+    <div class="slide-kicker">Your job</div>
+    <div class="modgrid">
+      <h2 class="bigstack">Watch.<br/>Listen.<br/><em>Don't help.</em></h2>
+      <div class="bubbles">
+        <div class="bubbles__label">Neutral prompts</div>
+        <div class="bubble">"What are you thinking right now?"</div>
+        <div class="bubble">"What would you do next if I weren't here?"</div>
+        <div class="bubble">"What were you expecting to happen?"</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 18 · SIX PRINCIPLES -->
+  <section class="slide" data-label="Six principles" data-screen-label="18 Facilitation principles" data-speaker-notes="Six facilitation principles. Ask before you show, test on the right people, ask don't tell, stay neutral, adapt when needed, let users contribute ideas.">
+    <div class="slide-kicker">How to run it</div>
+    <h2 class="slide-title">Six principles.</h2>
+    <div class="princ">
+      <div class="princ__grid">
+        <div class="pcard"><div class="pcard__num">01</div><div><h3>Ask before you show</h3><p>Context questions first — build rapport and a baseline.</p></div></div>
+        <div class="pcard"><div class="pcard__num">02</div><div><h3>Test on the right people</h3><p>Not colleagues. Real potential users — and extreme users.</p></div></div>
+        <div class="pcard"><div class="pcard__num">03</div><div><h3>Ask, don't tell</h3><p>Turn questions back: "What would you do if I wasn't here?"</p></div></div>
+        <div class="pcard"><div class="pcard__num">04</div><div><h3>Stay neutral</h3><p>Don't sell the design. Let the prototype speak.</p></div></div>
+        <div class="pcard"><div class="pcard__num">05</div><div><h3>Adapt when needed</h3><p>Rephrase a confusing prompt. Rigid scripts that yield no data are worse.</p></div></div>
+        <div class="pcard"><div class="pcard__num">06</div><div><h3>Let users contribute</h3><p>"I wish this did X" — ask them to describe it. It reveals the need.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 20 · PART 5 INTRO -->
+  <section class="slide partintro" data-label="Part 5" data-screen-label="20 Part 5" data-speaker-notes="Part five: turning raw observations into prioritised decisions.">
+    <div class="partintro__ghost">5</div>
+    <h2 class="partintro__title">Synthesise<br/>&amp; Prioritise</h2>
+    
+  </section>
+
+  <!-- 21 · FEEDBACK CAPTURE GRID -->
+  <section class="slide" data-label="Capture grid" data-screen-label="21 Feedback Capture Grid" data-speaker-notes="The grid organises raw observations into four quadrants — fill it in during or immediately after the session, before interpretation. In Criticisms, write what the user did, not what you think it means.">
+    <div class="slide-kicker">Capture first</div>
+    <h2 class="slide-title">Separate observations <em>from interpretations.</em></h2>
+    <div class="capwrap">
+      <div class="capgrid">
+        <div class="quad quad--likes"><div class="quad__head"><span class="quad__icon">✓</span><h3>Likes</h3></div><p>What worked. What users responded positively to.</p></div>
+        <div class="quad quad--crit"><div class="quad__head"><span class="quad__icon">✗</span><h3>Criticisms</h3></div><p>Where users got stuck, confused, or frustrated.</p></div>
+        <div class="quad quad--q"><div class="quad__head"><span class="quad__icon">?</span><h3>Questions</h3></div><p>Questions the session raised — from users or the team.</p></div>
+        <div class="quad quad--ideas"><div class="quad__head"><span class="quad__icon">✦</span><h3>Ideas</h3></div><p>Ideas the session sparked — suggestions and insights.</p></div>
+      </div>
+    </div>
+    <p class="caprule"><b>The rule:</b> In Criticisms, write what the user <b>did</b> — not what you think it means. "User spent 40 seconds on the payment screen without clicking" is an observation. "The payment screen is confusing" is an interpretation. Keep them separate.</p>
+  </section>
+
+  <!-- 21b · EXAMPLE · INTERVIEW NOTES (FigJam) -->
+  <section class="slide expage" data-label="Example · FigJam" data-screen-label="21b Example Interview notes" data-speaker-notes="This is what raw capture looks like before synthesis — a FigJam board of sticky notes from Go1 interviews, organised by participant across columns, before any themes are drawn out.">
+    <div class="expage__head">
+      <div class="expage__heading">
+        <div class="expage__kicker">Before synthesis · Raw capture</div>
+        <h2 class="expage__title">Raw notes, <em>before themes.</em></h2>
+      </div>
+    </div>
+    <div class="expage__frame"><img src="media/Interview Notes.png" alt="FigJam sticky-note board of raw interview notes from Go1"/></div>
+    <p class="expage__cap" style="text-align:center;max-width:none;">Raw interview notes from Go1 — sticky notes organised by participant across the board. Capture first, interpret later.</p>
+  </section>
+
+  <!-- 22 · OBSERVATION TO FINDING -->
+  <section class="slide" data-label="Observation → finding" data-screen-label="22 Observation to finding" data-speaker-notes="Move from the what to the why. Observation: 3 of 5 tapped the logo to go home. Finding: users expect the logo to be a home button — the nav lacks a clear home action. This is the format for write-ups.">
+    <div class="slide-kicker">Translate</div>
+    <h2 class="slide-title">What users did → <em>what it means.</em></h2>
+    <div class="pipewrap">
+      <div class="pipe">
+        <div class="pipe__formula">"[User] did [X]"  →  "Users struggle to [Y] because [Z]"</div>
+        <div class="pipe__row">
+          <div class="pipe__box pipe__box--obs"><span class="lbl">Observation</span><span class="txt">"3 of 5 participants tried to tap the logo to go home."</span></div>
+          <div class="pipe__mid"><svg viewBox="0 0 60 30"><path d="M0 15h50M42 6l11 9-11 9" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+          <div class="pipe__box pipe__box--find"><span class="lbl">Finding</span><span class="txt">"Users expect the logo to be a home button — the current navigation has no clear home action."</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 22b · EXAMPLE · RESEARCH REPORT (Go1) -->
+  <section class="slide expage" data-label="Example · Research report" data-screen-label="22b Why a research report" data-speaker-notes="Why formalise evidence into a report instead of leaving it as workshop sticky notes: a report gives findings credibility with stakeholders, it travels to people who weren't in the room, and it ties each finding to a decision. Raw notes lose their meaning the moment the session ends.">
+    <div class="exsplit">
+      <div class="exmeta">
+        <div class="expage__kicker">The finished format · Why it matters</div>
+        <h2 class="exmeta__title">Make the evidence <em>official.</em></h2>
+        <div class="exwhy">
+          <div class="exreason">
+            <span class="exreason__icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg></span>
+            <div><h3>It earns credibility</h3><p>Backed by quotes, not just stickies.</p></div>
+          </div>
+          <div class="exreason">
+            <span class="exreason__icon"><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span>
+            <div><h3>It travels</h3><p>Anyone can read it, long after the session.</p></div>
+          </div>
+          <div class="exreason">
+            <span class="exreason__icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+            <div><h3>It drives decisions</h3><p>Each finding points to a fix.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="exfig">
+        <div class="expage__frame"><img src="media/Research report.png" alt="Go1 research report with key insights and supporting quotes"/></div>
+        <p class="exfig__cap">A research report from Go1 — observations translated into structured findings, backed by participant quotes and screenshots.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 23 · SEVERITY MATRIX -->
+  <!-- 23 · SEVERITY MATRIX -->
+  <section class="slide" data-label="Severity matrix" data-screen-label="23 Severity matrix" data-speaker-notes="Prioritise by impact × frequency. High impact and high frequency goes to the top of the fix list.">
+    <div class="slide-kicker">Prioritise</div>
+    <h2 class="slide-title">Not all issues <em>are equal.</em></h2>
+    <div class="mx">
+      <div class="mx__ylab"><span class="mx__pole">Low</span><span>Impact</span><span class="mx__pole">High</span></div>
+      <div class="mx__grid">
+        <div class="mxq mxq--mid"><span class="mxq__dot" style="background:var(--ochre);"></span><span class="mxq__lbl">High impact · low frequency</span><h3 class="mxq__title">Investigate</h3><p class="mxq__desc">Severe but rare — dig in to confirm before committing.</p></div>
+        <div class="mxq mxq--hero"><span class="mxq__dot" style="background:var(--sienna);"></span><span class="mxq__lbl">High impact · high frequency</span><h3 class="mxq__title">Fix immediately</h3><p class="mxq__desc">Severe and common — top of the fix list.</p></div>
+        <div class="mxq mxq--low"><span class="mxq__dot" style="background:var(--ink-ghost);"></span><span class="mxq__lbl">Low impact · low frequency</span><h3 class="mxq__title">Monitor</h3><p class="mxq__desc">Minor and rare — note it and move on.</p></div>
+        <div class="mxq"><span class="mxq__dot" style="background:var(--sage);"></span><span class="mxq__lbl">Low impact · high frequency</span><h3 class="mxq__title">Polish</h3><p class="mxq__desc">Minor but widespread — easy wins worth tidying.</p></div>
+      </div>
+      <div class="mx__corner"></div>
+      <div class="mx__xlab"><span class="mx__pole">Low</span><span>Frequency</span><span class="mx__pole">High</span></div>
+    </div>
+  </section>
+
+  <!-- 24 · IMPORTANCE x FEASIBILITY -->
+  <section class="slide" data-label="Importance × Feasibility" data-screen-label="24 Importance x Feasibility" data-speaker-notes="After severity, triage what's worth fixing this iteration. High importance and high feasibility: fix now. This stops you polishing visuals while critical failures go unfixed.">
+    <div class="slide-kicker">Triage</div>
+    <h2 class="slide-title">Fix now or <em>plan for later?</em></h2>
+    <div class="mx">
+      <div class="mx__ylab"><span class="mx__pole">Low</span><span>Importance</span><span class="mx__pole">High</span></div>
+      <div class="mx__grid">
+        <div class="mxq mxq--mid"><span class="mxq__lbl">High importance · low feasibility</span><h3 class="mxq__title">Plan next sprint</h3><p class="mxq__desc">Matters, but costly — roadmap it and break it down.</p></div>
+        <div class="mxq mxq--hero"><span class="mxq__lbl">High importance · high feasibility</span><h3 class="mxq__title">Fix now</h3><p class="mxq__desc">High value, low cost — do it this iteration.</p></div>
+        <div class="mxq mxq--low"><span class="mxq__lbl">Low importance · low feasibility</span><h3 class="mxq__title">Defer</h3><p class="mxq__desc">Low value and hard — drop or revisit later.</p></div>
+        <div class="mxq"><span class="mxq__lbl">Low importance · high feasibility</span><h3 class="mxq__title">Quick win</h3><p class="mxq__desc">Cheap and easy — pick up if time allows.</p></div>
+      </div>
+      <div class="mx__corner"></div>
+      <div class="mx__xlab"><span class="mx__pole">Low</span><span>Feasibility</span><span class="mx__pole">High</span></div>
+    </div>
+  </section>
+
+  <!-- AI WORKFLOW SECTION -->
+  <section class="slide partintro" data-label="AI workflow" data-screen-label="AI 1 Section" data-speaker-notes="You now know the method by hand. This section chains it: each AI output becomes the input to the next step, and you review every handoff.">
+    <div class="partintro__ghost">6</div>
+    <h2 class="partintro__title">AI-Assisted<br/>Workflow</h2>
+  </section>
+
+  <section class="slide" data-label="AI chain overview" data-screen-label="AI 2 Chain" data-speaker-notes="Seven steps, one chain. Nothing starts from a blank page: the output of each step is pasted in as the input of the next. The human review at every handoff is what keeps the chain honest.">
+    <div class="slide-kicker">One chain, seven steps</div>
+    <h2 class="slide-title">Each output becomes <em>the next input.</em></h2>
+    <div class="tline">
+      <div class="tstep"><div class="tstep__dot">1</div><h3>Hypothesis</h3></div>
+      <div class="tconn"><span>Test question</span></div>
+      <div class="tstep"><div class="tstep__dot">2</div><h3>Method</h3></div>
+      <div class="tconn"><span>Method choice</span></div>
+      <div class="tstep"><div class="tstep__dot">3</div><h3>Test plan</h3></div>
+      <div class="tconn"><span>Test plan</span></div>
+      <div class="tstep"><div class="tstep__dot">4</div><h3>Script</h3></div>
+      <div class="tconn"><span>Real session, transcript</span></div>
+      <div class="tstep"><div class="tstep__dot">5</div><h3>Capture grid</h3></div>
+      <div class="tconn"><span>Capture grid</span></div>
+      <div class="tstep"><div class="tstep__dot">6</div><h3>Findings</h3></div>
+      <div class="tconn"><span>Findings</span></div>
+      <div class="tstep tstep--end"><div class="tstep__dot">7</div><h3>Priorities</h3></div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="AI step 1" data-screen-label="AI step 1" data-speaker-notes="Paste in the prototype description and the one thing you want to learn. The output is a hypothesis in markdown that becomes the input to the method step.">
+    <div class="slide-kicker">Step 1 of 7</div>
+    <h2 class="slide-title">Turn the prototype <em>into a hypothesis.</em></h2>
+    <div class="hands hands--one">
+      <div class="hand">
+        <div class="hand__box hand__box--in"><span class="hand__lbl">Input</span><span class="hand__txt">Your prototype and what you want to learn</span></div><div class="hand__arrow"><svg viewBox="0 0 28 20"><path d="M0 10h22M16 3l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="hand__box hand__box--ai"><span class="hand__lbl">Prompt</span><span class="hand__txt">Turn this into a hypothesis: we believe [design] helps [user] do [task]; we will know when [signal].</span></div><div class="hand__arrow"><svg viewBox="0 0 28 20"><path d="M0 10h22M16 3l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="hand__box hand__box--out"><span class="hand__lbl">Output</span><span class="hand__txt">Hypothesis and test question</span><span class="hand__fmt">.md</span></div>
+      </div>
+      <div class="hcheck"><span>You check</span>Is the signal something you can measure?</div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="AI step 2" data-screen-label="AI step 2" data-speaker-notes="The hypothesis from step one is pasted in. AI lays out the trade-off, the student makes the call.">
+    <div class="slide-kicker">Step 2 of 7</div>
+    <h2 class="slide-title">Weigh the <em>method.</em></h2>
+    <div class="hands hands--one">
+      <div class="hand">
+        <div class="hand__box hand__box--in"><span class="hand__lbl">Input</span><span class="hand__txt">Test question</span></div><div class="hand__arrow"><svg viewBox="0 0 28 20"><path d="M0 10h22M16 3l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="hand__box hand__box--ai"><span class="hand__lbl">Prompt</span><span class="hand__txt">Moderated or unmoderated for this question? Give the trade-off in two lines.</span></div><div class="hand__arrow"><svg viewBox="0 0 28 20"><path d="M0 10h22M16 3l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="hand__box hand__box--out"><span class="hand__lbl">Output</span><span class="hand__txt">Method choice</span><span class="hand__fmt">.md</span></div>
+      </div>
+      <div class="hcheck"><span>You check</span>You decide. AI only argues the options.</div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="AI step 3" data-screen-label="AI step 3" data-speaker-notes="Hypothesis and method are pasted together. The markdown plan can be turned into an HTML page to run the session from.">
+    <div class="slide-kicker">Step 3 of 7</div>
+    <h2 class="slide-title">Draft the <em>test plan.</em></h2>
+    <div class="hands hands--one">
+      <div class="hand">
+        <div class="hand__box hand__box--in"><span class="hand__lbl">Input</span><span class="hand__txt">Hypothesis and method</span></div><div class="hand__arrow"><svg viewBox="0 0 28 20"><path d="M0 10h22M16 3l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="hand__box hand__box--ai"><span class="hand__lbl">Prompt</span><span class="hand__txt">Write a goal, participant profile, 3 neutral tasks with scenarios, and success criteria. No hints.</span></div><div class="hand__arrow"><svg viewBox="0 0 28 20"><path d="M0 10h22M16 3l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="hand__box hand__box--out"><span class="hand__lbl">Output</span><span class="hand__txt">Draft test plan</span><span class="hand__fmt">.md, then HTML to facilitate</span></div>
+      </div>
+      <div class="hcheck"><span>You check</span>Cut any hint about where to click.</div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="AI step 4" data-screen-label="AI step 4" data-speaker-notes="The test plan becomes a script with neutral probes. An HTML version is easier to follow live.">
+    <div class="slide-kicker">Step 4 of 7</div>
+    <h2 class="slide-title">Write the <em>moderator script.</em></h2>
+    <div class="hands hands--one">
+      <div class="hand">
+        <div class="hand__box hand__box--in"><span class="hand__lbl">Input</span><span class="hand__txt">Test plan</span></div><div class="hand__arrow"><svg viewBox="0 0 28 20"><path d="M0 10h22M16 3l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="hand__box hand__box--ai"><span class="hand__lbl">Prompt</span><span class="hand__txt">Write a moderator script: intro, tasks, neutral probes. No leading questions.</span></div><div class="hand__arrow"><svg viewBox="0 0 28 20"><path d="M0 10h22M16 3l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="hand__box hand__box--out"><span class="hand__lbl">Output</span><span class="hand__txt">Moderator guide</span><span class="hand__fmt">.md, then HTML to facilitate</span></div>
+      </div>
+      <div class="hcheck"><span>You check</span>Rehearse it once with a peer.</div>
+    </div>
+  </section>
+
+  <section class="slide statement" data-label="AI human step" data-screen-label="AI run session" data-speaker-notes="AI cannot recruit participants or watch them use the product. This is the human step between the script and the transcript.">
+    <div class="slide-kicker">Between step 4 and 5</div>
+    <h2 class="statement__title">Now run the session <em>with real users.</em></h2>
+    <p class="slide-lead">AI cannot recruit participants or watch them use the product. The recording and transcript come from you.</p>
+  </section>
+
+  <section class="slide" data-label="AI step 5" data-screen-label="AI step 5" data-speaker-notes="The transcript from the real session is sorted into the four quadrants. AI describes what users did, it does not explain why.">
+    <div class="slide-kicker">Step 5 of 7</div>
+    <h2 class="slide-title">Sort the transcript <em>into the grid.</em></h2>
+    <div class="hands hands--one">
+      <div class="hand">
+        <div class="hand__box hand__box--in"><span class="hand__lbl">Input</span><span class="hand__txt">Session transcript</span></div><div class="hand__arrow"><svg viewBox="0 0 28 20"><path d="M0 10h22M16 3l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="hand__box hand__box--ai"><span class="hand__lbl">Prompt</span><span class="hand__txt">Sort into Likes, Criticisms, Questions, Ideas. Quote the participant. Describe actions only.</span></div><div class="hand__arrow"><svg viewBox="0 0 28 20"><path d="M0 10h22M16 3l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="hand__box hand__box--out"><span class="hand__lbl">Output</span><span class="hand__txt">Filled capture grid</span><span class="hand__fmt">.md</span></div>
+      </div>
+      <div class="hcheck"><span>You check</span>Separate observation from interpretation. Remove names before pasting.</div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="AI step 6" data-screen-label="AI step 6" data-speaker-notes="Findings come only from the grid. The markdown can be turned into an HTML page or PDF to present to stakeholders.">
+    <div class="slide-kicker">Step 6 of 7</div>
+    <h2 class="slide-title">Draft findings <em>from the grid.</em></h2>
+    <div class="hands hands--one">
+      <div class="hand">
+        <div class="hand__box hand__box--in"><span class="hand__lbl">Input</span><span class="hand__txt">Filled capture grid</span></div><div class="hand__arrow"><svg viewBox="0 0 28 20"><path d="M0 10h22M16 3l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="hand__box hand__box--ai"><span class="hand__lbl">Prompt</span><span class="hand__txt">Write findings as: users struggle to [Y] because [Z]. Add one supporting quote and a count.</span></div><div class="hand__arrow"><svg viewBox="0 0 28 20"><path d="M0 10h22M16 3l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="hand__box hand__box--out"><span class="hand__lbl">Output</span><span class="hand__txt">Findings list</span><span class="hand__fmt">.md, then HTML or PDF for stakeholders</span></div>
+      </div>
+      <div class="hcheck"><span>You check</span>Verify with real users. Every finding traces to a quote.</div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="AI step 7" data-screen-label="AI step 7" data-speaker-notes="The findings are scored and written as tickets. AI suggests the order, the team decides.">
+    <div class="slide-kicker">Step 7 of 7</div>
+    <h2 class="slide-title">Turn findings <em>into tickets.</em></h2>
+    <div class="hands hands--one">
+      <div class="hand">
+        <div class="hand__box hand__box--in"><span class="hand__lbl">Input</span><span class="hand__txt">Findings list</span></div><div class="hand__arrow"><svg viewBox="0 0 28 20"><path d="M0 10h22M16 3l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="hand__box hand__box--ai"><span class="hand__lbl">Prompt</span><span class="hand__txt">Rate each by impact x frequency, then importance x feasibility. Write each fix as a ticket with evidence and acceptance criteria.</span></div><div class="hand__arrow"><svg viewBox="0 0 28 20"><path d="M0 10h22M16 3l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="hand__box hand__box--out"><span class="hand__lbl">Output</span><span class="hand__txt">Ranked tickets</span><span class="hand__fmt">Cards on your kanban board</span></div>
+      </div>
+      <div class="hcheck"><span>You check</span>Keep decisions human. Confirm feasibility with your engineers.</div>
+    </div>
+  </section>
+
+  <!-- 25 · ITERATION LOOP -->
+  <section class="slide" data-label="Iteration loop" data-screen-label="25 Iteration loop" data-speaker-notes="The output of a test is not a final answer — it's a more informed hypothesis. Fix the highest-severity issues, update, retest. Two to three rounds surface most critical issues before development.">
+    <div class="slide-kicker">The cycle</div>
+    <h2 class="slide-title">Testing doesn't end. <em>It iterates.</em></h2>
+    <div class="loopwrap">
+      <div class="loop">
+        <div class="loopnode loopnode--here"><span class="here-tag">You are here</span><span class="n">01</span><h3>Observe</h3></div>
+        <div class="loop__arrow"><svg viewBox="0 0 46 24"><path d="M0 12h36M30 5l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="loopnode"><span class="n">02</span><h3>Synthesise</h3></div>
+        <div class="loop__arrow"><svg viewBox="0 0 46 24"><path d="M0 12h36M30 5l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="loopnode"><span class="n">03</span><h3>Prioritise</h3></div>
+        <div class="loop__arrow"><svg viewBox="0 0 46 24"><path d="M0 12h36M30 5l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="loopnode"><span class="n">04</span><h3>Fix</h3></div>
+        <div class="loop__arrow"><svg viewBox="0 0 46 24"><path d="M0 12h36M30 5l9 7-9 7" fill="none" stroke="#6B3FEE" stroke-width="2.4"/></svg></div>
+        <div class="loopnode"><span class="n">05</span><h3>Retest</h3></div>
+      </div>
+      <div class="loopback">
+        <span class="loopback__head"><svg viewBox="0 0 38 22"><path d="M38 11H6M14 4l-9 7 9 7" fill="none" stroke="#4A24C4" stroke-width="2.4"/></svg></span>
+        <span class="loopback__track"></span>
+        <span class="loopback__label">Repeat · 2–3 rounds surface most critical issues</span>
+        <span class="loopback__track"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 26 · ASSIGNMENT -->
+  <section class="slide" data-label="Assignment A" data-screen-label="Assignment" data-speaker-notes="Keep it simple. Run one moderated test, deliver one insight report. Students choose their own tools and the format of the report.">
+    <div class="slide-kicker">Assignment</div>
+    <h2 class="slide-title">Run a moderated test. <em>Deliver an insight report.</em></h2>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1px 1fr;gap:80px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="font-family:var(--font-mono);font-size:var(--text-sm);letter-spacing:var(--tracking-mono);text-transform:uppercase;color:var(--sienna-deep);">01</div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:72px;line-height:1;letter-spacing:-0.02em;color:var(--ink);">Run</div>
+        <p style="font-family:var(--font-body);font-size:var(--text-xl);line-height:var(--leading-relaxed);color:var(--ink-soft);margin:0;max-width:640px;">A moderated usability test with a real participant.</p>
+      </div>
+      <div style="width:1px;height:260px;background:var(--ink-ghost);"></div>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="font-family:var(--font-mono);font-size:var(--text-sm);letter-spacing:var(--tracking-mono);text-transform:uppercase;color:var(--sienna-deep);">02</div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:72px;line-height:1;letter-spacing:-0.02em;color:var(--ink);">Deliver</div>
+        <p style="font-family:var(--font-body);font-size:var(--text-xl);line-height:var(--leading-relaxed);color:var(--ink-soft);margin:0;max-width:640px;">An insight report: what you saw, and what it means.</p>
+      </div>
+    </div>
+    <p style="font-family:var(--font-body);font-style:italic;font-size:var(--text-lg);color:var(--ink-muted);margin:0;">Choose your own tools and the format of your report.</p>
+  </section>
+
+  <!-- RECAP -->
+  <section class="slide" data-label="Recap" data-screen-label="Recap" data-speaker-notes="Five things to remember. Read them out, then move to the close.">
+    <div class="slide-kicker">Recap</div>
+    <h2 class="slide-title">Five things <em>to remember.</em></h2>
+    <div class="agenda__list">
+      <div class="agenda__item"><div class="agenda__num">1</div><div class="agenda__txt"><span class="agenda__name">A prototype is a hypothesis.</span></div></div>
+      <div class="agenda__item"><div class="agenda__num">2</div><div class="agenda__txt"><span class="agenda__name">Pick the method that answers your question.</span></div></div>
+      <div class="agenda__item"><div class="agenda__num">3</div><div class="agenda__txt"><span class="agenda__name">Write neutral tasks with clear success criteria.</span></div></div>
+      <div class="agenda__item"><div class="agenda__num">4</div><div class="agenda__txt"><span class="agenda__name">Watch, listen, do not help.</span></div></div>
+      <div class="agenda__item"><div class="agenda__num">5</div><div class="agenda__txt"><span class="agenda__name">Separate what users did from what it means, and keep decisions human.</span></div></div>
+    </div>
+  </section>
+
+  <!-- 28 · END -->
+  <section class="slide end" data-label="Close" data-screen-label="28 Close" data-speaker-notes="The prototype is the beginning of the evidence, not the end of the work. Every finding brings you closer to something that works for real people.">
+    <div class="end__kicker">One thing to carry forward</div>
+    <h2 class="end__quote">"Testing is not a final step. It's how design <em>earns its decisions.</em>"</h2>
+    <p class="end__lead">The prototype you built is the beginning of the evidence, not the end of the work. Every finding from a test session brings you closer to something that actually works for real people.</p>
+    <div class="end__sign">— Winnie Nguyen</div>
+  </section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+</body>
+</html>

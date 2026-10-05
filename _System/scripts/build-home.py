@@ -215,7 +215,11 @@ def load_programs():
     for f in sorted(PROGRAMS_SRC.glob("*.sessions.js")):
         slug = f.name.replace(".sessions.js", "")
         t = f.read_text(encoding="utf-8")
-        data = json.loads(t[t.index("["): t.rindex("]") + 1])
+        try:
+            data = json.loads(t[t.index("["): t.rindex("]") + 1])
+        except ValueError as e:
+            print(f"  ! skipped {f.name}: not plain JSON ({e})")
+            continue
         phases, sessions, cur = [], [], None
         for x in data:
             if "phase" in x:
