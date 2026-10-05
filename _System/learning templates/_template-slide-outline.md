@@ -48,7 +48,7 @@ last_synced: 2026-00-00      # date lesson.md and this file were last confirmed 
 
 ```
 ### [LAYOUT TYPE] · [Slide title / short label]
-- Kicker: [eyebrow line above the title]
+- Kicker: [eyebrow line above the title — this slide's own topic only; no "Part 01 ·" prefix, the part number lives on the SECTION DIVIDER]
 - Title: [on-slide title — line breaks written as \n]
 - On-slide: [the actual visible text/labels — short, not prose. "None." if the layout has no body copy field]
 - Speaker notes:

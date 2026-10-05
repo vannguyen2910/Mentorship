@@ -154,6 +154,18 @@ Use the **alias names** from `tokens.css`, not raw hex values:
 }
 ```
 
+### Kicker content rule
+
+- The kicker is a short label for **that slide's own topic** (e.g. `The framework`, `Three levels`, `Method`).
+- **Do not prefix it with the part/section number** (`Part 01 · …`). The part number appears **once**, on the `SECTION DIVIDER` slide that opens the part (its `.num`), and is not repeated on the slides that follow.
+- A kicker may carry a number only when the number is the slide's own content (e.g. `Milestone 2`, `Rule 3`), not the part it sits in.
+- Applies to outlines too: the `Kicker:` field must match what is shown on the slide, so nothing needs deleting by hand later.
+
+### Speaker notes rule
+
+- Speaker notes are **always bullet points**, one point per line, glanceable. Never a prose paragraph.
+- Applies to every layout, in outlines and in the deck's notes (3–6 bullets per slide is the norm).
+
 ---
 
 ## 6. Chrome — hidden by default
