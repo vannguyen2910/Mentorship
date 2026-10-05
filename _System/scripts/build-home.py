@@ -1662,8 +1662,8 @@ def build():
     for needed in (DESIGN_SYSTEM, PROGRAMS_SRC, LESSONS_DIR):
         if not needed.exists():
             sys.exit(f"Missing folder: {needed}")
-    for d in ("lessons", "programs", "mentees"):  # regenerate from scratch so removed lessons don't linger
-        shutil.rmtree(OUT / d, ignore_errors=True)
+    started = time.time()
+    for d in ("lessons", "programs", "mentees"):   # pages are overwritten in place; stale ones are pruned at the end, so open pages never 404 mid-build
         (OUT / d).mkdir(parents=True, exist_ok=True)
     shutil.rmtree(ASSETS / "lesson-assets", ignore_errors=True)
     copy_design_system()
@@ -1707,6 +1707,10 @@ def build():
         if l["has_page"]:
             (OUT / "lessons" / f"{l['slug']}.html").write_text(build_lesson_page(l, lessons, programs, by_stem), encoding="utf-8")
 
+    for d in ("lessons", "programs", "mentees"):   # drop pages for lessons / programmes / mentees that no longer exist
+        for old in (OUT / d).glob("*.html"):
+            if old.stat().st_mtime < started:
+                old.unlink()
     (ASSETS / "build-stamp.txt").write_text(str(time.time_ns()), encoding="utf-8")  # written last: open pages reload on it
     pages = sum(1 for l in lessons if l["has_page"])
     soon = [l["title"] for l in lessons if not l["variants"]]
