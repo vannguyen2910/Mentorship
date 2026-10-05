@@ -1,670 +1,834 @@
-# Session 5 · Develop Solutions & Ideate
+---
+title: "Develop Solutions & Ideate"
+lesson_file: "develop-solutions-ideate-lesson.md"
+level: ""
+slide_count: 46
+duration: "90 min"
+status: draft
+built_deck: "Develop Solutions and Ideate.html"
+last_synced: 2026-10-04
+---
 
-**Winnie Nguyen**
+> **Source of truth:** `develop-solutions-ideate-lesson.md`
+> All content changes (activities, phases, timing, concepts) are made there first, then reflected here.
+> This file contains only slide-specific concerns: layout types, on-slide text, visual hints, kickers, and speaker notes.
+> See `CLAUDE.md` → Lesson file sync rule for what triggers an update on which side.
+
+> **Layout vocabulary is fixed.** Every `###` slide header below uses one of the types documented in `_System/Themes/slide-design/RULES.md`.
+
+> **Built-deck status:** this outline mirrors the built deck (`slides/Develop Solutions and Ideate.html`, 46 slides) slide for slide. See the sync notes at the bottom for the deck's stale speaker notes.
 
 ---
 
-## Last Session Recap
+## Session metadata
 
-**Last session: Information Architecture**
-
-What you learned:
-- How to distinguish inherited IA from evidence-based IA
-- How to use card sorting to understand how users mentally group content
-- How to draw a current-state and evidence-based sitemap
-- How to map a user flow and identify friction caused by structural decisions
-
-Your assignment was to:
-- Map the current-state user flow for one core task in your live project
-- Annotate each step as User, System, or Third Party
-- Identify the single highest-friction step and write a rationale for why it exists
-
-> Today we shift from understanding structure to generating solutions.
-
----
-
-## What We're Building Today
-
-Move from problem to idea to decision — without jumping to screens.
-
-1. **Opportunity Tree** — map the space between your problem and your solutions
-2. **Flow Review** — revisit your user flow to find where and what to improve
-3. **Crazy 8s** — a technique to generate more ideas than you think you need
-4. **Concept Sketching** — make the best ideas visible, legible, and discussable
-5. **Concept Validation** — check which concepts are strong enough to develop further
-6. **Prioritisation** — choose what to build, and why
-
----
-
-## Mindset Shift
-
-> **The best solution is almost never the first one.**
-
-| Before | After |
-|--------|-------|
-| "I have the problem. Let me design a solution." | "I have the problem. Let me map the opportunity space — then generate solutions across it." |
-
-The most common failure in ideation: converging before you've explored widely enough.
-
----
-
-## The Rule
-
-**No evaluation while generating.**
-
-Write every idea down. The bad ideas are fuel for the good ones.
-
-> "Yes, and..." — not "Yes, but..."
-
-You will evaluate. That's what prioritisation is for. For now, the only failure is stopping too soon.
-
----
-
-## Part 1 — Opportunity Tree Mapping
-
-*Before you generate solutions, get clear on what opportunities exist.*
-
----
-
-## What is an Opportunity Tree?
-
-A visual framework that connects a product outcome to the user opportunities that could achieve it — and then to the solutions that could address each opportunity.
-
-```
-OUTCOME (your problem statement)
-    │
-    ├── Opportunity A
-    │       ├── Solution A1
-    │       └── Solution A2
-    │
-    ├── Opportunity B
-    │       └── Solution B1
-    │
-    └── Opportunity C
-            ├── Solution C1
-            └── Solution C2
-```
-
-Developed by Teresa Torres — *Continuous Discovery Habits*
-
----
-
-## Three Levels
-
-**Outcome**
-The goal you're designing toward. Your problem statement. One root node.
-
-**Opportunities**
-User needs, pain points, and desires that — if addressed — would move the user toward the outcome. Not solutions. The *spaces* where a solution could live.
-
-**Solutions**
-Specific ideas that address a given opportunity. They live under opportunities — not directly under the outcome.
-
-> This ordering matters. It prevents teams from jumping to solutions before they've understood the full landscape.
-
----
-
-## Why It Matters
-
-Without the tree, most teams do one of two things:
-
-**Brainstorm against the problem directly**
-→ A cluster of loosely related ideas with no structure for evaluating them
-
-**Default to one opportunity**
-→ Usually the first one that comes to mind — leaving the rest of the problem space unexplored
-
-The tree makes the structure of a problem visible. It shows you what you're solving for at each branch — and makes gaps obvious.
-
----
-
-## Opportunities Are Not Solutions
-
-| Looks like an opportunity | Actually a solution |
+| Field | Value |
 |---|---|
-| "Users need a better notification system" | "Add push notifications with customisable frequency" |
-| "Users need to track their progress" | "Build a dashboard with progress charts" |
-| "Users need faster access to their data" | "Add a search bar to the home screen" |
-
-**How to write an opportunity:**
-> *"Users struggle to [need or goal] because [barrier or gap]"*
-
-That formulation keeps the opportunity grounded in the user — not in a feature idea.
+| Program | ux-class and private-training (standalone lesson) |
+| Track / session | Develop stage, standalone |
+| Stage | Develop |
+| Prior session | None required in class. Prerequisite: current-state user flow and problem statement from earlier lessons |
+| Next session | Prototype from the surviving concept |
+| Running example | Freelancer proposal follow-up (practice scenario carried through tree, rationale test, assumption audit). Disney and the Go1 content curation map are real examples shown once. Real sketches and storyboards (QR seat-unlock, urban farming, Go1, Amazon Go) are shown in Parts 3 and 4. |
 
 ---
 
-## How to Build the Tree
+## Slide structure · 46 slides
 
-1. **Start with your outcome** — write your problem statement at the top
-2. **Map the opportunities** — what are all the user needs, pain points, or desires inside this problem? Aim for 5–8
-3. **Don't solve yet** — go wide on opportunities before you touch solutions
-4. **Branch solutions from opportunities** — 2–3 specific ideas per opportunity
-5. **Read the shape** — where are the dense branches? Where are the gaps?
+Three class activities (Activity 1, 2 and 3) plus teaching blocks, mirroring the lesson Session Structure table.
 
-> The shape of the tree tells you where your thinking is underdeveloped.
-
----
-
-## Strong vs Weak Opportunities
-
-| Weak | Strong |
-|---|---|
-| One branch dominates — all solutions attached there | Multiple branches with roughly balanced solution candidates |
-| Opportunities written as features | Opportunities written as user needs |
-| Tree built by one person | Tree built with the team — different people name different opportunities |
+- **Open & Mindset · 6 min** · slides 1–4
+- **Part 1 · Opportunity Tree Mapping + Flow Review · 33 min** · slides 5–12 (Activity 1, 23 min)
+- **Part 2 · Crazy 8s · 15 min** · slides 13–17 (Activity 2, 12 min)
+- **Part 3 · Concept Sketching · 13 min** · slides 18–24 (Activity 3, 8 min)
+- **Part 4 · Storyboarding · 5 min** · slides 25–29 (explain only, built in the assignment)
+- **Part 5 · Concept Validation · 5 min** · slides 30–36 (five quick checks, run in the assignment)
+- **Part 6 · Prioritisation · 5 min** · slides 37–38 (modelled example, exercise is take-home)
+- **Part 7 · AI-Assisted Workflow · 3 min** · slides 39–43
+- **Wrap-up + Assignment · 5 min** · slides 44–45
+- **Appendix (not presented)** · slide 46
 
 ---
 
-## Activity 1 · 15 min
+## Standard slide entry
 
-**Round 1 · 5 min — Map the opportunities**
-Write your problem statement at the top. Generate as many opportunities as you can — user needs and pain points inside this problem. Aim for at least 5. No solutions yet.
-
-**Round 2 · 7 min — Branch solutions**
-Pick your 3 strongest opportunities. Write 2–3 specific solution ideas underneath each one.
-
-**Round 3 · 3 min — Read the tree**
-Which opportunity has the most solutions? Which has the fewest? Is there an opportunity with no solution — and why?
-
-> Debrief: Which branch surprised you? Did the tree surface an opportunity you hadn't considered?
+Every slide below uses: Kicker, Title, On-slide, Speaker notes (bullets, 3–6), Visual hint. Activity slides are PRACTICE layout (the `.practice--act` variant: timer button, rounds as cards).
 
 ---
 
-## Before We Move On — Revisit Your Flow
+## Slides
 
-*Your Opportunity Tree lives in user space. Your user flow lives in product space. Now make them talk to each other.*
+## Slides
 
----
-
-## Why Revisit the Flow Now?
-
-Last session you mapped a current-state user flow and identified your **highest-friction step**.
-
-That friction is not random — it points directly to a user need that the current design isn't meeting.
-
-Before generating solutions, we need to answer two questions:
-
-1. **Which part of the flow are we trying to improve?**
-2. **What does a better flow look like from the user's perspective?**
-
-> Without this step, your Crazy 8s ideas will be disconnected from the real experience — and harder to evaluate.
-
----
-
-## Connect the Flow to the Tree
-
-Look at your current-state user flow alongside your Opportunity Tree.
-
-| In the flow | On the tree |
-|---|---|
-| A step the user struggles with | → An opportunity |
-| A handoff that breaks down | → An opportunity |
-| A step that takes too long | → An opportunity |
-| A step with no clear outcome | → An opportunity |
-
-**Every friction point in the flow is a candidate opportunity on the tree.**
-
-If your tree has opportunities that don't connect to any step in the flow — ask why. Either the flow is incomplete, or the opportunity is weaker than you think.
+### 01 · COVER
+- Year: 2026 · Winnie Nguyen
+- Stage: Develop
+- Title: Develop\nSolutions\n*& Ideate*
+- Subtitle: From problem to idea to decision, without jumping to screens.
+- Author: Winnie Nguyen
+- Credentials:
+  - Senior Product Designer at NAB
+  - Former Sr Product Designer at Go1
+  - Former Product Design Instructor at StayLab
+- Right panel photo: real photo, a team at a glass wall covered in sticky notes, energetic workshop mood
+- Speaker notes:
+  - Welcome. Today we move from understanding the problem to generating solutions for it
+  - It will feel uncomfortable at first: the rules of ideation are not the rules of normal design work
+  - Ask for two anchors on the table: problem statement and current-state user flow
+  - 90 minutes, six parts, three hands-on activities, the rest is short teaching
+- 🎨 Visual hint: Cover layout, fixed. White left panel with year line, stage label, title (accent on line 3) and subtitle. Right panel is the real photo with dark gradient overlay, name and three credential lines bottom-left.
 
 ---
 
-## Two Directions to Consider
-
-**Option A — Improve an existing flow**
-Keep the overall structure but redesign the friction point. The user still takes the same path — but a specific step works better.
-
-**Option B — Propose a new flow**
-The friction is structural. The current sequence doesn't work. You need to rethink the order, remove steps, or introduce a new entry point entirely.
-
-> Neither is better by default. The right choice depends on where the friction lives in your tree.
-
----
-
-## Activity 1B · 10 min — Flow Review
-
-**Round 1 · 5 min — Map friction to opportunities**
-Open your current-state user flow from the IA session. For each friction point you annotated, find the matching opportunity on your tree. Draw a line or note the connection.
-
-Ask: Is there friction in the flow that has no opportunity on the tree? Add it now.
-
-**Round 2 · 5 min — Decide your direction**
-Choose one of the following and write it down:
-
-- *"I need to improve [specific step] in the current flow because [opportunity it fails to address]."*
-- *"The current flow doesn't work for [reason]. The new flow should [proposed change]."*
-
-> This is your anchor for Crazy 8s. Everything you sketch next should connect back to this sentence.
+### 02 · NUMBERED · Today's session
+- Kicker: Today
+- Title: Problem to idea\nto decision
+- On-slide:
+  - 01 Opportunity Tree
+  - 02 Flow Review
+  - 03 Crazy 8s
+  - 04 Concept Sketching
+  - 05 Storyboarding
+  - 06 Concept Validation
+  - 07 Prioritisation
+- Speaker notes:
+  - Seven pieces, 90 minutes, three hands-on activities: tree and flow, Crazy 8s, one concept sketch
+  - Storyboarding is introduced today and built in the assignment
+  - Validation is new: we check a concept before we prototype it
+  - **Stay with the three activities. They are where the learning happens**
+- 🎨 Visual hint: TYPOGRAPHIC. Numbered grid, seven items.
 
 ---
 
-## Part 2 — Crazy 8s
-
-*You have a map of the opportunity space and a clear flow direction. Now go wide on solutions — fast.*
-
----
-
-## What is Crazy 8s?
-
-A technique from the Google Design Sprint. 8 different concepts in 8 minutes — roughly one minute each.
-
-**How to run it:**
-1. Fold A4 paper into 8 equal panels
-2. Timer on — 8 minutes total
-3. Sketch one idea per panel — label each with 2–3 words
-4. No erasing, no perfecting — move when the time is up
-5. Share back: pick your two most interesting panels and explain why
-
-**What counts as a sketch:**
-Boxes, arrows, labels, one sentence of context. Make the idea visible enough to discuss. Stick figures are fine.
+### 03 · COMPARE · Mindset shift
+- Kicker: Mindset shift
+- Title: The best solution is\nalmost never *the first one*
+- On-slide:
+  - Before: "I have the problem. Let me design a solution."
+  - After: "I have the problem. Let me map the opportunity space, then generate solutions across it."
+- Speaker notes:
+  - Read the title aloud, then repeat "almost never"
+  - Example: a ride-hailing team wants more bookings and the first idea is "add a discount code". Easiest idea, not necessarily the best
+  - Most common failure: converging before exploring widely enough
+  - The value of ideation is the distance travelled from your starting assumption
+  - If you end in the same place you started, the session failed, even if the idea is good
+- 🎨 Visual hint: TYPOGRAPHIC. Two-column compare, Before in neutral, After in sienna.
 
 ---
 
-## Strong vs Weak Crazy 8s
-
-| Weak | Strong |
-|---|---|
-| 8 variations of the same idea | 8 directions that each take a different approach |
-| Detailed, polished panels | Rough sketches readable in 15 seconds |
-| Skipping panels — "this one is good enough" | Filling every panel, even when it's hard |
-| All ideas assume the same solution shape | At least one panel breaks the dominant assumption |
-
----
-
-## Try It on Your Own
-
-*No time to run Crazy 8s in full today — but it's worth doing before next session.*
-
-Before you start sketching concepts, do one round of Crazy 8s using the direction from your Flow Review:
-
-1. Fold an A4 sheet into 8 panels
-2. Set a timer for 8 minutes
-3. Sketch one idea per panel — label each
-4. Circle the two most interesting panels
-5. Use those two as the basis for your concept sketches
-
-> The constraint is the point. Force yourself to fill all 8 panels before judging any of them.
+### 04 · STATEMENT · The rule
+- Kicker: The one rule
+- Title: No evaluation\nwhile *generating*
+- On-slide: "Yes, and..." not "Yes, but..."
+- Speaker notes:
+  - Say it again at the start of every generating activity
+  - No "that won't work", no "there's an app for that". Write it down
+  - Bad ideas are fuel for good ones: "deliver by drone" sounds silly but leads to shared pickup points in apartment blocks
+  - You will evaluate later: prioritisation is for that
+  - **For now the only failure is stopping too soon**
+- 🎨 Visual hint: TYPOGRAPHIC. Centred statement, accent on "generating".
 
 ---
 
-## Want to Go Deeper? — Google Design Sprint
-
-*For students who want to run a full ideation workshop with their team.*
-
-The **Google Design Sprint** is a structured 5-day process for answering critical design questions through rapid prototyping and testing. Crazy 8s is one technique inside it.
-
-The sprint compresses months of work into one week:
-
-| Day | Focus |
-|---|---|
-| Monday | Map the problem and pick a target |
-| Tuesday | Sketch competing solutions |
-| Wednesday | Decide and storyboard |
-| Thursday | Build a realistic prototype |
-| Friday | Test with real users |
-
-**Resources to get started:**
-- *Sprint* by Jake Knapp (the original book)
-- [designsprintkit.withgoogle.com](https://designsprintkit.withgoogle.com) — free templates and facilitation guides
-- [The Sprint Stories podcast](https://www.thesprintbook.com/podcast) — real teams, real sprints
-
-> If your team has a big unsolved problem and a week to focus — this is worth running.
+### 05 · SECTION DIVIDER · Part 01
+- Kicker: Part 01
+- Title: Opportunity\nTree *Mapping*
+- On-slide: Before you generate solutions, get clear on what opportunities exist.
+- Speaker notes:
+  - The most underrated tool in the toolkit, and most teams skip it
+  - They go from problem statement straight to brainstorm
+  - About 33 minutes including the flow review and Activity 1
+- 🎨 Visual hint: TYPOGRAPHIC. Section divider on paper-deeper, 120px number, accent on "Mapping".
 
 ---
 
-## Part 3 — Concept Sketching
-
-*Make the most promising ideas visible enough to evaluate and develop.*
-
----
-
-## What is Concept Sketching?
-
-A single rough illustration of one idea — showing what the solution is, how it's structured, and what makes it different.
-
-Not a wireframe. A thinking tool, not a deliverable.
-
-**What it communicates:**
-- The core structure: what are the main components?
-- The key interaction: what does the user do, how does the product respond?
-- The differentiating logic: what makes this different from the obvious approach?
-
-> If you have to narrate it for it to make sense, it needs more labelling — not more detail.
+### 06 · DIAGRAM · What is an Opportunity Tree
+- Kicker: The framework
+- Title: Outcome, opportunities,\nsolutions
+- On-slide: Developed by Teresa Torres, *Continuous Discovery Habits*. Optional fourth layer: assumption tests.
+- Speaker notes:
+  - A visual framework connecting an outcome to the user opportunities that could achieve it, then to solutions for each
+  - It makes the link between user needs and design directions explicit
+  - Without it you brainstorm into a void; with it every idea anchors to a user need
+  - Payoff later: when a stakeholder asks "why are we building this?" you have a clean answer
+  - Example: outcome "more weekly listeners", opportunity "hard to find new music that fits my taste", solutions like a weekly personalised playlist
+  - Torres's full tree has a fourth layer: assumption tests under each shortlisted solution (Part 5)
+- 🎨 Visual hint: SCHEMATIC. Tree with one root, three opportunity branches, one to two solutions each.
 
 ---
 
-## What the Outcome Looks Like
-
-A finished concept sketch has four parts:
-
-| Part | What it is | Example |
-|---|---|---|
-| **Key screen or moment** | The one view that makes the concept legible | The farm discovery screen, the pack-selection moment |
-| **Component labels** | Named parts of the UI or interaction | "Filter by distance", "Seasonal tag", "Pack contents" |
-| **Intent annotations** | Short notes on why things are placed where they are | "Below the fold so user commits to browsing first" |
-| **One-sentence rationale** | *"This works because..."* — the logic behind the concept | "This works because it reduces decision fatigue by leading with the theme, not the list" |
-
-It should be readable by someone who wasn't in your head — in under 30 seconds.
-
----
-
-## How to Sketch a Concept
-
-In real work, you're rarely starting from a workshop. You might be reacting to a research finding, responding to a HMW, sketching on a whiteboard mid-conversation, or developing a direction from a project brief.
-
-1. **Identify your starting point** — a HMW question, a research insight, an analogy, a constraint, or a Crazy 8s panel
-2. **Identify the one moment** that makes the concept make sense — the key screen, decision point, or interaction
-3. **Sketch that moment** — rough, fast, no erasing
-4. **Label everything** — name every component, annotate intent, explain placement
-5. **Write one sentence:** *"This works because..."*
-6. **Show it to someone cold** — note exactly where they get confused
-
-> If you sketch more than one screen, you're wireframing. One well-labelled sketch is enough to evaluate and discuss.
+### 07 · NUMBERED · Three levels
+- Kicker: Three levels
+- Title: Solutions live under\n*opportunities*
+- On-slide:
+  - 01 Outcome: your problem statement, one root node
+  - 02 Opportunities: user needs and pain points, spaces where a solution could live
+  - 03 Solutions: specific ideas that address one opportunity
+  - Pull-out: Users struggle to [need] because [barrier].
+- Speaker notes:
+  - Worked example, keep it in your head: outcome is "increase the share of proposals answered within 48 hours"
+  - Opportunity: "freelancers struggle to keep the conversation warm because follow-up feels like nagging"
+  - Solutions: a scheduled nudge, an open-decisions inbox, a soft 48-hour check-in
+  - Best outcomes are measurable behaviour change, e.g. "more learners reaching a 3-day streak"
+  - **Opportunities are NOT solutions.** "A better notification system" is a solution dressed up
+  - Formula: "Users struggle to [need] because [barrier]". No "because" means a guess
+- 🎨 Visual hint: TYPOGRAPHIC. Three numbered items; the opportunity formula as a pull-out line.
 
 ---
 
-## Strong vs Weak Concept Sketches
-
-| Weak | Strong |
-|---|---|
-| Polished — time spent on visual quality | Rough — time spent on labelling and logic |
-| Shows many screens | Shows the one screen that makes the concept legible |
-| Components are unlabelled | Every component is named and annotated |
-| No rationale — "it's obvious" | Explicit *"This works because..."* statement |
-| Could belong to any product | Only makes sense for this specific opportunity |
-
----
-
-## How to Use a Concept Sketch
-
-**In a team setting**
-Use it as a discussion object — not a proposal. It externalises the idea so the team can react to the concept, not the person pitching it.
-
-**With a stakeholder**
-It's legible enough to share without explaining — and rough enough that feedback feels safe to give. A polished sketch closes down conversation; a rough one opens it.
-
-**For yourself**
-Making an idea visible forces you to make it specific. The moment you can't label something, you've found the part you haven't thought through yet.
-
-**As a gate before wireframing**
-If the concept sketch doesn't hold up — if people can't read it, or the *"This works because..."* doesn't hold — it saves you from wireframing an idea that was never strong enough.
+### 08 · PROCESS · How to build the tree
+- Kicker: Method
+- Title: Five steps to\na tree
+- On-slide:
+  - 01 Start with the outcome
+  - 02 Map opportunities (5–8)
+  - 03 Don't solve yet
+  - 04 Branch 2–3 solutions each
+  - 05 Read the shape
+- Speaker notes:
+  - Step 3 is the hard one: your brain will jump to solutions, push it back up the tree
+  - Solutions come only after you have the opportunities
+  - Opportunities come from research, not imagination. If you guessed one, mark it as a hypothesis
+  - An opportunity with no solutions means you haven't thought hard about it yet, not that none exist
+  - Dense branches and gaps are the signal
+- 🎨 Visual hint: SCHEMATIC. Five-step process track, step 03 active.
 
 ---
 
-## Concept Sketching Doesn't Require a Workshop
-
-Crazy 8s is one path in. But you can reach for a concept sketch from any of these:
-
-| Starting point | What it looks like |
-|---|---|
-| A HMW question | "How might we help users trust a new vendor?" → sketch two different trust signals |
-| A research insight | A user said "I never know if it's fresh" → sketch what proof-of-freshness looks like as a UI element |
-| An analogy | "What if this worked like a playlist, not a search?" → sketch that model |
-| A constraint | "We can only change the checkout step" → sketch three ways that constraint becomes a feature |
-| A Crazy 8s panel | One of several starting points — not the only one |
-
-> Concept sketching is available any time you need to make a direction visible enough to think about — with or without a workshop.
-
----
-
-## Two Concepts, One Opportunity
-
-Sketch two responses to the same opportunity. Then compare them.
-
-| | Concept A | Concept B |
-|---|---|---|
-| **Core approach** | What's the fundamental logic? | What's the alternative logic? |
-| **Key screen** | The one moment that makes it legible | The one moment that makes it legible |
-| **This works because...** | | |
-| **What it assumes** | About user behaviour or context | About user behaviour or context |
-
-The comparison surfaces the design decision — you can't see it until both directions exist on paper.
-
-> Use this when you're stuck between two directions, or when a stakeholder says "can we just do both?"
+### 09 · DIAGRAM · Example tree (optional)
+- Kicker: Teaching example, optional
+- Title: A clean tree, *Disney*
+- On-slide:
+  - Outcome: increase visitors returning to Disney
+  - Opportunity 1: predict the right time to visit
+  - Opportunity 2: don't miss the best parts
+  - Solutions: ride-wait app, interactive map, digital signage; opportunity 2 "Not yet. The gap is visible."
+- Speaker notes:
+  - **Optional: skip this slide if Part 1 is running over 33 minutes** and go straight to the Go1 example
+  - Opportunities are framed in the user's voice
+  - Three solutions all trace back to the same opportunity. That is the discipline
+  - Opportunity 2 has no solutions yet: the tree makes the gap obvious
+- 🎨 Visual hint: SCHEMATIC. Tree diagram with the empty second branch visibly open.
 
 ---
 
-## Activity 3 · 10 min — Concept Sketching
-
-**On-site · 10 min**
-
-Pick one opportunity you want to develop. Sketch **one concept** that responds to it.
-
-Label every component. Write *"This works because..."*
-
-Share back: can the person next to you read it without your help? Where does it break down?
-
-> Debrief: What did labelling force you to decide? Where did the sketch stop making sense?
-
----
-
-## After This Session — Sketch the Second Concept
-
-**Homework · before next session**
-
-Go back to the same opportunity. Sketch a **second concept** that contradicts a key assumption in the first — a different approach entirely, not a variation.
-
-Label it. Write *"This works because..."*
-
-Then compare the two side by side: what's different about the core approach? What does each one assume about the user?
-
-This is what you bring to the validation step — two directions for the same opportunity, ready to test.
+### 10 · IMAGE · Real opportunity map
+- Kicker: Real example
+- Title: Here's one I built\nat *Go1*
+- On-slide: Go1 · Content Curation · 2024
+- Speaker notes:
+  - Outcome: streamline onboarding of mid-market customers to enable scale
+  - Linked to a measurable metric: time to value, contract signed to 30% of learners consuming content
+  - Opportunity: decrease time taken to present a curated content list
+  - Solutions: automated curation, search upgrade, tagging content with skills
+  - **It's messier than the Disney tree. Real trees are.** What matters: every solution traces to an opportunity and every opportunity to the outcome
+- 🎨 Visual hint: REAL. Full-bleed screenshot of the opportunity map (`media/opportunity-map.jpg`).
 
 ---
 
-## Validating Your Concept Sketches
-
-*Before you move to prototyping — check that your concepts are strong enough to develop.*
-
----
-
-## What Concept Validation Is
-
-Not user testing. Not a prototype. Not a stakeholder sign-off.
-
-It's a structured check that the logic of your concept holds before you invest further.
-
-Three things to test:
-
-1. **Legibility** — can someone else read this without your help?
-2. **Rationale** — does the *"this works because..."* statement hold under challenge?
-3. **Traceability** — does it connect back to a real opportunity in your tree?
-
-> A concept that fails any of these isn't ready to prototype. It needs more thinking — not more pixels.
-
----
-
-## The 30-Second Test — Legibility
-
-Show your sketch to someone who wasn't in the session. No introduction, no context.
-
-Ask: *"What does this do? Who is it for?"*
-
-| Their response | What it means |
-|---|---|
-| Describes it accurately in ~30 seconds | Legible — ready to discuss and develop |
-| Gets the product but misses the key interaction | Needs better component labels |
-| Confused about who it's for | The opportunity connection is missing from the sketch |
-| Needs you to explain it before they respond | Needs more labelling — not more detail |
-
-> If you have to speak before they respond, the sketch is doing too little of the work.
+### 11 · DIAGRAM · Connect the flow to the tree
+- Kicker: Flow Review
+- Title: Every friction point\nis a candidate *opportunity*
+- On-slide:
+  - Step the user struggles with → opportunity
+  - Handoff that breaks down → opportunity
+  - Step that takes too long → opportunity
+  - Step with no clear outcome → opportunity
+  - Direction: improve the flow, or propose a new one
+  - Mini diagram: flow strip (step / friction) mapped to tree (friction / opportunity)
+- Speaker notes:
+  - Tree lives in user space, flow lives in product space. Make them talk
+  - Put your flow and tree side by side; each friction point should point at an opportunity
+  - Example: a food-ordering flow where picking the address goes wrong and waiting for a driver takes too long. Each is a candidate opportunity
+  - An opportunity that matches no step: either the flow is incomplete or the opportunity is weaker than you think
+  - Direction: clustered around one step means improve; spread across the flow means rethink
+  - **You write that sentence in Activity 1, Round 3: it is the anchor for everything you sketch next**
+- 🎨 Visual hint: SCHEMATIC. Flow strip on top, tree below, connector lines between friction steps and opportunity nodes.
 
 ---
 
-## The Rationale Test — Does the Logic Hold?
-
-Say *"This works because..."* aloud — without stopping, without qualifying.
-
-Watch for these words: **but**, **if**, **as long as**, **assuming**
-
-Each one signals an assumption hiding inside the rationale.
-
-| ❌ Weak rationale | ✅ Strong rationale |
-|---|---|
-| *"This works because users will check the app each morning — if they have notifications on."* | *"This works because it surfaces options at the moment of decision, not before it."* |
-| *"This works because people want to know where their food comes from — assuming they care."* | *"This works because it removes the research burden from the user and puts it on the platform."* |
-
-Write the assumption down. It's not a flaw — it's exactly what your prototype should be designed to test.
-
----
-
-## The Assumption Audit
-
-Every concept makes assumptions. Surface them before someone else does.
-
-For each concept, list: *"This concept assumes that users will / have / know / care about..."*
-
-Then rate each assumption:
-
-| Assumption | Confidence (1–5) | What changes if it's wrong? |
-|---|---|---|
-| Users notice the availability alert | 3 | Core trigger disappears — the whole flow breaks |
-| Users are willing to plan a week ahead | 2 | Pack model doesn't work — switch to on-demand |
-| Users trust the farm quality claim | 4 | Minor — can reinforce with photos |
-
-**The lowest-confidence assumption = the riskiest thing about this concept.** Your next step should be designed to test it.
+### 12 · PRACTICE · Activity 1
+- Kicker: Activity 1 · 23 min
+- Title: Map your tree.
+- On-slide:
+  - Use your own problem statement as the outcome.
+  - Round 01 · 5 min · Opportunities: write at least 5 user needs. No solutions yet.
+  - Round 02 · 7 min · Solutions: add 2–3 solutions under your best 3 opportunities.
+  - Round 03 · 7 min · Flow link: connect each friction point to an opportunity. Write your direction.
+  - Round 04 · 4 min · Read the tree: find the fullest and emptiest branch. Share your direction.
+  - Start timer · 23:00
+- Speaker notes:
+  - Own problem statement, or the freelancer proposal scenario on the practice slide
+  - Remind: no solutions in round 1, no evaluating
+  - Round 3: draw a line from each friction point to its opportunity; add any missing opportunity
+  - No flow? Use the 5–7 steps a freelancer takes after sending a proposal and mark where you'd expect struggle
+  - Debrief inside round 4, no extra time: which branch surprised you?
+  - **Start the timer. The direction sentence is the anchor for everything you sketch next**
+- 🎨 Visual hint: TYPOGRAPHIC. Practice layout, `.practice--act` variant: four round cards and a start-timer button (23:00).
 
 ---
 
-## The Opportunity Trace
-
-Draw a line from your concept back to your opportunity tree.
-
-The line should go: **Concept → Opportunity → Outcome**
-
-| What you find | What it means |
-|---|---|
-| Clean line to a specific opportunity | Concept is grounded — ready to develop further |
-| Line goes to the outcome, skipping opportunities | You're solving a product goal, not a user need |
-| No clear line exists | The concept solves a problem you haven't mapped — go back to the tree |
-| Two concepts trace to the same opportunity | One is probably solving it better — compare directly |
-
-> If you can't draw the line, the concept isn't wrong — but it's floating. Ground it before building it.
+### 13 · SECTION DIVIDER · Part 02
+- Kicker: Part 02
+- Title: Crazy\n*8s*
+- On-slide: You have a map and a direction. Now go wide, fast.
+- Speaker notes:
+  - Fifteen minutes: about 3 of explanation, then Activity 2 (12 min) runs live in the room
+  - Explain briefly, then draw. Do not leave the sketching for home
+- 🎨 Visual hint: TYPOGRAPHIC. Section divider on paper-deeper.
 
 ---
 
-## Reading Stakeholder Response
-
-Share your rough sketch with a PO or key stakeholder. Watch — don't pitch.
-
-| Their response | What it tells you |
-|---|---|
-| *"I don't understand what this is"* | Legibility problem — more labels needed, not more explanation |
-| *"What happens if...?"* | The concept has something — explore the question they're raising |
-| *"That assumes users will..."* | You've found the right conversation — that assumption is the design risk |
-| *"Can we ship this?"* | Slow down. Compelling ≠ validated. The sketch is a hypothesis, not a decision |
-| Silence | Ask: *"What would have to be true for this to work?"* |
-
-> The most useful response is a challenge to an assumption. That's not resistance — that's design input.
-
----
-
-## When to Move Forward
-
-A concept is ready to prototype when it passes these four checks:
-
-- [ ] Someone cold can read it in 30 seconds without your help
-- [ ] The *"This works because..."* statement holds without qualifying
-- [ ] You can name the riskiest assumption — and you know what you'd build to test it
-- [ ] It traces back to a specific opportunity on your tree
-
-**If it doesn't pass:** sketch a second version that resolves the failing check — before opening Figma.
-
-> The goal isn't a perfect concept. It's a concept with a clear hypothesis — so the prototype has something to learn from.
+### 14 · NUMBERED · Crazy 8s overview
+- Kicker: Method
+- Title: Crazy 8s:\ngo wide,\nfast
+- On-slide:
+  - What: a timed sketching exercise: fold a sheet into eight panels and draw eight different ideas in eight minutes.
+  - Why: the first idea is rarely the best one. The time limit stops you polishing and forces you past the obvious.
+  - When: after you have a direction from the opportunity tree, before you pick a concept to sketch in detail. Suitable for a design workshop.
+- Speaker notes:
+  - From the Design Sprint (Jake Knapp, Google Ventures)
+  - What: fold paper into 8 panels, 8 different ideas, about a minute each
+  - Why: the time limit stops you polishing
+  - When: after the tree gives you a direction
+  - Example: "restaurant booking" gives eight directions: chat, voice, group booking, prepay, by mood
+- 🎨 Visual hint: TYPOGRAPHIC. Three What / Why / When cards (built as the `.mth` method layout).
 
 ---
 
-## Part 4 — Prioritisation
-
-*Not all concepts deserve the same investment. Choose deliberately.*
-
----
-
-## Why Prioritisation Matters
-
-Without a structured step, teams converge on:
-- The idea the most senior person liked
-- The one pitched most confidently
-- The first one written down
-
-None of these are good reasons to build something.
-
-> Prioritisation separates concept selection from personal preference — and gives you a defensible rationale for what you develop next.
-
----
-
-## The Effort–Impact Matrix
-
-| Quadrant | What it means | What to do |
-|---|---|---|
-| **High impact · Low effort** | Quick wins | Prioritise immediately |
-| **High impact · High effort** | Strategic bets | Plan for later; validate first |
-| **Low impact · Low effort** | Nice-to-haves | Park unless quick to test |
-| **Low impact · High effort** | Traps | Drop or defer |
-
-The matrix is a conversation tool. Its value is making trade-offs explicit and shared — not producing an objective ranking.
+### 15 · PROCESS · What is Crazy 8s
+- Kicker: Method
+- Title: Eight ideas,\neight minutes
+- On-slide:
+  - 01 Fold A4 into 8 panels
+  - 02 Timer: 8 minutes
+  - 03 One idea per panel, label it
+  - 04 No erasing, no perfecting
+  - 05 Circle the best two
+- Speaker notes:
+  - Most people spend their best thinking on the first plausible idea; the constraint forces you to keep moving
+  - Boxes, arrows, labels, stick figures. Readable in 15 seconds
+  - **Trap: eight variations of one idea.** Aim for eight approaches, one that contradicts the obvious
+  - Example, restaurant booking: via chat, by voice, with friends, prepaid, by mood
+- 🎨 Visual hint: SCHEMATIC. Five-step track.
 
 ---
 
-## Dot Voting
-
-When working with a group, dot voting prevents the loudest voice winning.
-
-**Rules:**
-- Each person gets 3 dots
-- Vote silently — no explaining before voting
-- You can stack dots on one concept
-- Discuss after voting — the distribution is data
-
-Dot voting + effort–impact matrix = individual signal and structural evaluation.
-
----
-
-## Activity 4 · 10 min
-
-**Round 1 · 5 min — Place your concepts**
-Draw the matrix. Write each concept on a sticky. Place them honestly. Connect each back to the opportunity it came from on your tree.
-
-**Round 2 · 5 min — Make a decision**
-Pick one concept to develop into a prototype.
-
-Write: *"I'm developing [concept] because [reason grounded in the opportunity it addresses and its position on the matrix]."*
-
-> Debrief: Did the matrix change what you thought the best option was? Does your chosen concept trace back cleanly to a specific opportunity?
+### 16 · IMAGE · Real workshop output
+- Kicker: Real example
+- Title: What the output\nlooks like
+- On-slide: A real ideation board: HMW themes with silent dot votes, and four people's Crazy 8s grids
+- Speaker notes:
+  - Sustainable local food workshop. Left: HMW opportunities in themes, silent dot votes
+  - Right: Crazy 8s from four participants. Rough, fast, labelled
+  - Some panels are detailed, some are barely a logo and a label. That's fine
+  - **The output is range, not polish**
+  - The dots show where the team got curious: that's where the next conversation starts
+- 🎨 Visual hint: REAL. Full-bleed screenshot of the board (`media/ideate-workshop.png`).
 
 ---
 
-## Common Mistakes
-
-| Mistake | The fix |
-|---|---|
-| Writing solutions as opportunities in the tree | Reframe as a user need, not a feature |
-| Skipping the tree — going straight to Crazy 8s | Build the tree first, even roughly |
-| All 8 Crazy 8s panels are the same idea | Sketch one idea that actively contradicts your first instinct |
-| Only sketching one concept per opportunity | Sketch two — the second one reveals the assumption hiding in the first |
-| Moving to Figma before validating the concept | Run the 30-second test and write the assumption audit first |
-| Treating stakeholder enthusiasm as validation | Enthusiasm means it's compelling; the assumption audit tells you if it's sound |
-| Prioritising by gut | Vote silently before discussing |
-
----
-
-## Your Assignment — Before Next Session
-
-Come to the next session with **one concept you're ready to prototype**.
-
-1. Sketch your second concept — a different approach to the same opportunity, not a variation of the first
-2. Run the 30-second test on both — show each to someone outside the project, no intro, and note where they get confused
-3. Choose one concept to move forward with
-
-> The prototype session starts from your chosen concept.
+### 17 · PRACTICE · Activity 2
+- Kicker: Activity 2 · 12 min
+- Title: Go wide with Crazy 8s.
+- On-slide:
+  - Pick one opportunity from your tree and use your flow direction as the anchor.
+  - Round 01 · 2 min · Fold and pick: fold an A4 sheet into 8 panels. Choose one opportunity from your tree.
+  - Round 02 · 8 min · Sketch 8 ideas: one idea per panel, label each one. No erasing, no perfecting. Aim for eight approaches, not eight variations.
+  - Round 03 · 2 min · Circle the best two: circle two panels worth developing. Share one with the class.
+  - Start timer · 12:00
+  - Banner: No evaluating while generating
+- Speaker notes:
+  - Runs in class, 12 minutes: 2 fold and pick, 8 sketch, 2 circle and share
+  - Repeat the rule: no evaluating while generating. Fill all 8 panels before judging any
+  - Trap: eight variations of one idea. Aim for eight different approaches, one against the obvious
+  - Optional, only after finishing: ask an AI chat tool "What assumption do all 8 share? Give me 3 ideas that break it". If all eight are apps, the shared assumption is "it must be an app"
+  - Debrief inside round 3: how many were variations on idea #1?
+  - **Start the timer**
+- 🎨 Visual hint: TYPOGRAPHIC. Practice layout, `.practice--act` variant, three round cards, timer button (12:00) and a "No evaluating while generating" banner.
 
 ---
 
-*"The goal of ideation is not to find the answer. It's to find enough answers that you can choose the right one."*
+### 18 · SECTION DIVIDER · Part 03
+- Kicker: Part 03
+- Title: Concept\n*Sketching*
+- On-slide: Make the most promising ideas visible enough to evaluate.
+- Speaker notes:
+  - You have directions; now make them readable
+  - About 13 minutes including a short live demo (2 min) and the 8-minute sketch in Activity 3
+- 🎨 Visual hint: TYPOGRAPHIC. Section divider on paper-deeper.
 
 ---
 
-## Thank You
+### 19 · NUMBERED · Concept sketching overview
+- Kicker: Method
+- Title: Concept sketching:\nmake an idea\n*visible*
+- On-slide:
+  - What: a rough drawing of one idea that shows its core structure, key interaction and what makes it different.
+  - Why: a sketch can be read, questioned and tested in minutes. It exposes unclear logic before any time goes into a prototype.
+  - When: after Crazy 8s or the opportunity tree, once you have a promising idea, and before you validate or prototype it.
+- Speaker notes:
+  - What: one rough drawing of one idea
+  - Why: it can be read, questioned and tested in minutes, and shows unclear logic before a prototype
+  - When: after Crazy 8s or the tree, before validating
+  - Example: after Crazy 8s for restaurant booking, pick the "book by voice" panel and sketch the main screen with labelled components
+- 🎨 Visual hint: TYPOGRAPHIC. Three What / Why / When cards (`.mth` method layout).
 
-**Winnie Nguyen**
+---
 
-📧 nguyenphuctuongvan@gmail.com
+### 20 · STATEMENT · What is a concept sketch
+- Kicker: Definition
+- Title: A thinking tool,\nnot a *wireframe*
+- On-slide: Core structure. Key interaction. What makes it different.
+- Speaker notes:
+  - One rough illustration of one idea
+  - Test: can someone who wasn't in the room get the structure, interaction and differentiating logic?
+  - If you must narrate it, the fix is more labelling, not more polish
+  - Four parts of a finished sketch: key moment, component labels, intent notes, "This works because..."
+- 🎨 Visual hint: TYPOGRAPHIC. Centred statement with three short lines beneath.
+
+---
+
+### 21 · PROCESS · How to sketch a concept
+- Kicker: Method
+- Title: Four steps,\none moment
+- On-slide:
+  - 01 Pick one idea, the most interesting
+  - 02 Draw the key moment
+  - 03 Label, don't polish
+  - 04 "This works because..."
+- Speaker notes:
+  - Pick the one that surprised you, not the most refined
+  - One screen or one interaction, the moment that makes it legible
+  - A labelled scratchy sketch beats a polished unlabelled screen
+  - **The rule that catches everyone: finish "This works because..."** If you can't, go back to the tree
+  - **Live demo (about 2 min):** sketch one concept on the shared board, say what you label first, pause where it breaks
+- 🎨 Visual hint: SCHEMATIC. Four-step track.
+
+---
+
+### 22 · IMAGE · Real concept sketch · QR seat unlock
+- Kicker: Real example
+- Title: Two journeys,\none *concept*
+- On-slide: Concept sketching · QR seat unlock (a mentee's work, shown with permission)
+- Speaker notes:
+  - A product that unlocks a seat by QR code, sketched as two journeys
+  - Journey 1: scan the QR, reserve, pay. Journey 2: download the app first, then scan
+  - Each journey has numbered panels, handwritten component labels and a Pros / Cons box underneath
+  - Team sticky notes beside it, such as "needs the app to unlock", changed the whole journey
+  - Point out: rough, yet a stranger can read the structure and the reason for choosing it
+- 🎨 Visual hint: REAL. Full-bleed sketch (`media/concept-sketch-anh-truong.png`). Confirm the mentee's permission to show it before presenting.
+
+---
+
+### 23 · IMAGE · Real concept sketch · Urban Farming
+- Kicker: Real example
+- Title: Three concepts,\n10 minutes
+- On-slide: Concept sketching · Urban farming
+- Speaker notes:
+  - A 10-minute concept sketching exercise for an urban farming product
+  - Three rows are three different concepts: a seasonal pack, a farm-partner flow, phygital grocery shopping
+  - Finish varies: some rows are wireframes, some are diagrams and symbols
+  - Ask the class: which concept reads fastest in 30 seconds, and why?
+  - Link to the cold read: would a stranger know what each row does and for whom?
+- 🎨 Visual hint: REAL. Full-bleed sketch (`media/concept-sketch-urban-farming.png`).
+
+---
+
+### 24 · PRACTICE · Activity 3
+- Kicker: Activity 3 · 8 min
+- Title: Make one idea visible.
+- On-slide:
+  - Use the strongest solution from your tree, or your best Crazy 8s panel.
+  - Round 01 · 8 min · Sketch the key moment: draw one screen or one interaction. Label every component. Don't polish. Finish: "This works because..."
+  - Keep the sketch. You will use it to practise the validation checks (see sync notes).
+  - If sketching killed the idea, that is the system working.
+  - Start timer · 8:00
+  - Banner: No evaluating while generating
+- Speaker notes:
+  - Strongest solution on your tree, or your best Crazy 8s panel
+  - One screen, labels not polish, finish "This works because..."
+  - Sometimes sketching kills an idea. That is the system working
+  - **Keep the sketch. You use it to practise the validation checks in the assignment**
+- 🎨 Visual hint: TYPOGRAPHIC. Practice layout, `.practice--act` variant, one round card, timer button (8:00) and banner.
+
+---
+
+### 25 · SECTION DIVIDER · Part 04
+- Kicker: Part 04
+- Title: Storyboarding
+- On-slide: Extend one concept across time to see where the flow breaks.
+- Speaker notes:
+  - A sketch shows one moment; a storyboard shows the journey
+  - About 5 minutes of explanation today. You build your own in the assignment, for the concept that survives
+- 🎨 Visual hint: TYPOGRAPHIC. Section divider on paper-deeper.
+
+---
+
+### 26 · NUMBERED · Storyboarding overview
+- Kicker: Method
+- Title: Storyboarding:\nextend an idea across *time*
+- On-slide:
+  - What: a short sequence of 3–5 panels that follows one user from context and trigger, through action, to outcome and emotion.
+  - Why: one screen can look good and still fail as a flow. A storyboard shows where the experience breaks and how the user feels at the end.
+  - When: after a concept has survived the first checks, and before you build a prototype.
+- Speaker notes:
+  - What: 3–5 panels following one user from context and trigger through action to outcome and emotion
+  - Why: a good screen can still fail as a flow, and the end feeling shows the breakage
+  - When: after the first checks, before a prototype
+  - Example: booking a flight succeeds, then a baggage fee appears at the last step. The emotion panel reads "cheated"
+- 🎨 Visual hint: TYPOGRAPHIC. Three What / Why / When cards, centred (`.mth` method layout).
+
+---
+
+### 27 · PROCESS · Anatomy of a storyboard
+- Kicker: Storyboarding
+- Title: Extend a concept\nacross *time*
+- On-slide:
+  - Panel 01 Context
+  - Panel 02 Trigger
+  - Panel 03 Action
+  - Panel 04 Outcome
+  - Panel 05 Emotion
+- Speaker notes:
+  - One screen can look elegant and be unworkable as a flow
+  - Three or four panels is usually enough; budget about 20 minutes
+  - Emotion matters: a user can complete the task and leave feeling worse
+  - If the emotion panel is bad, the concept is bad
+  - You build one in the assignment, for the concept that survives, not today
+- 🎨 Visual hint: SCHEMATIC. Five-panel strip, one small thumbnail sketch per panel.
+
+---
+
+### 28 · IMAGE · Real storyboard
+- Kicker: Real example
+- Title: Follow *Allison*
+- On-slide: Go1 · Content Curation
+- Speaker notes:
+  - Follows an HR manager across the whole arc
+  - Opens with the trigger: she sees a banner about curated recommendations
+  - Actions: provide needs, review the list, refine, share with the team
+  - Ends on emotion: the team celebrating the time saved
+  - It starts before the product, includes friction, ends on a feeling, uses the user's own voice
+- 🎨 Visual hint: REAL. Full-bleed storyboard image (`media/storyboard-example.png`).
+
+---
+
+### 29 · IMAGE · Real storyboard · Amazon Go
+- Kicker: Real example
+- Title: Follow *Emilia*
+- On-slide:
+  - 01 Persona and setting: name, age, motivation, and where each panel takes place.
+  - 02 Stage labels: onboarding at home, then shopping in store.
+  - 03 One sentence per panel: each panel has a caption saying what the user does.
+  - 04 Ends on emotion: she walks out with no trouble, smiling.
+  - Caption: Amazon Go · UX storyboard
+- Speaker notes:
+  - Second example: an Amazon Go UX storyboard following Emilia (24, motivation: groceries)
+  - Scenario: a customer aged 21+ uploads a government ID to the app
+  - Left side states the persona and two stages: onboarding at home, shopping in store
+  - One sentence per panel, readable without a presenter
+  - Ends on emotion: she leaves with no trouble
+  - Ask the class: which panel shows a possible point of friction? (the PIR sensor)
+- 🎨 Visual hint: REAL. Storyboard image on the left (`media/storyboard-amazon-go.png`), four numbered points on the right. Built as an image plus numbered list (supplementary two-column split).
+
+---
+
+### 30 · SECTION DIVIDER · Part 05
+- Kicker: Part 05
+- Title: Concept\n*Validation*
+- On-slide: Before a prototype, check the logic holds.
+- Speaker notes:
+  - Not user testing. Not a prototype. Not a stakeholder sign-off
+  - A structured check that a concept is grounded, legible and testable
+  - About 5 minutes: a walk through five quick checks. You run them on your own concepts in the assignment
+- 🎨 Visual hint: TYPOGRAPHIC. Section divider on paper-deeper. (Deck numbers this divider 05.)
+
+---
+
+### 31 · NUMBERED · Validation methods
+- Kicker: Five quick checks
+- Title: Validate small,\nbefore you build big
+- On-slide:
+  - 01 30-second concept testing: does the concept explain itself? · 5 min
+  - 02 Concept comparison: which direction do people pick, and why? · 10 min
+  - 03 Storyboard walkthrough: does the flow match what people expect? · 10 min
+  - 04 Rationale test: does "this works because..." hold up? · 2 min
+  - 05 Assumption audit: what must be true, and what is riskiest? · 10 min
+- Speaker notes:
+  - Most designers skip validation because it feels slow. Each check takes 2–10 minutes
+  - The cost of skipping: two weeks on a prototype, then users don't get the concept
+  - Five checks, one slide each, same structure: What, When, Why, How
+  - How to choose: unclear concept → cold read; several directions → comparison; several steps → walkthrough; otherwise rationale and audit
+  - Spend about a minute on each in class. The practice is in the assignment
+- 🎨 Visual hint: TYPOGRAPHIC. Overview list with time on the right (built as `.ov` rows).
+
+---
+
+### 32 · NUMBERED · Method 1 · Cold read
+- Kicker: Method 1
+- Title: 30-second cold read
+- On-slide:
+  - What: show a sketch for 30 seconds, hide it, then ask what it does and who it is for.
+  - When: after the concept sketch, before you add any detail.
+  - Why: if a stranger cannot read it, a user will not either. It exposes missing labels and an unclear value.
+  - How: show the sketch and say nothing · after 30 seconds, hide it · ask "What does this do? Who is it for?" · note every hesitation and fix those labels.
+  - 5 min
+- Speaker notes:
+  - Show the sketch, say nothing, hide it after 30 seconds, then ask the two questions
+  - Note every hesitation and fix those labels
+  - Example: a "Split bill" button. If viewers read it as a normal transfer, label and context are not enough
+  - Working alone? Leave the sketch overnight and read it as a stranger, or ask someone at home
+- 🎨 Visual hint: TYPOGRAPHIC. Three cards (What / When / Why) plus a four-step How strip and a time tag (`.mth` method layout).
+
+---
+
+### 33 · NUMBERED · Method 2 · Comparison
+- Kicker: Method 2
+- Title: Concept comparison
+- On-slide:
+  - What: show two concepts side by side and ask which one the person would use, and why.
+  - When: you have two or more directions and cannot decide between them.
+  - Why: people judge a choice more easily than a single idea. The reasons matter more than the vote.
+  - How: sketch both concepts for the same task · ask "Which would you use for this?" · ask "Why? What is missing?" · tally the picks and write down the reasons.
+  - 10 min
+- Speaker notes:
+  - Sketch both concepts for the same task, then ask which they'd use and why
+  - Tally the picks, but write down the reasons
+  - Example: "show the fare before booking" versus "compare vehicle types". Ask 5 people which suits the morning commute
+  - Don't ask "do you like it?": people are polite and say yes
+- 🎨 Visual hint: TYPOGRAPHIC. `.mth` method layout, same as Method 1.
+
+---
+
+### 34 · NUMBERED · Method 3 · Walkthrough
+- Kicker: Method 3
+- Title: Storyboard walkthrough
+- On-slide:
+  - What: walk someone through the storyboard panel by panel and ask what they expect to happen next.
+  - When: the concept spans several steps and the storyboard is drawn.
+  - Why: one screen can look good and still fail as a flow. A wrong expectation marks the broken step.
+  - How: cover every panel except the first · ask "What would you do here?" · reveal the next panel: "Is this what you expected?" · mark the panels where expectation breaks.
+  - 10 min
+- Speaker notes:
+  - Cover every panel except the first, ask what they would do, reveal the next
+  - Mark the panels where expectation breaks
+  - Example: flight booking where the last panel shows a baggage fee. "Wait, there's a fee now?" is the broken expectation
+  - You do this in the assignment, on the survivor, once its storyboard is drawn
+- 🎨 Visual hint: TYPOGRAPHIC. `.mth` method layout.
+
+---
+
+### 35 · NUMBERED · Method 4 · Rationale
+- Kicker: Method 4
+- Title: Rationale test
+- On-slide:
+  - What: say "This works because..." aloud in one sentence, without qualifying words.
+  - When: before you show the concept to anyone.
+  - Why: words like but, if and assuming hide assumptions. It costs nothing and takes two minutes.
+  - How: write the sentence · say it aloud without stopping · circle every but, if, as long as, assuming · each circled word becomes an assumption to test.
+  - 2 min
+- Speaker notes:
+  - Say it aloud, without stopping and without qualifying
+  - Watch for but, if, as long as, assuming. Each one hides an assumption
+  - Weak: "Clients will see the nudge, if they have notifications on." Strong: "It reaches the client on the day their decision window closes."
+  - The strong version still has assumptions, but they now sit outside the sentence where you can test them
+  - **Every assumption you hear is a learning objective for the prototype, not a reason to abandon the concept**
+- 🎨 Visual hint: TYPOGRAPHIC. `.mth` method layout.
+
+---
+
+### 36 · DIAGRAM · Assumption audit
+- Kicker: Method 5
+- Title: Find the *riskiest*\nassumption
+- On-slide:
+  - Generate: "This concept assumes users will / have / know / care about..."
+  - Tag: desirability, usability, feasibility, viability
+  - Rate: evidence 1–5, importance 1–5
+  - Riskiest: high importance, low evidence
+  - 2×2 chart: importance (low to high) against evidence (strong to weak), three plotted dots
+- Speaker notes:
+  - Go wide: even a simple idea hides 20–30 assumptions, most harmless
+  - Write each so you need it to be true ("clients will remember a password"), specific enough to test
+  - Tag the type so you don't miss a category. Usable is not the same as desirable
+  - Worked row: "freelancers will connect a proposal at send time" scores evidence 2, importance 5, so the nudge never starts. That is the riskiest
+  - The prototype tests the riskiest assumption first
+- 🎨 Visual hint: SCHEMATIC. 2×2 of importance vs evidence with the riskiest quadrant highlighted, the four-step Generate / Tag / Rate / Riskiest list beside it.
+
+---
+
+### 37 · SECTION DIVIDER · Part 06
+- Kicker: Part 06
+- Title: *Prioritisation*
+- On-slide: Not all concepts deserve the same investment. Choose deliberately.
+- Speaker notes:
+  - Without structure, teams converge on the idea the most senior person liked, the one pitched most confidently, or the first one written down
+  - None of those is a good reason to build something
+  - 5 minutes: the matrix, a modelled example, and setting the exercise you do at home
+- 🎨 Visual hint: TYPOGRAPHIC. Section divider on paper-deeper. (Deck numbers this divider 06.)
+
+---
+
+### 38 · DIAGRAM · Effort–Impact matrix
+- Kicker: The matrix and a modelled example
+- Title: Effort against\n*impact*
+- On-slide:
+  - Q1 Quick wins: high impact, low effort
+  - Q2 Strategic bets: high impact, high effort
+  - Q3 Fill-ins: low impact, low effort
+  - Q4 Traps: low impact, high effort
+- Speaker notes:
+  - Impact: value to the user. Effort: cost to build and validate
+  - Quick wins first; strategic bets need validation before commitment; traps drop or defer
+  - Example: "show the fare before booking" is a quick win; "an all-in-one payments super app" is a strategic bet; "redesign the driver logo" is a fill-in; "build our own map" is a trap
+  - Effort and impact are relative, not absolute. One team's Q1 is another's Q2
+  - It's a conversation tool, not an objective ranking
+  - **Model it live (2 min):** place three solutions from the freelancer tree on the matrix, narrating why. Students do their own as step 1 of the assignment
+- 🎨 Visual hint: SCHEMATIC. 2×2 matrix with the four quadrants labelled.
+
+---
+
+### 39 · SECTION DIVIDER · Part 07
+- Kicker: Part 07
+- Title: AI-assisted\n*workflow*
+- On-slide: Use AI to widen and connect your work. You still decide.
+- Speaker notes:
+  - Three minutes. Where AI helps this phase, and where it hurts
+  - Not only chat prompts: workflows that read your artifacts and cross-reference them
+  - Detail is in the lesson (Part 7). Optional add-on in the assignment
+- 🎨 Visual hint: TYPOGRAPHIC. Section divider on paper-deeper, 120px number, accent on "workflow".
+
+---
+
+### 40 · COMPARE · AI in this phase
+- Kicker: AI-assisted workflow
+- Title: Human first,\n*AI second*
+- On-slide:
+  - AI first: the average idea, no source. You anchor on idea #1.
+  - Human first: you generate. AI challenges and links. Every output cites an artifact. You decide.
+- Speaker notes:
+  - AI-assisted brainstorming tends to give narrower sets of ideas: it returns the most likely answers
+  - So generate alone first, then ask the tool "what assumption do all 8 share?"
+  - Everything AI produces is a hypothesis until it traces to research
+  - To widen output, change the input: different personas or constraints, more than one tool
+  - **You decide. AI widens, links, checks and drafts**
+- 🎨 Visual hint: TYPOGRAPHIC. Two-column compare, "AI first" in neutral, "Human first" in sienna.
+
+---
+
+### 41 · DIAGRAM · The artifact chain
+- Kicker: AI-assisted workflow
+- Title: Every output is\nthe *next input*
+- On-slide:
+  - Six steps: insight (I3), outcome (O2), opportunity (OP1), solution (S2.1), assumption (A4), prototype test (T1)
+  - Under each: Goal, Map, Ideate, Audit, Test
+  - No parent, no solution.
+  - Give every item an ID that points back to its source.
+- Speaker notes:
+  - One idea only: the output of this step is the input of the next
+  - Point along the chain, left to right: insight, outcome, opportunity, solution, assumption, prototype test
+  - Every item has an ID and a source, for example I3 → O2 → S2.1 → A4
+  - Rule: no parent, no solution. A solution that cannot link to an earlier artifact is floating
+  - Give AI the artifacts and make it cite IDs. No citation means a guess
+- 🎨 Visual hint: SCHEMATIC. Six numbered nodes in a chain, each with an ID tag and a verb label beneath, the rule as a pull-out line.
+
+---
+
+### 42 · PROCESS · AI workflow
+- Kicker: AI-assisted workflow
+- Title: A repeatable\nloop, *you review*
+- On-slide:
+  - 01 Trigger
+  - 02 Pull context
+  - 03 Generate
+  - 04 Link
+  - 05 Human review
+  - 06 Hand-off pack
+- Speaker notes:
+  - How to use AI beyond chat: a loop you can repeat
+  - Trigger (a new insight) → pull context from research, whiteboard and design file (for example through MCP) → generate proposals → link them to artifacts → you review → pack the hand-off for the prototype
+  - Point at step 5, human review: this is where you decide
+  - Examples: a new insight proposes tree changes; an orphan check flags unlinked solutions
+  - Optional add-on is in the assignment
+- 🎨 Visual hint: SCHEMATIC. Six-step process track, step 05 active.
+
+---
+
+### 43 · DIAGRAM · AI step example
+- Kicker: AI-assisted workflow · Example
+- Title: Ask what all\n*eight* share
+- On-slide:
+  - Input: your eight Crazy 8s panels
+  - Prompt: "What assumption do all 8 share? Give me 3 ideas that break it."
+  - Output: shared assumption and 3 challengers
+  - You check: does each new idea trace to an opportunity on your tree?
+- Speaker notes:
+  - One concrete step of the workflow: Crazy 8s output in, one prompt, shared assumption and three challengers back
+  - Repeat: generate on your own first, then ask the AI
+  - Your checkpoint: does each new idea trace to an opportunity on the tree? If not, it is floating
+  - **You decide. AI only challenges and suggests**
+- 🎨 Visual hint: SCHEMATIC. Four-box left-to-right strip: Input → Prompt → Output, with a "You check" callout under it.
+
+---
+
+### 44 · PRACTICE · Your assignment
+- Kicker: Assignment
+- Title: Two concepts, pressure-tested
+- On-slide:
+  - Explore
+  - 01 Prioritise your tree on the matrix, pick two
+  - 02 Run Crazy 8s on your chosen opportunity
+  - 03 Sketch both concepts with "This works because..." (second contradicts the first)
+  - Decide
+  - 04 Assumption audit and 30-second test on each
+  - 05 Share both with your PO or a peer, note the response
+  - 06 Pick the survivor and storyboard it (Trigger, Action, Outcome)
+- Speaker notes:
+  - Budget about 2.5 hours in total
+  - Step 1 is the prioritisation we modelled in class: place every solution from your tree, pick two
+  - The second concept must contradict an assumption in the first, not vary it
+  - Storyboard only the survivor, so the effort goes to the concept that earned it. Then run the storyboard walkthrough on it
+  - No PO? Use a peer or mentor. Note whether the response is confusion, curiosity or a challenge to an assumption
+  - Next lesson starts from the survivor. Message me if you get stuck
+- 🎨 Visual hint: TYPOGRAPHIC. Practice layout, two cards (Explore, then Decide).
+
+---
+
+### 45 · END · Thank you
+- Kicker: Thank you
+- Title: See you *next time*
+- On-slide: Winnie Nguyen · nguyenphuctuongvan@gmail.com
+- Speaker notes:
+  - Next lesson: turn the surviving concept into a prototype people can click
+  - Reach out between lessons if the assignment blocks you
+- 🎨 Visual hint: End layout, paper-deeper, 220px italic title.
+
+---
+
+### 46 · DIAGRAM · Appendix · Google Design Sprint
+- Kicker: Appendix · Optional, not presented
+- Title: The bigger system\nCrazy 8s sits *inside*
+- On-slide:
+  - Mon: map the problem, pick a target
+  - Tue: sketch competing solutions
+  - Wed: decide and storyboard
+  - Thu: build a realistic prototype
+  - Fri: test with real users
+- Speaker notes:
+  - Share on request or in the follow-up message, not in the session
+  - A 5-day process that compresses months of decisions into a week
+  - Resources: the book *Sprint* by Jake Knapp, and the Google Design Sprint Kit
+- 🎨 Visual hint: SCHEMATIC. Five-day process track.
+
+---
+
+## Sync notes (lesson ↔ outline ↔ built deck)
+
+- **Standalone lesson:** no session numbers and no recap slide.
+- **This outline mirrors the built deck** (`slides/Develop Solutions and Ideate.html`, 46 slides), slide for slide. The older `Develop Solutions & Ideate.html` is a previous version.
+- **Three class activities:** Activity 1 (Tree and Flow, 23 min), Activity 2 (Crazy 8s, 12 min), Activity 3 (concept sketch, 8 min). Storyboarding, validation and prioritisation are taught in class and practised in the assignment.
+- **Layout names:** activity slides are PRACTICE (`.practice--act`), not MILESTONE, because that is how the deck is built; there are no `Num:` values. The What / When / Why method slides are built as the supplementary `.mth` layout and listed here as NUMBERED.
+- **Deck notes fixed (2026-10-05):** slide 24's "Activity 4" reference, the "two activities" and old timing in the speaker notes (slides 1, 2, 13, 18, 21, 24, 30, 31, 37, 38), and the slide 30 and 37 data labels now match this outline.
+- **Open check:** slide 22 shows a mentee's concept sketch. Confirm permission to show it.
+- **Deliberate differences from the lesson (outline is what is presented, lesson is the full reference):** dot voting, sketching entry points, "sketching two concepts", "how to use a sketch", the strong-vs-weak tables, the opportunity trace, stakeholder reading and the "when to move forward" checks stay in the lesson only. The assignment is the same in both files (storyboard the survivor only). Disney example is optional.
+- **Timing check:** 6 + 33 + 15 + 13 + 5 + 5 + 5 + 3 + 5 = 90 min. Activities: 23 + 12 + 8 = 43 min. Teaching: 36 min (including 3 min AI-assisted workflow).
