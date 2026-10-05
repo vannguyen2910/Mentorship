@@ -897,7 +897,7 @@ Come with **two final concepts**, each ready to share with a PO or key stakehold
 - [Teresa Torres: Continuous Discovery Habits](https://www.producttalk.org/2021/08/product-discovery/): the source of the Opportunity Solution Tree and continuous discovery practice
 - [Sprint by Jake Knapp](https://www.thesprintbook.com/): the source of Crazy 8s and structured ideation within a 5-day format
 - [Google Design Sprint Kit](https://designsprintkit.withgoogle.com): free templates and facilitation guides
-- [IDEO Design Kit: Brainstorm Rules](https://www.designkit.org/methods/28): the canonical rules for effective group ideation
+- [IDEO Design Kit: Brainstorm Rules](https://www.designkit.org/methods/28.html): the canonical rules for effective group ideation
 - [How to Sketch for UX Design (YouTube, Google Ventures)](https://www.youtube.com/watch?v=ZtN3yHIWuRY): practical sketching for non-illustrators
 - [Assumption Mapping (Helio)](https://helio.zurb.com/blog/assumption-mapping/): sorting assumptions by importance and evidence before you test
 - [ChatGPT decreases idea diversity in brainstorming (Wharton)](https://mackinstitute.wharton.upenn.edu/2025/new-in-nature-chatgpt-decreases-idea-diversity-in-brainstorming/): why to generate before you ask an AI chat tool

@@ -631,7 +631,7 @@ Bring **one validated concept sketch** to the next session. That's it.
 
 - [Teresa Torres — Continuous Discovery Habits](https://www.producttalk.org/2021/08/product-discovery/) — the source of the Opportunity Solution Tree and continuous discovery practice
 - [Sprint by Jake Knapp](https://www.thesprintbook.com/) — the source of Crazy 8s and structured ideation within a 5-day format
-- [IDEO Design Kit — Brainstorm Rules](https://www.designkit.org/methods/28) — the canonical rules for effective group ideation
+- [IDEO Design Kit — Brainstorm Rules](https://www.designkit.org/methods/28.html) — the canonical rules for effective group ideation
 - [How to Sketch for UX Design (YouTube — Google Ventures)](https://www.youtube.com/watch?v=ZtN3yHIWuRY) — practical sketching for non-illustrators
 - Notion: Design Activities by DT Stage — Ideation methods in context of the full design thinking cycle
 

@@ -282,6 +282,36 @@ def sync_file(src, dest):
         print(f"  warn: could not copy {src.name}: {e}")
 
 
+def fix_deck_links(dest):
+    """Copied decks were authored for the Library layout, so their relative links to sibling guides/indexes die
+    on the site. Repoint any dead relative link to the matching site page (lesson page, else the lesson library, or home)."""
+    for f in dest.rglob("*.html"):
+        try:
+            txt = f.read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError):
+            continue
+
+        def repl(m):
+            href = m.group(2)
+            if re.match(r"^(https?:|mailto:|tel:|data:|javascript:|#|//|/)", href):
+                return m.group(0)
+            path = unquote(html.unescape(href.split("#")[0].split("?")[0]))
+            if not path or (f.parent / path).exists():
+                return m.group(0)
+            stem = Path(path).stem
+            if Path(path).name.lower() == "index.html":
+                target = OUT / "index.html"
+            elif (OUT / "lessons" / f"{stem}.html").exists():
+                target = OUT / "lessons" / f"{stem}.html"
+            else:
+                target = OUT / "lessons.html"
+            return m.group(1) + os.path.relpath(target, f.parent).replace(os.sep, "/") + m.group(3)
+
+        new = re.sub(r'(<a\b[^>]*?\bhref=")([^"]*)(")', repl, txt)
+        if new != txt:
+            f.write_text(new, encoding="utf-8")
+
+
 def sync_tree(src, dest):
     """Mirror src into dest (adds, updates and removes files)."""
     want = set()
@@ -593,7 +623,7 @@ def load_lessons():
             title = clean_title(title or slug.replace("-", " ").title())
 
             sdir = topic / "slides"
-            slide_files = [f for f in sorted(sdir.rglob("*")) if f.is_file() and visible(f)] if sdir.exists() else []
+            slide_files = [f for f in sorted(sdir.rglob("*")) if f.is_file() and visible(f) and "_archive" not in f.relative_to(sdir).parts] if sdir.exists() else []
             htmls = [f for f in slide_files if f.suffix.lower() == ".html" and f.parent == sdir]
             if len(htmls) > 1:
                 htmls = [f for f in htmls if f.name.lower() != "index.html"] or htmls
@@ -681,6 +711,7 @@ def prepare_lesson_assets(lessons):
             sync_tree(l["folder"] / "slides", ASSETS / "lessons" / l["slug"] / "slides")
             if (l["folder"] / "assets").exists():
                 sync_tree(l["folder"] / "assets", ASSETS / "lessons" / l["slug"] / "assets")
+            fix_deck_links(ASSETS / "lessons" / l["slug"] / "slides")
         else:
             shutil.rmtree(ASSETS / "lessons" / l["slug"], ignore_errors=True)
         want = set()

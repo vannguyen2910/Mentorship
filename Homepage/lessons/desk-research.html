@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<meta name="description" content="Look outward before you decide what the evidence says"/>
+<title>Desk Research — Training Hub</title>
+<link rel="stylesheet" href="../assets/css/tokens.css"/>
+<link rel="stylesheet" href="../assets/css/components.css"/>
+<link rel="stylesheet" href="../assets/css/site.css"/>
+<link rel="stylesheet" href="../assets/css/card-list.css"/>
+<link rel="stylesheet" href="../assets/css/text-page.css"/>
+<link rel="stylesheet" href="../assets/css/home.css"/>
+
+</head>
+<body class="tp-white">
+<nav>
+  <a class="nav-logo" href="../index.html"><img src="../assets/images/logo-nav.svg" alt="Winnie Nguyen — Training Hub"/></a>
+  <div class="nav-links">
+    <a href="../lessons.html" data-text="Lesson Library" class=active>Lesson Library</a>
+    <a href="../private-training.html" data-text="Private Training">Private Training</a>
+    <a href="../programs.html" data-text="Programs">Programs</a>
+  </div>
+</nav>
+<div class="tp">
+  <a class="tp-back" href="../lessons.html">← All lessons</a>
+  <header class="tp-head">
+    <h1 class="page-title">Desk Research</h1>
+    <p class="page-desc">Look outward before you decide what the evidence says</p>
+    <div class="used"><span>Taught in</span><a class="used__chip" href="../programs/mid-to-senior.html">Product Design Roadmap to Senior · session 02</a></div>
+    <div class="tp-info" data-var-panel data-var-id="0"><dl class="tp-meta" style="--tp-cols: repeat(4, minmax(0, 1fr)) minmax(0, 1.8fr)"><div><dt>Stage</dt><dd>Discover</dd></div><div><dt>Level</dt><dd>All levels</dd></div><div><dt>Duration</dt><dd>90 min</dd></div><div><dt>Date</dt><dd>11 Aug 2026</dd></div><div><dt>Source file</dt><dd><code>desk-research-lesson.md</code></dd></div><div class="tp-meta__tags"><dt>Topics</dt><dd><span>desk-research</span><span>competitor-analysis</span><span>pattern-log</span><span>assumption-map</span><span>synthesis</span><span>stakeholder-presentation</span></dd></div></dl></div>
+  </header>
+  <div class="tabs tabs--pill tp-tabs"><div class="tabs__list" role="tablist"><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="lesson" aria-selected="false">Lesson</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="slides" aria-selected="false">Slides</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="homework" aria-selected="false">Homework</button></div></div>
+  <section class="tp-panel" data-tab-panel data-tab-id="lesson" role="tabpanel" hidden><div data-var-panel data-var-id="0">
+  <div class="tp-layout">
+    <aside class="tp-toc" aria-label="On this page"><p class="tp-toc__label">On this page</p><a href="#v0-overview">Overview</a><a href="#v0-who-takes-this-session">Who takes this session</a><a href="#v0-learning-objectives">Learning Objectives</a><a href="#v0-success-check">Success Check</a><a href="#v0-materials-needed">Materials Needed</a><a href="#v0-pre-class-preparation">Pre-Class Preparation</a><a href="#v0-session-plan">Session Plan</a><a href="#v0-core-content">Core Content</a><a href="#v0-activities">Activities</a><a href="#v0-ai-in-practice-brainstorm-convert-to-md-visualise-in-html">AI in Practice: Brainstorm, Convert to .md, Visualise in HTML</a><a href="#v0-assessment">Assessment</a><a href="#v0-assignments">Assignments</a><a href="#v0-further-resources">Further Resources</a></aside>
+    <article class="tp-body"><h2 id="v0-overview">Overview</h2>
+<p>Every redesign starts with a temptation: skip straight to solutions. This session interrupts it. Before any workflow gets touched, the team needs an evidence-backed picture of the current state, drawn from more than one place, not a list of pet peeves and not a redesign disguised as a critique.</p>
+<p>Evaluate Current Experience looked inward: the mentee's own product, judged against heuristics. This session looks outward and sideways. It opens by formalising the raw assumptions carried over from earlier sessions into a prioritised map, because research without a target produces a pile of miscellaneous observations. Once the highest-importance, least-proven assumptions are named, the session runs desk research aimed at them: a competitor scan logged as patterns, then the other sources that already exist (support tickets, analytics, prior research). The mentee's <code>evaluation.md</code> from the previous session is the third evidence stream. All three feed back into the assumption map, which gets updated, not rebuilt. From there, the session teaches how to turn scattered findings into a narrative instead of a list, and how to present it to stakeholders with every claim traceable to evidence.</p>
+<p>The session runs in three movements, by design. First, everything is taught the traditional way, with no AI: assumptions, desk research, synthesis, presenting. Second, the mentee practises it all by hand on their own project. Only then does AI come in, as one chain: brainstorm, convert the output to reusable <code>.md</code> assets, then visualise those files in a one-page <code>readout.html</code>, with each step verified, with particular care around invented competitors and sources. A mentee who has done it by hand can tell when AI is wrong.</p>
+<hr />
+<h2 id="v0-who-takes-this-session">Who takes this session</h2>
+<ul>
+<li><strong>Mid-level:</strong> Evaluate Current Experience is required first. This session assumes the mentee can already run a heuristic evaluation and has an <code>evaluation.md</code>.</li>
+<li><strong>Senior:</strong> may skip Evaluate Current Experience by passing the senior fast-track check inside that lesson. A senior who skipped it arrives without an <code>evaluation.md</code>; in Close the Loop they use whatever current-state evidence they already have (known friction, tickets, a past review).</li>
+</ul>
+<hr />
+<h2 id="v0-learning-objectives">Learning Objectives</h2>
+<p>By the end of this session, students will be able to:</p>
+<ol>
+<li><strong>Formalise</strong> raw, unstructured assumptions into a prioritised map before any evidence-gathering begins</li>
+<li><strong>Conduct</strong> a targeted competitor scan against 2 to 3 comparators, aimed at named assumptions, and log it as patterns, not screenshots</li>
+<li><strong>Identify</strong> recurring patterns across sources (competitors, tickets, analytics, prior research, their own evaluation) instead of isolated observations</li>
+<li><strong>Update</strong> an assumption map with new evidence, moving items between Confirmed / Unconfirmed / Unknown</li>
+<li><strong>Synthesise</strong> findings from several sources into 3 to 4 evidence-grounded insight statements, a narrative, not a list</li>
+<li><strong>Present</strong> current-state findings to stakeholders using a headline-first, evidence-backed structure that can withstand pushback</li>
+<li><strong>Verify</strong> AI-assisted research (competitor details, sources, claims) and build reusable assets that scale beyond this one project</li>
+</ol>
+<hr />
+<h2 id="v0-success-check">Success Check</h2>
+<ul>
+<li>Every insight traces back to named evidence: a competitor pattern, a ticket theme, a metric, a prior study, or a finding from <code>evaluation.md</code>. Nothing is a vague impression.</li>
+<li>The team understands what the evidence says about the assumptions that matter most, and what is still unproven.</li>
+</ul>
+<hr />
+<h2 id="v0-materials-needed">Materials Needed</h2>
+<ul>
+<li>The mentee's <code>evaluation.md</code> from Evaluate Current Experience (the inward-looking evidence). Seniors who skipped it bring any current-state notes they have.</li>
+<li>The mentee's raw assumptions list from earlier sessions, if it exists. If it doesn't, no blocker, Activity 1 writes one quickly from the project.</li>
+<li>Their project's flow or key workflow, named in advance, so the competitor scan has something to compare against.</li>
+<li>Access to 2 to 3 candidate comparators (live products or app downloads), picked in advance if possible.</li>
+<li>The AI foundation folder set up in the Discovery stage, with an AI tool linked</li>
+<li><code>Library/frameworks/assumption-map/framework-assumption-map.md</code>: teach directly from this file for the Assumption Map section</li>
+<li>A pattern log worksheet (the schema as a table, one worked example row) to hand over for the manual scan. AI turns it into <code>competitor-pattern-log.md</code> later in the session.</li>
+<li>Shared doc space for the three reusable assets and <code>readout.html</code> built during the AI block</li>
+</ul>
+<hr />
+<h2 id="v0-pre-class-preparation">Pre-Class Preparation</h2>
+<p><strong>Prerequisite:</strong> Mid-level mentees complete Evaluate Current Experience first. Seniors may skip it via the senior fast-track in that lesson.</p>
+<p>Ask the mentee to do the following before the session:</p>
+<ol>
+<li><strong>Bring <code>evaluation.md</code></strong> from Evaluate Current Experience, or whatever current-state notes exist.</li>
+<li><strong>Bring the raw assumptions list</strong> from earlier sessions if it exists. It's a bonus, not a blocker.</li>
+<li><strong>Pick one key workflow</strong> (e.g. document upload, theme customisation, checkout) to use as the subject of the competitor scan.</li>
+<li><strong>Shortlist 2 to 3 comparators</strong> to scan: at least one direct competitor, ideally one indirect product that serves the same user job. Make sure you can open them live.</li>
+<li><strong>Check your AI tool works</strong> and can create files. The AI block builds <code>.md</code> and <code>.html</code> files.</li>
+</ol>
+<hr />
+<h2 id="v0-session-plan">Session Plan</h2>
+<table>
+<thead>
+<tr>
+<th>Act</th>
+<th>Block</th>
+<th>Topic</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 · Teach</td>
+<td>Opening</td>
+<td>Understand before you redesign</td>
+<td>4 min</td>
+</tr>
+<tr>
+<td>1 · Teach</td>
+<td>Teaching</td>
+<td>The Assumption Map: types, formula, matrix (from the framework doc)</td>
+<td>7 min</td>
+</tr>
+<tr>
+<td>1 · Teach</td>
+<td>Teaching</td>
+<td>Desk research: what it is, comparators, what to look for, patterns not screenshots</td>
+<td>8 min</td>
+</tr>
+<tr>
+<td>1 · Teach</td>
+<td>Teaching</td>
+<td>The other sources: tickets, analytics, prior research</td>
+<td>4 min</td>
+</tr>
+<tr>
+<td>1 · Teach</td>
+<td>Teaching</td>
+<td>Close the loop + the list-vs-narrative trap + insight formula</td>
+<td>6 min</td>
+</tr>
+<tr>
+<td>1 · Teach</td>
+<td>Teaching</td>
+<td>Present with confidence: headline-first, evidence, pushback</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>2 · Practise</td>
+<td>Activity</td>
+<td>Structure your raw assumptions; flag top-left test-first targets</td>
+<td>8 min</td>
+</tr>
+<tr>
+<td>2 · Practise</td>
+<td>Activity</td>
+<td>Competitor scan on your workflow, logged in the pattern worksheet</td>
+<td>12 min</td>
+</tr>
+<tr>
+<td>2 · Practise</td>
+<td>Activity</td>
+<td>Close the loop: update the Assumption Map</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>2 · Practise</td>
+<td>Activity</td>
+<td>Synthesise 2 insight statements</td>
+<td>6 min</td>
+</tr>
+<tr>
+<td>3 · AI assist</td>
+<td>1 · Brainstorm</td>
+<td>AI suggests comparators and angles; keep only what you verify</td>
+<td>3 min</td>
+</tr>
+<tr>
+<td>3 · AI assist</td>
+<td>2 · Convert to .md</td>
+<td>Turn verified leads and your manual work into the three <code>.md</code> assets</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>3 · AI assist</td>
+<td>3 · Visualise in HTML</td>
+<td>Generate a one-page <code>readout.html</code> from those <code>.md</code> files only</td>
+<td>4 min</td>
+</tr>
+<tr>
+<td>3 · AI assist</td>
+<td>Verify</td>
+<td>Check each step for invented competitors, sources, claims</td>
+<td>2 min</td>
+</tr>
+<tr>
+<td>4 · Close</td>
+<td>Assignment</td>
+<td>Assignment briefed + wrap-up</td>
+<td>4 min</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Scripted total: 83 min, inside a 90-minute slot.</strong> The remaining 7 minutes are intentional buffer. Expect the Assumption Map teaching and the competitor scan to run long. That's what the buffer is for.</p>
+<blockquote>
+<p><strong>Story logic:</strong> Teach everything first, the traditional way, so the whole method is on the table. Then practise it by hand on the mentee's own project, in the same order it was taught. Then bring in AI, where it can only speed up something the mentee already understands and can check. The stakeholder pitch is homework; it opens the next session.</p>
+</blockquote>
+<hr />
+<h2 id="v0-core-content">Core Content</h2>
+<h3 id="v0-opening-understand-before-you-redesign">Opening: Understand Before You Redesign</h3>
+<p>You can't fix a system you haven't mapped. Every design decision made without a grounded picture of the current state is a guess, and guesses compound. A redesign built on assumptions nobody checked is a rewrite of the same unverified beliefs in a nicer interface.</p>
+<p>The goal of this session isn't to produce a list of everything wrong or everything competitors do well. It's to produce a small number of evidence-backed insights the whole team can act on and defend, starting from what the team already (unknowingly) assumed.</p>
+<p>Quick recap of where the evidence stands: Evaluate Current Experience produced findings from the inside. Today adds the outside. Neither is enough alone.</p>
+<blockquote>
+<p><strong>Delivery note:</strong> Teach Parts 1 to 4 straight through with no activities in between. The activities come together after Part 4, then the AI block. Ask one quick check question per part instead of an activity.</p>
+</blockquote>
+<hr />
+<h3 id="v0-part-1-target-what-you-re-testing">Part 1: Target What You're Testing</h3>
+<h4 id="v0-what-is-an-assumption">What is an assumption?</h4>
+<p>An assumption is anything believed about users, the problem, the solution, or the business that hasn't yet been proven with evidence. Every brief, every backlog, every "obviously users want X" carries them. If earlier sessions surfaced a raw list, the first job is to turn it into something that can direct the work. If not, write a quick list from the project in Activity 1.</p>
+<p><strong>Full framework teaching (the four assumption types, the WHO/WHAT/WHY/SIGNAL formula, the Importance × Evidence matrix, common mistakes) lives in <code>Library/frameworks/assumption-map/framework-assumption-map.md</code>. Teach directly from that file.</strong> What follows is the condensed version plus this session's application.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User</td>
+<td>Who they are, what they care about, how they behave</td>
+</tr>
+<tr>
+<td>Problem</td>
+<td>The nature and severity of the problem</td>
+</tr>
+<tr>
+<td>Solution</td>
+<td>Whether the proposed fix addresses the problem</td>
+</tr>
+<tr>
+<td>Business</td>
+<td>Market viability, pricing, regulatory factors</td>
+</tr>
+</tbody>
+</table>
+<p>Formula: <em>"We believe [WHO] will [WHAT] because [WHY]. We'll know we're right when [SIGNAL]."</em></p>
+<p>Matrix: plot each assumption on <strong>Importance</strong> (vertical) × <strong>Evidence</strong> (horizontal). The top-left quadrant (high importance, low evidence) is where today's research gets pointed.</p>
+<h4 id="v0-why-this-comes-before-the-research-not-after">Why this comes before the research, not after</h4>
+<p>Open-ended research produces an open-ended list: every competitor, every feature, no priority. An evaluation or scan aimed at 3 to 5 named, high-stakes, unproven assumptions produces findings that confirm, break, or complicate a belief the team can act on. Naming the targets first is what makes the work grounded instead of exhaustive.</p>
+<hr />
+<h3 id="v0-part-2-desk-research">Part 2: Desk Research</h3>
+<h4 id="v0-what-is-desk-research">What is desk research?</h4>
+<p>Desk research is reviewing what already exists before generating new primary research. Competitor products, market reports, existing analytics, support ticket themes, prior research documents: it's fast and cheap, and its job here is narrow: test specific, named assumptions, not gather general inspiration. Where Evaluate Current Experience looked inward at your own product, desk research looks outward and across the organisation. It describes what is happening and what others do. It does not prescribe a fix; solutions come later.</p>
+<h4 id="v0-picking-comparators">Picking comparators</h4>
+<p>2 to 3 comparators is enough for one pass: a mix of direct competitors (same product category) and indirect ones (different category, same user job). More dilutes focus without adding signal. A comparator earns its place only if it speaks to a top-left assumption.</p>
+<h4 id="v0-what-to-look-for">What to look for</h4>
+<p>Not visual inspiration. The question is: how do others solve the same job, and where do they deliberately diverge? Look at how they handle the key moments in your workflow (entry, first decision, error, completion). A pattern only goes in the log if it speaks to a named assumption.</p>
+<h4 id="v0-patterns-not-screenshots">Patterns, not screenshots</h4>
+<p>The most common desk research mistake is collecting screenshots and calling it research. If three of three comparators show file requirements before upload, that's not three screenshots, it's one pattern with a count, and it's a far stronger, more defensible finding. The same holds across sources: a ticket theme, a drop-off in analytics, and a heuristic finding in <code>evaluation.md</code> pointing at the same step is one pattern with three independent sources. Group raw observations into 4 to 6 recurring patterns before moving on. In the scan, each observation is a row with a fixed schema: competitor / workflow / pattern observed / which assumption it relates to / why it matters.</p>
+<h4 id="v0-the-other-sources-quick-pointer">The other sources (quick pointer)</h4>
+<p>Competitor scanning is one source. Three more usually exist already and are cheaper than new research:</p>
+<ul>
+<li><strong>Support tickets and feedback:</strong> look for themes and counts, not single complaints. Ask which assumption each theme speaks to.</li>
+<li><strong>Analytics:</strong> where users drop off or loop. Numbers show where; they rarely show why, so tag them as "where" evidence.</li>
+<li><strong>Prior research:</strong> earlier studies, survey results, interview notes. Check the date and the audience before trusting it.</li>
+</ul>
+<p>For each source, note what it can and cannot prove. Everything gets tagged to an assumption, same as the scan. Full practice is in the assignment.</p>
+<hr />
+<h3 id="v0-part-3-synthesis">Part 3: Synthesis</h3>
+<h4 id="v0-close-the-loop">Close the Loop</h4>
+<p>Return to the assumption map from Part 1. For each assumption targeted today, gather the evidence from all available sources: the competitor pattern log, any ticket, analytics, or prior-research notes the mentee has, and the findings in <code>evaluation.md</code> (tag each to an assumption where one applies). Then:</p>
+<ul>
+<li>Move it to <strong>Confirmed</strong> if the evidence supports it, noting the sources. Two independent sources beats one.</li>
+<li>Keep it <strong>Unconfirmed</strong>, with an updated confidence note, if evidence was partial or mixed.</li>
+<li>Add new entries to <strong>Unknown</strong> if the research surfaced a belief nobody had named yet.</li>
+</ul>
+<p>(Practised after the teaching, in the Close the Loop activity.) This is the step most teams skip, and it's the difference between research that produces a document and research that changes what the team believes. The assignment includes a second, fuller close once the remaining sources are gathered.</p>
+<h4 id="v0-from-list-to-narrative">From List to Narrative</h4>
+<h5 id="v0-the-list-vs-narrative-trap">The list-vs-narrative trap</h5>
+<p>A findings log, even a well-organised one, reads as a list until it's synthesised. Stakeholders don't act on lists; they act on stories that connect a specific problem to a consequence they care about. Synthesis turns "here's what we found" into "here's what this means and why it matters."</p>
+<h5 id="v0-the-insight-statement-formula">The insight statement formula</h5>
+<p>For each cluster of related findings, write:</p>
+<blockquote>
+<p><em>"We noticed [PATTERN, with evidence] across [N sources/instances]. This confirms/breaks our assumption that [ASSUMPTION]. It matters because [BUSINESS OR USER IMPACT]."</em></p>
+</blockquote>
+<p><strong>Weak:</strong> "Competitors do upload differently."
+<strong>Strong:</strong> "All three comparators show accepted file formats before the upload step, and our own tickets show 'upload failed' as the top complaint theme. This breaks our assumption that users know what a valid file is. It matters because upload sits upstream of every other task; if users can't get past it, nothing downstream gets used."</p>
+<p>Aim for 3 to 4 insight statements total. More dilutes the narrative back into a list.</p>
+<hr />
+<h3 id="v0-part-4-present-with-confidence">Part 4: Present with Confidence</h3>
+<h4 id="v0-headline-first-structure">Headline-first structure</h4>
+<p>Stakeholders are busy. Lead with the headline, the single most important insight, not the methodology. A workable structure: one-line summary of what was researched and why, then 3 to 4 insights each with evidence and business impact, then a recommended next step. Push the full pattern log and screenshots into an appendix.</p>
+<h4 id="v0-grounding-every-claim-in-evidence">Grounding every claim in evidence</h4>
+<p>Every insight should trace to something specific: a competitor pattern, a ticket count, a metric, a prior study, a finding with a screenshot. If an insight can't point to a specific piece of evidence, it isn't ready to present.</p>
+<h4 id="v0-handling-pushback">Handling pushback</h4>
+<p>"That's just your opinion" is the most common pushback. The answer is never to argue harder; point at the evidence attached to the insight: the pattern, the count, the sources, the assumption it broke. Confidence comes from preparation, not tone.</p>
+<hr />
+<h2 id="v0-activities">Activities</h2>
+<p>All four run after the teaching, in the order it was taught. Manual only: no AI until the AI block.</p>
+<h3 id="v0-activity-structure-your-assumptions">Activity: Structure Your Assumptions</h3>
+<p><strong>Type:</strong> In-class · Assumption Map template (FigJam or Notion)
+<strong>Time:</strong> 8 min
+<strong>Format:</strong> Solo</p>
+<ol>
+<li><strong>(3 min)</strong> Open your raw assumptions list from earlier sessions. If you don't have one, write 8 quickly from your project, covering all four types: user, problem, solution, business.</li>
+<li><strong>(3 min)</strong> Select or rewrite 5 to 8 using the formula <em>"We believe [WHO] will [WHAT] because [WHY]. We'll know we're right when [SIGNAL]."</em> Make each specific, not generic.</li>
+<li><strong>(1 min)</strong> Plot each on the Importance × Evidence matrix.</li>
+<li><strong>(1 min)</strong> Share back: which assumption landed top-left, and why is it the one worth testing first?</li>
+</ol>
+<hr />
+<h3 id="v0-activity-competitor-scan">Activity: Competitor Scan</h3>
+<p><strong>Type:</strong> In-class · Live comparator products + pattern log worksheet
+<strong>Time:</strong> 12 min
+<strong>Format:</strong> Solo, using your own project</p>
+<ol>
+<li><strong>(2 min)</strong> Name the workflow and the top-left assumption it relates to. Confirm your 2 to 3 comparators (at least one direct, one indirect if you have one).</li>
+<li><strong>(6 min)</strong> Walk the same workflow in each comparator. At each key moment (entry, first decision, error, completion), add a row: competitor, workflow, pattern observed, related assumption, why it matters. Take one screenshot per pattern.</li>
+<li><strong>(2 min)</strong> Group your rows into 2 to 3 recurring patterns, with a count (e.g. "3 of 3 show formats before upload").</li>
+<li><strong>(2 min)</strong> Share back: which pattern speaks most directly to your top-left assumption, and where do your comparators diverge?</li>
+</ol>
+<hr />
+<h3 id="v0-activity-close-the-loop">Activity: Close the Loop</h3>
+<p><strong>Type:</strong> In-class · Assumption Map
+<strong>Time:</strong> 5 min
+<strong>Format:</strong> Solo</p>
+<ol>
+<li><strong>(3 min)</strong> Using your pattern worksheet and your <code>evaluation.md</code> findings (tag each to an assumption), mark each targeted assumption Confirmed (with sources), keep it Unconfirmed with an updated confidence note, or add it to Unknown if something new surfaced. Re-plot anything that moved.</li>
+<li><strong>(2 min)</strong> Share back: which assumption moved the furthest, and how many independent sources moved it? You'll do a second, fuller pass once tickets, analytics, and prior research come in.</li>
+</ol>
+<hr />
+<h3 id="v0-activity-synthesise-your-insights">Activity: Synthesise Your Insights</h3>
+<p><strong>Type:</strong> In-class · Insight statement formula (on paper or in a doc)
+<strong>Time:</strong> 6 min
+<strong>Format:</strong> Solo</p>
+<ol>
+<li><strong>(1 min)</strong> Review your pattern worksheet, <code>evaluation.md</code> findings, and updated Assumption Map side by side.</li>
+<li><strong>(4 min)</strong> Write 2 insight statements using the formula: pattern with evidence, assumption confirmed or broken, why it matters.</li>
+<li><strong>(1 min)</strong> Share back your strongest insight and the evidence behind it.</li>
+</ol>
+<hr />
+<h2 id="v0-ai-in-practice-brainstorm-convert-to-md-visualise-in-html">AI in Practice: Brainstorm, Convert to .md, Visualise in HTML</h2>
+<p>Everything above was done by hand. Now AI speeds up work the mentee already understands and can check. The flow is one chain, the same as Evaluate Current Experience: <strong>brainstorm → convert the output to <code>.md</code> → use HTML to visualise that content.</strong> Each step feeds the next, and each step's output is checked before it moves on.</p>
+<h3 id="v0-step-1-brainstorm-3-min">Step 1. Brainstorm (3 min)</h3>
+<p>Paste your top-left assumption and workflow into your AI tool and ask for: comparators you may have missed (direct and indirect), and other angles on the same assumption (what tickets or analytics would show). The output is raw leads, not facts. Open each product yourself and keep only what you can verify. Mark each lead "AI-suggested, verified" or "AI-suggested, not verified", and drop anything unverified before step 2.</p>
+<h3 id="v0-step-2-convert-the-output-to-md-5-min">Step 2. Convert the output to <code>.md</code> (5 min)</h3>
+<p>Give AI your verified brainstorm leads plus your manual work (worksheet rows, <code>evaluation.md</code> findings, your two insight statements) and ask it to convert them into saved files. Paste the existing material first, and ask it to <em>structure</em> it, not invent new content.</p>
+<ol>
+<li><strong><code>competitor-pattern-log.md</code></strong>: your worksheet rows plus the verified leads, in the fixed schema (competitor / workflow / pattern / related assumption / why it matters). Append-only from now on. AI's job each time is "add to this log," not "generate a new comparison."</li>
+<li><strong><code>insight-synthesis-template.md</code></strong>: the pattern, assumption, impact formula with your two insights as worked examples.</li>
+<li><strong><code>stakeholder-readout-template.md</code></strong>: headline, 3 to 4 insight slots with evidence and impact fields, recommended next step.</li>
+</ol>
+<p>You also bring a fourth file, <code>evaluation.md</code>, built in Evaluate Current Experience. It is an input here, not something you build today.</p>
+<h3 id="v0-step-3-visualise-in-html-4-min">Step 3. Visualise in HTML (4 min)</h3>
+<p>Ask AI to read those <code>.md</code> files and generate a one-page <code>readout.html</code>: headline, your insights with evidence tags, the patterns with counts, impact, next step. The HTML may only use content that is in the <code>.md</code> files; no new facts and no invented numbers. If something looks wrong in the page, fix it in the <code>.md</code> and regenerate, so the <code>.md</code> stays the source of truth. Embed any screenshots so the file is self-contained. The mentee compares the page with what they would have written by hand and notes what AI got right and what it padded. They finish or rework it as part of the assignment.</p>
+<h3 id="v0-verify-2-min-after-each-step">Verify (2 min, after each step)</h3>
+<p>AI is fast at suggesting comparators and describing what they do, and unreliable at it. It can name products that don't exist, describe features a product doesn't have, or cite studies and statistics it invented. The rule: nothing enters the <code>.md</code> files or <code>readout.html</code> unless you have opened the product or the source yourself. Check the readout line by line: does each claim point at a named source in your <code>.md</code> files?</p>
+<h3 id="v0-critical-thinking">Critical thinking</h3>
+<ul>
+<li>Where did AI save real time, and where did it produce something generic or wrong that needed your project context to fix?</li>
+<li>Clustering findings into patterns, and deciding which assumption an insight confirms or breaks, is judgment, not something to hand to AI. Where did you catch yourself wanting to skip that step?</li>
+</ul>
+<h3 id="v0-prompt-engineering-tip">Prompt engineering tip</h3>
+<p>When asking AI to help with any asset, paste the existing file first and ask it to <em>extend</em> or <em>append to</em> what's there, not generate a fresh version. This is what makes the asset compounding rather than disposable.</p>
+<h3 id="v0-ethics-consideration">Ethics consideration</h3>
+<p>A confidently worded AI summary is not evidence. Every insight presented to a stakeholder must trace back to something you actually observed or read: a pattern you logged, a ticket count, a metric, a study you opened.</p>
+<hr />
+<h2 id="v0-assessment">Assessment</h2>
+<h3 id="v0-quick-knowledge-check">Quick knowledge check</h3>
+<p>Run verbally after the practise block, before the AI block (2 to 3 min):</p>
+<ol>
+<li>What's the difference between a pattern and a screenshot?</li>
+<li>Why does a saved, append-only log beat re-prompting AI from memory every time?</li>
+<li>A stakeholder says, "this is just your opinion." What's your response?</li>
+</ol>
+<hr />
+<h2 id="v0-assignments">Assignments</h2>
+<h3 id="v0-assignment-full-desk-research-pass">Assignment: Full Desk Research Pass</h3>
+<p><strong>Due:</strong> Before next session
+<strong>Time estimate:</strong> 2 to 3 hours
+<strong>Type:</strong> Analysis · Your real project</p>
+<p>Take today's practice pass to full scale on your actual project.</p>
+<ol>
+<li>Finish the competitor scan: 2 to 3 comparators in total (a mix of direct and indirect), every pattern logged in <code>competitor-pattern-log.md</code> with a screenshot and a related assumption.</li>
+<li>Gather at least two of the other sources: support ticket themes, analytics, prior research. Log each as patterns with counts, tagged to assumptions, noting what each can and cannot prove.</li>
+<li>Update your Assumption Map fully: every targeted assumption moved to Confirmed, Unconfirmed (with updated confidence), or newly added to Unknown, citing sources.</li>
+<li>Write 3 to 4 insight statements using your Insight Synthesis Template, each grounded in at least two pieces of evidence where possible.</li>
+<li>Finish <code>readout.html</code> and a 60-second spoken version of your pitch: headline, top insight with evidence and impact, recommended next step. You will deliver it at the start of the next session, and I will push back once. Practise pointing at your evidence, not arguing harder.</li>
+</ol>
+<p><strong>Deliverable:</strong> Updated <code>competitor-pattern-log.md</code>, source notes, updated Assumption Map, and <code>readout.html</code>. Share before the next session.</p>
+<blockquote>
+<p><strong>AI in Practice:</strong> <em>"Here's my pattern log and my source notes: [paste both]. Using my insight synthesis template, draft 4 candidate insight statements. Flag any that rest on a single source or on something I haven't verified myself."</em></p>
+</blockquote>
+<hr />
+<h2 id="v0-further-resources">Further Resources</h2>
+<ul>
+<li><strong>Assumption Map framework (internal):</strong> <code>Library/frameworks/assumption-map/framework-assumption-map.md</code>: full teaching content: types, formula, matrix, common mistakes</li>
+<li><strong>UXPin, Desk Research in UX:</strong> https://www.uxpin.com/studio/blog/desk-research/: methods and step-by-step guide</li>
+<li><strong>UXPin, Competitive Analysis for UX:</strong> https://www.uxpin.com/studio/blog/competitive-analysis-for-ux/: comparator selection and evaluation criteria</li>
+<li><strong>Miro, How to Present UX Research Findings:</strong> https://miro.com/research-and-design/ux-research-presentation-examples/: structuring a stakeholder-ready readout</li>
+</ul>
+<hr />
+<p><em>Created by Winnie Nguyen · Private Training · Last updated October 2026</em></p></article>
+  </div>
+</div></section><section class="tp-panel" data-tab-panel data-tab-id="slides" role="tabpanel" hidden><div class="tp-slides tp-slides--empty"><strong>No slides yet</strong><span>Add a deck (.html) or .pdf to this lesson's <code>slides/</code> folder, or a <code>slides:</code> link in the lesson front matter.</span></div></section><section class="tp-panel" data-tab-panel data-tab-id="homework" role="tabpanel" hidden><div class="tp-slides tp-slides--empty"><strong>No mentee homework yet</strong><span>Drop files in <code>Mentees/&lt;name&gt;/homework/desk-research/</code> and they show up here.</span></div></section>
+  <section class="tp-related"><h2>Related lessons</h2><div class="tp-related__grid"><a class="tp-related__card" href="evaluate-current-experience.html"><span>Previous lesson</span><strong>Evaluate Current Experience</strong></a><a class="tp-related__card" href="customer-understanding.html"><span>Next lesson</span><strong>Customer Understanding</strong></a></div></section>
+</div>
+<script>
+(function () {
+  function group(btnSel, panelSel, attr, onShow) {
+    var btns = [].slice.call(document.querySelectorAll(btnSel)), panels = [].slice.call(document.querySelectorAll(panelSel));
+    function show(id) {
+      btns.forEach(function (b) { var on = b.getAttribute(attr) === id; b.setAttribute('aria-selected', on); b.classList.toggle('tabs__tab--active', on && b.classList.contains('tabs__tab')); });
+      panels.forEach(function (p) { p.hidden = p.getAttribute(attr) !== id; });
+      if (onShow) onShow(id);
+    }
+    btns.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute(attr)); }); });
+    return show;
+  }
+  var firstTab = (document.querySelector('[data-tab-btn]') || {getAttribute: function () {}}).getAttribute('data-tab-id');
+  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === firstTab ? location.pathname : '#' + id); });
+  var showVar = group('[data-var-btn]', '[data-var-panel]', 'data-var-id');
+  var h = (location.hash || '').replace('#', '');
+  showTab(h && document.querySelector('[data-tab-btn][data-tab-id="' + h + '"]') ? h : firstTab);
+  if (document.querySelector('[data-var-btn]')) showVar('0');
+  var decks = [].slice.call(document.querySelectorAll('[data-deck-btn]'));
+  decks.forEach(function (b) { b.addEventListener('click', function () {
+    var f = document.getElementById('deck-frame'); f.src = b.dataset.src; document.getElementById('deck-open').href = b.dataset.src;
+    decks.forEach(function (x) { x.classList.toggle('deck-item--active', x === b); x.setAttribute('aria-pressed', x === b); });
+  }); });
+})();
+</script>
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Winnie Nguyen · Senior Product Designer</p>
+    <div class="footer-links">
+      <a href="mailto:nguyenphuctuongvan@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/winnienguyen2910" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script>(function(){if(location.protocol.indexOf('http')!==0)return;var u='../assets/build-stamp.txt',last=null;function c(){fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(t){if(t===null)return;if(last!==null&&t!==last)location.reload();last=t}).catch(function(){})}c();setInterval(c,1500)})();</script>
+</body>
+</html>

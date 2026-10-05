@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<meta name="description" content="The shared vocabulary and the folder every later lesson builds on"/>
+<title>Set Up Your AI Workspace — Training Hub</title>
+<link rel="stylesheet" href="../assets/css/tokens.css"/>
+<link rel="stylesheet" href="../assets/css/components.css"/>
+<link rel="stylesheet" href="../assets/css/site.css"/>
+<link rel="stylesheet" href="../assets/css/card-list.css"/>
+<link rel="stylesheet" href="../assets/css/text-page.css"/>
+<link rel="stylesheet" href="../assets/css/home.css"/>
+
+</head>
+<body class="tp-white">
+<nav>
+  <a class="nav-logo" href="../index.html"><img src="../assets/images/logo-nav.svg" alt="Winnie Nguyen — Training Hub"/></a>
+  <div class="nav-links">
+    <a href="../lessons.html" data-text="Lesson Library" class=active>Lesson Library</a>
+    <a href="../private-training.html" data-text="Private Training">Private Training</a>
+    <a href="../programs.html" data-text="Programs">Programs</a>
+  </div>
+</nav>
+<div class="tp">
+  <a class="tp-back" href="../lessons.html">← All lessons</a>
+  <header class="tp-head">
+    <h1 class="page-title">Set Up Your AI Workspace</h1>
+    <p class="page-desc">The shared vocabulary and the folder every later lesson builds on</p>
+    
+    <div class="tp-info" data-var-panel data-var-id="0"><div class="draft-banner">Draft: content exists but is not finalised for delivery.</div><dl class="tp-meta" style="--tp-cols: repeat(4, minmax(0, 1fr)) minmax(0, 1.8fr)"><div><dt>Stage</dt><dd>Ai Design Workflow</dd></div><div><dt>Level</dt><dd>Foundational</dd></div><div><dt>Duration</dt><dd>90 min</dd></div><div><dt>Date</dt><dd>5 Oct 2026</dd></div><div><dt>Source file</dt><dd><code>ai-workflow-for-ux-designers-lesson.md</code></dd></div><div class="tp-meta__tags"><dt>Topics</dt><dd><span>ai</span><span>terminology</span><span>context</span><span>folder</span><span>data-safety</span><span>hub</span></dd></div></dl></div>
+  </header>
+  <div class="tabs tabs--pill tp-tabs"><div class="tabs__list" role="tablist"><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="lesson" aria-selected="false">Lesson</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="slides" aria-selected="false">Slides</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="homework" aria-selected="false">Homework</button></div></div>
+  <section class="tp-panel" data-tab-panel data-tab-id="lesson" role="tabpanel" hidden><div data-var-panel data-var-id="0">
+  <div class="tp-layout">
+    <aside class="tp-toc" aria-label="On this page"><p class="tp-toc__label">On this page</p><a href="#v0-overview">Overview</a><a href="#v0-learning-objectives">Learning Objectives</a><a href="#v0-materials-needed">Materials Needed</a><a href="#v0-pre-class-preparation-about-20-minutes-this-first-week-10-to-15-minutes-in-later-weeks">Pre-Class Preparation (about 20 minutes this first week; 10 to 15 minutes in later weeks)</a><a href="#v0-session-structure">Session Structure</a><a href="#v0-activities">Activities</a><a href="#v0-ai-in-practice">AI in Practice</a><a href="#v0-assessment">Assessment</a><a href="#v0-homework-up-to-60-minutes">Homework (up to 60 minutes)</a><a href="#v0-further-resources">Further Resources</a><a href="#v0-connection-to-curriculum">Connection to Curriculum</a><a href="#v0-week-1-brief-the-one-page-pre-read-about-10-minutes">Week 1 brief (the one-page pre-read, about 10 minutes)</a></aside>
+    <article class="tp-body"><h2 id="v0-overview">Overview</h2>
+<p>This is the first lesson of the AI Design Workflow series for mid and senior designers. It does three jobs, so no later lesson has to repeat them.</p>
+<p><strong>1. A shared vocabulary.</strong> When an AI tool talks about a "context window", an "agent" or "MCP", you should know what it means and what to do about it.</p>
+<p><strong>2. A project folder the AI can work with.</strong> Every later lesson adds one file or one page to the same case. In a clear structure, each AI step gets a named input and you can find, check and reuse everything.</p>
+<p><strong>3. A clear rule for what is safe to give an AI tool.</strong> Designers hold other people's material. Before anything is pasted into a tool, you need a way to decide what is safe.</p>
+<p>The lesson also sets the stance for the series: <strong>designers are partners who help define the requirement with the business and product, not people who wait for a PRD to arrive.</strong> Later lessons build the habit; this one sets up the words and the tools.</p>
+<p><strong>The core distinction: AI-assisted vs AI-generated.</strong> AI-generated means the AI made the decision. AI-assisted means you decided and the AI did the assembly. AI drafts. You verify. You decide.</p>
+<p><strong>How each week works (the whole series).</strong> One online session a week with 7–8 students. Each week: <strong>up to 15 minutes of preparation</strong> (a little more in week 1, because you set up your tool), <strong>a 90-minute live working session</strong> where you apply the step to your own case with coaching, and <strong>up to 60 minutes of homework</strong>. About 2.5 to 2.75 hours in total. The live session never depends on homework having been done.</p>
+<blockquote>
+<p><strong>Where this sits:</strong> it comes before the first step of the workflow. It assumes you already do research, UX design and prototyping, and teaches the AI layer on top.</p>
+</blockquote>
+<hr />
+<h2 id="v0-learning-objectives">Learning Objectives</h2>
+<p>By the end of this session, students will be able to:</p>
+<ol>
+<li><strong>Explain</strong> ten core AI terms in their own words: AI chat tool, AI coding tool, context, context window, grounding, hallucination, agent, connector (MCP), reusable instructions (skills, rules files, project memory), and AI-assisted vs AI-generated</li>
+<li><strong>Recognise</strong> Markdown and HTML, and explain why a plain local folder matters when an AI tool reads or writes files</li>
+<li><strong>Set up</strong> the series case folder for their own case, with the standard layout, a started context pack and an empty hub</li>
+<li><strong>Reuse</strong> a saved file as context for an instruction instead of retyping a project description, and ask for a source pointer and an "unknown" answer</li>
+<li><strong>Decide</strong> what is safe to give an AI tool by sorting material into three kinds (safe, ask first, never in a public tool), anonymise before pasting, and write their own data rules</li>
+<li><strong>Explain</strong> how to share their hub with a stakeholder: private by default (a PDF or zipped folder), and published on GitHub only when the case is free to share</li>
+</ol>
+<hr />
+<h2 id="v0-materials-needed">Materials Needed</h2>
+<ul>
+<li><strong>At least one AI chat tool on the student's own laptop</strong> that the student's company allows (or the course case card, below, if none is allowed). Recommended examples are in the tools handout (<code>tools-to-bring.md</code>)</li>
+<li>A laptop with a file explorer open</li>
+<li>The Week 1 brief (the one-page pre-read at the end of this file)</li>
+<li>The case card for the demo (Phase 1), ten terminology cards, and six material cards for the sorting exercise</li>
+<li>The series case folder template and the empty hub template folder</li>
+<li>The student publishing guide (<code>publish-guide.md</code>), for the optional homework</li>
+<li>One case to use through the series. <strong>Default: the student's own case</strong> (real or realistic). Fallback: the course case card, or a product the student knows from outside</li>
+</ul>
+<hr />
+<h2 id="v0-pre-class-preparation-about-20-minutes-this-first-week-10-to-15-minutes-in-later-weeks">Pre-Class Preparation (about 20 minutes this first week; 10 to 15 minutes in later weeks)</h2>
+<p><strong>For students:</strong></p>
+<ol>
+<li><strong>Bring your AI tool.</strong> Read the tools handout (<code>tools-to-bring.md</code>, about 5 minutes) and do its 5-minute test, so your tool is working before class. You need a chat tool now and a coding tool by week 6.</li>
+<li><strong>Read the Week 1 brief</strong> (one page, at the end of this file). It holds the ten terms and the folder layout, so class time is for using them.</li>
+<li><strong>Choose your case.</strong> Your own project, product or feature. Your hub stays <strong>private by default</strong>; you publish only if the case is free to share. Decide what you can show in class: anonymise names, figures and unreleased details first. If your company bans AI tools or the case is too sensitive for class, use the course case card for the in-class steps.</li>
+<li><strong>Find out your company's rules on AI tools,</strong> if you work somewhere: is there a written policy, and which tools are approved? If you do not know, ask.</li>
+</ol>
+<p><strong>For the instructor:</strong></p>
+<ul>
+<li>Prepare the case card and the two demo instructions (Phase 1), and run both once beforehand.</li>
+<li>Have your own case folder open to screen-share, with the <code>hub/</code> folder opened in a browser.</li>
+<li>Print or share the ten terminology cards and the six material cards.</li>
+<li>Set the cohort ground rules (Phase 1).</li>
+<li>Prepare two breakout rooms of 3 to 4 students for the activities, and plan where you will coach.</li>
+</ul>
+<hr />
+<h2 id="v0-session-structure">Session Structure</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Activity</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>The partner mindset, and one task done twice</td>
+<td>12 min</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Terms in action, Activity 1, data safety</td>
+<td>21 min</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Files and folders an AI tool can work with</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Build your case folder (Activity 2)</td>
+<td>25 min</td>
+</tr>
+<tr>
+<td>5</td>
+<td>What comes next, the hub, sharing, close</td>
+<td>8 min</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Content total</strong></td>
+<td><strong>76 min</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Buffer for questions, setup trouble and a short break</td>
+<td>14 min</td>
+</tr>
+</tbody>
+</table>
+<p>Total: 90 minutes live. Preparation up to 15 minutes before; homework up to 60 minutes after. <em>(If the session runs short, shorten Phase 5 and the Activity 1 sharing; do not cut the data safety block.)</em></p>
+<hr />
+<h3 id="v0-phase-1-the-partner-mindset-and-one-task-done-twice-12-min">Phase 1 — The Partner Mindset, and One Task Done Twice (12 min)</h3>
+<p><strong>Ground rules for the cohort (1 min).</strong> This is a room of working designers with real cases. What is shared in class stays in class. Share only what you are comfortable showing, and anonymise first. Nobody has to show confidential material; the course case card is always available.</p>
+<p><strong>Open with a pair question (2 min).</strong> Each person names one time AI genuinely helped their work, and one time it quietly made the work worse without them noticing at first. The usual pattern: the helpful moments had a clear ask and a review step; the bad ones trusted the output.</p>
+<p><strong>The numbers and the stance (3 min).</strong> About 9 in 10 designers now use AI at least weekly, using seven tools on average (Designer Fund and Foundation Capital, AI + Design 2026). But in Figma's State of the Designer 2026, 36% said design got better with AI, 35% said worse, 29% saw no change. The difference is the way of working. And a designer who waits for a PRD and turns it into screens is the one most exposed, because that step is the one AI compresses. A designer who helps define the requirement with the business is doing the work AI cannot: choosing which problem is worth solving and agreeing what success means. Some of you can be in the room where requirements are shaped, some can only message the PO, some have no access. The series works in all three cases, and the next lesson teaches how.</p>
+<p><strong>One task, done twice (6 min).</strong> The instructor demo that earns the rest of the lesson. Use the case card and show two instructions on the same task.</p>
+<p><em>Case card (fictional):</em> "A meal-kit subscription app. Many new customers pause after their first box. The team wants to improve onboarding. The app has a delivery date picker, a menu screen and a payment step. The team suspects price is the reason people leave. No research has been done yet."</p>
+<p><em>Instruction 1, vague:</em> "How can I improve onboarding for my meal-kit app?"</p>
+<p><em>Instruction 2, structured (attach the case card):</em> "Use only the case card. List the five most important things you would need to know that are NOT in it, and say why each matters. Do not guess or fill gaps from general knowledge. If something is unclear, say 'unknown'. Return only the list."</p>
+<p>Show both outputs. The vague one usually gives confident, generic advice and may state things about the product as fact. The structured one usually asks for what only research or the business can answer. Ask: which would you trust, and why? Do not explain yet; the next phase names what they just saw.</p>
+<hr />
+<h3 id="v0-phase-2-terms-in-action-and-data-safety-21-min">Phase 2 — Terms in Action, and Data Safety (21 min)</h3>
+<p><strong>Terms in action (6 min).</strong> The definitions are in the Week 1 brief. Do not read them out. Link each to the demo: the case card was the <strong>context</strong>; "use only the case card" was <strong>grounding</strong>; the confident advice from the vague instruction was a <strong>hallucination</strong> risk; "unknown" is why the structured answer helped. Then two quick points that students rarely read: the <strong>context window</strong> (give only the sections a step needs, because long and messy material blurs) and the <strong>agent</strong> (an AI coding tool takes several steps itself, so check the files it changed, not only its reply). <strong>An AI that is allowed to say "unknown" invents less than one that feels obliged to fill every gap.</strong></p>
+<p><strong>Activity 1 (5 min)</strong> follows; see Activities.</p>
+<p><strong>What you put in: data safety (10 min).</strong> Everything so far was about what comes out. This is about what goes in. This is practical guidance, not legal advice; your company's policy and local law decide.</p>
+<p><strong>Why it matters.</strong> PRDs, unreleased designs, user research with names in it, client files and financial figures are often confidential or under an NDA. Many companies restrict which AI tools staff may use. In Vietnam, personal data is governed by the Law on Personal Data Protection (Law 91/2025/QH15, in force since 1 January 2026), guided by Decree 356/2025/ND-CP (law-firm summaries, for example <a href="https://kpmg.com/vn/en/home/insights/2025/06/vietnam-new-personal-data-protection-law.html" target="_blank" rel="noopener">KPMG Vietnam</a>; check the current text or ask your company). Names, emails, phone numbers and recordings of users are personal data.</p>
+<p><strong>What happens to what you paste depends on the tool and the plan.</strong> Reports from 2026 say that on consumer plans of the main AI chat tools, conversations may be used to improve the models unless you turn that off, while business and enterprise plans usually do not train on your data by default (<a href="https://theaicareerlab.com/blog/does-ai-train-on-your-data" target="_blank" rel="noopener">summary of tool policies, 2026</a>). Settings change, so read the data controls of the tool you use. <strong>Do not assume it is private.</strong></p>
+<p><strong>Sort what you paste into three kinds:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>Examples</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Safe</strong>: public facts, your own thinking, fictional cases</td>
+<td>A competitor's public pricing page, your notes on a public app, the course case card</td>
+<td>Fine in any tool you are comfortable with</td>
+</tr>
+<tr>
+<td><strong>Ask first</strong>: internal but not sensitive</td>
+<td>Internal process notes, non-public research summaries without names</td>
+<td>Only in a tool your company has approved</td>
+</tr>
+<tr>
+<td><strong>Never in a public tool</strong>: personal data, unreleased plans, finances, NDA material</td>
+<td>Interview transcripts with names, customer lists, an unreleased spec, screenshots of a live admin dashboard</td>
+<td>Do not paste. Anonymise first, use an approved tool, or leave it out</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Four habits before you paste:</strong> (1) check the policy; if there is none, ask, and when in doubt do not paste; (2) sort the material; (3) remove identifiers first, with find and replace on your own computer, not by asking the AI, because that already sends the data (anonymising is not foolproof); (4) keep confidential files out of the tool's folder, because an AI coding tool or agent reads the whole project folder. Also: whether AI output can be used in client work, and who owns it, depends on your company and country; say where AI was used in the case log.</p>
+<p><strong>Sorting exercise (pairs, 3 min).</strong> Six cards: (1) a competitor's public pricing page, (2) an interview transcript with participant names, (3) your notes on a public app you use, (4) an unreleased feature spec, (5) a customer email list, (6) a screenshot of your company's admin dashboard. Expected: 1 and 3 safe; 2, 4, 5 and 6 never in a public tool (2 can become safe after anonymising; 6 depends on what is visible). Discuss any disagreement.</p>
+<p><strong>Output:</strong> a first version of <code>00-context/data-rules.md</code>, three lines in the student's own words: what I may paste, what I will not paste, which tool I use for what.</p>
+<hr />
+<h3 id="v0-phase-3-files-and-folders-an-ai-tool-can-work-with-10-min">Phase 3 — Files and Folders an AI Tool Can Work With (10 min)</h3>
+<p>The detail is in the Week 1 brief; use class time on what students get wrong.</p>
+<p><strong>Markdown and HTML (3 min).</strong> Markdown (<code>.md</code>) is the working document, plain text with simple marks, what AI tools read and write best. HTML is the presentation, what a browser draws; an AI-built prototype is an HTML file, and so is the hub. You keep the Markdown; the AI builds the page when a stakeholder needs to read it.</p>
+<p><strong>The case folder, kept local (4 min).</strong> Show the layout. A plain local folder, not a cloud document: an AI coding tool opens the whole folder as its project and reads everything in it, and cloud-sync folders can misbehave mid-write. A messy folder gives messy output.</p>
+<pre><code>[case-name]/
+├── 00-context/          the context pack: pasted into AI steps first
+│   ├── product-and-users.md
+│   ├── principle-checks.md          (written in a later lesson)
+│   ├── design-system-notes.md       (added in a later lesson)
+│   ├── accessibility-rules.md
+│   ├── data-rules.md
+│   └── glossary.md                  (optional)
+├── 01-discover/         one working file per activity, plus a sources/ folder
+├── 02-define/           problem-brief.md
+├── 03-develop/          options, alignment check, prototype/
+├── 04-deliver/          test plan, findings, handoff
+├── hub/                 the Experience Hub: one HTML page per activity
+└── case-log.md          one line per decision, and why
+</code></pre>
+<p><strong>One working file per activity (3 min).</strong> Each activity fills one Markdown file, section by section. Two rules keep it safe: (1) <strong>the AI returns only its own section,</strong> and you paste it in, so it cannot silently rewrite settled work; (2) <strong>keep the AI's draft and your checked version as separate sections,</strong> because the gap is your error rate. And one habit: <strong>before you retype your project from memory, find the saved file and attach it.</strong></p>
+<hr />
+<h3 id="v0-phase-4-build-your-case-folder-25-min">Phase 4 — Build Your Case Folder (25 min)</h3>
+<p>This is Activity 2. Students work in breakout rooms of 3 to 4 while the instructor circulates and coaches.</p>
+<hr />
+<h3 id="v0-phase-5-what-comes-next-the-hub-and-sharing-8-min">Phase 5 — What Comes Next, the Hub, and Sharing (8 min)</h3>
+<p><strong>The series in one picture (2 min).</strong> Show the stage map: Discover, Define, Develop, Deliver. Each stage's output is the next stage's input. A gate decides whether the work moves on, and at each stage there is something to agree with the PO and the business. We start from a business question, not a received brief.</p>
+<p><strong>The Experience Hub (2 min).</strong> Every output goes into one hub, a small website of linked pages on your own computer, and the finished hub is the final report of the series. Show the empty hub in a browser. Each lesson adds a page. At the end, a reader can start from any design decision and reach the need, hypothesis, principle and test behind it.</p>
+<p><strong>Sharing it (2 min).</strong> <strong>The hub is private by default:</strong> it lives in your case folder and nobody can see it unless you send it. To show a stakeholder, export the Overview and key pages to PDF, or send the hub folder zipped. Only if your case is free to share (a course case, or a cleaned-up version of your work) can you publish it as a live link on GitHub: the optional homework and the publishing guide cover it. <strong>If you publish, you host it and you are responsible for it.</strong> Free GitHub Pages needs a public repository, which is why real work stays private.</p>
+<p><strong>Close (2 min).</strong> Ask two or three students: which term will you now explain differently? Then the closing thought:</p>
+<blockquote>
+<p>The tools will keep changing. The way of working does not: give the AI a clear input, make it show where each claim comes from, check it, and decide yourself.</p>
+</blockquote>
+<hr />
+<h2 id="v0-activities">Activities</h2>
+<h3 id="v0-activity-1-explain-it-to-a-teammate">🗣️ Activity 1 — Explain It to a Teammate</h3>
+<p><strong>Type:</strong> In-class · Pairs
+<strong>Time:</strong> 5 min
+<strong>Format:</strong> Pairs, terminology cards</p>
+<p><strong>What it is:</strong>
+Students turn three terms into their own words, with an example from their own case. The output is the optional <code>glossary.md</code> of their context pack.</p>
+<p><strong>Instructions for students:</strong></p>
+<ol>
+<li><strong>(4 min)</strong> Take three cards each. Explain each term to your partner in one sentence, with an example from your own case. Your partner asks one question: "What would you do differently because of that?"</li>
+<li><strong>(1 min)</strong> Write the agreed sentences in <code>glossary.md</code>.</li>
+</ol>
+<p><strong>Facilitator watch-fors:</strong></p>
+<ul>
+<li>Definitions copied word for word. Push for their own example.</li>
+<li>Mixing up "context" and "context window": "which is what you give it, and which is its limit?"</li>
+<li>Terms they say they know but cannot use in a sentence about their own work.</li>
+</ul>
+<p><strong>Output:</strong> a draft <code>glossary.md</code> (optional, finished as homework if useful).</p>
+<hr />
+<h3 id="v0-activity-2-build-your-case-folder">🔧 Activity 2 — Build Your Case Folder</h3>
+<p><strong>Type:</strong> In-class · Hands-on, own laptop
+<strong>Time:</strong> 25 min
+<strong>Format:</strong> Solo, in breakout rooms of 3 to 4</p>
+<p><strong>What it is:</strong>
+Students set up the infrastructure the whole series runs on, for their own case, and test it with one instruction like the one in the demo.</p>
+<p><strong>Setup (before class):</strong></p>
+<ul>
+<li>The case folder template and the empty hub template folder available to every student.</li>
+<li>An AI tool the student's company allows. If none, the course case card stands in for the case in step 4.</li>
+<li>The instructor's own case folder ready to share.</li>
+</ul>
+<p><strong>Instructions for students:</strong></p>
+<ol>
+<li><strong>(4 min) Create the case folder.</strong> One folder for your case with the layout from Phase 3. Build the subfolders. Name it after your case, lowercase with hyphens.</li>
+<li><strong>(8 min) Start the context pack.</strong> In <code>00-context/</code>, write a first version of <code>product-and-users.md</code> (what the product is, who uses it, their main job; half a page, anonymised) and <code>accessibility-rules.md</code> (the requirements you must meet; a few lines). Bring in <code>data-rules.md</code> from the data safety exercise.</li>
+<li><strong>(3 min) Add the hub.</strong> Copy the empty hub template folder into <code>hub/</code>. Open its <code>index.html</code> in a browser. You should see the Overview page with example data. Do not edit it yet.</li>
+<li><strong>(10 min) Run one instruction against a saved file.</strong> Attach <code>product-and-users.md</code> to your AI chat tool and use:</li>
+</ol>
+<blockquote>
+<p><em>"Here is the context for my design case. Use only this file. List the five most important things you would need to know about this product and its users that are NOT in the file, and say why each matters. Do not guess or fill gaps from general knowledge. If something is unclear, say 'unknown'. Return only the list."</em></p>
+</blockquote>
+<p>Read the answer critically. Which questions are useful, which generic, which would you have found yourself? Save the useful ones in <code>00-context/open-questions.md</code>.</p>
+<p><strong>Facilitator watch-fors:</strong></p>
+<ul>
+<li>Real subfolders, not one empty folder.</li>
+<li>Students who retype a project summary from memory instead of attaching the file.</li>
+<li>Coaching question in step 4: "What would you correct before you'd use this answer?"</li>
+<li>Anything confidential in the file: stop and anonymise first.</li>
+<li>A blank hub: usually the pages were moved without the CSS and scripts beside them. A box at the top of the page now names most setup mistakes.</li>
+</ul>
+<hr />
+<h2 id="v0-ai-in-practice">AI in Practice</h2>
+<h3 id="v0-try-this-instruction">🤖 Try this instruction</h3>
+<blockquote>
+<p><em>"I'm a UX designer working on [your case in one or two sentences]. Here is my context file: [attach product-and-users.md]. Using only this file, write the instruction I should use to ask you to [the specific task]. Then critique your own instruction: what is still ambiguous, what could you answer by guessing, and what should I add so you can say 'unknown' instead?"</em></p>
+</blockquote>
+<h3 id="v0-ethics-consideration">⚖️ Ethics consideration</h3>
+<p>AI tools reflect the patterns in their training data, which skews Western and English-language. For Vietnamese or Southeast Asian users, ask whether the suggestions match your users' mental models, not only whether the output looks polished. And remember the other direction: what you give the tool can be kept, so apply your data rules every time.</p>
+<hr />
+<h2 id="v0-assessment">Assessment</h2>
+<h3 id="v0-quick-knowledge-check">Quick knowledge check</h3>
+<p>Run verbally at the end of Phase 3 (2 min):</p>
+<ol>
+<li>What is the difference between AI-assisted and AI-generated?</li>
+<li>What is a context window, and what should you do when your material is long?</li>
+<li>Why should you allow an AI to answer "unknown"?</li>
+<li>What does an agent do that a chat reply does not, and what should you check afterwards?</li>
+<li>Name two things you would not paste into a public AI tool, and what you would do before pasting an interview transcript.</li>
+<li>Why is your hub private by default, and when can you publish it?</li>
+</ol>
+<hr />
+<h2 id="v0-homework-up-to-60-minutes">Homework (up to 60 minutes)</h2>
+<h3 id="v0-assignment-1-your-case-folder-required-about-35-min">Assignment 1 — Your Case Folder (required, about 35 min)</h3>
+<p><strong>Due:</strong> Before the next lesson</p>
+<p>If you finished Activity 2, most of this is finishing and tidying.</p>
+<ul>
+<li>Case folder complete with the standard layout</li>
+<li><code>product-and-users.md</code> finished (one page): the product, the users, their main job, what success might look like, and what you do not know</li>
+<li><code>accessibility-rules.md</code> and <code>data-rules.md</code> (three lines) finished</li>
+<li>The empty hub copied into <code>hub/</code></li>
+<li><code>glossary.md</code> (optional)</li>
+</ul>
+<p>Submit: the folder tree (a screenshot) and <code>product-and-users.md</code> to the instructor for feedback. Anonymise anything confidential first.</p>
+<p><strong>What the instructor is looking for:</strong> a real structure; a <code>product-and-users.md</code> specific enough that a stranger could picture the users; data rules in the student's own words.</p>
+<h3 id="v0-assignment-2-share-your-hub-optional-about-25-min">Assignment 2 — Share Your Hub (optional, about 25 min)</h3>
+<p><strong>Due:</strong> Before the next lesson, if you have time</p>
+<p>Choose one:</p>
+<ul>
+<li><strong>(a) Private.</strong> Export the hub's Overview page to PDF, and open the zipped hub folder on another device. This is how you would send it to a stakeholder.</li>
+<li><strong>(b) Public, if the case is free to share.</strong> Follow the publishing guide (<code>publish-guide.md</code>): create a free GitHub account, create a public repository, upload the contents of <code>hub/</code>, turn on GitHub Pages, and open the link in a private browser window. You host it and you are responsible for it.</li>
+</ul>
+<p>If you have no time, skip it. The next live session does not depend on it.</p>
+<hr />
+<h2 id="v0-further-resources">Further Resources</h2>
+<ul>
+<li><strong><a href="https://designerfund.com/blog/ai-in-design-2026" target="_blank" rel="noopener">Designer Fund and Foundation Capital, AI + Design 2026</a></strong>: the adoption and role-blurring figures.</li>
+<li><strong><a href="https://www.figma.com/reports/state-of-the-designer-2026/" target="_blank" rel="noopener">Figma, State of the Designer 2026</a></strong>: the split between "better" and "worse".</li>
+<li><strong><a href="https://www.figma.com/blog/design-systems-ai-mcp/" target="_blank" rel="noopener">Figma, Design systems, AI and MCP</a></strong>: connectors and reusable instruction files for design work.</li>
+<li><strong><a href="https://www.nngroup.com/articles/careful-prompts/" target="_blank" rel="noopener">NN/g, CARE: Structure for Crafting AI Prompts</a></strong>: a prompting frame; the structured demo instruction follows it.</li>
+<li><strong><a href="https://www.nngroup.com/articles/ai-work-study-guide/" target="_blank" rel="noopener">NN/g, Using AI for UX Work: Study Guide</a></strong>: the best index for going further.</li>
+</ul>
+<hr />
+<h2 id="v0-connection-to-curriculum">Connection to Curriculum</h2>
+<table>
+<thead>
+<tr>
+<th>Lesson</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>This lesson</strong></td>
+<td>The shared vocabulary, the data rules, the case folder, the empty hub, and the AI-assisted stance</td>
+</tr>
+<tr>
+<td>Shape the Brief with Your PO</td>
+<td>First use of the case folder; start from the business question and agree the scope</td>
+</tr>
+<tr>
+<td>Turn Research into Insights You Can Trust</td>
+<td>One working file per activity and the "unknown" rule, first on real user quotes and then on competitors</td>
+</tr>
+<tr>
+<td>Frame the Problem Worth Solving</td>
+<td>Writes the principle checks into <code>00-context</code> and fills the brief page of the hub</td>
+</tr>
+<tr>
+<td>Explore Ideas and Pick a Direction, Build Your First Prototype, Refine and Check Your Design</td>
+<td>Add the design system notes to <code>00-context</code> and the prototype to the hub; "Refine and check your design" closes with the alignment check, which uses the hub's links and warnings</td>
+</tr>
+<tr>
+<td>Test with Real Users, Hand Off and Measure Success</td>
+<td>Fill the findings and handoff pages</td>
+</tr>
+<tr>
+<td>Capstone</td>
+<td>Finishes the hub as the final report</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="v0-week-1-brief-the-one-page-pre-read-about-10-minutes">Week 1 brief (the one-page pre-read, about 10 minutes)</h2>
+<p><strong>Ten terms.</strong> Each: what it is, and what you do about it.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it is</th>
+<th>What you do about it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AI chat tool</strong></td>
+<td>You write, it replies. Good for synthesis, ideation, writing</td>
+<td>Go deep with one tool before trying many</td>
+</tr>
+<tr>
+<td><strong>AI coding tool</strong></td>
+<td>Reads and writes files in your project folder; builds working prototypes</td>
+<td>Give it your flow and design system</td>
+</tr>
+<tr>
+<td><strong>Context</strong></td>
+<td>Everything it can see now: your instruction, pasted text, attached files, earlier messages</td>
+<td>Put the right material in; it knows nothing else about your project</td>
+</tr>
+<tr>
+<td><strong>Context window</strong></td>
+<td>The limit on how much it can hold at once; long, messy material blurs</td>
+<td>Give only the sections a step needs</td>
+</tr>
+<tr>
+<td><strong>Grounding</strong></td>
+<td>Tying the answer to material you supply, not its general knowledge</td>
+<td>"Use only the material below. Where does each claim come from?"</td>
+</tr>
+<tr>
+<td><strong>Hallucination</strong></td>
+<td>A confident answer that is invented: a competitor that does not exist, a quote nobody said</td>
+<td>Ask for a source for each claim, and allow it to answer "unknown"</td>
+</tr>
+<tr>
+<td><strong>Agent</strong></td>
+<td>A tool that takes several steps itself: reads files, edits, runs things, reports back</td>
+<td>Check the files it changed, not only its reply</td>
+</tr>
+<tr>
+<td><strong>Connector (MCP)</strong></td>
+<td>A standard way to let an AI tool read another app, such as your design file</td>
+<td>Know what it can see and change before you connect it</td>
+</tr>
+<tr>
+<td><strong>Reusable instructions</strong> (skills, rules files, project memory)</td>
+<td>A saved instruction, standing project rules, or saved project context</td>
+<td>Say it once and reuse it</td>
+</tr>
+<tr>
+<td><strong>AI-assisted vs AI-generated</strong></td>
+<td>AI-generated: the AI decided. AI-assisted: you decided, it assembled</td>
+<td>AI drafts. You verify. You decide</td>
+</tr>
+</tbody>
+</table>
+<p>In passing: a <strong>model</strong> is the engine behind a tool, a <strong>prompt</strong> is what you give it, and <strong>in-tool AI features</strong> are AI inside your design tool.</p>
+<p><strong>Files in three lines.</strong> Markdown (<code>.md</code>) is plain text with simple marks (<code>## Heading</code>, <code>**bold**</code>, <code>-</code> lists, <code>|</code> tables); AI tools read and write it best. HTML is what a browser draws; prototypes and the hub are HTML. A plain local folder is a folder on your own computer, not a cloud document; keep your case there while an AI tool writes files.</p>
+<p><strong>The case folder</strong> is the layout in Phase 3: a <code>00-context</code> folder first, one folder per stage, a <code>hub/</code> folder, and a <code>case-log.md</code>.</p>
+<p><strong>Reuse, don't retype.</strong> A new AI conversation knows nothing about your project. Before you describe it from memory, attach the saved file. A good instruction names the material to use, asks for one task, says "use only this, give a source for each claim, answer 'unknown' if it does not say, return only your section", and shows the format you want back.</p>
+<p><strong>Before class:</strong> choose your case (your own, anonymised), and find out your company's rules on AI tools.</p>
+<hr />
+<p><em>Created by Winnie Nguyen · AI Design Workflow · Last updated October 2026</em></p></article>
+  </div>
+</div></section><section class="tp-panel" data-tab-panel data-tab-id="slides" role="tabpanel" hidden><div class="tp-slides tp-slides--empty"><strong>No slides yet</strong><span>Add a deck (.html) or .pdf to this lesson's <code>slides/</code> folder, or a <code>slides:</code> link in the lesson front matter.</span></div></section><section class="tp-panel" data-tab-panel data-tab-id="homework" role="tabpanel" hidden><div class="tp-slides tp-slides--empty"><strong>No mentee homework yet</strong><span>Drop files in <code>Mentees/&lt;name&gt;/homework/ai-workflow-for-ux-designers/</code> and they show up here.</span></div></section>
+  <section class="tp-related"><h2>Related lessons</h2><div class="tp-related__grid"><div class="tp-related__card"><span>Next lesson</span><strong>Shape the Brief with Your PO</strong></div></div></section>
+</div>
+<script>
+(function () {
+  function group(btnSel, panelSel, attr, onShow) {
+    var btns = [].slice.call(document.querySelectorAll(btnSel)), panels = [].slice.call(document.querySelectorAll(panelSel));
+    function show(id) {
+      btns.forEach(function (b) { var on = b.getAttribute(attr) === id; b.setAttribute('aria-selected', on); b.classList.toggle('tabs__tab--active', on && b.classList.contains('tabs__tab')); });
+      panels.forEach(function (p) { p.hidden = p.getAttribute(attr) !== id; });
+      if (onShow) onShow(id);
+    }
+    btns.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute(attr)); }); });
+    return show;
+  }
+  var firstTab = (document.querySelector('[data-tab-btn]') || {getAttribute: function () {}}).getAttribute('data-tab-id');
+  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === firstTab ? location.pathname : '#' + id); });
+  var showVar = group('[data-var-btn]', '[data-var-panel]', 'data-var-id');
+  var h = (location.hash || '').replace('#', '');
+  showTab(h && document.querySelector('[data-tab-btn][data-tab-id="' + h + '"]') ? h : firstTab);
+  if (document.querySelector('[data-var-btn]')) showVar('0');
+  var decks = [].slice.call(document.querySelectorAll('[data-deck-btn]'));
+  decks.forEach(function (b) { b.addEventListener('click', function () {
+    var f = document.getElementById('deck-frame'); f.src = b.dataset.src; document.getElementById('deck-open').href = b.dataset.src;
+    decks.forEach(function (x) { x.classList.toggle('deck-item--active', x === b); x.setAttribute('aria-pressed', x === b); });
+  }); });
+})();
+</script>
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Winnie Nguyen · Senior Product Designer</p>
+    <div class="footer-links">
+      <a href="mailto:nguyenphuctuongvan@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/winnienguyen2910" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script>(function(){if(location.protocol.indexOf('http')!==0)return;var u='../assets/build-stamp.txt',last=null;function c(){fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(t){if(t===null)return;if(last!==null&&t!==last)location.reload();last=t}).catch(function(){})}c();setInterval(c,1500)})();</script>
+</body>
+</html>

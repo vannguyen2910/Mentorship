@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<meta name="description" content="Your prototype is a hypothesis. Testing is how you find out if it&#x27;s right."/>
+<title>Solution Validation &amp; User Testing — Training Hub</title>
+<link rel="stylesheet" href="../assets/css/tokens.css"/>
+<link rel="stylesheet" href="../assets/css/components.css"/>
+<link rel="stylesheet" href="../assets/css/site.css"/>
+<link rel="stylesheet" href="../assets/css/card-list.css"/>
+<link rel="stylesheet" href="../assets/css/text-page.css"/>
+<link rel="stylesheet" href="../assets/css/home.css"/>
+
+</head>
+<body class="tp-white">
+<nav>
+  <a class="nav-logo" href="../index.html"><img src="../assets/images/logo-nav.svg" alt="Winnie Nguyen — Training Hub"/></a>
+  <div class="nav-links">
+    <a href="../lessons.html" data-text="Lesson Library" class=active>Lesson Library</a>
+    <a href="../private-training.html" data-text="Private Training">Private Training</a>
+    <a href="../programs.html" data-text="Programs">Programs</a>
+  </div>
+</nav>
+<div class="tp">
+  <a class="tp-back" href="../lessons.html">← All lessons</a>
+  <header class="tp-head">
+    <h1 class="page-title">Solution Validation &amp; User Testing</h1>
+    <p class="page-desc">Your prototype is a hypothesis. Testing is how you find out if it&#x27;s right.</p>
+    <div class="used"><span>Taught in</span><a class="used__chip" href="../programs/junior-to-mid-level.html">Product Design Roadmap to Mid-Level · session 08</a><a class="used__chip" href="../programs/mid-to-senior.html">Product Design Roadmap to Senior · session 08</a></div>
+    <div class="tp-info" data-var-panel data-var-id="0"><dl class="tp-meta" style="--tp-cols: repeat(4, minmax(0, 1fr)) minmax(0, 1.8fr)"><div><dt>Stage</dt><dd>Deliver</dd></div><div><dt>Level</dt><dd>Intermediate</dd></div><div><dt>Duration</dt><dd>90 min</dd></div><div><dt>Date</dt><dd>27 Jun 2026</dd></div><div><dt>Source file</dt><dd><code>solution-validation-user-testing-lesson.md</code></dd></div><div class="tp-meta__tags"><dt>Topics</dt><dd><span>user-testing</span><span>solution-validation</span><span>usability</span><span>moderated</span><span>unmoderated</span><span>synthesis</span></dd></div></dl></div>
+  </header>
+  <div class="tabs tabs--pill tp-tabs"><div class="tabs__list" role="tablist"><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="lesson" aria-selected="false">Lesson</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="slides" aria-selected="false">Slides (1)</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="homework" aria-selected="false">Homework</button></div></div>
+  <section class="tp-panel" data-tab-panel data-tab-id="lesson" role="tabpanel" hidden><div data-var-panel data-var-id="0">
+  <div class="tp-layout">
+    <aside class="tp-toc" aria-label="On this page"><p class="tp-toc__label">On this page</p><a href="#v0-overview">Overview</a><a href="#v0-learning-objectives">Learning Objectives</a><a href="#v0-materials-needed">Materials Needed</a><a href="#v0-pre-class-preparation">Pre-Class Preparation</a><a href="#v0-session-plan">Session Plan</a><a href="#v0-core-content">Core Content</a><a href="#v0-assessment">Assessment</a><a href="#v0-assignments">Assignments</a><a href="#v0-further-resources">Further Resources</a></aside>
+    <article class="tp-body"><h2 id="v0-overview">Overview</h2>
+<p>Most designers know they should test. Few know what they're actually testing for. This session closes that gap — and closes the design thinking loop.</p>
+<p>Students arrive with a working prototype from the previous session. The goal now is not to show it off — it's to find out if it works for real users. That requires a mindset shift: a prototype is not a deliverable. It's a hypothesis. And a hypothesis only becomes knowledge when it's tested against reality.</p>
+<p>The session builds that testing capability in five connected phases. First, the validation mindset — understanding what you're actually trying to learn before writing a single test task. Second, method selection — choosing the right testing approach for the fidelity level and the question being asked. Third, test planning — writing tasks, scenarios, and success criteria that produce useful data. Fourth, running the session — facilitation skills, the think-aloud protocol, and how to capture observations without leading the user. Fifth, synthesis — using the Feedback Capture Grid and severity framing to turn raw observations into prioritised recommendations.</p>
+<p>An AI in Practice section runs through Phase 3: students use an AI tool to generate a draft test script from their prototype flows — then critically evaluate and edit what it produces.</p>
+<hr />
+<h2 id="v0-learning-objectives">Learning Objectives</h2>
+<p>By the end of this session, students will be able to:</p>
+<ol>
+<li><strong>Reframe</strong> a prototype as a testable hypothesis and articulate the specific question it needs to answer</li>
+<li><strong>Choose</strong> the right testing method based on fidelity level and the question being asked</li>
+<li><strong>Write</strong> a test plan with clear goals, tasks, scenarios, and success criteria</li>
+<li><strong>Facilitate</strong> a moderated usability session using the think-aloud protocol</li>
+<li><strong>Synthesise</strong> findings into prioritised recommendations using the Feedback Capture Grid and severity framing</li>
+<li><strong>Use</strong> an AI tool to generate a draft test script and critically evaluate what it gets wrong</li>
+</ol>
+<hr />
+<h2 id="v0-materials-needed">Materials Needed</h2>
+<ul>
+<li>Students' working prototypes from the AI Prototype Development session (Figma or browser-based)</li>
+<li>Feedback Capture Grid template — printed or in FigJam (source: <code>Source/ux-material/design-thinking/feedback-capture-grid.pdf</code>)</li>
+<li>Test Plan template in Notion (to be shared at session start)</li>
+<li>Access to an AI tool for the Phase 3 activity</li>
+<li>Zoom or a shared FigJam board for the role-play in Phase 4</li>
+</ul>
+<hr />
+<h2 id="v0-pre-class-preparation">Pre-Class Preparation</h2>
+<p>Ask students to do the following before the session:</p>
+<ol>
+<li><strong>Have your prototype ready</strong> — the working prototype from the previous session. At minimum, it should have 2–3 connected screens. If it's not clickable yet, a Figma prototype with basic navigation will work.</li>
+<li><strong>Write one sentence</strong> answering: "What is the one thing I most want to know about whether my design works?" Bring this to class.</li>
+<li><strong>Read (optional):</strong> IDF's <em>Prototyping to Test</em> (source: <code>Source/ux-material/design-thinking/prototyping-to-test.pdf</code>) — two pages, ten minutes.</li>
+</ol>
+<hr />
+<h2 id="v0-session-plan">Session Plan</h2>
+<pre><code>                                                                   | Act | Block | Topic | Duration |
+</code></pre>
+<p>|---|---|---|---|
+| 1 · Mindset | Opening | The prototype-as-hypothesis frame — what are you actually testing? | 10 min |
+| 2 · Methods | Teaching | Testing spectrum — moderated, unmoderated, and when to use each | 10 min |
+| 3 · Methods | Activity | Students pick a method for their project and justify it in one sentence | 5 min |
+| 4 · Test Plan | Teaching | Test plan components: goal, participant profile, tasks, scenarios, success criteria | 10 min |
+| 5 · Test Plan | AI in Practice | Students generate a draft test script with AI then edit it | 10 min |
+| 6 · Facilitation | Teaching | Moderator role, think-aloud protocol, six facilitation tips | 10 min |
+| 7 · Facilitation | Demo | Live role-play: one student tests a peer's prototype, group observes | 10 min |
+| 8 · Synthesis | Teaching | Feedback Capture Grid + severity framing + importance × feasibility matrix | 10 min |
+| 9 · Close | Teaching | Iteration loop + preview of Session 8 | 5 min |
+| 10 · Close | Assignments | Two assignments briefed + wrap-up | 5 min (overlap) |</p>
+<p><strong>Total: 90 min</strong></p>
+<blockquote>
+<p><strong>Story logic:</strong> The session follows the natural order of a testing cycle — decide what to test → choose how to test → plan the test → run it → make sense of what you learned. Each phase is a prerequisite for the next. The role-play in Phase 4 makes the facilitation skills concrete before students go off to do it themselves. The synthesis phase connects back to the validation mindset at the opening: every observation is evidence for or against the original hypothesis.</p>
+</blockquote>
+<hr />
+<h2 id="v0-core-content">Core Content</h2>
+<h3 id="v0-phase-1-the-validation-mindset">Phase 1 — The Validation Mindset</h3>
+<h4 id="v0-the-prototype-is-a-hypothesis">The prototype is a hypothesis</h4>
+<p>In the previous session, students built a working prototype. The natural instinct now is to show it to people and get feedback. That's useful — but it's not the same as testing.</p>
+<p>Testing has a specific meaning: you start with a question, design a way to answer it, and let the evidence tell you whether you were right. The alternative — showing people your prototype and asking "what do you think?" — produces opinions, not evidence. Opinions are useful for generating ideas. Evidence is what you need to make decisions.</p>
+<p>A prototype is a hypothesis made tangible. Before writing a single test task, students need to be able to complete this sentence:</p>
+<blockquote>
+<p><em>"We believe [this design] will help [this user] do [this task] because [this reason]. We'll know we're right when [this signal]."</em></p>
+</blockquote>
+<p>This is the same assumption formula from Session 2. The difference is that now there's a prototype — something concrete to test against.</p>
+<h4 id="v0-what-are-you-actually-testing">What are you actually testing?</h4>
+<p>Three different questions require three different testing approaches:</p>
+<p><strong>Usability</strong> — Can users complete the task? Do they understand the interface? Where do they get stuck? <em>Best method:</em> Moderated task-based usability test. Watch users attempt specific tasks, observe where they struggle.</p>
+<p><strong>Desirability</strong> — Do users want what this design offers? Does it feel right for their context and expectations? <em>Best method:</em> Concept testing early (before high-fidelity), or post-task debrief questions after a usability test.</p>
+<p><strong>Comprehension</strong> — Do users understand what the product is, what it does, and what's being asked of them? <em>Best method:</em> Five-second test, first-click test, or think-aloud with low-fidelity wireframes.</p>
+<p>Most student prototypes at this stage need a usability test — but students should know which question they're asking before they design the test.</p>
+<h4 id="v0-real-case-go1-quick-validation-with-maze-and-intercom">Real case: Go1 — quick validation with Maze and Intercom</h4>
+<p>At Go1, a product team needed to validate a solution before committing to build. Rather than waiting to recruit participants or schedule moderated sessions, the team used a combination of Maze (unmoderated testing tool) and Intercom (customer communication platform) to reach real customers quickly.</p>
+<p>The process: set the test goal and define the happy path → build the prototype in Figma → publish a Maze link → use Intercom to send the link to a filtered segment of relevant customers → analyse completion rates and drop-off points within 48 hours.</p>
+<p>This is not a replacement for moderated testing — but it showed the team where the prototype was breaking before a single line of code was written. The key insight: you don't need a lab or a long recruitment process to learn something real. You need a clear question, a testable prototype, and access to real users.</p>
+<hr />
+<h3 id="v0-phase-2-choose-your-method">Phase 2 — Choose Your Method</h3>
+<h4 id="v0-the-testing-spectrum">The testing spectrum</h4>
+<p>Testing methods exist on a spectrum from low effort to high rigour. No single method is best — the right one depends on what you're trying to learn and how much time you have.</p>
+<pre><code>                                           | Method | What it answers | Fidelity needed | Effort |
+</code></pre>
+<p>|---|---|---|---|
+| Hallway test | Does this make sense at a glance? | Low-fi | Very low |
+| Five-second test | What's the first impression? What do users remember? | Any | Low |
+| Moderated usability test | Can users complete tasks? Where do they struggle? | Mid to high-fi | Medium |
+| Unmoderated usability test (Maze, Lyssna) | Task completion, drop-off rates, at scale | Mid to high-fi | Low–medium |
+| Concept test | Do users understand and want this idea? | Low-fi or none | Low |
+| A/B test | Which version performs better? | Live product | High |</p>
+<p>At the prototype stage, moderated and unmoderated usability testing are the most relevant. The decision between them comes down to one question: <strong>do you need to know why, or just what?</strong></p>
+<ul>
+<li><strong>Moderated:</strong> Gives you the <em>why</em> — you can follow up, probe, and observe. Slower, requires scheduling. Best when you have specific questions about behaviour and motivation.</li>
+<li><strong>Unmoderated:</strong> Gives you the <em>what</em> at scale — task completion rates, drop-off points, click patterns. Faster and cheaper. Best for validating specific tasks or flows.</li>
+</ul>
+<p><a class="tp-fig" href="../assets/lesson-assets/solution-validation-user-testing/Unmoderated-testing.png" target="_blank" rel="noopener"><img src="../assets/lesson-assets/solution-validation-user-testing/Unmoderated-testing.png" alt="Unmoderated test report showing task completion rates and navigation overview in Maze" loading="lazy"><span class="tp-fig__cap">Unmoderated test report showing task completion rates and navigation overview in Maze</span></a> <em>Example: unmoderated test report in Maze — shows task completion rate, success rate, and step-by-step drop-off in a single view</em></p>
+<h4 id="v0-the-5-users-rule">The "5 users" rule</h4>
+<p>For moderated qualitative testing, 5 participants is the standard starting point. Research by Nielsen Norman Group showed that 5 users uncover ~85% of usability issues in a single round. Beyond 5, you start seeing diminishing returns.</p>
+<p>This rule applies to qualitative testing only. Unmoderated tests, A/B tests, and surveys need larger sample sizes to produce statistically valid results.</p>
+<p><strong>In-class activity (5 min):</strong> Each student picks the method most appropriate for their prototype and writes one sentence justifying the choice. Share back.</p>
+<hr />
+<h3 id="v0-phase-3-write-your-test-plan">Phase 3 — Write Your Test Plan</h3>
+<p><a class="tp-fig" href="../assets/lesson-assets/solution-validation-user-testing/Research-plan.png" target="_blank" rel="noopener"><img src="../assets/lesson-assets/solution-validation-user-testing/Research-plan.png" alt="Research plan document from Go1 Content Curation project" loading="lazy"><span class="tp-fig__cap">Research plan document from Go1 Content Curation project</span></a> <em>Real example: research plan document from the Go1 Content Curation project</em></p>
+<h4 id="v0-test-plan-components">Test plan components</h4>
+<p>A test plan is a short document that defines everything needed to run a consistent session. It doesn't need to be long — one page is enough at this stage.</p>
+<p><strong>Goal</strong> — What question does this test answer? One sentence. Link it back to the hypothesis. <em>Example:</em> "We want to know whether new users can complete the onboarding flow without assistance in under 3 minutes."</p>
+<p><strong>Participant profile</strong> — Who are you testing with? Define the key characteristics that matter for this prototype. <em>Example:</em> "First-time users of a project management tool, aged 25–45, who currently use spreadsheets to track work."</p>
+<p><strong>Tasks</strong> — The specific actions you ask participants to attempt. These should be realistic and neutral — no hints.</p>
+<p><strong>Scenarios</strong> — Context that sets up the task without revealing the answer. Give users a reason to care about completing the task.</p>
+<p><strong>Success criteria</strong> — How will you know the task was completed successfully? Define this before the session, not after.</p>
+<h4 id="v0-how-to-write-a-good-task">How to write a good task</h4>
+<p>The difference between a good task and a bad one is neutrality and realism.</p>
+<pre><code>                 | Bad task | Why it's bad |
+</code></pre>
+<p>|---|---|
+| "Click the Buy Now button to purchase the item." | Gives away the answer. Tells the user what to click. |
+| "Would you use this checkout flow?" | Asks for opinion, not behaviour. |
+| "Imagine you want to buy something. What would you do?" | Too vague — no context, no goal. |</p>
+<pre><code>             | Good task | Why it works |
+</code></pre>
+<p>|---|---|
+| "You've decided to buy a gift for a friend. Show me how you'd complete the purchase." | Realistic context, neutral language, clear goal. |
+| "You need to update your billing address before your next payment. How would you do that?" | Specific situation, no hints about where to look. |</p>
+<h4 id="v0-scenarios-vs-tasks">Scenarios vs tasks</h4>
+<p>A scenario is the story that contextualises the task. It gives the user a role and a reason.</p>
+<p><em>Scenario:</em> "You've just joined a new company and your manager has asked you to set up your profile so the team can find you. You have 5 minutes before a meeting."</p>
+<p><em>Task (follows from scenario):</em> "Go ahead and set up your profile."</p>
+<p>The scenario provides motivation and urgency. The task is the specific thing you observe.</p>
+<hr />
+<h3 id="v0-ai-in-practice">AI in Practice</h3>
+<h4 id="v0-try-this-with-ai">🤖 Try this with AI</h4>
+<blockquote>
+<p>Paste this prompt into your AI tool:</p>
+<p><em>"I'm testing a prototype of [describe your product in one sentence]. The main user flow I'm testing is: [paste your user flow or describe the key screens]. Write a test plan including: 1 test goal, 1 participant profile, 3 realistic task scenarios with success criteria for each. Write tasks in neutral language — no hints about where to click or what to do."</em></p>
+</blockquote>
+<p>After generating, ask the AI:</p>
+<blockquote>
+<p><em>"Now review each task and flag any that contain leading language, give away the answer, or wouldn't make sense to a real user unfamiliar with this product."</em></p>
+</blockquote>
+<h4 id="v0-critical-thinking-prompts">🧠 Critical thinking prompts</h4>
+<ul>
+<li>Did the AI write tasks that are neutral, or does it give away where to click?</li>
+<li>Did it understand who the actual user is — or did it guess based on the product description?</li>
+<li>Are the success criteria measurable, or just vague descriptions?</li>
+<li>What context did the AI not have that changed the quality of its output?</li>
+</ul>
+<h4 id="v0-prompt-engineering-tip">✍️ Prompt engineering tip</h4>
+<p>The more specific your user flow input, the better the task output. Paste actual screen names or step descriptions rather than summarising vaguely. If the AI produces generic tasks, add: <em>"The user has never seen this product before and doesn't know what it's called. Rewrite each task from that perspective."</em></p>
+<h4 id="v0-ethics-consideration">⚖️ Ethics consideration</h4>
+<p>Unmoderated tests using tools like Maze or Lyssna record user behaviour without a live facilitator. Make sure participants know their session is being recorded and that data will be used for research. Include a consent statement before the test begins. For internal teams or colleagues, verbal consent is enough — but for recruited participants or customers, written consent via the tool's intro screen is required.</p>
+<hr />
+<h3 id="v0-phase-4-run-the-session">Phase 4 — Run the Session</h3>
+<h4 id="v0-the-moderator-s-role">The moderator's role</h4>
+<p>The moderator's job is to observe, not guide. The moment you help a user who is struggling, you've lost the data. A user who gets stuck is giving you exactly the information you need — where the interface fails.</p>
+<p>This is uncomfortable. Watching someone struggle with something you designed feels personal. The discipline is to resist the instinct to help and instead ask a neutral prompt:</p>
+<ul>
+<li>"What are you thinking right now?"</li>
+<li>"What would you do next if I weren't here?"</li>
+<li>"What were you expecting to happen?"</li>
+</ul>
+<p>These prompts surface the user's mental model without leading them.</p>
+<h4 id="v0-think-aloud-protocol">Think-aloud protocol</h4>
+<p>The think-aloud protocol asks participants to narrate their experience as they go — saying out loud what they're looking at, what they're thinking, and what they're trying to do.</p>
+<p>Brief participants at the start: <em>"As you go through this, please say out loud what you're thinking — what you're looking at, what you expect to happen, what's confusing or easy. There are no wrong answers. You're helping us improve the design, not the other way around."</em></p>
+<p>Not all participants take to this naturally. If they go quiet, use a neutral prompt: "What's going through your mind right now?"</p>
+<p><a class="tp-fig" href="../assets/lesson-assets/solution-validation-user-testing/Recording.png" target="_blank" rel="noopener"><img src="../assets/lesson-assets/solution-validation-user-testing/Recording.png" alt="Recorded moderated user interview with video and timestamped transcript in Dovetail" loading="lazy"><span class="tp-fig__cap">Recorded moderated user interview with video and timestamped transcript in Dovetail</span></a> <em>Real example: moderated interview recording from Go1 Content Curation research — video + auto-timestamped transcript in a research repository tool</em></p>
+<h4 id="v0-six-facilitation-principles">Six facilitation principles</h4>
+<p>Based on IDF's feedback-gathering best practices:</p>
+<ol>
+<li><strong>Ask before you show</strong> — Start with context questions before the prototype. "Tell me about how you currently handle [this task]." This gives you a baseline and builds rapport.</li>
+<li><strong>Test on the right people</strong> — At this stage, test on real potential users — not colleagues who know your project. Consider extreme users (power users, total beginners) who surface issues that affect everyone.</li>
+<li><strong>Ask, don't tell</strong> — If users ask questions during the test ("Should I click here?"), turn it back: "What would you do if I wasn't here?" Never answer a question that reveals the answer.</li>
+<li><strong>Stay neutral when presenting</strong> — Don't sell the design. Don't say "we designed this to make it easier." The user's job is to evaluate it, not validate it.</li>
+<li><strong>Adapt when the script isn't working</strong> — If a task prompt is confusing participants, it's fair to rephrase. A rigid script that produces no useful data is worse than a flexible one that does.</li>
+<li><strong>Let users contribute ideas</strong> — When users say "I wish this did X," ask them to describe what that would look like. These unsolicited suggestions often point to the underlying need better than any question you could ask.</li>
+</ol>
+<h4 id="v0-live-role-play-10-min">Live role-play (10 min)</h4>
+<p>One student plays the moderator. One student plays a participant using a peer's prototype. The rest of the group observes and fills in a Feedback Capture Grid in real time.</p>
+<p>Debrief: What did the moderator do well? What was hard to resist? What did observers notice that the moderator missed?</p>
+<hr />
+<h3 id="v0-phase-5-synthesise-prioritise">Phase 5 — Synthesise &amp; Prioritise</h3>
+<p><a class="tp-fig" href="../assets/lesson-assets/solution-validation-user-testing/Interview-Notes.png" target="_blank" rel="noopener"><img src="../assets/lesson-assets/solution-validation-user-testing/Interview-Notes.png" alt="FigJam board with sticky notes from Go1 Content Curation user interviews, organised by participant and theme" loading="lazy"><span class="tp-fig__cap">FigJam board with sticky notes from Go1 Content Curation user interviews, organised by participant and theme</span></a> <em>Real example: raw interview notes from Go1 Content Curation research — sticky notes organised by participant across the board before themes are drawn out</em></p>
+<h4 id="v0-feedback-capture-grid">Feedback Capture Grid</h4>
+<p>The Feedback Capture Grid (from <code>Source/ux-material/design-thinking/feedback-capture-grid.pdf</code>) divides observations into four quadrants:</p>
+<pre><code>         | Likes ✓ | Criticisms ✗ |
+</code></pre>
+<p>|---|---|
+| What worked. What users responded positively to. | What didn't work. Where users got stuck, confused, or frustrated. |</p>
+<pre><code>         | Questions ? | Ideas 💡 |
+</code></pre>
+<p>|---|---|
+| Questions the test session raised — from users or from the team. | Ideas the session sparked — from users' suggestions or from your own observations. |</p>
+<p>Use the grid during the session (one note-taker fills it in live) or immediately after (team debriefs into it together). The goal is to capture raw observations before interpretation happens.</p>
+<p><strong>Key rule:</strong> In the Criticisms quadrant, write what the user <em>did</em>, not what you think it <em>means</em>. "User spent 40 seconds on the payment screen without clicking" is an observation. "The payment screen is confusing" is an interpretation. Keep them separate.</p>
+<h4 id="v0-from-observations-to-findings">From observations to findings</h4>
+<p>Once observations are captured, move from the <em>what</em> to the <em>why</em>:</p>
+<blockquote>
+<p>"[User] did [X]" → "Users struggle to [Y] because [Z]"</p>
+</blockquote>
+<p><em>Example:</em></p>
+<ul>
+<li>Observation: "3 of 5 participants tried to tap the logo to go home."</li>
+<li>Finding: "Users expect the logo to be a home button — the current navigation doesn't have a clear home action."</li>
+</ul>
+<p>This is the format to use when writing up findings for stakeholders or your own design decisions.</p>
+<p><a class="tp-fig" href="../assets/lesson-assets/solution-validation-user-testing/Research-report.png" target="_blank" rel="noopener"><img src="../assets/lesson-assets/solution-validation-user-testing/Research-report.png" alt="Research report from Go1 showing key insights from user interviews on search result signals" loading="lazy"><span class="tp-fig__cap">Research report from Go1 showing key insights from user interviews on search result signals</span></a> <em>Real example: research report output from Go1 — raw observations translated into structured findings with supporting quotes and screenshots</em></p>
+<h4 id="v0-severity-framing">Severity framing</h4>
+<p>Not all findings are equal. Prioritise using two dimensions:</p>
+<p><strong>Impact</strong> — How much does this issue affect the user's ability to complete their goal? (1 = minor annoyance, 5 = task failure)</p>
+<p><strong>Frequency</strong> — How many participants experienced this issue? (1 = one person, 5 = everyone)</p>
+<p>Multiply the two scores. Issues with the highest combined score go to the top of the fix list.</p>
+<h4 id="v0-importance-feasibility-matrix">Importance × feasibility matrix</h4>
+<p>After prioritising by severity, evaluate what's worth fixing in this iteration using the importance × feasibility matrix (rate each finding 1–5 on both dimensions):</p>
+<ul>
+<li><strong>High importance + high feasibility</strong> → Fix now</li>
+<li><strong>High importance + low feasibility</strong> → Plan for next sprint</li>
+<li><strong>Low importance + high feasibility</strong> → Quick wins (fix if time allows)</li>
+<li><strong>Low importance + low feasibility</strong> → Defer or drop</li>
+</ul>
+<p>This prevents the common mistake of spending iteration time on small visual fixes while leaving critical usability failures unresolved.</p>
+<hr />
+<h3 id="v0-phase-6-close-the-loop">Phase 6 — Close the Loop</h3>
+<h4 id="v0-what-done-with-testing-actually-means">What "done with testing" actually means</h4>
+<p>Testing doesn't end after one round. The output of a test session is not a final answer — it's a more informed hypothesis. Fix the highest-severity issues, update the prototype, and test again. Two to three rounds of testing on a prototype will surface most of the critical issues before anything goes to development.</p>
+<p>The iteration cycle: <strong>observe → synthesise → prioritise → fix → retest</strong>. Each round narrows the gap between what you designed and what users actually need.</p>
+<h4 id="v0-the-connection-back-to-session-1">The connection back to Session 1</h4>
+<p>In Session 1, the programme introduced design thinking as a loop — not a linear process. Testing is where that loop closes. The findings from a usability test feed directly back into synthesis (Session 3), ideation (Session 5), and prototyping (Sessions 6–7). Nothing learned in a test session is wasted — even findings that tell you the design is wrong are exactly the kind of learning that makes the next version better.</p>
+<hr />
+<h2 id="v0-assessment">Assessment</h2>
+<h3 id="v0-quick-knowledge-check">Quick knowledge check</h3>
+<ol>
+<li>You have a clickable prototype and two days to learn something before a stakeholder review. What testing method do you choose and why?</li>
+<li>A participant in your usability test asks "Am I supposed to click the big button?" What do you say?</li>
+<li>You have 12 findings from a test session. How do you decide what to fix first?</li>
+</ol>
+<h3 id="v0-reflection-prompt-assignment">Reflection prompt (assignment)</h3>
+<blockquote>
+<p><em>"Before this session, how did you think about user testing — as a final step, a validation exercise, or something else? After running your first test, what surprised you most about how users experienced your prototype?"</em></p>
+</blockquote>
+<hr />
+<h2 id="v0-assignments">Assignments</h2>
+<h3 id="v0-assignment-a-run-a-moderated-usability-test">Assignment A — Run a Moderated Usability Test</h3>
+<p>Run one moderated usability test on your prototype with one real participant (not a classmate or someone who knows your project).</p>
+<p><strong>Before:</strong></p>
+<ul>
+<li>Share your prototype link or set up the device in advance</li>
+<li>Brief the participant: "I'm testing the design, not you. There are no wrong answers. Please say out loud what you're thinking as you go."</li>
+<li>Have your test plan and Feedback Capture Grid ready</li>
+</ul>
+<p><strong>During:</strong></p>
+<ul>
+<li>Give each task as a scenario, then let the participant go — don't help</li>
+<li>Take notes in the Criticisms and Questions quadrants as you go</li>
+<li>Use "What are you thinking right now?" when they go quiet</li>
+</ul>
+<p><strong>After:</strong></p>
+<ul>
+<li>Complete the Feedback Capture Grid (all four quadrants)</li>
+<li>Write up 3–5 findings using the observation → finding format</li>
+<li>Prioritise using impact × frequency</li>
+<li>Identify the one change that would have the biggest effect on usability</li>
+</ul>
+<p><strong>Deliverable:</strong> Feedback Capture Grid + 3–5 findings + one priority recommendation. Bring to Session 8.</p>
+<hr />
+<h3 id="v0-assignment-b-run-an-additional-test-optional-stretch">Assignment B — Run an Additional Test (Optional / Stretch)</h3>
+<p>Run an additional test session using either moderated or unmoderated testing — whichever method you didn't use for Assignment A.</p>
+<hr />
+<h2 id="v0-further-resources">Further Resources</h2>
+<ul>
+<li><em>Prototyping to Test</em> — IDF template (<code>Source/ux-material/design-thinking/prototyping-to-test.pdf</code>)</li>
+<li><em>Six Best Practice Tips for Gathering Feedback on Your Prototypes</em> — IDF guide (<code>Source/ux-material/design-thinking/six-best-practice-tips-for-gathering-feedback-on-your-prototypes.pdf</code>)</li>
+<li><em>Feedback Capture Grid</em> — IDF template (<code>Source/ux-material/design-thinking/feedback-capture-grid.pdf</code>)</li>
+<li><em>Quick validate the solution with a usability testing tool and Intercom</em> — Winnie's Go1 case study (Notion)</li>
+<li><em>8 Usability Testing Methods That Work</em> — Contentsquare (2026) — https://contentsquare.com/guides/usability-testing/methods/</li>
+<li><em>What Is User Testing in 2026?</em> — Userpilot — https://userpilot.com/blog/what-is-user-testing/</li>
+<li><em>Conducting Usability Testing</em> — IxDF course — https://ixdf.org/courses/conducting-usability-testing</li>
+</ul>
+<hr />
+<p><em>Created by Winnie Nguyen · UX Class · Last updated June 2026</em></p></article>
+  </div>
+</div></section><section class="tp-panel" data-tab-panel data-tab-id="slides" role="tabpanel" hidden><div class="tp-slides"><iframe id="deck-frame" src="../assets/lessons/solution-validation-user-testing/slides/Solution%20Validation%20%26%20User%20Testing.html" title="Lesson slides" allowfullscreen loading="lazy"></iframe></div>
+<p class="tp-slides__link"><a id="deck-open" href="../assets/lessons/solution-validation-user-testing/slides/Solution%20Validation%20%26%20User%20Testing.html" target="_blank" rel="noopener">Open slides full screen ↗</a></p></section><section class="tp-panel" data-tab-panel data-tab-id="homework" role="tabpanel" hidden><div class="tp-slides tp-slides--empty"><strong>No mentee homework yet</strong><span>Drop files in <code>Mentees/&lt;name&gt;/homework/solution-validation-user-testing/</code> and they show up here.</span></div></section>
+  <section class="tp-related"><h2>Related lessons</h2><div class="tp-related__grid"><div class="tp-related__card"><span>Previous lesson</span><strong>AI Prototype Development (AI Prototype Development)</strong></div><div class="tp-related__card"><span>Next lesson</span><strong>Reflection &amp; Next Steps</strong></div></div></section>
+</div>
+<script>
+(function () {
+  function group(btnSel, panelSel, attr, onShow) {
+    var btns = [].slice.call(document.querySelectorAll(btnSel)), panels = [].slice.call(document.querySelectorAll(panelSel));
+    function show(id) {
+      btns.forEach(function (b) { var on = b.getAttribute(attr) === id; b.setAttribute('aria-selected', on); b.classList.toggle('tabs__tab--active', on && b.classList.contains('tabs__tab')); });
+      panels.forEach(function (p) { p.hidden = p.getAttribute(attr) !== id; });
+      if (onShow) onShow(id);
+    }
+    btns.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute(attr)); }); });
+    return show;
+  }
+  var firstTab = (document.querySelector('[data-tab-btn]') || {getAttribute: function () {}}).getAttribute('data-tab-id');
+  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === firstTab ? location.pathname : '#' + id); });
+  var showVar = group('[data-var-btn]', '[data-var-panel]', 'data-var-id');
+  var h = (location.hash || '').replace('#', '');
+  showTab(h && document.querySelector('[data-tab-btn][data-tab-id="' + h + '"]') ? h : firstTab);
+  if (document.querySelector('[data-var-btn]')) showVar('0');
+  var decks = [].slice.call(document.querySelectorAll('[data-deck-btn]'));
+  decks.forEach(function (b) { b.addEventListener('click', function () {
+    var f = document.getElementById('deck-frame'); f.src = b.dataset.src; document.getElementById('deck-open').href = b.dataset.src;
+    decks.forEach(function (x) { x.classList.toggle('deck-item--active', x === b); x.setAttribute('aria-pressed', x === b); });
+  }); });
+})();
+</script>
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Winnie Nguyen · Senior Product Designer</p>
+    <div class="footer-links">
+      <a href="mailto:nguyenphuctuongvan@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/winnienguyen2910" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script>(function(){if(location.protocol.indexOf('http')!==0)return;var u='../assets/build-stamp.txt',last=null;function c(){fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(t){if(t===null)return;if(last!==null&&t!==last)location.reload();last=t}).catch(function(){})}c();setInterval(c,1500)})();</script>
+</body>
+</html>
