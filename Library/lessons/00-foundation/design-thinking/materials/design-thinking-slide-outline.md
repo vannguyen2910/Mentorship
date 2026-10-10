@@ -14,7 +14,7 @@
 ```
 Using the outline in this file, create an HTML slide deck for Design Thinking for UX Designer.
 
-Follow the rules in _Config/rules/SLIDE_DECK_RULES.md exactly.
+Follow the rules in _system/rules/SLIDE_DECK_RULES.md exactly.
 Save the file to library/lessons/design-thinking/materials/deck.html.
 
 VISUAL DESIGN DIRECTION — apply globally to every slide:

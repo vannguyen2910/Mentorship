@@ -11,7 +11,7 @@ Paste the block below into Claude Design with the two source files attached or i
 
 **Attach or point at:**
 - `ui-fundamentals-slide-outline.md` (the slide specs, source of truth for the deck)
-- `Themes/slide-design/RULES.md` and `Themes/slide-design/tokens.css` (the visual system)
+- `_system/rules/SLIDE_DECK_RULES.md` and `Themes/slide-design/tokens.css` (the visual system)
 - `assets/style-reference-schematic.png` (the schematic drawing style)
 
 ---
@@ -28,7 +28,7 @@ SOURCES, in priority order
 1. ui-fundamentals-slide-outline.md is the source of truth for every slide:
    its type, kicker, title, on-slide content, and its "Visual hint" line.
    Build exactly the slides it lists, in order. Do not add, merge or reorder.
-2. Themes/slide-design/RULES.md and tokens.css define the visual system.
+2. _system/rules/SLIDE_DECK_RULES.md and tokens.css define the visual system.
    Follow them exactly. Never invent a colour, font or layout class.
 3. style-reference-schematic.png shows the drawing style for schematic diagrams.
 

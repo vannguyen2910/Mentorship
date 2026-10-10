@@ -44,10 +44,10 @@ library/slides/[slide-name]/
 ### Rule SD-2: Design System Compliance
 **Status:** Active | **Priority:** High
 
-**ALWAYS follow the design rules in `_system/Themes/slide-design/RULES.md`**
+**ALWAYS follow the design rules in `_system/rules/SLIDE_DECK_RULES.md`**
 
 Key requirements:
-- Link `../../../_system/Themes/slide-design/tokens.css` (correct relative path)
+- Link `tokens.css` from the lesson's own `slides/` folder (copy it from the nearest built lesson)
 - Load `deck-stage.js` from templates folder
 - **Use token colors ONLY** — never hardcode hex values:
   - Accent: `--sienna` (purple), `--ochre` (yellow)
@@ -350,7 +350,7 @@ This helps you:
 │   └── [mentee-name]/  plan/ sessions/ slides/ transcripts/ assessments/ homework/
 ├── showcase/                ← SHOW: public/, private/, testimonials.md
 ├── business/                ← services/ (pricing, leads), profile/ (CV, bios), content/ (social)
-└── _system/                 ← rules/, templates/, Themes/ (slide design), scripts/
+└── _system/                 ← rules/ (incl. SLIDE_DECK_RULES.md), templates/, scripts/
 ```
 
 ---
@@ -492,7 +492,7 @@ Before finalizing a session recap, check:
 
 **Priority order:**
 
-1. **Design first** → Review `_system/Themes/slide-design/RULES.md`
+1. **Design first** → Review `_system/rules/SLIDE_DECK_RULES.md`
 2. **Structure second** → Create folder & link template files
 3. **Content third** → Write slides using preset layouts
 4. **Polish fourth** → Animate, test, fix spacing

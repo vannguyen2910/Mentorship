@@ -33,7 +33,7 @@ Dùng outline trong file này, build slide deck HTML cho Section 1 - Giới Thi�
 (khóa Systematic AI Prototyping for Product Designers, bản tiếng Việt).
 Deck chỉ cần cho Lesson 2 và Lesson 3 (Lesson 1 là video riêng, không có slide).
 
-Theo đúng rule trong _Config/rules/SLIDE_DECK_RULES.md.
+Theo đúng rule trong _system/rules/SLIDE_DECK_RULES.md.
 Copy tokens.css và deck-stage.js vào thư mục "Section 1 - Giới Thiệu" để deck tự chứa (self-contained).
 
 HƯỚNG DẪN THIẾT KẾ - áp dụng cho toàn bộ slide:

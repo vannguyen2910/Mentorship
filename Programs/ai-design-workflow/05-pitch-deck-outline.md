@@ -13,7 +13,7 @@ last_synced: 2026-10-07
 > File này là outline đã tách riêng để đưa thẳng vào deck. Mỗi slide có layout type, text trên slide, speaker notes và visual hint.
 > Giọng deck: thân thiện, nói về cách Winnie giảng dạy và những gì Winnie muốn dạy. Chuyện chia việc, giá và điều khoản không có trong deck, để cuộc trao đổi sau.
 
-> **Layout vocabulary cố định.** Mỗi header `###` dùng một type trong `_system/Themes/slide-design/RULES.md`. Tên field giữ tiếng Anh; nội dung bên trong là tiếng Việt, tiêu đề slide giữ tiếng Anh.
+> **Layout vocabulary cố định.** Mỗi header `###` dùng một type trong `_system/rules/SLIDE_DECK_RULES.md`. Tên field giữ tiếng Anh; nội dung bên trong là tiếng Việt, tiêu đề slide giữ tiếng Anh.
 
 > **Copy standard:** mọi Kicker, Title và dòng On-slide đọc được trong một cái nhìn, không quá khoảng 15 từ. Speaker notes dùng ngôi "mình".
 

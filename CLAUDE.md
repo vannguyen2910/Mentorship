@@ -8,7 +8,7 @@ Every lesson in `library/lessons/` has two paired files:
 
 **When either file is updated, always check and update the other.**
 
-New `*-slide-outline.md` files start from `_system/templates/_template-slide-outline.md`, not a blank page — it fixes the session metadata table, the standard slide-entry fields, and the speaker-notes-as-bullets rule. Layout types come from the catalogue in `_system/Themes/slide-design/RULES.md` (canonical — other paths to a rules file are pointers to it).
+New `*-slide-outline.md` files start from `_system/templates/_template-slide-outline.md`, not a blank page — it fixes the session metadata table, the standard slide-entry fields, and the speaker-notes-as-bullets rule. Layout types come from the catalogue in `_system/rules/SLIDE_DECK_RULES.md` (canonical — other paths to a rules file are pointers to it).
 
 Specifically:
 

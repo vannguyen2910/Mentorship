@@ -14,7 +14,7 @@ last_synced: 2026-10-10
 > This file contains only slide-specific concerns: layout types, on-slide text, visual hints, kickers, and speaker notes.
 > See `CLAUDE.md` → Lesson file sync rule for what triggers an update on which side.
 
-> **Layout vocabulary is fixed.** Every `###` slide header below uses one of the types documented in `_system/Themes/slide-design/RULES.md`.
+> **Layout vocabulary is fixed.** Every `###` slide header below uses one of the types documented in `_system/rules/SLIDE_DECK_RULES.md`.
 
 > **Built-deck status:** this outline mirrors the built deck (`slides/Develop Solutions and Ideate.html`, 46 slides) slide for slide. See the sync notes at the bottom for the deck's stale speaker notes.
 

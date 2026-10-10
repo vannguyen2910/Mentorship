@@ -11,7 +11,7 @@
 ```
 Using the outline in this file, build an HTML slide deck for Systematic AI Prototyping — Lesson 0 (Program Introduction).
 
-Follow the rules in _Config/rules/SLIDE_DECK_RULES.md exactly.
+Follow the rules in _system/rules/SLIDE_DECK_RULES.md exactly.
 File: library/lessons/03-develop/ai-prototype-development/learning/Systematic AI Prototyping - Lesson 0.dc.html
 Copy tokens.css and deck-stage.js locally so the deck is self-contained.
 Match the visual system already established in Build the Framework First.dc.html and Systematic AI Prototyping - Lesson 1.dc.html: same tokens, same layout types, same restraint.
@@ -123,7 +123,7 @@ VISUAL DESIGN DIRECTION — apply globally to every slide:
   - This slide names specific tools on purpose. It's a dated, deliberate exception to the usual "no tool names" rule (see sync note in the lesson file)
   - Decide today, not later. Lesson 1's folder setup and token sync both depend on the choice
   - Snapshot as of September 2026. Say so out loud if the student's read up on something newer
-- 🎨 Visual: Comparison-table supplementary layout (`Themes/slide-design/RULES.md` §9): mono headers, hairline row borders. Matches the same slide already specified in `lesson-1-slide-outline.md`.
+- 🎨 Visual: Comparison-table supplementary layout (`_system/rules/SLIDE_DECK_RULES.md` §9): mono headers, hairline row borders. Matches the same slide already specified in `lesson-1-slide-outline.md`.
 
 ---
 

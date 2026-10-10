@@ -14,7 +14,7 @@
 ```
 Using the outline in this file, update the HTML slide deck for Systematic AI Prototyping — Lesson 1 (Stop Starting From Zero).
 
-Follow the rules in _Config/rules/SLIDE_DECK_RULES.md exactly.
+Follow the rules in _system/rules/SLIDE_DECK_RULES.md exactly.
 File: library/lessons/03-develop/ai-prototype-development/standalone program/AI Prototyping - Lesson 1.html
 
 VISUAL DESIGN DIRECTION — apply globally to every slide:

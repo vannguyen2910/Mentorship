@@ -6,7 +6,7 @@
 
 > **How to use this file**
 > Paste both this file and `lesson.md` into Claude with the instruction below to generate a new slide deck.
-> Claude will read `CLAUDE.md` and `_Config/slide-design/RULES.md` automatically and follow Winnie's design system.
+> Claude will read `CLAUDE.md` and `_system/rules/SLIDE_DECK_RULES.md` automatically and follow Winnie's design system.
 
 ---
 
@@ -15,7 +15,7 @@
 ```
 Using the outline in this file, create an HTML slide deck for Building a Design System from a Validated Concept.
 
-Follow the rules in _Config/rules/SLIDE_DECK_RULES.md exactly.
+Follow the rules in _system/rules/SLIDE_DECK_RULES.md exactly.
 Save the file to library/lessons/03-develop/design-system/materials/deck.html.
 Copy tokens.css and deck-stage.js locally into library/lessons/03-develop/design-system/ so the deck is self-contained.
 

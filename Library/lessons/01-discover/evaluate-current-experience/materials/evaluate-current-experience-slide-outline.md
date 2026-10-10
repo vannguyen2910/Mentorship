@@ -14,7 +14,7 @@ last_synced: 2026-10-07
 > This file contains only slide-specific concerns: layout types, on-slide text, visual hints, kickers, and speaker notes.
 > See `CLAUDE.md` → Lesson file sync rule for what triggers an update on which side.
 
-> **Layout vocabulary is fixed.** Every slide header below uses one of the types documented in `_system/Themes/slide-design/RULES.md`. Activities use `MILESTONE`, assignments use `PRACTICE`, the closing slide uses `END`.
+> **Layout vocabulary is fixed.** Every slide header below uses one of the types documented in `_system/rules/SLIDE_DECK_RULES.md`. Activities use `MILESTONE`, assignments use `PRACTICE`, the closing slide uses `END`.
 
 ---
 

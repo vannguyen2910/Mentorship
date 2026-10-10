@@ -6,7 +6,7 @@ Everything that runs the workspace rather than the teaching content.
 |---|---|
 | `rules/` | Mentoring, workflow, automation and slide-deck rules |
 | `templates/` | Blank starter files. Copy, never edit. |
-| `Themes/` | Slide design system: `tokens.css`, `components.css`, `slide-design/RULES.md` (canonical deck rules), shared assets |
+| `rules/SLIDE_DECK_RULES.md` | Canonical slide deck design rules (moved from `Themes/slide-design/RULES.md`). Deck assets (`tokens.css`, `deck-stage.js`) live in each lesson's `slides/` folder |
 | `scripts/` | `new-lesson.sh`, `sync-lesson.py`, `watch.sh` (run from the repo root) |
 
 ## Templates

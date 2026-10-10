@@ -14,7 +14,7 @@ last_synced: 2026-10-05
 > This file contains only slide-specific concerns: layout types, on-slide text, visual hints, kickers, and speaker notes.
 > See `CLAUDE.md` → Lesson file sync rule for what triggers an update on which side.
 
-> **Layout vocabulary is fixed.** Every `###` slide header below uses one of the types documented in `_system/Themes/slide-design/RULES.md`: Cover, Section divider, Statement, Numbered, Compare, Process, Quote, Milestone, Practice, End, Diagram, Formula, Image. `SECTION`, `COMPARISON` and `ACTIVITY` are drift, not valid types: use `SECTION DIVIDER`, `COMPARE`, `MILESTONE`.
+> **Layout vocabulary is fixed.** Every `###` slide header below uses one of the types documented in `_system/rules/SLIDE_DECK_RULES.md`: Cover, Section divider, Statement, Numbered, Compare, Process, Quote, Milestone, Practice, End, Diagram, Formula, Image. `SECTION`, `COMPARISON` and `ACTIVITY` are drift, not valid types: use `SECTION DIVIDER`, `COMPARE`, `MILESTONE`.
 
 > **Copy standard:** every Kicker, Title and On-slide line should read in one glance. No sentence over about 15 words on a slide. A qualifier or example goes in speaker notes or the lesson file, not on the slide.
 

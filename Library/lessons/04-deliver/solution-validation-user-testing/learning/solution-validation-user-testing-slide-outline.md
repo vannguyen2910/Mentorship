@@ -14,7 +14,7 @@
 ```
 Using the outline in this file, create an HTML slide deck for Solution Validation & User Testing.
 
-Follow the rules in _Config/rules/SLIDE_DECK_RULES.md exactly.
+Follow the rules in _system/rules/SLIDE_DECK_RULES.md exactly.
 Save the file to library/lessons/solution-validation-user-testing/materials/deck.html.
 
 REAL IMAGES — embed these at the slides marked with 📷 in this outline:
