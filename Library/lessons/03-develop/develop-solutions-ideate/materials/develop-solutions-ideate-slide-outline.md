@@ -6,7 +6,7 @@ slide_count: 46
 duration: "90 min"
 status: draft
 built_deck: "Develop Solutions and Ideate.html"
-last_synced: 2026-10-04
+last_synced: 2026-10-10
 ---
 
 > **Source of truth:** `develop-solutions-ideate-lesson.md`
@@ -14,7 +14,7 @@ last_synced: 2026-10-04
 > This file contains only slide-specific concerns: layout types, on-slide text, visual hints, kickers, and speaker notes.
 > See `CLAUDE.md` → Lesson file sync rule for what triggers an update on which side.
 
-> **Layout vocabulary is fixed.** Every `###` slide header below uses one of the types documented in `_System/Themes/slide-design/RULES.md`.
+> **Layout vocabulary is fixed.** Every `###` slide header below uses one of the types documented in `_system/Themes/slide-design/RULES.md`.
 
 > **Built-deck status:** this outline mirrors the built deck (`slides/Develop Solutions and Ideate.html`, 46 slides) slide for slide. See the sync notes at the bottom for the deck's stale speaker notes.
 
@@ -47,6 +47,13 @@ Three class activities (Activity 1, 2 and 3) plus teaching blocks, mirroring the
 - **Part 7 · AI-Assisted Workflow · 3 min** · slides 39–43
 - **Wrap-up + Assignment · 5 min** · slides 44–45
 - **Appendix (not presented)** · slide 46
+
+**Delivery modes** (full table in the lesson, "Delivery modes"):
+
+- **Full · 90 min:** all 45 presented slides.
+- **Core 60 · 60 min:** present 1–24 (Activity 1 on its Core path, Activity 3 on its Core path), then slide 31 only as the validation pointer, then slide 44. Slides 25–29 (storyboarding), 37–38 (prioritisation) and 39–43 (AI workflow) go in the take-home pack.
+- **Mini 45 · 45 min:** as Core 60, and skip slides 11 (flow link, folded into Round 3), 9, 10 and 22–23 (real examples).
+- **Cut order when running late:** Could blocks first (25–29, 37–43), then Should (11, 30–36), never the three activities.
 
 ---
 
@@ -186,11 +193,14 @@ Every slide below uses: Kicker, Title, On-slide, Speaker notes (bullets, 3–6),
   - 04 Branch 2–3 solutions each
   - 05 Read the shape
 - Speaker notes:
+  - Step 2 does not start from zero: each HMW from Define is a candidate opportunity, restated as "users struggle to... because..."
   - Step 3 is the hard one: your brain will jump to solutions, push it back up the tree
   - Solutions come only after you have the opportunities
   - Opportunities come from research, not imagination. If you guessed one, mark it as a hypothesis
   - An opportunity with no solutions means you haven't thought hard about it yet, not that none exist
   - Dense branches and gaps are the signal
+  - You will not solve every opportunity: develop two to four, leave the rest marked "to be defined"
+  - No friction, no opportunity. If the experience works and nobody complains, don't add one
 - 🎨 Visual hint: SCHEMATIC. Five-step process track, step 03 active.
 
 ---
@@ -263,6 +273,8 @@ Every slide below uses: Kicker, Title, On-slide, Speaker notes (bullets, 3–6),
   - Round 3: draw a line from each friction point to its opportunity; add any missing opportunity
   - No flow? Use the 5–7 steps a freelancer takes after sending a proposal and mark where you'd expect struggle
   - Debrief inside round 4, no extra time: which branch surprised you?
+  - Short on time? Core path, 10 min: round 1 for 4 (5 opportunities), round 2 for 3 (best 2, two solutions each), round 3 for 3 (one struggle step, write the direction). Skip line-drawing and round 4
+  - When the end time arrives, jump to the direction sentence whatever round you are in. The rest is take-home
   - **Start the timer. The direction sentence is the anchor for everything you sketch next**
 - 🎨 Visual hint: TYPOGRAPHIC. Practice layout, `.practice--act` variant: four round cards and a start-timer button (23:00).
 
@@ -324,6 +336,7 @@ Every slide below uses: Kicker, Title, On-slide, Speaker notes (bullets, 3–6),
   - Some panels are detailed, some are barely a logo and a label. That's fine
   - **The output is range, not polish**
   - The dots show where the team got curious: that's where the next conversation starts
+  - At team scale: ten people, about 80 panels. The decision-maker picks, or the group votes silently. Then ask an AI chat tool to find connections, only after the group has generated
 - 🎨 Visual hint: REAL. Full-bleed screenshot of the board (`media/ideate-workshop.png`).
 
 ---
@@ -344,6 +357,7 @@ Every slide below uses: Kicker, Title, On-slide, Speaker notes (bullets, 3–6),
   - Trap: eight variations of one idea. Aim for eight different approaches, one against the obvious
   - Optional, only after finishing: ask an AI chat tool "What assumption do all 8 share? Give me 3 ideas that break it". If all eight are apps, the shared assumption is "it must be an app"
   - Debrief inside round 3: how many were variations on idea #1?
+  - No shorter version: eight panels in eight minutes is the method. If late, fold the paper beforehand and skip the sharing
   - **Start the timer**
 - 🎨 Visual hint: TYPOGRAPHIC. Practice layout, `.practice--act` variant, three round cards, timer button (12:00) and a "No evaluating while generating" banner.
 
@@ -385,6 +399,7 @@ Every slide below uses: Kicker, Title, On-slide, Speaker notes (bullets, 3–6),
   - Test: can someone who wasn't in the room get the structure, interaction and differentiating logic?
   - If you must narrate it, the fix is more labelling, not more polish
   - Four parts of a finished sketch: key moment, component labels, intent notes, "This works because..."
+  - Concept is not solution: one concept can hold several flows. It can combine pieces of several Crazy 8s panels, or of several people's panels
 - 🎨 Visual hint: TYPOGRAPHIC. Centred statement with three short lines beneath.
 
 ---
@@ -449,6 +464,7 @@ Every slide below uses: Kicker, Title, On-slide, Speaker notes (bullets, 3–6),
   - Strongest solution on your tree, or your best Crazy 8s panel
   - One screen, labels not polish, finish "This works because..."
   - Sometimes sketching kills an idea. That is the system working
+  - Short on time? Core path, 5 min: one labelled screen and "This works because...". The extra 3 minutes is a cold read by a neighbour
   - **Keep the sketch. You use it to practise the validation checks in the assignment**
 - 🎨 Visual hint: TYPOGRAPHIC. Practice layout, `.practice--act` variant, one round card, timer button (8:00) and banner.
 
@@ -477,6 +493,7 @@ Every slide below uses: Kicker, Title, On-slide, Speaker notes (bullets, 3–6),
   - Why: a good screen can still fail as a flow, and the end feeling shows the breakage
   - When: after the first checks, before a prototype
   - Example: booking a flight succeeds, then a baggage fee appears at the last step. The emotion panel reads "cheated"
+  - Match it to the horizon: in sprint delivery, 3–4 panels for the survivor. Over a 1–3 year vision it also documents solutions you won't build now, and it is the form you can pitch to a client
 - 🎨 Visual hint: TYPOGRAPHIC. Three What / Why / When cards, centred (`.mth` method layout).
 
 ---
@@ -649,6 +666,7 @@ Every slide below uses: Kicker, Title, On-slide, Speaker notes (bullets, 3–6),
   - 2×2 chart: importance (low to high) against evidence (strong to weak), three plotted dots
 - Speaker notes:
   - Go wide: even a simple idea hides 20–30 assumptions, most harmless
+  - Take them from stakeholders too: ask engineering and the business before you draw, because feasibility and viability are answered there
   - Write each so you need it to be true ("clients will remember a password"), specific enough to test
   - Tag the type so you don't miss a category. Usable is not the same as desirable
   - Worked row: "freelancers will connect a proposal at send time" scores evidence 2, importance 5, so the nudge never starts. That is the riskiest
@@ -829,6 +847,8 @@ Every slide below uses: Kicker, Title, On-slide, Speaker notes (bullets, 3–6),
 - **Three class activities:** Activity 1 (Tree and Flow, 23 min), Activity 2 (Crazy 8s, 12 min), Activity 3 (concept sketch, 8 min). Storyboarding, validation and prioritisation are taught in class and practised in the assignment.
 - **Layout names:** activity slides are PRACTICE (`.practice--act`), not MILESTONE, because that is how the deck is built; there are no `Num:` values. The What / When / Why method slides are built as the supplementary `.mth` layout and listed here as NUMBERED.
 - **Deck notes fixed (2026-10-05):** slide 24's "Activity 4" reference, the "two activities" and old timing in the speaker notes (slides 1, 2, 13, 18, 21, 24, 30, 31, 37, 38), and the slide 30 and 37 data labels now match this outline.
+- **Delivery modes added (2026-10-10):** Core and Extend paths, cut-line tags and the Full / Core 60 / Mini 45 modes live in the lesson ("Delivery modes"). In this outline they appear as the Delivery modes list under Slide structure and as speaker-note bullets on slides 12, 17 and 24. **The built deck HTML is not updated:** the activity slides still show only the full rounds and timers (23, 12 and 8 min). Add Core badges there if you want them on screen.
+- **Content added from a delivered session (2026-10-10):** "to be defined" opportunities and the no-friction rule (lesson Part 1, slide 08), Crazy 8s at team scale (Part 2, slide 16), concept versus solution (Part 3, slide 20), storyboard time horizon (Part 4, slide 26) and stakeholder-sourced assumptions (Part 5, slide 36). All five are speaker-note bullets, so the slide count stays at 46. **The built deck HTML is not updated.**
 - **Open check:** slide 22 shows a mentee's concept sketch. Confirm permission to show it.
 - **Deliberate differences from the lesson (outline is what is presented, lesson is the full reference):** dot voting, sketching entry points, "sketching two concepts", "how to use a sketch", the strong-vs-weak tables, the opportunity trace, stakeholder reading and the "when to move forward" checks stay in the lesson only. The assignment is the same in both files (storyboard the survivor only). Disney example is optional.
 - **Timing check:** 6 + 33 + 15 + 13 + 5 + 5 + 5 + 3 + 5 = 90 min. Activities: 23 + 12 + 8 = 43 min. Teaching: 36 min (including 3 min AI-assisted workflow).

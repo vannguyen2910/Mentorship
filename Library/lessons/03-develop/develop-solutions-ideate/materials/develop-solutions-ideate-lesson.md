@@ -83,6 +83,45 @@ Total: 90 min = 6 open + 36 teaching (incl. 3 min AI-assisted workflow) + 43 act
 | Prioritisation | 5 min (2 matrix, 2 modelled placement, 1 set the exercise) | None in class (take-home) |
 | AI-Assisted Workflow | 3 min (what AI changes, the artifact chain, one automated workflow) | Optional add-on in the assignment |
 
+### Delivery modes: core path, extend, cut line
+
+The session is built to stretch and shrink without breaking. Every activity has a **Core** (the smallest version that still produces the artifact the next step needs) and an **Extend** (the full version). Every block has a cut-line tag.
+
+| Block | Cut line | Core | Extend (adds) |
+|---|---|---|---|
+| Open & Mindset | Must | 6 min, including the "no evaluating" rule | none |
+| Opportunity Tree teaching | Must | 7 min | none |
+| Flow Review teaching | Should | 3 min, inside Activity 1 Round 3 | none |
+| Activity 1 · Tree and Flow | Must | **10 min**, ends with the direction sentence | +13 min |
+| Crazy 8s teaching + Activity 2 | Must | 3 min + **12 min** (timer-bound, no shorter version) | optional AI ninth panel |
+| Concept Sketching teaching + Activity 3 | Must | 5 min + **5 min** | +3 min |
+| Concept Validation | Should | 3 min: name the five checks, detail goes in the take-home | +2 min, the full five |
+| Storyboarding | Could | take-home pack | 5 min in class |
+| Prioritisation | Could | take-home pack | 5 min in class |
+| AI-Assisted Workflow | Could | take-home pack | 3 min in class |
+| Wrap-up + Assignment | Must | 5 min | none |
+
+*Could* means cut from the live session, not cut from the lesson. Send the matching slides and lesson sections as a take-home pack. The assignment still works because it already practises these three.
+
+**Three run modes**
+
+| Mode | Total | Path |
+|---|---|---|
+| Full | 90 min | Everything above at Extend. This is the Session Structure table. |
+| Core 60 | 60 min | Open 6 → Tree + Flow + Activity 1 Core 20 → Crazy 8s 15 → Sketching + Activity 3 Core 10 → Validation 3 → Wrap-up 6 |
+| Mini 45 | 45 min | Open 4 → Tree + Activity 1 Core 15 (Flow Review folds into Round 3) → Crazy 8s 12 → Sketch 8 → Wrap-up 6 |
+
+**Clock rules (decide before the session, not during)**
+
+- **One checkpoint per activity: when its end time arrives, whatever round you are in, jump to the Core finish line.** Activity 1's finish line is the direction sentence. Activity 2's is two circled panels. Activity 3's is "This works because...".
+- **Unfinished work becomes take-home with a definition of done**, not an extension of class time. Activity 1: tree with at least 5 opportunities and one direction sentence. Activity 3: one labelled sketch.
+- **Never catch up by stretching an activity.** Take the time from a *Could* block first, then a *Should*.
+- **Parking lot for tangents.** A question that opens a new topic goes on the side of the board and is answered in the wrap-up or by message. This protects teaching time, which is the other source of overrun.
+
+**The spine**
+
+One running scenario links all three activities: the tree gives opportunities, the direction sentence anchors Crazy 8s, and the best panel becomes the concept sketch. Stopping after any activity leaves the mentee with a usable artifact, so a short session ends early, not broken.
+
 ---
 
 ## Tools & Materials
@@ -155,6 +194,8 @@ In Torres's full version there is a fourth layer: **assumption tests**, small ex
 
 Opportunities must come from your research (interviews, observations, your insight statements), not from imagination. An opportunity you guessed is a hypothesis; mark it as one.
 
+**Your HMW questions are already opportunities.** In the Define stage you turned each insight into a How Might We question. Each one is a candidate opportunity for the tree, so do not start from a blank board. Bring your HMW list, restate each as "Users struggle to [need] because [barrier]", and place it under the outcome. Merge duplicates and add any opportunity your HMW list missed.
+
 ### A worked example
 
 This is the one case we carry through the whole lesson.
@@ -199,10 +240,14 @@ That formulation keeps the opportunity grounded in the user, not in a feature id
 ### How to build the tree
 
 1. **Start with your outcome.** Write your problem statement at the top. This is your root node.
-2. **Map the opportunities.** Ask: *"What are all the different user needs, pain points, or desires that relate to this problem?"* Write each one on a sticky. Aim for 5–8 before you evaluate.
+2. **Map the opportunities.** Start from the HMW questions you wrote in Define, then ask: *"What are all the different user needs, pain points, or desires that relate to this problem?"* Write each one on a sticky. Aim for 5–8 before you evaluate.
 3. **Don't solve yet.** Go wide on opportunities first. Resist the pull to jump to solutions. That comes next.
 4. **Branch solutions from opportunities.** For each opportunity, generate 2–3 specific ideas that could address it. These are your solution candidates.
 5. **Look at the shape of the tree.** Where are the dense branches? Where are the gaps? Which opportunities have no solutions yet? The shape tells you where your thinking is underdeveloped.
+
+You will not solve every opportunity. Pick two to four to develop and leave the rest on the tree marked **"to be defined"** rather than deleting them: they stay visible, and the choice not to solve them is explicit. The same applies to a solution whose value you cannot yet judge.
+
+An opportunity needs a friction behind it: a step where users struggle, hesitate or lose time. Where the experience already works and nobody complains, there is no opportunity to add.
 
 ---
 
@@ -280,6 +325,9 @@ If your tree has opportunities that don't connect to any step in the flow, ask w
 
 > Debrief question, asked during Round 4 (no extra time): Which branch surprised you most?
 
+> **Core path · 10 min.** Round 1 · 4 min: at least 5 opportunities. Round 2 · 3 min: your best 2 opportunities, 2 solutions each. Round 3 · 3 min: mark the one step in the flow where users struggle most and write the direction sentence. Skip the line-drawing and Round 4. Ask the debrief question at the end of Round 3.
+> **Extend · +13 min.** Full Round 2 (3 opportunities, 2–3 solutions each), match every friction point to an opportunity, and Round 4 (read the tree and share).
+
 > Your direction sentence is the anchor. Everything you sketch next should connect back to it.
 
 ---
@@ -319,6 +367,8 @@ A Design Sprint technique that forces rapid ideation through constraint. You ske
 
 **What counts as a sketch:** Boxes, arrows, labels, and one sentence of context. You're not drawing a screen. You're making an idea visible enough to talk about. Stick figures are fine. "Draw it badly and quickly" is the correct approach.
 
+**Run it with a group.** In a team workshop, each person fills their own sheet. Ten people produce about 80 panels. Then let the decision-maker (a PM, PO or CEO) choose which to develop, or vote silently if the group is more democratic. Only after the group has generated the panels, give them to an AI chat tool and ask it to find connections between ideas. The more ideas come from people, the better its output. Working alone, the same method gives you 8 panels, which is enough to start.
+
 ### Strong vs Weak Crazy 8s
 
 | Weak | Strong |
@@ -342,6 +392,8 @@ A Design Sprint technique that forces rapid ideation through constraint. You ske
 
 **Optional, after you have finished:** ask an AI chat tool. Paste in your 8 panels and ask: *"What assumption do all of these share? Give me 3 ideas that break it."* Add any that genuinely surprise you as a ninth panel. If you ask the tool first, its answer becomes idea #1 and you will anchor on it.
 
+> **No Core version.** Eight panels in eight minutes is the method, so do not shorten Round 2. If time is tight, cut only Round 1 (fold the paper before the session) and the sharing in Round 3. Finish line: two circled panels.
+
 *Going deeper: Crazy 8s sits inside the Google Design Sprint, a structured 5-day process (map, sketch, decide, prototype, test). See Further Resources.*
 
 ---
@@ -353,6 +405,8 @@ A Design Sprint technique that forces rapid ideation through constraint. You ske
 ### What is Concept Sketching?
 
 A single rough illustration of one idea, showing what the solution is, how it's structured, and what makes it different. A concept sketch is not a wireframe. It's a thinking tool, not a deliverable.
+
+**Concept versus solution.** A concept is a main idea, and one concept can hold several flows and solutions. Crazy 8s panels are raw ideas. A concept sketch can combine a part of one panel with a part of another, or take pieces from several people's panels, and turn them into one coherent concept.
 
 **What a concept sketch communicates:**
 
@@ -479,6 +533,8 @@ Use the strongest solution from your tree, or your best Crazy 8s panel. Sketch *
 
 > If sketching killed the idea, that is the system working.
 
+> **Core path · 5 min.** One screen or one interaction, labelled, finished with "This works because...". **Extend · +3 min.** Swap sketches with a neighbour and let them read it cold before you explain.
+
 ---
 
 ## Part 4 · Storyboarding
@@ -502,6 +558,8 @@ The emotion panel matters because you can succeed at the task and still leave th
 A strong storyboard starts before the product, includes friction, ends on a feeling rather than a completed task, and uses the user's own voice in speech bubbles. The screens behind it stay rough.
 
 We introduce storyboarding in class (5 min) and you build one for your surviving concept in the assignment. Budget about 20 minutes.
+
+**Match it to the time horizon.** In sprint delivery, keep the storyboard to 3–4 panels for the one concept that survived. Over a 1–3 year product vision, a storyboard has a second job: it documents solutions you will not build now, so the team that picks them up later has a target state to work from. Without it, a wall of sticky notes does not survive the workshop. It is also the form you can present to a client, where a raw map is not. Service designers use it this way most often.
 
 ### Storyboard Overview: What, Why, When
 
@@ -606,7 +664,7 @@ The strong version still rests on assumptions. The difference is that they are n
 
 Every concept rests on assumptions about user behaviour, context, or motivation. Surface them before someone else does.
 
-**Step 1: Generate them.** For each concept, list: *"This concept assumes that users will / have / know / care about..."* Go wide. Even a simple idea hides 20–30 assumptions, and most are harmless. You will only test a few.
+**Step 1: Generate them.** For each concept, list: *"This concept assumes that users will / have / know / care about..."* Go wide. Even a simple idea hides 20–30 assumptions, and most are harmless. You will only test a few. Take them from stakeholders as well as from users: ask engineering and the business before you draw, because feasibility and viability are answered there, not in a user interview.
 
 **Step 2: Tag the type.** Sorting by type stops you favouring one kind and missing the others.
 
