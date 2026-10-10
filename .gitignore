@@ -27,18 +27,18 @@ Thumbs.db
 
 
 # Raw source assets (too large for GitHub)
-Source/
+source/
 
-_Inbox/*.mp4
-_System/Themes/assets/*.fig
+_inbox/*.mp4
+_system/Themes/assets/*.fig
 
 
 
 # Mentee records (private)
-/Mentees/
+/mentees/
 
 # Business, private showcase, assessment tool (previously under Operations/)
-Business/
-Showcase/private/
-Showcase/testimonials.md
-Programs/assessment-tool/
+business/
+showcase/private/
+showcase/testimonials.md
+programs/assessment-tool/

@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<meta name="description" content="Methods: Card Sorting · Sitemaps · Tree Testing · User Flows · Process Map · AI Workflow for Flows"/>
+<title>Information Architecture — Training Hub</title>
+<link rel="stylesheet" href="../assets/css/tokens.css"/>
+<link rel="stylesheet" href="../assets/css/components.css"/>
+<link rel="stylesheet" href="../assets/css/site.css"/>
+<link rel="stylesheet" href="../assets/css/card-list.css"/>
+<link rel="stylesheet" href="../assets/css/text-page.css"/>
+<link rel="stylesheet" href="../assets/css/home.css"/>
+
+</head>
+<body class="tp-white">
+<nav>
+  <a class="nav-logo" href="../index.html"><img src="../assets/images/logo-nav.svg" alt="Winnie Nguyen — Training Hub"/></a>
+  <div class="nav-links">
+    <a href="../lessons.html" data-text="Lesson Library" class=active>Lesson Library</a>
+    <a href="../private-training.html" data-text="Private Training">Private Training</a>
+    <a href="../programs.html" data-text="Programs">Programs</a>
+  </div>
+</nav>
+<div class="tp">
+  <a class="tp-back" href="../lessons.html">← All lessons</a>
+  <header class="tp-head">
+    <h1 class="page-title">Information Architecture</h1>
+    
+    <div class="used"><span>Taught in</span><a class="used__chip" href="../programs/ui-ux-fundamentals.html">UI/UX Design Fundamentals · session 04</a><a class="used__chip" href="../programs/junior-to-mid-level.html">Product Design Roadmap to Mid-Level · session 05</a></div>
+    <div class="tp-info" data-var-panel data-var-id="0"><dl class="tp-meta" style="--tp-cols: repeat(3, minmax(0, 1fr)) minmax(0, 1.8fr)"><div><dt>Stage</dt><dd>Develop</dd></div><div><dt>Level</dt><dd>Intermediate</dd></div><div><dt>Duration</dt><dd>120–135 minutes</dd></div><div><dt>Source file</dt><dd><code>information-architecture-lesson.md</code></dd></div><div class="tp-meta__tags"><dt>Topics</dt><dd><span>Card Sorting</span><span>Sitemaps</span><span>Tree Testing</span><span>User Flows</span><span>Process Map</span><span>AI Workflow for Flows</span></dd></div></dl></div>
+  </header>
+  <div class="tabs tabs--pill tp-tabs"><div class="tabs__list" role="tablist"><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="lesson" aria-selected="false">Lesson</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="slides" aria-selected="false">Slides (3)</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="homework" aria-selected="false">Homework</button></div></div>
+  <section class="tp-panel" data-tab-panel data-tab-id="lesson" role="tabpanel" hidden><div data-var-panel data-var-id="0">
+  <div class="tp-layout">
+    <aside class="tp-toc" aria-label="On this page"><p class="tp-toc__label">On this page</p><a href="#v0-key-concepts">Key Concepts</a><a href="#v0-tools-materials">Tools &amp; Materials</a><a href="#v0-practice-activity-1-map-the-current-user-flow-20-min">Practice Activity 1 — Map the Current User Flow · 20 min</a><a href="#v0-practice-activity-2-add-the-back-stage-layer-15-min">Practice Activity 2 — Add the Back-stage Layer · 15 min</a><a href="#v0-assignment-before-next-session">Assignment (before next session)</a><a href="#v0-related-notion-resources">Related Notion Resources</a></aside>
+    <article class="tp-body"><h2 id="v0-key-concepts">Key Concepts</h2>
+<h3 id="v0-what-is-information-architecture">What is Information Architecture?</h3>
+<p>IA is the discipline of deciding how content is organised, labelled, and connected so that users can find what they need without thinking too hard. It determines what lives where, what things are called, and how navigation is structured. Most designers inherit an IA from whoever designed before them — and rarely question it.</p>
+<hr />
+<h3 id="v0-inherited-ia-vs-evidence-based-ia">Inherited IA vs Evidence-Based IA</h3>
+<p>The most important distinction in this lesson. Most product structures were built by product owners, engineers, or business stakeholders who organised things the way the <em>business</em> thinks — by feature, team, or product line. Users don't organise information that way.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Inherited IA</th>
+<th>Evidence-Based IA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Source</strong></td>
+<td>POs, stakeholders, briefs, legacy systems</td>
+<td>User research, card sorting, tree testing</td>
+</tr>
+<tr>
+<td><strong>Organising logic</strong></td>
+<td>Business structure, feature ownership, system architecture</td>
+<td>Users' mental models, language, and task sequences</td>
+</tr>
+<tr>
+<td><strong>What it solves</strong></td>
+<td>Internal alignment, delivery scope</td>
+<td>User findability, navigation confidence</td>
+</tr>
+<tr>
+<td><strong>Risk</strong></td>
+<td>"It makes sense to us" bias</td>
+<td>Requires time and method discipline</td>
+</tr>
+</tbody>
+</table>
+<p>A navigation that mirrors the org chart is almost always inherited IA. A navigation built from card sorting and tested with tree testing is evidence-based.</p>
+<hr />
+<h3 id="v0-card-sorting">Card Sorting</h3>
+<p><strong>What it is</strong>
+A method for learning how users mentally group and label content. Users are given cards representing content items and asked to arrange them into groups that feel natural to them.</p>
+<p><strong>When to use it</strong></p>
+<ul>
+<li>Before building or redesigning navigation — when you don't yet know how content should be grouped</li>
+<li>When users complain they can't find things, but you're not sure which categories or labels are wrong</li>
+<li>When you've inherited a navigation structure and want to know if it matches how users actually think</li>
+</ul>
+<p><strong>Why to use it</strong>
+Most navigation structures reflect internal business logic, not user logic. Card sorting reveals the gap. It gives you evidence to defend structural decisions to stakeholders — not just intuition.</p>
+<p><strong>How to use it</strong>
+Two formats depending on your question:</p>
+<ul>
+<li><strong>Open card sort</strong> — users create their own categories and name them. Use this when you don't yet have a navigation structure. Best for discovery. Reveals the user's mental model directly.</li>
+<li><strong>Closed card sort</strong> — users sort cards into categories you've already defined. Use this to validate an existing structure. Reveals whether your labels match users' expectations.</li>
+</ul>
+<p>Run with 15–20 participants for reliable patterns. For a quick in-session test, even 3–5 people surfaces structural assumptions worth questioning. Look for clustering agreement, not perfect consensus — divergence is data too.</p>
+<p>Tools: FigJam, Miro (physical sticky notes), Optimal Workshop, or Maze for async runs.</p>
+<hr />
+<h3 id="v0-sitemaps">Sitemaps</h3>
+<p><strong>What it is</strong>
+A structural diagram showing the hierarchy and relationship between all pages or screens in a product. A sitemap is not a wireframe — it shows <em>what exists and how it connects</em>, not what anything looks like.</p>
+<p><strong>When to use it</strong></p>
+<ul>
+<li>At the start of a redesign, to document the current structure before changing anything</li>
+<li>After card sorting, to redesign the structure based on user evidence</li>
+<li>When onboarding onto a new product — to build a shared understanding of the current state</li>
+</ul>
+<p><strong>Why to use it</strong>
+Without a sitemap, structural problems stay invisible. You can't redesign what you haven't made explicit. A sitemap also makes it possible to have an honest conversation with stakeholders about whether the current structure serves users — or the business.</p>
+<p><strong>How to use it</strong>
+Draw two versions when doing IA work:</p>
+<ul>
+<li><strong>Inherited sitemap</strong> — drawn from the current live product. Documents reality as it is. Start here. Take screenshots, map every screen, and draw the hierarchy.</li>
+<li><strong>Evidence-based sitemap</strong> — rebuilt from card sorting results and JTBD insights. Organises content around user tasks, not business categories. This is the goal.</li>
+</ul>
+<p>Every box in the sitemap should be nameable and have a clear parent. If you can't define what belongs in a section without referring to the team that built it — that's an IA problem.</p>
+<hr />
+<h3 id="v0-user-flows">User Flows</h3>
+<p><strong>What it is</strong>
+A diagram of the steps one user takes to complete one specific task — from entry point to final outcome. A user flow is not a wireframe. It maps the <em>screens, actions, and decisions</em> along a task path, from the user's point of view.</p>
+<p><strong>Goal</strong>
+Design and check the path of a task before drawing any screen. Find friction (steps the user should not have to take) and missing states (error, empty, loading, success) while they are still cheap to fix.</p>
+<p><strong>Scope</strong></p>
+<ul>
+<li><strong>In:</strong> one user, one task, one entry point. Only what the user sees, does, and decides.</li>
+<li><strong>Out:</strong> what the system does behind the scenes, other actors (admin, support team, payment provider), and internal handoffs. Those belong to the Process Map (next section).</li>
+</ul>
+<p><strong>Why user flows matter in the design process</strong>
+Most design problems live in the flow, not in individual screens. A screen can look polished and still sit in the wrong place in a broken flow.</p>
+<p>Without a user flow:</p>
+<ul>
+<li>You design screens before knowing what should come before or after them</li>
+<li>Edge cases (error states, empty states, permission gates) get discovered in development — not design</li>
+<li>Stakeholders debate screen-level details without ever agreeing on the task structure</li>
+</ul>
+<p><strong>How to use it</strong></p>
+<ol>
+<li><strong>Name the task</strong> — be specific. Not "checkout" but "book and confirm a slot as a returning user."</li>
+<li><strong>Define the entry point and end point</strong> — draw the Start and End pills before anything else. Where does the task begin: direct link, navigation tap, search result, notification?</li>
+<li><strong>Map the happy path first</strong> — the ideal sequence when everything works.</li>
+<li><strong>Add branches for errors and edge cases</strong> — the slot is taken, the user is not logged in, the content has not loaded. Each branch needs a destination — never leave a line unresolved.</li>
+<li><strong>Add notes where friction shows up</strong> — a step that feels long, a screen the user did not expect, a place where users hesitate.</li>
+<li><strong>Review for completeness</strong> — every diamond has at least two labelled outgoing arrows. Every path ends somewhere. No orphaned shapes.</li>
+</ol>
+<p><strong>The 5 shapes that carry all the meaning</strong></p>
+<p>A user flow is built from five shapes. Using them consistently makes the flow readable to anyone on the team without explanation.</p>
+<table>
+<thead>
+<tr>
+<th>Shape</th>
+<th>What it represents</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pill / rounded rectangle</strong></td>
+<td>Start and end points</td>
+<td>"User opens the app", "Booking confirmed"</td>
+</tr>
+<tr>
+<td><strong>Rectangle</strong></td>
+<td>A screen or a user action</td>
+<td>Views the slot list, taps "Pay", fills a field</td>
+</tr>
+<tr>
+<td><strong>Diamond</strong></td>
+<td>Decision point</td>
+<td>"Is the slot still available?", "Did payment succeed?"</td>
+</tr>
+<tr>
+<td><strong>Arrow</strong></td>
+<td>Direction of the flow</td>
+<td>Label every branch: Yes / No, Success / Error</td>
+</tr>
+<tr>
+<td><strong>Note</strong></td>
+<td>Context that does not fit a shape</td>
+<td>"Error message shown here", "Friction: 3 taps to reach this"</td>
+</tr>
+</tbody>
+</table>
+<p>If a step needs a sixth shape, it is probably a system step or a handoff — that is Process Map territory.</p>
+<p><strong>When to use it</strong></p>
+<ul>
+<li>Before wireframing — to settle the structure of a task before designing any screen</li>
+<li>When reviewing an existing product — to document what a user currently has to do</li>
+<li>When identifying friction — where users drop off, get confused, or take the wrong path</li>
+<li>When handing a screen-level design to engineering — it shows <em>when</em> and <em>under what conditions</em> each screen appears</li>
+</ul>
+<p><strong>What a well-drawn flow reveals</strong></p>
+<ul>
+<li>Decision points that ask users to do work the system could do automatically</li>
+<li>Flows that are longer than necessary because content is in the wrong place in the IA</li>
+<li>Missing states: what happens at empty state, error state, loading state?</li>
+</ul>
+<p><strong>How JTBD shapes user flows</strong>
+Jobs-to-Be-Done gives you the lens for evaluating a flow. For each step, ask: does this step help the user progress toward their job — or is it friction the system is adding for its own reasons?</p>
+<p>If the functional job is "confirm my booking before I lose the slot," every step that delays confirmation is a structural problem. JTBD makes those problems visible — and defensible to stakeholders.</p>
+<table>
+<thead>
+<tr>
+<th>JTBD Insight</th>
+<th>Flow Implication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Users' primary job is confirming quickly before the slot expires</td>
+<td>Reduce steps between intent and confirmation — no upsell screens in the critical path</td>
+</tr>
+<tr>
+<td>Users feel anxious about irreversible decisions</td>
+<td>Add a review step before final commit; make "go back" always visible</td>
+</tr>
+<tr>
+<td>Users want to look competent when sharing work</td>
+<td>Surface "share" at task-completion moments, not buried in settings</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Running example — "Book and confirm a slot" (user flow)</strong>
+Start → views slot list → selects a slot → ◇ Slot still available? (No → sees alternatives → back to slot list) → reviews details → taps "Pay" → ◇ Payment successful? (No → error message → retry) → sees "Booking confirmed" → End. Note on the last step: <em>"Confirmation says 'pending', not 'confirmed'."</em></p>
+<p>The flow shows what the user sees. It cannot explain <em>why</em> the confirmation says "pending." That question moves to the next section.</p>
+<hr />
+<h3 id="v0-process-map">Process Map</h3>
+<p><strong>What it is</strong>
+A diagram of how work moves between the different actors — the user, the system, the internal team, and third parties — to deliver one outcome. Where a user flow follows one person's path, a process map shows the whole operation behind it, including what the user never sees.</p>
+<p><strong>Goal</strong>
+Make handoffs, dependencies, and bottlenecks visible. Find the steps that exist because of how the organisation or system is built, not because the user needs them. Give design, engineering, and operations one shared picture of how the task really runs.</p>
+<p><strong>Scope</strong></p>
+<ul>
+<li><strong>In:</strong> multiple actors, front-stage (what the user sees) and back-stage (what happens behind it), end to end from trigger to outcome.</li>
+<li><strong>Out:</strong> screen-level detail and layout. A process map says <em>who does what and in which order</em>, not what the screen looks like.</li>
+<li>Think of it as zooming out from the User Flow of the same task.</li>
+</ul>
+<p><strong>How to use it</strong></p>
+<ol>
+<li><strong>Start from the user flow</strong> — take the task you already mapped. Its steps become the front-stage layer.</li>
+<li><strong>List the actors</strong> — user, system, internal team (support, ops, admin), third parties (payment provider, email service). Each actor gets one horizontal swimlane.</li>
+<li><strong>Place every step in the lane of whoever is responsible for it</strong> — including the steps the user never sees.</li>
+<li><strong>Mark the handoffs</strong> — every arrow that crosses from one lane to another is a handoff. Label what is passed (data, approval, notification).</li>
+<li><strong>Look for waiting, repeating, and orphaned steps</strong> — a step with no owner, a manual check, or a loop between lanes is where delays and errors hide.</li>
+<li><strong>Compare against the user flow</strong> — which steps does the user see, and which do they only feel as a delay or an error message?</li>
+</ol>
+<p><strong>The shapes and tools</strong></p>
+<table>
+<thead>
+<tr>
+<th>Shape / tool</th>
+<th>What it represents</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Swimlane</strong></td>
+<td>One actor per horizontal lane</td>
+<td>User · System · Ops team · Payment provider</td>
+</tr>
+<tr>
+<td><strong>Rectangle</strong></td>
+<td>An action by the actor in that lane</td>
+<td>Ops team reviews the booking</td>
+</tr>
+<tr>
+<td><strong>Diamond</strong></td>
+<td>Decision point</td>
+<td>"Booking above the auto-approval limit?"</td>
+</tr>
+<tr>
+<td><strong>Parallelogram</strong></td>
+<td>Automatic system step (input / output)</td>
+<td>Locks the slot, sends confirmation email, validates the card</td>
+</tr>
+<tr>
+<td><strong>Handoff arrow</strong></td>
+<td>Work crossing from one lane to another</td>
+<td>System → Ops team: "approval needed"</td>
+</tr>
+</tbody>
+</table>
+<pre><code>┌──────────────────────────────────────────────────────────────┐
+│  USER      │  Selects slot → Taps &quot;Pay&quot;        … sees &quot;pending&quot;│
+├──────────────────────────────────────────────────────────────┤
+│  SYSTEM    │  ▱ Locks slot → ▱ Requests payment → ▱ Sends email│
+├──────────────────────────────────────────────────────────────┤
+│  OPS TEAM  │            ◇ Needs approval? → Reviews manually  │
+├──────────────────────────────────────────────────────────────┤
+│  3RD PARTY │            Gateway processes → Returns result    │
+└──────────────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>When to use it</strong></p>
+<ul>
+<li>The task involves more than one actor — checkout with a payment provider, onboarding where the system sends emails, admin features where a second user type acts on something the first one started</li>
+<li>The user flow looks fine but users still hit delays, errors, or confusion that screens cannot explain</li>
+<li>Before handing work to engineering — to show the back-stage logic behind each screen</li>
+<li>When aligning design, engineering, and operations on who owns which step</li>
+</ul>
+<p><strong>What a well-drawn process map reveals</strong></p>
+<ul>
+<li>Handoffs with no clear owner or no visible status for the user</li>
+<li>Manual steps hiding behind an automated-looking screen</li>
+<li>Waiting time the user experiences but the interface never explains</li>
+<li>Steps that exist only because of how teams or systems are organised</li>
+</ul>
+<p><strong>Running example — "Book and confirm a slot" (process map)</strong>
+Same task, four lanes. The system locks the slot and requests payment (parallelogram). The payment provider returns the result. Then the system hands the booking to the Ops team for manual approval — a handoff the user never sees. Approval can take hours. Meanwhile the user's screen says "pending."</p>
+<p>What the user flow could not show: the "pending" is not a screen problem. It is a manual handoff. The structural fix is in the process (auto-approve below a limit, show approval status), not in the layout.</p>
+<p><strong>User Flow vs Process Map</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>User Flow</th>
+<th>Process Map</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Perspective</strong></td>
+<td>One user</td>
+<td>The whole organisation</td>
+</tr>
+<tr>
+<td><strong>Question it answers</strong></td>
+<td>"What does the user go through?"</td>
+<td>"Who does what, and where does work wait?"</td>
+</tr>
+<tr>
+<td><strong>Actors</strong></td>
+<td>The user</td>
+<td>User, system, internal team, third parties</td>
+</tr>
+<tr>
+<td><strong>Visibility</strong></td>
+<td>Front-stage only</td>
+<td>Front-stage and back-stage</td>
+</tr>
+<tr>
+<td><strong>Shapes</strong></td>
+<td>Pill, Rectangle, Diamond, Arrow, Note</td>
+<td>+ Swimlane, Parallelogram, Handoff arrow</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>Designing and checking a task path</td>
+<td>Finding bottlenecks and aligning teams</td>
+</tr>
+<tr>
+<td><strong>Order</strong></td>
+<td>Draw first</td>
+<td>Draw second, zoomed out from the flow</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="v0-ai-workflow-for-user-flows-and-process-maps">AI Workflow for User Flows and Process Maps</h3>
+<p><strong>What it is</strong>
+A repeatable way to use AI to build, check, and sharpen a user flow or process map — without letting AI invent the product. It is a workflow, not a prompt: eight steps, alternating between you and AI, with three checkpoints.</p>
+<p><strong>Goal</strong>
+Use AI for what it does well (structuring notes, spotting gaps, widening options, writing diagram code) and keep for yourself what it cannot do (knowing what the product really does, deciding what to change).</p>
+<p><strong>Scope</strong></p>
+<ul>
+<li><strong>In:</strong> current-state maps of one task, as far as you and your sources know. A structural fix proposed from the map.</li>
+<li><strong>Out:</strong> inventing a flow from a one-line description; knowing the system's real constraints; knowing why users behave as they do. Those need the product, the team, and real users.</li>
+</ul>
+<p><strong>Why not just one prompt?</strong>
+Ask AI to "draw the user flow for booking a slot" and it returns a clean, plausible diagram in seconds. It is also made up. Nothing in it is tied to your product, and a polished diagram is the hardest kind to doubt. The fix is not a better prompt. It is a process where AI only works from facts you collected, and where every AI output goes through you before the next step.</p>
+<p><strong>The principles behind the workflow</strong></p>
+<ol>
+<li><strong>Facts first, AI second.</strong> You walk the product and collect notes. AI works only from those notes.</li>
+<li><strong>The table is the source of truth; the diagram is a view of it.</strong> AI writes a step table first. You verify it. Only then does AI turn it into diagram code.</li>
+<li><strong>Unknown is a valid answer.</strong> Every row is marked stated, inferred, or unknown. A gap shown is better than a gap filled with a guess.</li>
+<li><strong>Every claim points to evidence.</strong> Each step cites a note ID. Each AI observation cites a row.</li>
+<li><strong>Alternate you and AI.</strong> No two AI steps in a row. Each AI output is reviewed by you before it is used.</li>
+<li><strong>Keep the AI draft.</strong> Your corrections go in a separate copy. The gap between them is your measure of how far to trust AI on this kind of task.</li>
+<li><strong>Widen before you choose.</strong> AI proposes at least three genuinely different ways to fix the worst step, and argues against its own conclusion. You decide.</li>
+</ol>
+<p><strong>The workflow</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Step</th>
+<th>Who</th>
+<th>What happens</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Frame</td>
+<td>You</td>
+<td>Task, entry and end, the job (from JTBD), constraints, method (User Flow / Process Map), and what you believe the flow is today</td>
+<td><code>Frame</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Capture the facts</td>
+<td>You</td>
+<td>Walk the product and take notes (one per step, with a failure state). For a Process Map, add back-stage facts from the team, each tagged with its source</td>
+<td>Notes with IDs</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Structure</td>
+<td>AI</td>
+<td>Turns the notes into a step table: shape, label, next step, evidence, status (stated / inferred / unknown). Lists gaps. No suggestions yet</td>
+<td><code>Table (AI draft)</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Verify · <strong>Checkpoint A</strong></td>
+<td>You</td>
+<td>Walk the product again against the table. Fix a copy, never the AI draft. Resolve or keep visible every "inferred" and "unknown"</td>
+<td><code>Table (verified)</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Analyse</td>
+<td>AI</td>
+<td>User Flow: friction vs the job, three different ways to restructure the worst step, then argues against itself. Process Map: lanes, handoffs, waits, and questions for the team</td>
+<td><code>Analysis</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Decide the fix · <strong>Checkpoint B</strong></td>
+<td>You</td>
+<td>Choose one structural change; say why the step exists today and what you would test. Check "removable" steps with whoever owns them</td>
+<td><code>Fix + decision</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Diagram code</td>
+<td>AI</td>
+<td>Converts the verified table to diagram code (Mermaid). Same steps, no additions</td>
+<td><code>Diagram code</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Draw and state limits · <strong>Checkpoint C</strong></td>
+<td>You</td>
+<td>Render it, compare to the table, mark constraint-driven steps in red, write what the map cannot tell you</td>
+<td><code>Final diagram + limits</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>The three checkpoints</strong></p>
+<ul>
+<li><strong>A (after step 4)</strong> — Could someone else follow this table and reach the same screens? Is every "inferred" row confirmed or removed? If no → walk the product again.</li>
+<li><strong>B (after step 6)</strong> — Were at least three different options considered? Does the fix trace to the job and to evidence in the table? If no → ask for alternatives again, and resolve unknowns with the team.</li>
+<li><strong>C (after step 8)</strong> — Does the diagram contain exactly the verified steps? Is every unknown visible? If no → fix the code or the table.</li>
+</ul>
+<p><strong>Two branches, one spine</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>User Flow branch</th>
+<th>Process Map branch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Facts you collect</strong></td>
+<td>Your own walkthrough notes</td>
+<td>Walkthrough notes + back-stage facts with a source for each</td>
+</tr>
+<tr>
+<td><strong>What AI adds at step 5</strong></td>
+<td>Friction analysis and restructuring options</td>
+<td>Lanes, handoffs, waits, and a list of questions to ask the team</td>
+</tr>
+<tr>
+<td><strong>Order</strong></td>
+<td>First</td>
+<td>Second, reusing the verified table</td>
+</tr>
+</tbody>
+</table>
+<p>If the task has one actor, run the User Flow branch only. If friction cannot be explained by the screens, add the Process Map branch.</p>
+<p><strong>The shape of the key instructions</strong>
+Every AI step in the workflow carries the same few lines. Use them as a checklist when you write your own:</p>
+<ul>
+<li>Use <strong>only</strong> the notes / table below</li>
+<li>Cite the <strong>ID</strong> for every claim</li>
+<li>Mark guesses as <strong>inferred</strong>; say <strong>unknown</strong> instead of filling a gap</li>
+<li><strong>Do not add, remove, or rename</strong> steps</li>
+<li>Argue against your own conclusion: <em>what is the strongest reason this step exists, and what would change your mind?</em></li>
+<li>Return <strong>only your section</strong>, in the stated format</li>
+</ul>
+<p><strong>Starter instruction for step 3 (Structure)</strong></p>
+<blockquote>
+<p><em>"Using only the notes below, build a step table for this task. Columns: ID, Shape (pill, rectangle, diamond, note), Label, Next (for a diamond, one row per branch with a label), Evidence (note IDs), Status (stated / inferred / unknown). Every step must cite at least one note. If you do not know what happens, write 'unknown' — do not fill the gap. Then list: diamonds with fewer than two branches, paths that never reach an end, and states with no coverage in the notes (empty, error, loading, success). No suggestions yet."</em></p>
+</blockquote>
+<p><strong>Watch out for</strong></p>
+<ul>
+<li>AI does not know your system's real constraints. It may suggest removing a step that is technically required. Check with whoever owns it.</li>
+<li>A clean diagram with no "unknown" rows is a warning sign. Real notes always leave gaps.</li>
+<li>Mermaid output looks authoritative. Always count nodes against the table.</li>
+</ul>
+<p><strong>What this cannot tell you:</strong> why users drop off, how long steps really take, or whether the fix works. That needs real users.</p>
+<blockquote>
+<p>Full step cards and instructions: <code>programs/ai-design-workflow/examples/user-flow-process-map/step-cards.md</code></p>
+<p>One-slide view of the whole workflow (HTML): <code>programs/ai-design-workflow/assets/diagrams/user-flow-process-map-activity-flow.html</code></p>
+</blockquote>
+<hr />
+<h2 id="v0-tools-materials">Tools &amp; Materials</h2>
+<ul>
+<li>One of your own projects (bring a working product or prototype to the session)</li>
+<li>FigJam or Miro — for drawing the user flow and the process map</li>
+<li>Screenshots of the relevant screens in the flow</li>
+<li>JTBD Map from Session 2 (used to choose which task to map)</li>
+</ul>
+<hr />
+<h2 id="v0-practice-activity-1-map-the-current-user-flow-20-min">Practice Activity 1 — Map the Current User Flow · 20 min</h2>
+<p>Pick one real project you're working on. Choose one core task — the most important thing a user needs to do in this product. Map the flow exactly as it exists today: not how it should work, but how it actually works right now.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Choose your task</strong> — pick one core user job from your JTBD Map. Make it specific: not "browse products" but "find and save a product for later." This is the scope of your flow.</p>
+</li>
+<li>
+<p><strong>Define your entry point and end point</strong> — draw a Start pill and an End pill before anything else.</p>
+</li>
+<li>
+<p><strong>Walk through the flow step by step</strong> — open your product (or prototype) and complete the task yourself, narrating every step aloud. Write each step on a sticky note as you go. Include every tap, every screen load, every decision.</p>
+</li>
+<li>
+<p><strong>Assign shapes to each step:</strong></p>
+<ul>
+<li>Rectangles for screens and user actions</li>
+<li>Diamonds for decision points (login check, empty state, error condition)</li>
+<li>Arrows with labels on every branch</li>
+</ul>
+</li>
+<li>
+<p><strong>Add the error paths</strong> — for each diamond, follow both the Yes and No branches. Where does the user go if something fails? If you don't know — that's a gap in the design.</p>
+</li>
+<li>
+<p><strong>Add notes</strong> — mark where the flow felt long, surprising, or unclear.</p>
+</li>
+<li>
+<p><strong>Count the decision points</strong> — how many times does a user have to make a choice before completing the task? Note which exist because of IA decisions (content is in the wrong place) vs interaction design decisions (the flow is poorly sequenced).</p>
+</li>
+</ol>
+<p><strong>Debrief prompts:</strong></p>
+<ul>
+<li>Which steps surprised you — ones you didn't realise existed until you walked through it?</li>
+<li>Which decision points could the system resolve automatically, removing a step entirely?</li>
+<li>Where does the flow break down if the user takes a wrong turn?</li>
+</ul>
+<hr />
+<h2 id="v0-practice-activity-2-add-the-back-stage-layer-15-min">Practice Activity 2 — Add the Back-stage Layer · 15 min</h2>
+<p>Take the same task and the same flow. Zoom out.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>List the actors</strong> — who or what takes part in this task besides the user? System, internal team, third party.</li>
+<li><strong>Create one swimlane per actor</strong> and move your user flow steps into the User lane.</li>
+<li><strong>Add the back-stage steps</strong> — for each user step, ask: what happens behind the scenes? Who or what does it? Place it in that actor's lane (parallelogram for automatic system steps).</li>
+<li><strong>Mark every handoff</strong> — each arrow that crosses a lane. Label what is passed.</li>
+<li><strong>Circle the waits</strong> — where does the user wait while someone or something else works?</li>
+</ol>
+<p><strong>Debrief prompts:</strong></p>
+<ul>
+<li>Which back-stage step has the biggest effect on what the user experiences?</li>
+<li>Which handoff has no clear owner or no visible status for the user?</li>
+<li>Which problem from Activity 1 turned out to be a process problem, not a screen problem?</li>
+</ul>
+<hr />
+<h2 id="v0-assignment-before-next-session">Assignment (before next session)</h2>
+<p><strong>Build the current-state map and identify one structural fix.</strong> Choose the method that fits your project.</p>
+<ol>
+<li><strong>Choose your method:</strong><ul>
+<li><strong>User Flow</strong> — if your task is mostly in the user's hands (one actor, screen-level friction)</li>
+<li><strong>Process Map</strong> — if your task depends on the system, a team, or a third party (multiple actors, handoffs, waiting)</li>
+<li>Either way, state in one sentence why you chose it.</li>
+</ul>
+</li>
+<li><strong>Complete the map</strong> for your chosen task in FigJam or Miro, using the correct shapes. For a Process Map, annotate every step with <strong>U</strong> (user), <strong>S</strong> (system), <strong>T</strong> (internal team), or <strong>3P</strong> (third party).</li>
+<li><strong>Highlight in red</strong> every step that exists because of an IA, system, or organisational constraint — not because it serves the user.</li>
+<li><strong>Pick the single highest-friction step</strong> and write a short rationale: why does this step exist, what would need to change structurally to remove it, and what would you test to validate the change?</li>
+</ol>
+<p><strong>🤖 AI in Practice — use the workflow:</strong>
+Run steps 1-4 of the AI workflow on your task (frame, capture facts, AI builds the table, you verify it). Bring the AI draft table, your verified table, and the number of rows AI got wrong, invented, or missed. If you have time, continue to step 5 and choose your fix with it.</p>
+<hr />
+<h2 id="v0-related-notion-resources">Related Notion Resources</h2>
+<ul>
+<li><a href="https://www.notion.so/3248a6b135db810385bdf06991f4f87a" target="_blank" rel="noopener">Design Activities by DT Stage — Reference</a> — Card sorting and tree testing in context of the full DT cycle</li>
+<li><a href="https://www.notion.so/3318a6b135db81a2a1ebf83b4ec081a5" target="_blank" rel="noopener">Session 1 Playback — Design Thinking in Practice</a> — "Organise for users — Evidence-based sitemap, Task flows"</li>
+<li><a href="https://www.notion.so/3238a6b135db816db041d2cfbc58fa8c" target="_blank" rel="noopener">Progress Tracker</a> — Evidence-based sitemap is the S4 artifact</li>
+</ul>
+<hr />
+<p><em>Lesson: Information Architecture · Part of the 8-session UX Mentoring Program</em></p></article>
+  </div>
+</div></section><section class="tp-panel" data-tab-panel data-tab-id="slides" role="tabpanel" hidden><div class="deck-layout"><div class="deck-side" role="group" aria-label="Slide decks"><p class="deck-side__label">Decks (2)</p><ul><li><button type="button" class="deck-item deck-item--active" data-deck-btn data-src="../assets/lessons/information-architecture/slides/information-architecture-slides.html" aria-pressed="true"><span class="deck-item__title">Session 4 · Information Architecture — Winnie Nguyen</span></button></li><li><button type="button" class="deck-item" data-deck-btn data-src="../assets/lessons/information-architecture/slides/information-architecture.html" aria-pressed="false"><span class="deck-item__title">Information Architecture — Winnie Nguyen</span></button></li></ul></div><div class="deck-main"><div class="tp-slides"><iframe id="deck-frame" src="../assets/lessons/information-architecture/slides/information-architecture-slides.html" title="Lesson slides" allowfullscreen loading="lazy"></iframe></div>
+<p class="tp-slides__link"><a id="deck-open" href="../assets/lessons/information-architecture/slides/information-architecture-slides.html" target="_blank" rel="noopener">Open slides full screen ↗</a></p></div></div><h3 class="tp-hw__group" style="margin-top:var(--space-10)">Other formats</h3><div class="file-grid"><a class="file-card" href="../assets/lessons/information-architecture/slides/information-architecture-slides.pdf" target="_blank" rel="noopener"><span class="file-card__ext">PDF</span><strong>information-architecture-slides</strong><span>Open PDF ↗</span></a></div></section><section class="tp-panel" data-tab-panel data-tab-id="homework" role="tabpanel" hidden><div class="tp-slides tp-slides--empty"><strong>No mentee homework yet</strong><span>Drop files in <code>mentees/&lt;name&gt;/homework/information-architecture/</code> and they show up here.</span></div></section>
+  
+</div>
+<script>
+(function () {
+  function group(btnSel, panelSel, attr, onShow) {
+    var btns = [].slice.call(document.querySelectorAll(btnSel)), panels = [].slice.call(document.querySelectorAll(panelSel));
+    function show(id) {
+      btns.forEach(function (b) { var on = b.getAttribute(attr) === id; b.setAttribute('aria-selected', on); b.classList.toggle('tabs__tab--active', on && b.classList.contains('tabs__tab')); });
+      panels.forEach(function (p) { p.hidden = p.getAttribute(attr) !== id; });
+      if (onShow) onShow(id);
+    }
+    btns.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute(attr)); }); });
+    return show;
+  }
+  var firstTab = (document.querySelector('[data-tab-btn]') || {getAttribute: function () {}}).getAttribute('data-tab-id');
+  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === firstTab ? location.pathname : '#' + id); });
+  var showVar = group('[data-var-btn]', '[data-var-panel]', 'data-var-id');
+  var h = (location.hash || '').replace('#', '');
+  showTab(h && document.querySelector('[data-tab-btn][data-tab-id="' + h + '"]') ? h : firstTab);
+  if (document.querySelector('[data-var-btn]')) showVar('0');
+  var decks = [].slice.call(document.querySelectorAll('[data-deck-btn]'));
+  decks.forEach(function (b) { b.addEventListener('click', function () {
+    var f = document.getElementById('deck-frame'); f.src = b.dataset.src; document.getElementById('deck-open').href = b.dataset.src;
+    decks.forEach(function (x) { x.classList.toggle('deck-item--active', x === b); x.setAttribute('aria-pressed', x === b); });
+  }); });
+})();
+</script>
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Winnie Nguyen · Senior Product Designer</p>
+    <div class="footer-links">
+      <a href="mailto:nguyenphuctuongvan@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/winnienguyen2910" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script>(function(){if(location.protocol.indexOf('http')!==0)return;var u='../assets/build-stamp.txt',last=null;function c(){fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(t){if(t===null)return;if(last!==null&&t!==last)location.reload();last=t}).catch(function(){})}c();setInterval(c,1500)})();</script>
+</body>
+</html>

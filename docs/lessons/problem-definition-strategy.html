@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<meta name="description" content="Choose one problem, and be able to defend the ones you didn&#x27;t choose"/>
+<title>Problem Definition &amp; Strategy — Training Hub</title>
+<link rel="stylesheet" href="../assets/css/tokens.css"/>
+<link rel="stylesheet" href="../assets/css/components.css"/>
+<link rel="stylesheet" href="../assets/css/site.css"/>
+<link rel="stylesheet" href="../assets/css/card-list.css"/>
+<link rel="stylesheet" href="../assets/css/text-page.css"/>
+<link rel="stylesheet" href="../assets/css/home.css"/>
+
+</head>
+<body class="tp-white">
+<nav>
+  <a class="nav-logo" href="../index.html"><img src="../assets/images/logo-nav.svg" alt="Winnie Nguyen — Training Hub"/></a>
+  <div class="nav-links">
+    <a href="../lessons.html" data-text="Lesson Library" class=active>Lesson Library</a>
+    <a href="../private-training.html" data-text="Private Training">Private Training</a>
+    <a href="../programs.html" data-text="Programs">Programs</a>
+  </div>
+</nav>
+<div class="tp">
+  <a class="tp-back" href="../lessons.html">← All lessons</a>
+  <header class="tp-head">
+    <h1 class="page-title">Problem Definition &amp; Strategy</h1>
+    <p class="page-desc">Choose one problem, and be able to defend the ones you didn&#x27;t choose</p>
+    <div class="used"><span>Taught in</span><a class="used__chip" href="../programs/mid-to-senior.html">Product Design Roadmap to Senior · session 04</a></div>
+    <div class="tp-info" data-var-panel data-var-id="0"><dl class="tp-meta" style="--tp-cols: repeat(4, minmax(0, 1fr)) minmax(0, 1.8fr)"><div><dt>Stage</dt><dd>Define</dd></div><div><dt>Level</dt><dd>Senior / Lead</dd></div><div><dt>Duration</dt><dd>90 min</dd></div><div><dt>Date</dt><dd>31 Aug 2026</dd></div><div><dt>Source file</dt><dd><code>problem-definition-strategy-lesson.md</code></dd></div><div class="tp-meta__tags"><dt>Topics</dt><dd><span>problem-definition</span><span>problem-statement</span><span>opportunity-mapping</span><span>reframing</span><span>actionable-insight</span><span>design-strategy</span></dd></div></dl></div>
+  </header>
+  <div class="tabs tabs--pill tp-tabs"><div class="tabs__list" role="tablist"><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="lesson" aria-selected="false">Lesson</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="slides" aria-selected="false">Slides (1)</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="homework" aria-selected="false">Homework (1)</button></div></div>
+  <section class="tp-panel" data-tab-panel data-tab-id="lesson" role="tabpanel" hidden><div data-var-panel data-var-id="0">
+  <div class="tp-layout">
+    <aside class="tp-toc" aria-label="On this page"><p class="tp-toc__label">On this page</p><a href="#v0-overview">Overview</a><a href="#v0-learning-objectives">Learning Objectives</a><a href="#v0-success-check">Success Check</a><a href="#v0-materials-needed">Materials Needed</a><a href="#v0-pre-class-preparation">Pre-Class Preparation</a><a href="#v0-session-plan">Session Plan</a><a href="#v0-core-content">Core Content</a><a href="#v0-activities">Activities</a><a href="#v0-ai-in-practice">AI in Practice</a><a href="#v0-assignments">Assignments</a><a href="#v0-close-where-this-goes-next">Close · Where This Goes Next</a><a href="#v0-further-resources">Further Resources</a></aside>
+    <article class="tp-body"><h2 id="v0-overview">Overview</h2>
+<p>Customer Understanding ended with a working artifact: a JTBD map with stages across the top, the assumed job and the actual job side by side, pain stacked underneath, and a 🔥 focus area marked where negative experience concentrates. That map describes the customer's world accurately. It still does not say what the team should do next.</p>
+<p>This session turns it into a decision. Research that goes well produces more defensible problems than a team has capacity to solve, and the senior failure mode is not writing a weak problem statement, it is committing confidently to the wrong problem while the other candidates go unexamined. So the session runs in the order the decision actually happens: lay out the space of things you could work on, challenge the framing of the strongest one before falling in love with it, choose, then write the strategy that makes the choice actionable and the refusals explicit.</p>
+<p>Two things carried over deliberately from last session, because they only work once there is a validated map underneath them. The three-leg insight formula, observation, implication and recommended decision, is what turns a row on that map into something a stakeholder can act on. And the stakeholder readout gets drafted here for the first time, since a readout built on a hypothesis is just an opinion with a template around it.</p>
+<p>The second half has no equivalent anywhere earlier in the curriculum. A problem statement names a gap. A strategy names an approach, the actions that follow from it, and the things you are deliberately not doing. Stakeholders agree with problem statements and change nothing; they argue with strategies, which is the point.</p>
+<p>Nothing here starts from a blank page. The opportunity map is built from the JTBD map. The problem statement is chosen from the opportunity map. The diagnosis is the problem statement, unchanged. Every block hands its output to the next one, and the session ends with two files that keep working after it.</p>
+<hr />
+<h2 id="v0-learning-objectives">Learning Objectives</h2>
+<p>By the end of this session, mentees will be able to:</p>
+<ol>
+<li><strong>Distinguish</strong> a JTBD map from an opportunity map, including why the opportunity stickies already on their board are not yet an opportunity space</li>
+<li><strong>Convert</strong> their JTBD map into an opportunity space rooted in a single product outcome, tagged by stage and evidence count</li>
+<li><strong>Separate</strong> the 🔥 focus area from the root outcome: where pain concentrates is not automatically where value concentrates, and the difference is a conversation worth having out loud</li>
+<li><strong>Reframe</strong> their strongest opportunity as an option-generating move rather than a search for the real problem</li>
+<li><strong>Choose</strong> one problem using evidence-based assessment criteria, translate that assessment into the prioritisation language their organisation already speaks, and state in writing why the runner-up lost</li>
+<li><strong>Write</strong> an insight in the three-leg formula, and promote it into a problem statement in its senior form: the organisational cost, the stage it is scoped to, and the evidence behind it</li>
+<li><strong>Build</strong> a project-level design strategy using diagnosis, guiding policy and coherent action, keeping actions directional and naming the riskiest assumption behind each one, with design principles that function as decision rules and non-goals stated out loud</li>
+<li><strong>Describe</strong> the target state twice, in words and in numbers: what changes for the customer when this works, and the product outcome that would show it, or a proxy where there is no analytics access</li>
+<li><strong>Defend</strong> the bet against the question that follows a commitment rather than a finding: why not the other one</li>
+</ol>
+<hr />
+<h2 id="v0-success-check">Success Check</h2>
+<ul>
+<li>The mentee can name the problem they chose, the one they rejected, and the reason, without opening a file.</li>
+<li>The problem brief contains at least one non-goal specific enough that someone in the room could be annoyed by it. A brief nobody could object to has not committed to anything.</li>
+<li>The target-state paragraph and the target-state number describe the same change. If the number could move without the paragraph coming true, the measure is a proxy for the wrong thing.</li>
+</ul>
+<hr />
+<h2 id="v0-materials-needed">Materials Needed</h2>
+<ul>
+<li>The mentee's <strong>JTBD map</strong>, both halves: <code>jtbd-map.md</code> and the board in Figma, FigJam or Miro. Stages, assumed job, actual job, the gap, the sticky rows, and the marked 🔥 focus area. This session is built directly on it and does not work without it.</li>
+<li>The <strong>top matter of that map</strong>: business objective, target user context, goals and KPIs. It gets used in the first ten minutes, so it needs to be filled in rather than left blank.</li>
+<li>Their updated <strong>Assumption Map</strong>, for anything on the board still carrying a single source.</li>
+<li><code>library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md</code>: teach the map comparison and the conversion steps directly from this file.</li>
+<li><code>library/frameworks/prioritisation-methods/framework-prioritisation-methods.md</code>: the reference covering the three methods not taught live (RICE, MoSCoW, Kano). Hand it over before the session so the choosing block can stay short.</li>
+<li>The two starter files, copied from <code>_Config/templates/_template-opportunity-map.md</code> and <code>_Config/templates/_template-problem-brief.md</code> into the mentee's project folder before the session. The build blocks are timed on the assumption that the headings and prompts are already there; nobody should be formatting a document while the clock runs.</li>
+<li>Their <strong>Stakeholder Readout Template</strong>, drafted for the first time in this session's practice block rather than reused from an earlier one.</li>
+<li>AI tool linked to the mentee's project folder. Every prompt this session assumes the tool can already read their saved files; nobody re-explains the project from a blank prompt.</li>
+</ul>
+<p><strong>Output convention:</strong> working files stay in markdown (<code>opportunity-map.md</code>, <code>problem-brief.md</code>). The thing that gets shown to a stakeholder, the one-page brief, gets rendered from its markdown into HTML for the presentation itself. Content lives in markdown, visualisation lives in HTML.</p>
+<hr />
+<h2 id="v0-pre-class-preparation">Pre-Class Preparation</h2>
+<ol>
+<li><strong>Finish the map.</strong> Both halves, board and markdown, with the 🔥 focus area marked. If the board is incomplete, this session has nothing to convert.</li>
+<li><strong>Count the interviews.</strong> Bring the number. If the actual job rests on two conversations rather than three, the opportunity map built today gets labelled provisional and the assignment carries one more. This is a scoping fact, not a failure.</li>
+<li><strong>Fill in the map's top matter</strong> if it is still empty: business objective, and whatever goals or KPIs the team already measures. The session tests the business target against the customer behaviour, and it cannot do that if the target is missing.</li>
+<li><strong>Find the last design decision that got overruled</strong>, and be ready to say in one sentence what was argued, what the other side said, and who won. It gets used twice: once as the example in the strategy block, and again to open the pushback drill, where you run the same argument a second time with a diagnosis behind you.</li>
+</ol>
+<hr />
+<h2 id="v0-session-plan">Session Plan</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Block</th>
+<th>Topic</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Open</td>
+<td>From a validated map to a decision</td>
+<td>3 min</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Teach A1</td>
+<td>Two maps, the opportunity stickies, the root and the focus area</td>
+<td>8 min</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Build 1a</td>
+<td>Convert your map</td>
+<td>8 min</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Teach A2</td>
+<td>Reframing as an operation on the map</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Build 1b</td>
+<td>Reframe the top branch</td>
+<td>6 min</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Teach B</td>
+<td>Choosing, the three-leg insight, and the problem statement</td>
+<td>6 min</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Build 2</td>
+<td>Score, commit, state it</td>
+<td>9 min</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Teach C</td>
+<td>The strategy argument, and one finished brief</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Build 3</td>
+<td>The problem brief, end to end</td>
+<td>16 min</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Defend</td>
+<td>Pitch the bet, take the pushback, get the coaching</td>
+<td>11 min</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Close</td>
+<td>Assignment and handoff to structure</td>
+<td>3 min</td>
+</tr>
+</tbody>
+</table>
+<p>85 minutes scripted into a 90 minute slot. Four teaching runs, four build blocks, one practice block.</p>
+<blockquote>
+<p><strong>Why Part 1 runs as two short cycles rather than one long one.</strong> Converting a map and reframing a branch are two different mental operations with two different outputs. Taught together they add up to seven concepts before the mentee touches anything, which is more than working memory holds: the visible symptom is a mentee who nods through the teaching and then stalls two minutes into the build. Teaching each one immediately before it gets used costs nothing in total time and halves the load at any moment.</p>
+<p><strong>Story logic:</strong> The session is shaped around the decision, not around the frameworks. It opens by separating description from decision, because the mentee arrives holding a description and is about to be asked for a decision. The opportunity map is built first, since you cannot choose between things you have not laid out, and because the opportunity stickies already on their board are the fastest way to show what an opportunity is not. Reframing is taught after the tree exists rather than before it, and in its own short cycle, because reframing something abstract produces philosophy while reframing a specific branch produces a better problem. The choice happens next, in the open, with the loser written down, because an unrecorded rejection gets re-litigated every month. Then the strategy, where the chosen statement is promoted into a diagnosis without being rewritten, because the promotion is the whole idea: same sentence, more weight. The target state sits inside the brief and is written twice, in words and in numbers, so the vision and the measure are one statement rather than two documents that drift apart. And the session closes on a defence rather than a presentation, because the skill being built is holding a position, not delivering one. Describe, lay out, challenge, choose, commit, defend.</p>
+<p><strong>Facilitation note:</strong> the build blocks run 6 to 16 minutes, which goes quiet in a 1:1. Set a checkpoint at roughly the halfway mark where the mentee reads out what they have so far. Build 3 takes two, at minute 6 once the principles are drafted and at minute 10 as they move into the target state, because a wrong turn caught at minute 6 is worth more than a polished review at minute 16.</p>
+<p><strong>If the map is thin, say so at the start rather than improvising at minute twenty.</strong> Some mentees will arrive with two interviews and a half-filled board. The session still works, but only on a narrower scope: pick the single stage with the most evidence behind it and run the whole chain on that one stage properly, rather than four stages thinly. Say this out loud in the opening, name which stage you are working, and label the map provisional. A complete chain on one stage teaches the method. Four incomplete branches teach nothing and produce a brief nobody can defend.</p>
+</blockquote>
+<hr />
+<h2 id="v0-core-content">Core Content</h2>
+<h3 id="v0-open-from-a-validated-map-to-a-decision">Open · From a Validated Map to a Decision</h3>
+<p>Last session was about being right. This session is about choosing, which is a different and less comfortable skill, because every choice has an opportunity cost and the cost is invisible unless you name it.</p>
+<p>Name the shape of the day in the first minute: two files come out of this session, and the pitch at the end faces a question the last one did not. Up to now the hard question has been "how do you know." Today the finding is accepted and the hard question becomes "why not the other one." That question cannot be answered with more evidence. It is answered with a stated reason for a rejection, which is why the rejection gets written down today rather than remembered.</p>
+<hr />
+<h3 id="v0-part-1-the-opportunity-map">Part 1 · The Opportunity Map</h3>
+<h4 id="v0-two-maps-and-why-one-is-not-enough">Two maps, and why one is not enough</h4>
+<p><strong>Full framework lives in <code>library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md</code>. Teach the comparison and the conversion steps directly from that file.</strong> What follows is the condensed version plus this session's application.</p>
+<p>The JTBD map describes the customer's world as it is. The opportunity map describes the team's decision space. The first is a record and the second is an argument.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>JTBD map</th>
+<th>Opportunity map</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Question</td>
+<td>What is the customer trying to get done, and where do we diverge from them</td>
+<td>Given the outcome we want to move, which unmet need do we bet on</td>
+</tr>
+<tr>
+<td>Spine</td>
+<td>The customer's own stages</td>
+<td>One product outcome, at the root</td>
+</tr>
+<tr>
+<td>Unit</td>
+<td>A job statement per stage</td>
+<td>A need, pain or desire in customer language</td>
+</tr>
+<tr>
+<td>Whose it is</td>
+<td>The customer's reality, recorded</td>
+<td>Your team's choice, defended</td>
+</tr>
+<tr>
+<td>Ranking</td>
+<td>None. Every stage is described equally</td>
+<td>The whole point. Everything is compared against the root</td>
+</tr>
+<tr>
+<td>Changes</td>
+<td>Rarely. The job is stable while solutions change</td>
+<td>Often. Whenever the outcome or the evidence moves</td>
+</tr>
+<tr>
+<td>Fails by becoming</td>
+<td>A persona in disguise</td>
+<td>A feature list in disguise</td>
+</tr>
+</tbody>
+</table>
+<p>The reason both have to exist: a JTBD map has no target, so nothing inside it can say which stage matters most. Importance is a property of what the business is trying to achieve, not of the customer's journey. The opportunity map supplies the missing ingredient, one outcome at the root, and everything below earns its place by plausibly moving it.</p>
+<p>The reason they stay separate files: the moment you rank stages by business value, you have stopped describing the customer and started arguing for a plan. Keeping them apart is what lets you change the plan next quarter without quietly rewriting your account of the customer to match.</p>
+<h4 id="v0-but-my-map-already-has-opportunities-on-it">"But my map already has opportunities on it"</h4>
+<p>It does, and this is the most useful thirty seconds of the block, because the answer is on their own board.</p>
+<p>Every pain point on the JTBD map has an opportunity sticky next to it. On the food-delivery map, the pain "the ETA slips with no explanation" carries the opportunity "push a proactive alert the moment the ETA changes." That sticky is doing real work and it is not an opportunity. It is a solution: a specific thing to build, attached to a specific pain.</p>
+<p><strong>The three-solutions test:</strong> name three genuinely different ways to address it. "Push a proactive alert" fails, because it names one. Rewrite it one level up and it passes: <em>"I need to know the app will tell me the moment something changes, without going to look."</em> Three solutions now exist and can be compared: a proactive alert, a promise stated up front about when you will be contacted, a courier message channel.</p>
+<p>So the conversion is not clerical. The opportunity stickies are where the mentee's own instinct jumped to a solution while the board was being filled in, and lifting each one back up a level is the exercise. Expect several of them to fail the test. That is normal and worth saying out loud, because it is a designer's reflex rather than a mistake.</p>
+<h4 id="v0-the-root-is-a-behaviour-and-the-focus-area-is-not-the-root">The root is a behaviour, and the focus area is not the root</h4>
+<p>The root is written from the actual job statement in <code>jtbd-map.md</code>, restated as a behaviour: <em>more customers get through waiting-for-delivery without checking the tracking screen to reassure themselves.</em> It is not taken from the business, because what the business is chasing is usually a number rather than a behaviour.</p>
+<p>The business objective at the top of their map is the check on it, not the source. Hold the two side by side and test the business one against three failure shapes. A business metric ("increase order frequency 15%") cannot be a root, because nothing below it can be judged against it. An output ("launch the new tracking screen") is a solution wearing a target's clothes. An unfalsifiable phrase ("improve the delivery experience") names no behaviour, so nothing can fail.</p>
+<p>Then the question that matters: if the behavioural root came true, would the business number move? If yes, the two are aligned and the root can be defended in those terms later. If no, design and the business are pointed at different things, and today is a cheap time to find out. Write that mismatch into the map rather than smoothing it over.</p>
+<p><strong>And say plainly what this root is: a proposal.</strong> An outcome is something a team commits to together, not something design derives and then announces. A root nobody else has agreed to is a target that does not exist, and a brief built on one dies politely in a meeting where everyone nods. Write it today, label it proposed, and get it agreed by the people who own the number before the brief goes anywhere. That conversation is part of the assignment, not an optional courtesy.</p>
+<p><strong>And the 🔥 focus area is a different thing again.</strong> It marks where negative experience stacked up highest, which is a fact about the customer. The root is about where value moves, which is a fact about the business. Most of the time they agree, and on the food-delivery map they do: waiting-for-delivery is both the most painful stage and the one the business cares about. When they disagree, that disagreement is the most interesting thing the mentee will bring to a stakeholder this quarter, and it should not be resolved silently by picking whichever is more convenient.</p>
+<h4 id="v0-effort-is-deliberately-excluded-here">Effort is deliberately excluded here</h4>
+<p>Opportunities get compared on four factors: how many customers hit this and how often, how important it is to them and how satisfied they are with what exists, whether it fits what the company is trying to be, and whether it changes the position against alternatives. Cost is not one of them.</p>
+<p>This is counterintuitive for designers trained on an impact/effort matrix, so say why: different solutions to the same opportunity vary enormously in cost, so pricing effort before exploring solutions kills valuable problems on the strength of the first expensive idea anyone happened to imagine. Effort enters one layer down, once the opportunity is chosen and the solutions are on the table.</p>
+<h4 id="v0-reframing-as-an-operation-on-the-map">Reframing, as an operation on the map</h4>
+<p>Reframing is not a search for the real problem. It is a way of generating a better one, and there may be several. Three practices, applied to the strongest branch and no others, because reframing everything produces a philosophy seminar rather than a decision.</p>
+<table>
+<thead>
+<tr>
+<th>Practice</th>
+<th>What it asks</th>
+<th>On the food-delivery map</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Question the objective</strong></td>
+<td>Whose goal is this, and what happens if the goal itself is wrong</td>
+<td>The stated aim was "reduce 'where is my order' contacts." The contacts are how the anxiety shows up. The aim could be "reduce how often anyone needs to check at all"</td>
+</tr>
+<tr>
+<td><strong>Analyse positive exceptions</strong></td>
+<td>Who already succeeds at this, and what is different about them</td>
+<td>The one participant who stopped refreshing was the one who wanted a person on the line. What would have settled them was a channel, not a better countdown</td>
+</tr>
+<tr>
+<td><strong>Ask what is missing</strong></td>
+<td>What does this framing leave entirely out of frame</td>
+<td>The framing covers the customer waiting. Nobody has looked at what the courier can see, or what the restaurant knows before anyone else does</td>
+</tr>
+</tbody>
+</table>
+<p>Positive exceptions is the one to lead with, because it cannot be done without stage-level data, which forces the reframe to stay attached to the evidence rather than drifting into invention.</p>
+<p><strong>A caution that comes free with this example.</strong> That positive exception is one interview out of three, the same one the last session refused to promote to "the job." A single source is enough to generate a reframe and not enough to justify a bet. The reframe goes on the map; the evidence count goes next to it; the choosing block has to weigh it honestly. This is exactly the discipline that keeps reframing from becoming a way to smuggle a favourite idea back in.</p>
+<hr />
+<h3 id="v0-part-2-the-choice">Part 2 · The Choice</h3>
+<h4 id="v0-translate-do-not-fight">Translate, do not fight</h4>
+<p>Most organisations do not speak in opportunity sizing and satisfaction gaps. They speak in impact and effort. The senior move is not to insist on better vocabulary in the room, it is to do the rigorous assessment privately and present it in the language the room already uses. The four factors produce the impact judgment, defensibly. Effort attaches later, at the solution layer, where it belongs.</p>
+<p><strong>What gets taught live is one assessment and one translation:</strong> the four-factor opportunity assessment, which is how you decide, and impact/effort, which is how you present. The other named methods are worth recognising rather than running today, and they are in the reference the mentee already has: RICE gives arithmetic rigour and needs metrics many teams do not have, MoSCoW is fast and overloads its Must column without a fixed timebox, and Kano forces user evidence back into a feature-request culture, which makes it the useful one in a politically driven room. Full detail in <code>library/frameworks/prioritisation-methods/framework-prioritisation-methods.md</code>.</p>
+<h4 id="v0-the-rejection-is-a-deliverable">The rejection is a deliverable</h4>
+<p>Write the runner-up down, and write the reason. Two things follow from it. A rejection with a stated reason can be revisited when the evidence changes, while an unrecorded one gets re-argued every month by whoever remembers it differently. And a mentee who cannot articulate why the second-best option lost has usually not chosen, they have just preferred.</p>
+<h4 id="v0-the-three-leg-insight">The three-leg insight</h4>
+<p>This is the formula last session deliberately held back, because it only works once there is a validated map underneath it. A row on the JTBD map becomes an insight when it carries three legs, not one or two.</p>
+<blockquote>
+<p><em>"Across [N] interviews, [OBSERVATION, with the stage it sits in]. This matters because [IMPLICATION]. </em><em>We should [RECOMMENDED DECISION].</em><em>"</em></p>
+</blockquote>
+<p><strong>One leg (a data point):</strong> "Customers refresh the tracking screen a lot."</p>
+<p><strong>Two legs (where most research stops):</strong> "Across three interviews, customers described refreshing the tracking screen during waiting-for-delivery because silence read as something having gone wrong. This matters because it is driving 'where is my order' contacts."</p>
+<p><strong>Three legs:</strong> the same, plus <em>"We should commit this quarter to telling customers when something changes, rather than continuing to improve the screen they only open because they are anxious."</em></p>
+<p>The third leg is the one that makes a stakeholder able to do something on Monday, and it is the one that turns a finding into a bet. It is also the leg that costs something, which is why it gets left off.</p>
+<h4 id="v0-the-problem-statement-in-its-senior-form">The problem statement, in its senior form</h4>
+<p>An insight and a problem statement are the same understanding in two shapes. The insight is written to be said in a room. The problem statement is written to be committed to, and it adds three things the insight leaves implicit:</p>
+<ul>
+<li><strong>The organisational cost of leaving it alone.</strong> What it costs the business to do nothing. This is what makes a statement fundable rather than merely true.</li>
+<li><strong>The stage it is scoped to.</strong> Naming a place in the journey rather than the whole product. "Fix the job" is not a recommendation; "fix waiting-for-delivery" is.</li>
+<li><strong>The evidence base, said out loud.</strong> How many conversations it rests on. A senior volunteers this number before being asked.</li>
+</ul>
+<p><strong>Junior form:</strong> "Customers need a way to see their delivery status because the tracking screen is unclear."</p>
+<p><strong>Senior form:</strong> "Customers in the waiting-for-delivery stage need a way to trust that they will be told when something changes, because silence from the tracking screen reads as something having gone wrong. Across three interviews, nobody described distrusting the courier; all three described distrusting whether the app would tell them. Leaving it alone keeps generating the 'where is my order' contacts this stage produces, and keeps us investing in a screen people only open because they are anxious."</p>
+<p>The second one is longer, and length is not the point. Every added clause is a thing a stakeholder would otherwise have to ask for.</p>
+<hr />
+<h3 id="v0-part-3-the-strategy">Part 3 · The Strategy</h3>
+<p>A problem statement says what's wrong, who it's costing, and how you know. It does not yet say what the team will do, what it will refuse to do, or what it looks like when it's worked. That's the gap a strategy closes. It takes the same diagnosis, unchanged, and adds a guiding policy, coherent action, and a target state. Nothing here is a new understanding. It's the same understanding made actionable.</p>
+<h4 id="v0-the-kernel">The kernel</h4>
+<p>A strategy has three parts, and skipping any of them produces the thing that gets called strategy in most design decks and is not.</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>What it is</th>
+<th>Where it comes from today</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Diagnosis</strong></td>
+<td>A judgment naming which part of the situation is critical. Not a provable fact</td>
+<td>The problem statement just written, placed unchanged</td>
+</tr>
+<tr>
+<td><strong>Guiding policy</strong></td>
+<td>The overall approach for coping with what the diagnosis named. Directional, not a task list</td>
+<td>Three design principles</td>
+</tr>
+<tr>
+<td><strong>Coherent action</strong></td>
+<td>Coordinated moves that carry out the policy and reinforce each other. Directional, not designed yet</td>
+<td>Where you will invest and stop investing, plus the non-goals</td>
+</tr>
+</tbody>
+</table>
+<p>The diagnosis is not rewritten. That is the whole idea: the sentence chosen in the last block gets promoted, not replaced. The mentee should be able to name the promotion chain afterwards. A pain on the JTBD map became an opportunity on the tree. The chosen opportunity became an insight, then a problem statement. That statement is now a diagnosis, doing strategic work at the top of a brief. One understanding, four shapes, and no rewriting between the last two.</p>
+<h4 id="v0-what-bad-strategy-looks-like-in-a-design-deck">What bad strategy looks like in a design deck</h4>
+<p>Worth being blunt here, because this is the most common shape of a real design strategy slide:</p>
+<ul>
+<li><strong>A goal wearing a strategy's clothes.</strong> "Increase order frequency by 15%" is a target with no diagnosis attached and no approach named.</li>
+<li><strong>An action with nothing behind it.</strong> "Redesign the tracking screen." No diagnosis, no policy, so it is a plan held together by hope.</li>
+<li><strong>Fluff.</strong> Language that cannot be disagreed with, which means it cannot guide anything either.</li>
+</ul>
+<p>Use the overruled decision the mentee brought from prep here. In almost every case, the reason design lost the argument was that the other side had a diagnosis and design had a preference.</p>
+<h4 id="v0-principles-as-decision-rules">Principles as decision rules</h4>
+<p>Three to five, and each earns its place only if it can settle an argument between two reasonable options.</p>
+<p><strong>The fluff test:</strong> state the credible opposite. If the opposite is obviously stupid, the principle is decoration.</p>
+<table>
+<thead>
+<tr>
+<th>Principle</th>
+<th>Credible opposite</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Be delightful"</td>
+<td>"Be tedious"</td>
+<td>Fluff</td>
+</tr>
+<tr>
+<td>"Tell them before they ask"</td>
+<td>"Answer well when they ask, and invest in the tracking screen instead"</td>
+<td>Real. A team could reasonably choose either</td>
+</tr>
+<tr>
+<td>"Say something even when nothing has changed"</td>
+<td>"Only interrupt when there is real news, and protect them from notification noise"</td>
+<td>Real, and a genuinely hard call</td>
+</tr>
+</tbody>
+</table>
+<p>The third one is worth dwelling on, because it is the principle this particular diagnosis forces and it has a real cost. That is what a guiding policy feels like when it is doing its job.</p>
+<h4 id="v0-actions-are-directions-not-designs">Actions are directions, not designs</h4>
+<p>This is the easiest place in the session to break the discipline the session is teaching, so be explicit about it.</p>
+<p>An action here says <strong>where effort goes and where it stops</strong>: "confirm every state change to the customer as it happens" is a direction. "Send a push notification when the ETA slips" is a design, and design belongs to the next stage, where alternatives get compared and the choice gets tested. A mentee who writes three specific features into the brief has done exactly what they rejected an hour earlier when they lifted "push a proactive alert" off their own board.</p>
+<p><strong>One line per action: the riskiest assumption behind it.</strong> Every direction rests on something that could be false. "Confirm every state change" assumes customers want more messages rather than fewer, which is a real and testable risk. Naming it does two things: it tells the next stage what to test first, and it stops the brief reading as certainty when it is a bet. A strategy with no named risk is not more confident, it is less honest.</p>
+<h4 id="v0-non-goals">Non-goals</h4>
+<p>The part that makes a brief a commitment. A non-goal is not everything you are not doing, it is the plausible, attractive, adjacent work that someone will otherwise assume is included. "We are not touching browsing or checkout this quarter" is a non-goal. "We are not opening our own restaurants" is not.</p>
+<p>The sharpest one available on this map: "We are not building a courier chat channel this quarter, even though one interview asked for it." That names the rejected reframe, ties it to its evidence count, and is exactly the kind of line someone in the room will want to argue with. If nobody could be annoyed by any of the non-goals, none of them are real.</p>
+<h4 id="v0-the-target-state-in-words-and-in-numbers">The target state, in words and in numbers</h4>
+<p>A diagnosis says what is wrong. A strategy says what you will do. Neither says what it looks like when it has worked, and that is what a stakeholder pictures when deciding whether to fund it.</p>
+<p>Write the target state twice. <strong>In words:</strong> one short paragraph describing the future experience in the customer's terms, not the system's. Not "a proactive alerting service exists" but "the customer puts the phone down after ordering, because the last thing the app told them was enough, and when something changes they hear it from us before they think to look." <strong>In numbers:</strong> the measure below, which is the same sentence stated so it can move.</p>
+<p>The pairing is the point. A vision with no number is a mood. A number with no vision is an accounting target nobody is motivated by. Together they say the same thing twice, in the two languages a room contains.</p>
+<h4 id="v0-how-you-would-know">How you would know</h4>
+<p>Three levels, and design owns exactly one of them.</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Example</th>
+<th>Who moves it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Business metric</td>
+<td>Order frequency, cost to serve</td>
+<td>Influenced by design, owned by the business</td>
+</tr>
+<tr>
+<td><strong>Product outcome</strong></td>
+<td>Share of orders where the customer never opens the tracking screen after confirmation</td>
+<td><strong>Design owns this</strong></td>
+</tr>
+<tr>
+<td>Output</td>
+<td>The alert shipped</td>
+<td>Evidence of activity, not of anything working</td>
+</tr>
+</tbody>
+</table>
+<p><strong>When there is no analytics access</strong>, which is most mentees, the answer is not to skip this. Name a proxy that can be observed without a dashboard: "where is my order" contacts per hundred orders from the support log, a two-week manual tally, or five follow-up conversations with recent customers asking one specific question. A proxy stated openly as a proxy is honest and usable. A missing measure is what lets a bet quietly never get evaluated.</p>
+<h4 id="v0-one-finished-brief-before-they-write-theirs">One finished brief, before they write theirs</h4>
+<p>Do not send a mentee into sixteen minutes of writing without showing them one complete example of the thing. Put the whole food-delivery brief on screen at once, compressed, and read it top to bottom in under a minute. They have seen every part of it already, in fragments; what they have not seen is the parts sitting together, and that is what they are about to be asked to produce.</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>The food-delivery brief</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Diagnosis</strong></td>
+<td>Customers in the waiting-for-delivery stage need a way to trust that they will be told when something changes, because silence from the tracking screen reads as something having gone wrong. Across three interviews, nobody described distrusting the courier; all three described distrusting whether the app would tell them. Leaving it alone keeps generating the "where is my order" contacts this stage produces.</td>
+</tr>
+<tr>
+<td><strong>Guiding policy</strong></td>
+<td>Tell them before they ask. Say something even when nothing has changed. Design for the person waiting, not the parcel moving.</td>
+</tr>
+<tr>
+<td><strong>Coherent actions</strong> (directions, not designs)</td>
+<td>Confirm every state change to the customer as it happens <em>(risk: they want fewer messages, not more)</em>. Commit to telling them when we will next make contact, rather than showing a countdown <em>(risk: a promise we cannot keep is worse than silence)</em>. Stop investing in the tracking screen as the primary reassurance surface <em>(risk: the screen is doing more work than the interviews revealed)</em>.</td>
+</tr>
+<tr>
+<td><strong>Non-goals</strong></td>
+<td>Not touching browsing or checkout this quarter. Not building a courier chat channel, even though one interview asked for it.</td>
+</tr>
+<tr>
+<td><strong>Target state</strong></td>
+<td><em>In words:</em> the customer puts the phone down after ordering, because the last thing the app told them was enough. <em>In numbers:</em> share of orders where the customer never opens the tracking screen after confirmation. Proxy if no analytics: "where is my order" contacts per hundred orders.</td>
+</tr>
+</tbody>
+</table>
+<p>Three things to point at while it is up. Every line traces back to something on their JTBD map, not to a good idea someone had. The three actions reinforce each other rather than sitting as a list: the third is only defensible because the first two exist, which is what separates coherent action from a backlog. And every action carries a named risk, which is what keeps a direction from hardening into a plan before anyone has tested it.</p>
+<hr />
+<h3 id="v0-part-4-the-defence">Part 4 · The Defence</h3>
+<p>The pitch structure carries over from Audit &amp; Desk Research: implication headline, then the evidence supporting it, then the recommended decision, with raw notes in an appendix. Two things are new.</p>
+<p><strong>The readout gets drafted here for the first time.</strong> Last session held it back deliberately, because a readout built on a hypothesis is an opinion with a template around it. Now there is a validated map, an insight with three legs, and a brief, so the template has something true to carry.</p>
+<p><strong>And the question at the end has changed.</strong> A finding invites "how do you know," which is answered with evidence. A commitment invites "why not the other one," which is not. That question is answered with the rejection reason written down in Build 2, and with the non-goals, which show the trade was deliberate rather than accidental.</p>
+<p><strong>Open the drill with the argument they already lost.</strong> The overruled decision from prep is a better rehearsal than a hypothetical, because the mentee already knows how it felt to lose it and can hear the difference immediately. Run it twice: once as it actually happened, in thirty seconds, then again with the brief in hand. The second run is not about winning the old argument, it is about noticing that the first time they were defending a preference and this time they are defending a diagnosis, a policy and a named trade.</p>
+<p>Three answers to prepare, since these are the ones that actually come:</p>
+<ul>
+<li><strong>"Why not the courier chat?"</strong> Because it rests on one interview out of three, we have said so on the map, and it is named as a non-goal rather than forgotten.</li>
+<li><strong>"Can we do both?"</strong> Rarely the real question. It usually means the non-goals have not been believed yet, so restate the trade rather than the plan.</li>
+<li><strong>"How big is this?"</strong> You deliberately have not sized it, because effort belongs to a solution and no solution has been chosen. The answer is not an apology: <em>"we will size it once we have explored the options, and I would rather size three real ones than guess at one."</em> A senior designer who invents a number here to sound decisive has just committed the team to their own first idea.</li>
+</ul>
+<hr />
+<h2 id="v0-activities">Activities</h2>
+<h3 id="v0-activity-1-convert-your-map">🗺️ Activity 1 · Convert Your Map</h3>
+<p><strong>Type:</strong> In-class · Your JTBD map, board and markdown, plus AI tool linked to your project folder
+<strong>Time:</strong> 8 min (Build 1a)
+<strong>Format:</strong> Solo</p>
+<ol>
+<li><strong>(2 min)</strong> Write the root. Take the actual job statement from your JTBD map and restate it as a customer behaviour you want more of. Check it against the three failure shapes, then hold it against the business objective at the top of your map and say whether one moving would move the other. Note where your 🔥 focus area sits relative to it.</li>
+<li><strong>(3 min)</strong> Draft by hand. Walk the stages on your board. Every gap, every negative-experience sticky and every opportunity sticky becomes a candidate, rewritten as a need in the customer's language. Run the three-solutions test on each opportunity sticky as you lift it: most were written as solutions, and they need to go up a level. Do not reach for the tool yet: this is the skill the session is teaching, and it does not transfer if you edit someone else's list instead of writing your own.</li>
+<li><strong>(2 min)</strong> Now cross-check. Point your AI tool at your <code>jtbd-map.md</code> and interview notes, already in your project folder: <em>"Here is my opportunity list. Compare it against my JTBD map and interview notes: what did I miss, which of mine fail the three-solutions test, and which rest on only one interview?"</em></li>
+<li><strong>(1 min)</strong> Prune and tag. Drop anything that could not plausibly move your root even if fully solved, group siblings that share a cause, and make sure every surviving line carries its stage and its interview count.</li>
+</ol>
+<p><strong>Output:</strong> <code>opportunity-map.md</code> parts 1 and 2.</p>
+<blockquote>
+<p><strong>Checkpoint at the end of this block, before reframing is taught:</strong> have the mentee read the root out loud, then one opportunity. If the root is wrong, everything built after it inherits the error and nobody finds out until the pitch. This is the cheapest place in the session to catch it.</p>
+</blockquote>
+<hr />
+<h3 id="v0-activity-2-reframe-the-top-branch">🔄 Activity 2 · Reframe the Top Branch</h3>
+<p><strong>Time:</strong> 6 min (Build 1b)
+<strong>Format:</strong> Solo, then read out</p>
+<ol>
+<li><strong>(1 min)</strong> Pick the branch with the strongest combination of evidence and plausible link to the root.</li>
+<li><strong>(3 min)</strong> Reframe it twice. Once by questioning the objective, once through positive exceptions against your stage map. Write both framings in full, not as notes.</li>
+<li><strong>(1 min)</strong> Read both out loud. A reframe that is a restatement of the original is obvious out loud and invisible on the page.</li>
+<li><strong>(1 min)</strong> Keep one. Write a single line on why the other lost, and carry its evidence count with it.</li>
+</ol>
+<p><strong>Output:</strong> <code>opportunity-map.md</code> part 3.</p>
+<hr />
+<h3 id="v0-activity-3-score-commit-state-it">⚖️ Activity 3 · Score, Commit, State It</h3>
+<p><strong>Time:</strong> 9 min (Build 2)
+<strong>Format:</strong> Solo, mentor as sceptic</p>
+<ol>
+<li><strong>(3 min)</strong> Score your shortlist on the four factors: sizing, customer importance and satisfaction, company fit, market position. No effort column. For each shortlisted opportunity, name one piece of evidence that is <strong>not</strong> an interview: a finding from your audit, a comparator from desk research, a support volume, anything already in your Assumption Map. Three conversations is enough to see a pattern and thin for a quarter-level commitment, and you already hold the other sources.</li>
+<li><strong>(2 min)</strong> Commit. Name the winner and the runner-up, and write the reason the runner-up lost in one sentence.</li>
+<li><strong>(2 min)</strong> Write the insight in three legs: observation with its stage and evidence count, implication, recommended decision.</li>
+<li><strong>(2 min)</strong> Promote it. Add the organisational cost and tighten the scope, and you have the problem statement in its senior form.</li>
+</ol>
+<p><strong>Output:</strong> <code>opportunity-map.md</code> part 4, the insight, and the problem statement.</p>
+<blockquote>
+<p><strong>1:1 note:</strong> the source material for this assumes a team with dot voting. With one person, force a rank instead. Ties are the thing to interrogate; a mentee who cannot break a tie usually has two opportunities that are the same one written twice.</p>
+</blockquote>
+<hr />
+<h3 id="v0-activity-4-write-the-problem-brief">📄 Activity 4 · Write the Problem Brief</h3>
+<p><strong>Time:</strong> 10 min (inside Build 3)
+<strong>Format:</strong> Solo</p>
+<ol>
+<li><strong>(1 min)</strong> Open your copy of the problem brief template and paste the problem statement in as the diagnosis. Do not rewrite it.</li>
+<li><strong>(4 min)</strong> Draft three design principles as the guiding policy. Run each through the fluff test by writing its credible opposite next to it. Cut anything whose opposite is absurd.</li>
+<li><strong>(3 min)</strong> List the coherent actions: the design moves that follow from the policy, and how they reinforce each other rather than sitting as a list.</li>
+<li><strong>(2 min)</strong> Write the non-goals. At least one has to be plausible, attractive and adjacent enough that someone could be annoyed by it. The rejected reframe is usually the best candidate.</li>
+</ol>
+<p><strong>Output:</strong> <code>problem-brief.md</code> parts 1 to 4.</p>
+<hr />
+<h3 id="v0-activity-5-describe-the-target-state">📈 Activity 5 · Describe the Target State</h3>
+<p><strong>Time:</strong> 6 min (inside Build 3)
+<strong>Format:</strong> Solo</p>
+<ol>
+<li><strong>(3 min)</strong> In words. One short paragraph describing the future experience from the customer's side. Written as something a person does or stops doing, not as a feature that exists. If your paragraph names a screen, rewrite it.</li>
+<li><strong>(2 min)</strong> In numbers. The product outcome: the same change stated so it could move up or down.</li>
+<li><strong>(1 min)</strong> How you would observe it. If you have analytics, name the query. If you do not, name the proxy and say plainly that it is one, plus who would have to do what to collect it.</li>
+</ol>
+<p><strong>Output:</strong> <code>problem-brief.md</code> part 5.</p>
+<blockquote>
+<p><strong>Check before moving on:</strong> read the paragraph and the number back to back. If the number could go up without the paragraph coming true, you are about to measure the wrong thing.</p>
+</blockquote>
+<hr />
+<h3 id="v0-activity-6-defend-the-bet">🎤 Activity 6 · Defend the Bet</h3>
+<p><strong>Time:</strong> 11 min (the Defend block)
+<strong>Format:</strong> Mentee pitches, mentor plays the sceptical stakeholder</p>
+<ol>
+<li><strong>(2 min)</strong> Replay. Tell the story of the decision you lost, as it actually happened, in about thirty seconds. Then argue it again with today's brief behind you. Name the difference out loud before moving on.</li>
+<li><strong>(3 min)</strong> Pitch the brief into your Stakeholder Readout Template: implication headline, evidence, recommended decision.</li>
+<li><strong>(3 min)</strong> Pushback round. The mentor asks "why not the other one," then "can we do both," then "how big is this," then one hostile question drawn from the mentee's own non-goals.</li>
+<li><strong>(3 min)</strong> Coaching. Which answer relied on evidence when it needed a stated trade-off, and which non-goal collapsed the moment it was questioned.</li>
+</ol>
+<p><strong>Output:</strong> a drafted stakeholder readout, and notes on where it did not hold.</p>
+<hr />
+<h2 id="v0-ai-in-practice">AI in Practice</h2>
+<h3 id="v0-try-this-with-ai">🤖 Try this with AI</h3>
+<p>Your tool already has your project folder. Use it to critique what you wrote, not to write it: <em>"Read my opportunity map against my JTBD map. Which items are solutions wearing opportunity language, which are supported by only one interview, and which could not plausibly move my root outcome even if fully solved?"</em></p>
+<h3 id="v0-critical-thinking-prompt">🧠 Critical thinking prompt</h3>
+<ul>
+<li>For each opportunity on your map, can you point at the line in an interview note that put it there? Anything you cannot trace came from you, not from a customer.</li>
+<li>Read your three design principles. If a competitor published the exact same three, would anything about your product be different? If not, they describe good design in general, not your approach to this problem.</li>
+<li>Your 🔥 focus area and your root outcome: do they point at the same stage? If they do not, whose view is missing from the map?</li>
+</ul>
+<h3 id="v0-prompt-engineering-tip">✍️ Prompt engineering tip</h3>
+<p>Ask AI to argue the other side: <em>"Here is my problem brief and the runner-up problem I rejected. Make the strongest possible case for the runner-up using only the evidence in my files, and tell me which part of my rejection reason is weakest."</em> Rehearsing the pushback before the room is cheaper than discovering it in the room.</p>
+<h3 id="v0-ethics-consideration">⚖️ Ethics consideration</h3>
+<p>A brief is a request to spend other people's time on your judgment. Presenting a single-source opportunity next to evidenced ones without showing the counts, or letting a proxy metric be read as a real one, is not a formatting decision. Keep the evidence counts and the word "proxy" in the version stakeholders see, not just in your working file.</p>
+<hr />
+<h2 id="v0-assignments">Assignments</h2>
+<h3 id="v0-assignment-take-the-bet-to-the-room">Assignment · Take the Bet to the Room</h3>
+<p><strong>Due:</strong> Before next session
+<strong>Time estimate:</strong> 2 to 3 hours, spread over 1 to 2 weeks
+<strong>Type:</strong> Real project</p>
+<ol>
+<li>If your actual job rests on two interviews rather than three, run one more and update <code>opportunity-map.md</code> with what it confirms, contradicts or adds. Remove the provisional label only if the pattern holds.</li>
+<li>Finish the Stakeholder Readout from the practice block, and render <code>problem-brief.md</code> as a one-page HTML document for presentation.</li>
+<li><strong>Before the stakeholder pitch, co-review the brief with your PM and an engineer.</strong> Not for approval, for authorship: get the outcome agreed as a shared target, get a feasibility read on the directions, and change what needs changing. A design strategy written alone and defended alone is a designer's artifact. The version that ships is the one the trio already owns before it reaches the room.</li>
+<li>Present it to the stakeholders who gave you the assumed job in the check-in. Lead with implication, not evidence.</li>
+<li>Log what happened to the non-goals. Which survived, which were quietly assumed back in, and what that tells you about what the room actually believes.</li>
+<li>Update the brief with whatever the conversation changed, and note anything you conceded along with why.</li>
+</ol>
+<p><strong>Deliverable:</strong> updated <code>opportunity-map.md</code> and <code>problem-brief.md</code> (markdown), the completed stakeholder readout, plus the rendered HTML one-pager. Share before the next session.</p>
+<blockquote>
+<p><strong>The real success check:</strong> a week after the conversation, can a stakeholder restate your diagnosis in their own words? If they can, the framing did its job. If they restate your solution instead, the diagnosis was not the thing you actually communicated.</p>
+<p><strong>AI in Practice:</strong> after the meeting, point your tool at your brief and your notes from the conversation: <em>"Compare what I wrote with what I actually conceded in the meeting. Which part of my guiding policy did I abandon under pressure, and was that a good trade or just the loudest person in the room?"</em></p>
+</blockquote>
+<hr />
+<h2 id="v0-close-where-this-goes-next">Close · Where This Goes Next</h2>
+<p>Problem space closes here. The brief names one problem, one approach, a set of moves and a set of refusals, and it is now a thing that can be argued with rather than agreed with.</p>
+<p>The next session takes it into structure: evidence-grounded information architecture, and defending those decisions with the same discipline. Its opening move turns this diagnosis into a question that can be answered five completely different ways. That belongs there rather than here, deliberately. The discipline this session is built to teach is that you close the problem before you open the solution.</p>
+<hr />
+<h2 id="v0-further-resources">Further Resources</h2>
+<ul>
+<li><strong>Opportunity Solution Tree framework (internal):</strong> <code>library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md</code>, the map comparison, the conversion steps, and the assessment factors</li>
+<li><strong>Jobs to Be Done framework (internal):</strong> <code>library/frameworks/jtbd/framework-jtbd.md</code>, the map this session builds from</li>
+<li><strong>Assumption Map framework (internal):</strong> <code>library/frameworks/assumption-map/framework-assumption-map.md</code></li>
+<li><strong>Prioritisation methods reference (internal):</strong> <code>library/frameworks/prioritisation-methods/framework-prioritisation-methods.md</code>, all five methods and how to translate between them</li>
+<li><strong>Richard Rumelt, "Good Strategy / Bad Strategy":</strong> the kernel, and the taxonomy of bad strategy used in Part 3</li>
+<li><strong>Thomas Wedell-Wedellsborg, "What's Your Problem?" and "Are You Solving the Right Problems?" (HBR, 2017):</strong> https://hbr.org/2017/01/are-you-solving-the-right-problems, the reframing practices</li>
+<li><strong>Teresa Torres, "Continuous Discovery Habits" and Product Talk:</strong> https://www.producttalk.org/opportunity-solution-trees/</li>
+<li><strong>NN/g, "Problem Statements in UX Discovery":</strong> https://www.nngroup.com/articles/problem-statements/</li>
+<li><strong>NN/g, "Design Principles to Support Better Decision Making":</strong> https://www.nngroup.com/articles/design-principles/</li>
+<li><strong>principles.design:</strong> https://principles.design/, real published principle sets worth reading against the fluff test</li>
+</ul>
+<hr />
+<p><em>Created by Winnie Nguyen · Private Training · Last updated August 2026</em></p></article>
+  </div>
+</div></section><section class="tp-panel" data-tab-panel data-tab-id="slides" role="tabpanel" hidden><div class="tp-slides"><iframe id="deck-frame" src="../assets/lessons/problem-definition-strategy/slides/Problem%20Definition%20%26%20Strategy.html" title="Lesson slides" allowfullscreen loading="lazy"></iframe></div>
+<p class="tp-slides__link"><a id="deck-open" href="../assets/lessons/problem-definition-strategy/slides/Problem%20Definition%20%26%20Strategy.html" target="_blank" rel="noopener">Open slides full screen ↗</a></p></section><section class="tp-panel" data-tab-panel data-tab-id="homework" role="tabpanel" hidden><div class="tp-hw"><div class="tp-hw__grid"><div class="tp-hw__card tp-hw__card--link"><a class="tp-hw__thumb" href="../assets/homework/problem-definition-strategy/tam-nguyen/customer%20journey.png" target="_blank" rel="noopener"><img src="../assets/homework/problem-definition-strategy/tam-nguyen/customer%20journey.png" alt="Customer Journey" loading="lazy"></a><div class="tp-hw__info"><strong>Customer Journey</strong><span>by <a class="tp-meta__link" href="../mentees/tam-nguyen.html#homework">Tam</a></span></div></div></div></div></section>
+  <section class="tp-related"><h2>Related lessons</h2><div class="tp-related__grid"><div class="tp-related__card"><span>Previous lesson</span><strong>Customer Understanding (Senior/Lead)</strong></div><div class="tp-related__card"><span>Next lesson</span><strong>System Architecture &amp; IA</strong></div></div></section>
+</div>
+<script>
+(function () {
+  function group(btnSel, panelSel, attr, onShow) {
+    var btns = [].slice.call(document.querySelectorAll(btnSel)), panels = [].slice.call(document.querySelectorAll(panelSel));
+    function show(id) {
+      btns.forEach(function (b) { var on = b.getAttribute(attr) === id; b.setAttribute('aria-selected', on); b.classList.toggle('tabs__tab--active', on && b.classList.contains('tabs__tab')); });
+      panels.forEach(function (p) { p.hidden = p.getAttribute(attr) !== id; });
+      if (onShow) onShow(id);
+    }
+    btns.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute(attr)); }); });
+    return show;
+  }
+  var firstTab = (document.querySelector('[data-tab-btn]') || {getAttribute: function () {}}).getAttribute('data-tab-id');
+  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === firstTab ? location.pathname : '#' + id); });
+  var showVar = group('[data-var-btn]', '[data-var-panel]', 'data-var-id');
+  var h = (location.hash || '').replace('#', '');
+  showTab(h && document.querySelector('[data-tab-btn][data-tab-id="' + h + '"]') ? h : firstTab);
+  if (document.querySelector('[data-var-btn]')) showVar('0');
+  var decks = [].slice.call(document.querySelectorAll('[data-deck-btn]'));
+  decks.forEach(function (b) { b.addEventListener('click', function () {
+    var f = document.getElementById('deck-frame'); f.src = b.dataset.src; document.getElementById('deck-open').href = b.dataset.src;
+    decks.forEach(function (x) { x.classList.toggle('deck-item--active', x === b); x.setAttribute('aria-pressed', x === b); });
+  }); });
+})();
+</script>
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Winnie Nguyen · Senior Product Designer</p>
+    <div class="footer-links">
+      <a href="mailto:nguyenphuctuongvan@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/winnienguyen2910" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script>(function(){if(location.protocol.indexOf('http')!==0)return;var u='../assets/build-stamp.txt',last=null;function c(){fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(t){if(t===null)return;if(last!==null&&t!==last)location.reload();last=t}).catch(function(){})}c();setInterval(c,1500)})();</script>
+</body>
+</html>

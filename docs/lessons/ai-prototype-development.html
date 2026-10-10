@@ -1,0 +1,1343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<meta name="description" content="How to use AI and your design system to prototype smarter — not screen by screen"/>
+<title>AI Prototype Development — Training Hub</title>
+<link rel="stylesheet" href="../assets/css/tokens.css"/>
+<link rel="stylesheet" href="../assets/css/components.css"/>
+<link rel="stylesheet" href="../assets/css/site.css"/>
+<link rel="stylesheet" href="../assets/css/card-list.css"/>
+<link rel="stylesheet" href="../assets/css/text-page.css"/>
+<link rel="stylesheet" href="../assets/css/home.css"/>
+
+</head>
+<body class="tp-white">
+<nav>
+  <a class="nav-logo" href="../index.html"><img src="../assets/images/logo-nav.svg" alt="Winnie Nguyen — Training Hub"/></a>
+  <div class="nav-links">
+    <a href="../lessons.html" data-text="Lesson Library" class=active>Lesson Library</a>
+    <a href="../private-training.html" data-text="Private Training">Private Training</a>
+    <a href="../programs.html" data-text="Programs">Programs</a>
+  </div>
+</nav>
+<div class="tp">
+  <a class="tp-back" href="../lessons.html">← All lessons</a>
+  <header class="tp-head">
+    <h1 class="page-title">AI Prototype Development</h1>
+    <p class="page-desc">How to use AI and your design system to prototype smarter — not screen by screen</p>
+    <div class="used"><span>Taught in</span><a class="used__chip" href="../programs/ui-ux-fundamentals.html">UI/UX Design Fundamentals · session 09</a><a class="used__chip" href="../programs/junior-to-mid-level.html">Product Design Roadmap to Mid-Level · session 07</a><a class="used__chip" href="../programs/mid-to-senior.html">Product Design Roadmap to Senior · session 07</a></div>
+    <div class="tp-info" data-var-panel data-var-id="0"><div class="draft-banner">Draft: content exists but is not finalised for delivery.</div><dl class="tp-meta" style="--tp-cols: repeat(3, minmax(0, 1fr)) minmax(0, 1.8fr)"><div><dt>Stage</dt><dd>Develop</dd></div><div><dt>Level</dt><dd>Intermediate</dd></div><div><dt>Date</dt><dd>16 Jun 2026</dd></div><div><dt>Source file</dt><dd><code>ai-prototype-development-lesson.md</code></dd></div><div class="tp-meta__tags"><dt>Topics</dt><dd><span>prototype</span><span>AI</span><span>figma</span><span>design-system</span><span>pattern-first</span><span>system-thinking</span></dd></div></dl></div><div class="tp-info" data-var-panel data-var-id="1" hidden><dl class="tp-meta" style="--tp-cols: repeat(1, minmax(0, 1fr)) minmax(0, 1.8fr)"><div><dt>Stage</dt><dd>Develop</dd></div><div><dt>Source file</dt><dd><code>contributing-template.md</code></dd></div></dl></div><div class="tp-info" data-var-panel data-var-id="2" hidden><div class="draft-banner">Draft: content exists but is not finalised for delivery.</div><dl class="tp-meta" style="--tp-cols: repeat(3, minmax(0, 1fr)) minmax(0, 1.8fr)"><div><dt>Stage</dt><dd>Develop</dd></div><div><dt>Level</dt><dd>Intermediate</dd></div><div><dt>Date</dt><dd>13 Sep 2026</dd></div><div><dt>Source file</dt><dd><code>lesson-0-program-introduction.md</code></dd></div><div class="tp-meta__tags"><dt>Topics</dt><dd><span>prototype</span><span>AI</span><span>orientation</span><span>curriculum</span></dd></div></dl></div><div class="tp-info" data-var-panel data-var-id="3" hidden><div class="draft-banner">Draft: content exists but is not finalised for delivery.</div><dl class="tp-meta" style="--tp-cols: repeat(3, minmax(0, 1fr)) minmax(0, 1.8fr)"><div><dt>Stage</dt><dd>Develop</dd></div><div><dt>Level</dt><dd>Intermediate</dd></div><div><dt>Date</dt><dd>13 Sep 2026</dd></div><div><dt>Source file</dt><dd><code>lesson-1-project-setup-pattern-first-method.md</code></dd></div><div class="tp-meta__tags"><dt>Topics</dt><dd><span>prototype</span><span>AI</span><span>design-system</span><span>pattern-first</span><span>folder-structure</span></dd></div></dl></div><div class="tp-info" data-var-panel data-var-id="4" hidden><dl class="tp-meta" style="--tp-cols: repeat(3, minmax(0, 1fr)) minmax(0, 1.8fr)"><div><dt>Stage</dt><dd>Develop</dd></div><div><dt>Level</dt><dd>Intermediate</dd></div><div><dt>Date</dt><dd>19 Sep 2026</dd></div><div><dt>Source file</dt><dd><code>lesson-2-interaction-pattern-build-editing-craft.md</code></dd></div><div class="tp-meta__tags"><dt>Topics</dt><dd><span>prototype</span><span>AI</span><span>design-system</span><span>pattern-first</span><span>interaction-pattern</span><span>tokens</span></dd></div></dl></div><div class="tp-info" data-var-panel data-var-id="5" hidden><dl class="tp-meta" style="--tp-cols: repeat(3, minmax(0, 1fr)) minmax(0, 1.8fr)"><div><dt>Stage</dt><dd>Develop</dd></div><div><dt>Level</dt><dd>Intermediate</dd></div><div><dt>Date</dt><dd>20 Sep 2026</dd></div><div><dt>Source file</dt><dd><code>lesson-3-scaling-the-prototype.md</code></dd></div><div class="tp-meta__tags"><dt>Topics</dt><dd><span>prototype</span><span>AI</span><span>design-system</span><span>pattern-first</span><span>rules</span><span>propagation</span></dd></div></dl></div>
+  </header>
+  <div class="tabs tabs--pill tp-tabs"><div class="tabs__list" role="tablist"><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="lesson" aria-selected="false">Lesson</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="slides" aria-selected="false">Slides (4)</button><button type="button" role="tab" class="tabs__tab" data-tab-btn data-tab-id="homework" aria-selected="false">Homework (1)</button></div></div>
+  <section class="tp-panel" data-tab-panel data-tab-id="lesson" role="tabpanel" hidden><div class="tabs tabs--pill var-switch"><div class="tabs__list" role="tablist" aria-label="Lesson version"><button type="button" role="tab" class="tabs__tab" data-var-btn data-var-id="0" aria-selected="false">Intermediate</button><button type="button" role="tab" class="tabs__tab" data-var-btn data-var-id="1" aria-selected="false">contributing-template</button><button type="button" role="tab" class="tabs__tab" data-var-btn data-var-id="2" aria-selected="false">Intermediate</button><button type="button" role="tab" class="tabs__tab" data-var-btn data-var-id="3" aria-selected="false">Intermediate</button><button type="button" role="tab" class="tabs__tab" data-var-btn data-var-id="4" aria-selected="false">Intermediate</button><button type="button" role="tab" class="tabs__tab" data-var-btn data-var-id="5" aria-selected="false">Intermediate</button></div></div><div data-var-panel data-var-id="0">
+  <div class="tp-layout">
+    <aside class="tp-toc" aria-label="On this page"><p class="tp-toc__label">On this page</p><a href="#v0-overview">Overview</a><a href="#v0-learning-objectives">Learning Objectives</a><a href="#v0-materials-needed">Materials Needed</a><a href="#v0-pre-class-preparation">Pre-Class Preparation</a><a href="#v0-session-structure">Session Structure</a><a href="#v0-concept-extension-stitching-prototypes">Concept Extension — Stitching Prototypes</a><a href="#v0-homework">Homework</a><a href="#v0-prompt-library-reference">Prompt Library Reference</a><a href="#v0-instructor-notes">Instructor Notes</a><a href="#v0-recommended-resources">Recommended Resources</a><a href="#v0-connection-to-curriculum">Connection to Curriculum</a></aside>
+    <article class="tp-body"><h2 id="v0-overview">Overview</h2>
+<p>In the previous session, students built a design system — tokens, atoms, molecules, organisms, templates, and at least one page. They know <em>how to build systematically</em>. This session answers <em>how to prototype that system</em> — using AI as a collaborator, not just a generator.</p>
+<p>The most common mistake designers make when prototyping is starting with a screen. They open Figma (or a coding tool), pick a screen, and start filling it in. Then they do the next screen. Then they realise screens don't connect. Components diverge. States are missing. AI output is inconsistent because every prompt starts from scratch.</p>
+<p><strong>Template-first flips this.</strong> Before touching any screen, you define two things:</p>
+<ol>
+<li>What components exist — including all their states (empty, loading, error, filled) — from your design system</li>
+<li>How users move through the product (interaction pattern)</li>
+</ol>
+<p>Once that prototype pattern exists, AI can build from it. Students take their prototype pattern and use an AI coding tool to generate a working, browser-viewable prototype — no screen-by-screen design required.</p>
+<p><strong>Why "pattern"?</strong></p>
+<p>The word "pattern" isn't arbitrary — it comes from software engineering. In object-oriented programming, the <em>Prototype Design Pattern</em> is a technique where instead of building new objects from scratch every time, you define one prototype object and clone it. Each clone starts identical, then gets customised for its specific use. The principle: define once, reuse many times, customise at the edges.</p>
+<p>That's exactly what this lesson does for prototyping. Your component inventory is the prototype. Every screen AI builds is a clone — assembled from the same defined parts, not invented from scratch. Designers who've worked with engineers will find this familiar. Designers who haven't now have the vocabulary to talk about it.</p>
+<p><strong>What is an AI-assisted prototype?</strong></p>
+<p>An AI-assisted prototype (also called a GenAI prototype) is a working, browser-viewable prototype where the screens are <em>generated</em> by AI — not designed one by one in a design tool. Instead of placing every element by hand, the designer defines the rules: what components exist, what states they can have, and how screens connect. The AI coding tool reads those rules and assembles the screens from them.</p>
+<p>The output is real code — HTML or React — running in a browser. Not a clickable Figma file. Not a mockup. A prototype that a developer, stakeholder, or user can open on any device, interact with, and share via a link.</p>
+<p>What makes it "AI-assisted" (not just "AI-generated") is that the designer stays in control of the decisions. You define the system. You set the constraints. You review every screen and correct what's wrong. The AI handles the assembly. The result is faster than building by hand, and more accurate than asking AI to design from a blank brief — because the brief is already written. It's called your prototype pattern.</p>
+<p>A realistic expectation: NN/G research (2025) found that AI prototyping tools "follow general directions but lack the sophistication to weigh design tradeoffs." Output is often good at a distance — assembled, interactive, running in the browser — but misses subtleties: spacing, grouping, visual hierarchy, contrast. It will also default to generic visual styles if you don't give it your tokens and your component system. That's exactly what the first two steps of Phase 4 prevent.</p>
+<p>Adobe Design's experiment (2026) found the opposite of what most people expect: working closer to the build process made collaboration <em>more</em> intensive, not less. Design judgment, taste, and craft didn't disappear — they became more essential because decisions were made in the moment the experience was actually taking shape.</p>
+<p>This lesson focuses on the <strong>coded prototype path</strong>: using an AI coding tool to generate HTML or React from the prototype pattern. The prototype pattern is the instruction manual. AI does the assembly.</p>
+<p>This lesson follows one path: <strong>Starting fresh</strong> — generating a prototype pattern from your design principles up, regardless of how much of your design system you've already built. The output is the same either way: a prototype pattern AI can build from.</p>
+<blockquote>
+<p><strong>This lesson builds directly on your Atomic Design output.</strong> Students who completed their Figma Template and at least one Page are ready to go. Students who didn't complete it will use a provided starter template — but the lesson will make you want to finish it.</p>
+</blockquote>
+<hr />
+<h2 id="v0-learning-objectives">Learning Objectives</h2>
+<p>By the end of this session, students will be able to:</p>
+<ol>
+<li><strong>Explain</strong> why pattern-first prototyping is faster and more consistent than screen-by-screen</li>
+<li><strong>Define</strong> a prototype pattern: component inventory (with states) and interaction pattern</li>
+<li><strong>Use an AI tool</strong> to analyse their design system and generate a prototype blueprint</li>
+<li><strong>Use an AI coding tool</strong> to generate a working prototype from their prototype pattern</li>
+<li><strong>Build</strong> at least 1 working screen in the browser with navigation to at least 1 other state</li>
+</ol>
+<hr />
+<h2 id="v0-materials-needed">Materials Needed</h2>
+<ul>
+<li>Students' Figma files from the Atomic Design session (Templates + at least one Page)</li>
+<li>Starter Figma template (provided for students without completed work)</li>
+<li>Access to an AI chat tool (any tool you're comfortable with, for the framework-generation step)</li>
+<li>One AI coding tool for the build, picked from the comparison below</li>
+<li>Prompt library handout (see below)</li>
+</ul>
+<h3 id="v0-choosing-an-ai-tool">Choosing an AI Tool</h3>
+<pre><code>                                                 | Tool | Type | Design-system support | Strengths | Weaknesses | Use when |
+</code></pre>
+<p>|---|---|---|---|---|---|
+| Cursor / Claude Code / Windsurf | AI coding tool | Highest — connects via Figma MCP, reads variables, tokens, components, and variants directly | Most detail on the design system via MCP | Requires manual MCP setup; no visual design UI | Already comfortable in a code editor, need the tightest adherence to the design system |
+| Claude Design | AI design tool | Highest — builds the design system from the design file itself during onboarding, then reuses it for every later prototype | No MCP setup needed; generates a visual prototype quickly from text or an image; edits directly via comments | Not as deep as a code editor for complex logic | Want the design system to self-sync with no config; need a fast prototype or deck |
+| Bolt / Replit | AI coding tool | High — reads Figma metadata directly, including real tokens and components | Ships with frontend, backend, and database; high fidelity | Can be more complex than a simple MVP needs | Full-stack app that still needs high fidelity to the original design |
+| Figma Make | AI design tool | Medium — connects directly to Figma but doesn't yet expose tokens clearly | High visual fidelity, easiest to use since it lives inside Figma | Tokens not clearly exposed; less flexible outside Figma | Design already exists in Figma, just need to add interactivity |
+| Lovable | AI coding tool | Low — relies on a written brand description, doesn't extract tokens directly | Generates a complete app from a written description | Can drift from the original design | MVP or small production app, no interest in touching code |</p>
+<p><em>Snapshot as of September 2026 — the market moves fast, so choose by category and support level, not by clinging to a specific tool name.</em></p>
+<p><strong>Sync note (2026-09-14), deliberate exception:</strong> this table names specific tools, per Winnie's direct request — an intentional exception to the "no specific AI tool names" convention in <code>CLAUDE.md</code>, scoped to this table only. Matches the same exception already applied to <code>programs/online-course/AI Prototype Development/Section 1 - Giới Thiệu/learning/section 1-slide-outline.md</code>.</p>
+<hr />
+<h2 id="v0-pre-class-preparation">Pre-Class Preparation</h2>
+<p><strong>For students:</strong></p>
+<p>Before class, check your Figma file against this list. How far you get tells you which entry point you are:</p>
+<pre><code>                          | Level | What to check | Ready? |
+</code></pre>
+<p>|---|---|---|
+| Atoms &amp; Molecules | Key components have variants (at minimum: default + one other state) | ☐ |
+| Organisms | At least 2 Organisms assembled from your molecules (e.g. nav bar, form, card list) | ☐ |
+| Templates | At least 1 Template frame exists per screen in your concept (skeleton layout, no real content) | ☐ |
+| Pages | At least 1 Page exists — a Template filled with real text, real images, realistic data | ☐ |</p>
+<ul>
+<li>Bring what you have — your Figma file and (if you have one) your codebase. If your system is partial or you haven't started, download the starter template from the class Notion page.</li>
+<li>Regardless of how much you've completed, today's process is the same: build your prototype pattern from design principles, then build.</li>
+<li>Make sure you have access to an AI chat tool — use whichever you're most comfortable with</li>
+<li><strong>Connect your MCP before class.</strong> Set up the connection between your design tool and your AI coding tool (e.g. Figma MCP → Cursor, or similar). This must be working before Phase 4 — troubleshooting it mid-session costs too much time. If you're unsure how, follow the setup guide on the class Notion page.</li>
+</ul>
+<p><strong>For the instructor:</strong></p>
+<ul>
+<li>Prepare a live demo using your own Figma template (a simple 3-screen flow works well: onboarding → home → detail)</li>
+<li>Have a pre-built coded prototype ready as a "reveal" for the coded path demo</li>
+<li>Load the prompt library into your AI tool before class so you can demo without typing</li>
+</ul>
+<hr />
+<h2 id="v0-session-structure">Session Structure</h2>
+<pre><code>                         | Phase | Activity |
+</code></pre>
+<p>|---|---|
+| 0 | AI foundations recap (conditional — skip if already covered) |
+| 1 | Mindset reframe — why pattern-first beats screen-by-screen |
+| 2 | Generate the prototype pattern — from design principles to a document AI can build from |
+| 4 | Hands-on build — clean up design file, then AI coded prototype |
+| 5 | Share &amp; reflect |</p>
+<hr />
+<h3 id="v0-phase-0-ai-foundations-recap">Phase 0 — AI Foundations Recap</h3>
+<blockquote>
+<p><strong>Run this phase only if students haven't already covered "Set Up Your AI Workflow" (or equivalent foundations) — check this during Pre-Class Preparation. Don't assume tool fluency just because a student is a confident designer: Phase 1's mindset reframe assumes this vocabulary already exists, so skipping this phase for a student who needs it makes Phase 1 land softer than it should.</strong></p>
+</blockquote>
+<p>Adapted from <code>ai-workflow-for-ux-designers</code> ("Set Up Your AI Workflow"), slides 5–20 — the mindset and working-vocabulary content this lesson leans on. Skips slides 1–4 (course intro, adoption stats) and everything past 20 (the four-bucket AI-in-practice framework, assignments) as out of scope here.</p>
+<p><strong>Part A — Mindset (slides 5–9).</strong> Trim or skip this part for a student who's already comfortable with AI tools generally and just needs the tactical vocabulary in Part B — it's onboarding, not required review.</p>
+<p><strong>From maker to strategist and editor</strong> (slide 5) AI is a set of gloves, not a new hand. The work shifts from making everything by hand to directing and editing what AI produces — the designer stays the strategist. Land this first: it frames everything after it as a shift in role, not a loss of control.</p>
+<p><strong>Mindset 1 — AI takes the tedious work, you keep the judgment</strong> (slide 6) AI handles what's repetitive. Authorship, taste, and ethics stay with the designer.</p>
+<p><strong>Mindset 2 — treat AI like a talented intern, not an oracle</strong> (slide 7) Fast, tireless, occasionally brilliant — and it still needs supervision. Every output gets reviewed, not trusted blind.</p>
+<p><strong>Mindset 3 — we've been here before</strong> (slide 8) Remember VR? Hype peak, then a dip, then durable use. Today's rough AI output isn't a verdict on the method — it's the normal dip before the tool becomes genuinely useful.</p>
+<p><strong>Plain-language version</strong> (for explaining this further down the chain, or to someone new to it): first bike ride, you wobble and fall. That doesn't mean bikes are broken, it means you're still learning. AI tools are at that wobbly stage right now. They'll get steadier.</p>
+<p><strong>Optional activity</strong> (slide 9): ask the student to name one time AI helped and one time it quietly hurt their work. Worth running if the student has enough AI-tool history to draw on; skip it for someone brand new to these tools with nothing yet to reflect on.</p>
+<p><strong>Part B — Working Vocabulary (slides 10–20).</strong> Always run this part — Phase 1 assumes this vocabulary already exists.</p>
+<p><strong>Markdown, briefly</strong> (slide 11) Plain text with typing rules — what AI tools read and write by default. Not abstract: the prototype pattern students write in Phase 2 (component inventory, interaction pattern) is a markdown document. That's why it's <code>.md</code> and not a Word doc — AI parses it cleanly and cheaply.</p>
+<p><strong>What a prototype actually is</strong> (slide 12) An AI-generated prototype is just an HTML file — a structure a browser renders, not a Figma export. Say this plainly before students reach Phase 4's build, so the output format isn't a surprise.</p>
+<p><strong>How markdown and HTML work together</strong> (slide 13) Raw insight goes in as markdown — brainstorms, documentation. AI turns it into something that runs in the browser as HTML — the prototype itself, a synthesis report, a map. One is what you write; the other is what gets shown.</p>
+<p><strong>Folder organisation, briefly</strong> (slide 14) "No wrong choice. Only mistake: no structure." One project, one folder, organised from day one — not the day the AI coding tool opens. This lesson's own Phase 4 runs its own MCP-connected workflow and doesn't need re-teaching this, but private-training adaptations of this lesson (see <code>systematic-ai-prototyping-lesson.md</code>) build directly on it.</p>
+<p><strong>AI-generated vs. AI-assisted</strong> (slide 16) "AI decides" vs. "you decide, AI assembles faster than you could alone." This is the same distinction drawn in this lesson's own Overview under "What is an AI-assisted prototype?" — landing it here first, before Phase 1, means it isn't explained twice.</p>
+<p><strong>CARE — the shape of a good prompt</strong> (slide 17) Context (the situation — who's asking, what project, what stage), Ask (one clear task, not five vague ones), Rules (constraints, tone, format), Examples (show, don't tell). Several prompts later in this lesson already follow this shape; naming the structure explicitly helps students who want to write their own variations rather than just running the provided ones.</p>
+<p><strong>The context habit — reuse, don't retype</strong> (slide 18) "Reuse what you already have, don't retype it" — Starting Fresh vs. Feed Forward. A new chat starts at zero; a folder doesn't. This is the same principle behind this lesson's prototype pattern: define once, save it, point the AI tool at the file instead of re-explaining the system in every prompt.</p>
+<p><strong>Vague vs. CARE-structured — see the difference</strong> (slide 19) If time allows, run this live: prompt an AI tool with something vague ("make this better") next to a CARE-structured version of the same request, on the same task, and compare the output side by side. Fine to defer this demo to Phase 4 instead, once students are writing their own build prompts — the payoff is bigger there, and it avoids running the same demo twice.</p>
+<p><strong>What each tool is for</strong> (slide 20) A one-line map distinguishing an AI coding tool (Cursor, GitHub Copilot, Claude Code) from an AI chat tool (ChatGPT, Claude, Gemini) and from in-tool AI features (Figma AI, Notion AI). Students new to the coding-tool category need this before Phase 4, not during it.</p>
+<p><strong>Facilitator note:</strong> treat this as real onboarding for students who need it, not a formality — check comfort with the chosen AI coding tool's basic interface (where to type, where output appears, how to accept/reject a change) before moving into Phase 1. This phase is not yet reflected in the live slide deck (<code>ai-prototype-development-slide-outline.md</code> / the Claude Design deck) — until those are updated, deliver it verbally or from this file directly.</p>
+<hr />
+<h3 id="v0-phase-1-mindset-reframe">Phase 1 — Mindset Reframe</h3>
+<p><strong>The problem with screen-by-screen prototyping</strong></p>
+<p>Open with a demonstration, not a slide. Take a simple 3-screen flow (e.g. Login → Dashboard → Detail). Show what happens when you prototype it screen by screen:</p>
+<ul>
+<li>Each screen is a separate design decision</li>
+<li>Components drift (the button on screen 1 is slightly different from screen 3)</li>
+<li>When the design changes, every screen needs updating</li>
+<li>When you hand it to an AI tool, each prompt starts from zero</li>
+<li>Each retry or redo reprocesses everything that came before it, which quietly burns far more tokens, and money, than expected</li>
+</ul>
+<p>This isn't just a quality problem, it's a cost problem too. Agentic AI tasks can consume up to 1,000x more tokens than a simple chat reply, and because conversation history resends with every message, a short prompt can balloon past 15,000 tokens by message twenty. Developers have reported losing $47 in a single afternoon, or $350 in a day, almost entirely from retry and regeneration loops, the same "starts from zero" pattern this phase is about to fix.</p>
+<p>Then show the pattern-first alternative:</p>
+<ul>
+<li>Start with the component inventory (what exists)</li>
+<li>Map the interactions (how screens connect)</li>
+<li>Define states (what can change on a component)</li>
+<li>Now every screen is just an <em>arrangement</em> of things that already exist</li>
+</ul>
+<p><strong>Key message:</strong> Your design system is not the output of Atomic Design. It is the <em>input</em> to your prototype. The Template you built is a blueprint. AI just builds from blueprints.</p>
+<p>NN/G research confirms this directly: "longer prompts with clear, detailed design requirements consistently yield better results" with AI coding tools. The prototype pattern <em>is</em> that detailed context. Without it, AI fills gaps with assumptions — generic layouts, default styles, misread patterns. With it, AI builds from a complete brief rather than guessing.</p>
+<p><strong>Discussion prompt (neighbour exercise):</strong> "Turn to the person next to you: if AI could read your entire design file right now and build a prototype, what would it need to know that isn't visible in your designs? Then share one answer with the class."</p>
+<p>Collect 2–3 answers quickly. Common ones: what clicks lead where, what empty/loading/error states look like, what the user is trying to do. These map directly to the two layers of a prototype pattern:</p>
+<ul>
+<li>"What clicks lead where" → <strong>interaction pattern</strong></li>
+<li>"What components exist and what looks they can have" → <strong>component inventory (with states)</strong></li>
+</ul>
+<p><strong>In Phase 2, you will build this document.</strong> Everything students just named in the discussion is what they're about to make explicit — for themselves, and for their AI tool.</p>
+<hr />
+<h3 id="v0-phase-2-generate-the-framework">Phase 2 — Generate the Framework</h3>
+<blockquote>
+<p><strong>Structure:</strong> Class demo → Students run their own prompts → Regroup and share outputs</p>
+</blockquote>
+<p><strong>Class demo</strong></p>
+<p>Before students touch their own files, run Starting fresh live using your own Figma template. Show the complete sequence: system qualities → token decisions → component inventory → product context → prototype pattern. Students don't need to follow along yet — they're watching the rhythm of the prompts and seeing what the output looks like. Point out the moment product context enters and what changes.</p>
+<hr />
+<p><strong>Students run their own prompts</strong></p>
+<p>Students choose their entry point and run the prompts below. Students with large inventories will want to keep going — tell them the goal is a working prototype pattern, not an exhaustive one. They can complete it in homework.</p>
+<p><strong>What a prototype pattern is</strong></p>
+<p>Regardless of entry point, every student produces the same output by the end of this phase: a <strong>prototype pattern</strong> — a structured description of their design system that AI can build from. It has two layers:</p>
+<ol>
+<li><strong>Component inventory</strong> — all components with their variants and states included (default, hover, loading, empty, error, success)</li>
+<li><strong>Interaction pattern</strong> — how screens connect and under what conditions</li>
+</ol>
+<p>States are part of the component inventory — not a separate layer. When you list a component, you list all the looks it can have right there alongside it.</p>
+<p><strong>Interaction pattern types</strong></p>
+<p>Every screen in a prototype is doing one of a small number of things. Knowing the type helps you map the correct components and transitions:</p>
+<pre><code>                                         | Type | What it does | Example screens |
+</code></pre>
+<p>|---|---|---|
+| <strong>Read</strong> | User views content — no state change | Dashboard, detail page, profile, feed |
+| <strong>Edit</strong> | User modifies existing content | Settings, edit profile, update item |
+| <strong>Add</strong> | User creates something new | New post, add to cart, create account |
+| <strong>Confirm</strong> | User reviews and approves an action | Order summary, delete confirmation, submit form |
+| <strong>Navigate</strong> | User moves between sections | Tab bar, menu, back/forward |
+| <strong>Search / Filter</strong> | User queries or narrows a list | Search results, filter panel, sort |
+| <strong>Onboard</strong> | User is guided through first-time setup | Welcome screen, tutorial steps, permissions |</p>
+<p>Most prototypes use 3–4 of these. When you map your interaction pattern, label each screen with its type — it tells AI exactly what kind of flow to build, what components it needs, and what transitions are required.</p>
+<hr />
+<h4 id="v0-starting-fresh">Starting fresh</h4>
+<p>The risk when starting fresh is jumping straight to product context — "I'm building a food delivery app" — and generating UI that looks right but doesn't have a principled system underneath it. Instead, start with how the system should <em>feel</em>, then let product context come second.</p>
+<p><strong>Step 1 — Define system qualities, not product</strong></p>
+<p>Students describe the qualities they want the system to have — without naming the product:</p>
+<blockquote>
+<p>"I want to design a system that is [calm / energetic], [minimal / rich], [serious / playful], with [fast / deliberate] interactions. Generate design principles and token decisions — colour scale, type scale, spacing rhythm — from these qualities. Don't assume any specific product."</p>
+</blockquote>
+<p>Your AI tool returns a principled token structure tied to the qualities, not to a product category.</p>
+<p><strong>Step 2 — Generate the Atomic component inventory</strong></p>
+<p>From those principles, your AI tool generates a component list that any product built on this system would need:</p>
+<blockquote>
+<p>"Based on these design principles, what Atomic components does this system need? List atoms, molecules, and organisms with their required states. Keep it product-agnostic — just what the system requires."</p>
+</blockquote>
+<p><strong>Step 3 — Apply product context</strong></p>
+<p>Only now do students bring in their specific concept:</p>
+<blockquote>
+<p>"My product is [X] for [Y users]. I have this prototype pattern: [paste]. Which components map to my 3–4 screens? What needs adapting? What's missing?"</p>
+</blockquote>
+<p><strong>Step 4 — Interaction pattern</strong></p>
+<blockquote>
+<p>"My prototype has these screens: [list]. The user's goal is [goal]. Map the interactions — what does each screen link to, and under what conditions?"</p>
+</blockquote>
+<p>States are already captured in Step 2 as part of the component inventory. Students don't need a separate state map prompt.</p>
+<p><strong>Instructor note:</strong> Walk through Steps 1–2 live before students start. Show them how the AI tool generates a system that could apply to multiple products — then in Step 3, watch it narrow to their specific concept. This is the AI-as-collaborator moment: students see that the system predates the product.</p>
+<hr />
+<p><strong>Regroup</strong></p>
+<p>Ask 2–3 students to share their prototype pattern on screen briefly. You're not reviewing quality — you're normalising what the output looks like. "Does yours roughly look like this? Good. If not, don't worry — we'll use Phase 3 to fill the gaps."</p>
+<p><strong>Convergence point:</strong> by the end of Phase 2, every student has a prototype pattern with a component inventory (states included) and an interaction pattern.</p>
+<hr />
+<h3 id="v0-phase-4-hands-on-build">Phase 4 — Hands-On Build</h3>
+<blockquote>
+<p><strong>Prerequisite:</strong> MCP connection between design tool and AI coding tool must be set up before this phase. See Pre-Class Preparation.</p>
+</blockquote>
+<p><strong>Step 1 — Clean up your design file</strong></p>
+<p>Before AI reads anything, remove what shouldn't be there. Unused components, duplicate variants, orphaned test layers, one-off experiments that never got deleted — AI can't tell "this is part of my system" from "I forgot to delete this." It will include all of it in the component inventory, and the prototype ends up bloated with things nobody meant to ship.</p>
+<p>Checklist:</p>
+<ul>
+<li>Delete or archive components you're not using in this prototype</li>
+<li>Merge duplicate variants of the same component (two slightly different buttons with different names)</li>
+<li>Remove hidden/test layers and old exploration frames</li>
+<li>Confirm naming is consistent — the same component shouldn't have two different names in different places</li>
+</ul>
+<p>Prompt to use (if the file is large enough that eyeballing it isn't practical): "Here is my Figma component list: [paste]. Which of these look like duplicates, unused variants, or one-off experiments rather than real system components?"</p>
+<p>This step is easy to skip because it feels like tidying, not real work. It isn't optional — it's the difference between an accurate component inventory in Step 4 and a bloated one built on messy design work.</p>
+<p><strong>Step 2 — Scope the build</strong> Pick 2–3 screens from your interaction pattern. Don't try to build everything. The goal is to prove the pattern works — not to finish the prototype.</p>
+<p><strong>Step 3 — Sync your design tokens</strong></p>
+<blockquote>
+<p>"Read my design file via MCP. Extract the design tokens — colour values, typography styles, and spacing. Generate a CSS variables file from these tokens so every screen uses the exact values from my design system."</p>
+</blockquote>
+<p>This runs once. All screens built after this step use your actual design colours and type, not AI defaults. NN/G found that without explicit token guidance, AI tools default to generic visual styles — often resembling common component libraries with neutral colour palettes and minimalist styling that looks interchangeable across products. Token sync is what makes the output look like <em>your</em> product, not a template.</p>
+<p><strong>Step 4 — Generate the component inventory</strong></p>
+<blockquote>
+<p>"Read my design file. Generate a component inventory: list every component with its name, purpose, and all its states (default, hover, loading, error, etc.). Flag anything that looks incomplete or inconsistent."</p>
+</blockquote>
+<p>Students review the output. Correct names or states that are wrong. This becomes the source of truth for the build. If Step 1 was actually done, this list should be short and clean — a long, messy inventory here is a sign to go back and finish cleanup first.</p>
+<p><strong>Step 5 — Generate the interaction pattern</strong></p>
+<blockquote>
+<p>"Based on the component inventory, map the interaction pattern for my prototype: which screens exist, what connects them, and what triggers each transition. Use the component inventory as your reference."</p>
+</blockquote>
+<p><strong>Step 6 — Build one screen at a time</strong></p>
+<p>"One screen at a time" isn't the screen-by-screen anti-pattern from Phase 1. There, each screen was designed from scratch with no shared reference — that's what caused the drift. Here, every screen is built against the same component inventory and interaction pattern from Steps 4–5, so context doesn't reset between screens. Building sequentially — instead of one giant prompt for everything — is what makes the review loop possible: catch and correct an issue on screen 1 before it repeats on screens 2 and 3.</p>
+<p>Write build prompts using five ingredients: goal (what this screen does), layout (how things are arranged), content (what information is real, not placeholder), audience (who's using it), and flow context (what screen this follows, what it leads to, and what carries over — cart contents, form data, login state). Losing flow context is the most common way a sequentially-built prototype ends up feeling like disconnected screens instead of one product.</p>
+<blockquote>
+<p>"Build the [Screen name] screen. Goal: [what the user is trying to do here]. Layout: [how things should be arranged — e.g. 'metrics in a top row, detail chart below']. Content: [real field names and sample data, not lorem ipsum]. Audience: [who's using it]. Flow context: this screen follows [previous screen] and leads to [next screen]; carry over [state/data that persists]. Use the full component inventory and interaction pattern above — not just this screen's portion. Match component names exactly. Output [React/HTML]."</p>
+</blockquote>
+<p>If you have a reference screenshot — a similar screen, a competitor layout, visual inspiration — attach it before you prompt. "Make it feel like this" works far better with an image than a description.</p>
+<p><strong>Refine each screen</strong> — after building, compare it to your design file and correct using whichever mode fits the size of the fix:</p>
+<pre><code>                     | Mode | Use for | Example |
+</code></pre>
+<p>|---|---|---|
+| Chat | Broad or structural changes, anything needing explanation | "Rearrange this screen so the primary action is in the top row." |
+| Targeted feedback | One specific element — name exactly what's wrong and where | "The button padding here is too tight." "Use the primary token colour on this card." |
+| Direct adjustment | Quick spacing/alignment nudges you can just drag into place | (no prompt needed, if your tool supports direct manipulation) |</p>
+<p>Rule of thumb: chat for structure, targeted feedback for component-level fixes, direct manipulation for anything you can drag. Mixing all three based on the fix is faster than describing everything in chat.</p>
+<p><strong>Exploring a different direction:</strong> if a screen isn't working, don't overwrite it blindly — say so explicitly: "Save what we have and try a completely different layout for this screen." Most AI design tools preserve the current version so you can compare rather than lose it.</p>
+<blockquote>
+<p>"This is what you built: [describe]. Here is what should be different: [list corrections]. Update the output."</p>
+</blockquote>
+<p><strong>Minimum output:</strong> 1 screen running in browser with navigation to at least 1 other state</p>
+<p><strong>What to expect from AI output (set this expectation before students start):</strong> First screens will be technically assembled but rough — spacing may be off, groupings may not match the design, hierarchy may feel flat. This is normal and documented. NN/G research found that even with detailed prompts, AI output "missed subtle but important details related to spacing, grouping, and hierarchy." The review step is exactly where designer judgment enters. Tell students: the first output isn't the result — it's the starting point.</p>
+<p><strong>Instructor support during hands-on:</strong></p>
+<ul>
+<li>Circulate and check students are correcting after each screen — not just generating and moving on</li>
+<li>Key coaching question: "Does this match your design? What would you correct before building the next screen?"</li>
+<li>If students feel discouraged by imperfect output: "This is normal — NN/G found AI gets close but misses nuance. Your eye is what makes it right. That's not a bug — that's the job."</li>
+<li>If students skip the review: "The review is where you get AI accuracy. Generation without review is just guessing."</li>
+<li>If MCP connection fails: students fall back to pasting the prototype pattern as markdown text into the AI tool — they still run steps 4–6, just without live file reading</li>
+<li>Circulate during Step 1 specifically and check students are actually deleting/archiving components, not just skimming the file — this is the step most likely to get skipped or rushed, and it's the one that determines whether Step 4's inventory is usable</li>
+</ul>
+<h3 id="v0-phase-5-share-reflect">Phase 5 — Share &amp; Reflect</h3>
+<p>Ask 2–3 students to share their screen:</p>
+<ul>
+<li>What did you build?</li>
+<li>What did the AI do that surprised you?</li>
+<li>What would have taken longer without the prototype pattern?</li>
+</ul>
+<p><strong>Closing thought for the instructor to land:</strong></p>
+<blockquote>
+<p>Screen-by-screen prototyping scales to 3 screens. Template-first prototyping scales to 300. The designers who get hired in the next 5 years won't be the ones who can design faster — they'll be the ones who can <em>define the system clearly enough that AI can build from it</em>. That's what you practised today.</p>
+</blockquote>
+<hr />
+<h2 id="v0-concept-extension-stitching-prototypes">Concept Extension — Stitching Prototypes</h2>
+<blockquote>
+<p><strong>Run this as a separate standalone session for intermediate cohorts.</strong> Do not try to fit it into the same session as the pattern-first lesson — it will crowd out the hands-on build time that freshers need most. A dedicated session file should be created for this content.</p>
+<p>It can be briefly mentioned during Phase 1 as a third reason why pattern-first matters — one sentence is enough ("Later, you'll see how this same prototype pattern lets you stitch multiple team prototypes into a single journey"). Full teaching belongs in its own session.</p>
+<p>For students who finish Phase 4 early, you may share the Nathan Curtis article link as optional reading.</p>
+<p>This concept can be introduced during Phase 1 as a third reason why pattern-first matters, taught as a standalone extension for students who finish Phase 4 early, or expanded into its own session for advanced cohorts.</p>
+</blockquote>
+<h3 id="v0-what-is-a-stitched-prototype">What is a Stitched Prototype?</h3>
+<blockquote>
+<p>"A stitch prototype is a collection of prototypes from multiple products, woven together to interactively demo a threaded, complete digital journey." — Nathan Curtis, EightShapes</p>
+</blockquote>
+<p>A stitched prototype is not a single Figma file with all your screens. It is a navigable experience assembled from multiple design artefacts — Figma frames, screenshots, coded screens, even lo-fi sketches — connected at the seams so a user (or stakeholder) can walk the complete journey end-to-end.</p>
+<p>The individual parts may have been built by different teams, in different tools, at different fidelity levels. Stitching doesn't require them to be consistent. It requires them to be connected.</p>
+<hr />
+<h3 id="v0-why-stitch">Why Stitch?</h3>
+<p><strong>1. Products span multiple flows and personas — your prototype usually doesn't.</strong> A student's 3–4 screens might cover a customer journey. But what about the banker who processes the same application? The broker who submitted it? Stitching lets you prototype across personas without duplicating the design system.</p>
+<p><strong>2. Stakeholders see fragments. Stitching shows them the whole.</strong> Individual team demos are expert demos. "Here's our screen, here's what it does." A stitched prototype is a user demo. "Here's what the customer experiences, from the moment they start to the moment they're done." Those are completely different conversations — and the second one is the one that aligns stakeholders and surfaces the real gaps.</p>
+<p><strong>3. Transitions are where the real design problems hide.</strong> Screen 2 and Screen 3 look fine in isolation. But what happens between them? Who triggers the transition? What data carries over? What does the user see while they wait? Stitching forces you to design the seams, not just the screens.</p>
+<hr />
+<h3 id="v0-how-to-stitch">How to Stitch</h3>
+<p><strong>Step 1 — Define the journey thread</strong> Before touching any file, write one sentence: <em>"The user's goal across all screens is [goal]."</em> This is the thread. Every screen in the stitch must serve this thread. If it doesn't, it doesn't belong — or the thread needs to be longer.</p>
+<p><strong>Step 2 — Gather artefacts, don't rebuild them</strong> Collect what exists: Figma frames, exported PNGs, coded screens, even annotated wireframes. A stitch prototype is not a redesign. Gather, don't rebuild. If a screen is missing, note it as a gap — don't fill it now.</p>
+<p><strong>Step 3 — Build an index</strong> Create a homepage for your stitch — a single page that lists every screen in the journey with its current status (complete, in progress, missing). This is the bird's-eye view. Stakeholders can drop in from any point. Designers can see where the gaps are.</p>
+<p><strong>Step 4 — Add the seams</strong> Connect each screen to the next with navigation links. This is the actual stitching. Seams don't need to be perfect — a clickable button that leads to the next screen is enough. Don't get lost perfecting transitions; get the path walkable.</p>
+<p><strong>Step 5 — Demo the journey, not the screens</strong> Present the stitch as a user would experience it — start to finish, in character. Don't narrate the design decisions. Narrate the user's goal. "She opens the app wanting dinner sorted without thinking about it. She does this. She sees this. She gets here." One minute. Then stop and invite discussion.</p>
+<blockquote>
+<p><strong>Resist fixing seams.</strong> A stitch prototype reveals inconsistency — it is not an audit tool. If you see a button that's slightly wrong or spacing that's off, note it and move on. Turning a stitch session into a design review kills the collaboration that makes stitching work. — Nathan Curtis</p>
+</blockquote>
+<hr />
+<h3 id="v0-how-ai-fits">How AI Fits</h3>
+<p>Stitching is where AI becomes genuinely powerful — not at the component level, but at the journey level.</p>
+<p><strong>AI chat tool — identify missing seams</strong></p>
+<blockquote>
+<p>"Here is my interaction pattern: [paste]. Here are the screens I've built: [list]. What transitions are undesigned? What does the user see between Screen 2 and Screen 3 that hasn't been prototyped?"</p>
+</blockquote>
+<p><strong>AI chat tool — generate the index page</strong></p>
+<blockquote>
+<p>"Here are my prototype screens: [list each with a one-sentence description and status: complete/in progress/missing]. Generate a simple HTML index page that lists them with their status, links to each, and shows the overall journey flow."</p>
+</blockquote>
+<p><strong>AI coding tool — build the HTML stitch shell</strong> For coded prototypes, an AI coding tool can build the navigation shell that connects Figma exports or coded screens into a single navigable experience:</p>
+<blockquote>
+<p>"I have these screens as separate HTML files: [list]. Build a navigation wrapper that stitches them into a single prototype — a homepage index, back/forward navigation, and a progress indicator showing where the user is in the journey."</p>
+</blockquote>
+<hr />
+<h3 id="v0-real-world-example">Real-World Example</h3>
+<blockquote>
+<p><em>Use this with students if relevant — you don't need to show the screens.</em></p>
+</blockquote>
+<p>At NAB, five design squads were building separate pieces of a mortgage platform — income verification, document management, credit assessment, settlement, and more. Each squad had its own Figma file, its own prototype, its own demo. No one was showing the banker's complete journey from application to approval.</p>
+<p>A stitched E2E prototype was built across all five squads — one shared canvas, navigable end-to-end. The impact: 90% E2E journey coverage, 4 personas aligned, 2–3× more explicit design decisions. The key was not rebuilding anyone's work — just connecting it. The seams were visible. That was fine. The journey was now visible too. That was everything.</p>
+<hr />
+<h3 id="v0-the-stitch-mindset">The Stitch Mindset</h3>
+<p>Three things to teach students before they stitch:</p>
+<ol>
+<li><strong>It's a throwaway artefact.</strong> A stitched prototype exists to communicate the journey while the product is being built. The day the product ships, the stitch is retired. Don't treat it like a deliverable — treat it like a communication tool with an expiry date.</li>
+<li><strong>The goal is the journey, not the screens.</strong> Individual screens will be imperfect. Inconsistencies will be visible. That's the point — stitching surfaces what polished individual demos hide.</li>
+<li><strong>One minute hooks the room.</strong> A complete end-to-end demo should take no more than 60 seconds. Walk the user goal, not the design decisions. If you can't tell the story in a minute, the journey isn't clear enough yet.</li>
+</ol>
+<hr />
+<h3 id="v0-resources">Resources</h3>
+<ul>
+<li><strong>Nathan Curtis — <a href="https://medium.com/eightshapes-llc/stitching-a-journey-together-in-a-prototype-d3b86d26ebb" target="_blank" rel="noopener">Stitching Prototypes</a></strong> <em>(EightShapes, 2015)</em> — the original article, saved in your Notion Knowledge Sharing library. The Marriott International case study is the clearest illustration of the concept. Assign as pre-reading if you teach this as a standalone session.</li>
+<li><strong>EightShapes reference</strong> — <a href="https://eightshapes.com/articles/stitching-a-journey-together-in-a-prototype/" target="_blank" rel="noopener">eightshapes.com/articles/stitching-a-journey-together-in-a-prototype</a></li>
+</ul>
+<hr />
+<h2 id="v0-homework">Homework</h2>
+<p><strong>Template-first prototype completion</strong></p>
+<p>Extend your prototype from today:</p>
+<ul>
+<li>Add at least 2 more screens to your interaction pattern</li>
+<li>Ensure every component in the new screens comes from your existing design system (no new components without updating the inventory)</li>
+<li>Document one thing AI got wrong and how you corrected it</li>
+</ul>
+<p>Submit: a live/repo link or code repository link + a 3-sentence reflection on the AI collaboration experience</p>
+<hr />
+<h2 id="v0-prompt-library-reference">Prompt Library Reference</h2>
+<h3 id="v0-starting-fresh_1">Starting fresh</h3>
+<pre><code>                     | Goal | Prompt |
+</code></pre>
+<p>|---|---|
+| Define system qualities | "I want a system that is [calm/energetic], [minimal/rich], [serious/playful]. Generate design principles and style decisions — colour palette, typography, spacing. No product name yet." |
+| Generate component inventory | "Based on these design principles: [paste]. What UI components does this system need? List small pieces like buttons and inputs, medium pieces like forms and cards, and bigger sections like nav bars. Include all the states each component needs. Keep it general — not tied to any specific product yet." |
+| Apply product context | "My product is [X] for [Y users]. I have this prototype pattern: [paste]. Which components fit my screens? What needs changing? What's missing?" |
+| Interaction pattern | "My prototype has these screens: [list]. The user's goal is [goal]. Show me how each screen connects to the others — what does a tap or action lead to? What happens if something goes wrong?" |</p>
+<h3 id="v0-build-phase">Build Phase</h3>
+<pre><code>                     | Goal | Prompt |
+</code></pre>
+<p>|---|---|
+| Start coded prototype | "Build a prototype from this prototype pattern: [paste]. Use [React/HTML]. Match these naming conventions: [list]." |
+| Review AI output | "Does this [code/design] match my interaction pattern? What's missing or inconsistent?" |
+| Unstick mid-build | "I'm building [screen]. Available components: [list]. How do I assemble this screen without creating anything new?" |
+| Correct AI mistakes | "This output has these problems: [list]. Here is the correct behaviour: [describe]. Fix only these issues." |</p>
+<hr />
+<h2 id="v0-instructor-notes">Instructor Notes</h2>
+<p><strong>Handling mixed completion from Atomic Design:</strong> Students who didn't complete the Template from the previous session may feel behind. Frame it positively: "This lesson will show you exactly why the Template matters. Use the starter file today, and you'll want to go back and finish your own."</p>
+<p><strong>The most common failure mode:</strong> Students treat Phase 4 as "free design time" and start inventing new things. The prototype pattern is a constraint, not a suggestion. If a student needs a component that isn't in their inventory, that's a signal — either they missed it in Phase 2, or their concept has shifted. Either way, it's a design decision to make consciously, not accidentally.</p>
+<p><strong>On AI outputs that are wrong:</strong> When an AI tool generates something incorrect, that's curriculum. Stop the class, show it, and ask: "What did we not tell the AI clearly enough?" This reinforces that AI quality depends on how well you define the prototype pattern — which is exactly the skill this lesson builds.</p>
+<p><strong>Pacing notes:</strong></p>
+<ul>
+<li>Starting fresh students often run long in Phase 2 if they have large component inventories. Cap the prompting and tell them to finish the prototype pattern in homework.</li>
+<li>Phase 4 always feels too short. Reassure students: the goal is to prove the prototype pattern works, not to finish the prototype.</li>
+</ul>
+<hr />
+<h2 id="v0-recommended-resources">Recommended Resources</h2>
+<p>These are resources I'd genuinely point students to — not a complete list, but the ones that make the biggest difference for this specific lesson.</p>
+<hr />
+<h3 id="v0-mindset-framework-thinking">Mindset &amp; Framework Thinking</h3>
+<p><strong><a href="https://atomicdesign.bradfrost.com/" target="_blank" rel="noopener">Atomic Design by Brad Frost</a></strong> <em>(free online)</em> Still the clearest articulation of why systems beat screens. Students coming from the previous session will have seen this — point them to Chapter 4 specifically, which covers moving from design system to deliverable. This is the conceptual bridge into today's lesson.</p>
+<p><strong><a href="https://component.gallery/" target="_blank" rel="noopener">The Component Gallery</a></strong> <em>(free)</em> A curated reference of how real design systems name and structure their components. Useful in Phase 2 when students are auditing their component inventory — if they're unsure what to call something or whether they're missing a component type, this is a faster reference than googling.</p>
+<hr />
+<h3 id="v0-figma-prototype-path">Figma Prototype Path</h3>
+<p><strong><a href="https://help.figma.com/hc/en-us/articles/15339657135383" target="_blank" rel="noopener">Figma Variables documentation</a></strong> <em>(official docs)</em> The authoritative source on Variables — the most important Figma feature for pattern-first prototyping. The section on "modes" is what makes design tokens from the Atomic Design session actually work inside a prototype. Worth reading before class, not during.</p>
+<p><strong><a href="https://www.youtube.com/watch?v=6Id4INKEwb8" target="_blank" rel="noopener">Smart Animate guide — DesignCourse on YouTube</a></strong> The clearest practical walkthrough of Smart Animate I've found. Under 15 minutes. Recommend this to Path A students who haven't used it before — watch it the night before the session, not during.</p>
+<hr />
+<h3 id="v0-coded-prototype-path">Coded Prototype Path</h3>
+<p><strong><a href="https://ui.shadcn.com/" target="_blank" rel="noopener">shadcn/ui</a></strong> <em>(free, open source)</em> The best real-world example of a design system that directly becomes code components. When students ask "what does a coded design system actually look like?", show them this. Recommend this as a reference for what students are building toward — not a template to copy.</p>
+<p><strong><a href="https://v0.dev/" target="_blank" rel="noopener">v0 by Vercel</a></strong> <em>(free tier available)</em> A browser-based AI tool for generating UI components from descriptions. More constrained than a full AI coding environment — you describe a component, it generates it, you copy it — but that constraint is useful for students just starting out with AI-generated code. A good stepping stone before moving to a full AI coding tool.</p>
+<p><strong>Your AI coding tool's documentation</strong> Whatever tool students choose — Cursor, GitHub Copilot, Windsurf, or others — point them to the section on context and codebase indexing. The reason pattern-first works so well with AI coding tools is that they can read your whole project, but only if it's structured clearly. The prototype pattern from Phase 2 is what makes the AI's suggestions accurate rather than generic.</p>
+<hr />
+<h3 id="v0-ai-collaboration">AI Collaboration</h3>
+<p><strong>Your AI tool's prompting guide</strong> Every major AI tool publishes guidance on how to get better results from prompts. The prompt library in this lesson is a starting point, not the ceiling. Encourage students to read the guide for whichever tool they use — specifically the sections on specifying output format and giving the AI a role to play. Both techniques are directly applicable to the prompts in Phase 2.</p>
+<p><strong><a href="https://www.lennysnewsletter.com/" target="_blank" rel="noopener">AI-assisted design-to-code workflows — Lenny's Newsletter</a></strong> <em>(search "AI design prototype")</em> Lenny's newsletter has published practitioner walkthroughs of AI-assisted design-to-code workflows across multiple tools. The quality varies, but the best ones are honest about what breaks and why — which is more useful for students than polished demos that make everything look easy.</p>
+<hr />
+<h3 id="v0-what-i-d-actually-assign">What I'd Actually Assign</h3>
+<p>If I had to pick one resource per path:</p>
+<ul>
+<li><strong>Everyone:</strong> Brad Frost Chapter 4 — before class</li>
+<li><strong>Figma prototype students:</strong> Figma Variables docs — skim before class, reference during</li>
+<li><strong>Coded prototype students:</strong> shadcn/ui homepage — just look at it, understand what a coded design system produces, then come to class ready to build toward that</li>
+</ul>
+<p>Everything else is optional depth. Students who finish the hands-on early can explore v0 or their AI tool's prompting guide. Students who struggle should focus on the prototype pattern, not the tools.</p>
+<hr />
+<h2 id="v0-connection-to-curriculum">Connection to Curriculum</h2>
+<pre><code>                         | Session | Role in this lesson |
+</code></pre>
+<p>|---|---|
+| Problem Understanding | Defines the user goal that drives the interaction pattern |
+| Synthesis &amp; Problem Definition | Defines what success looks like — used to evaluate prototype completeness |
+| Design System (Atomic Design) | Produces the component inventory and Template that this lesson builds from |
+| <strong>This session</strong> | Translates the design system into a working prototype using AI |
+| Next session | TBD |</p></article>
+  </div>
+</div><div data-var-panel data-var-id="1" hidden>
+  <div class="tp-layout">
+    <aside class="tp-toc" aria-label="On this page"><p class="tp-toc__label">On this page</p><a href="#v1-the-rules">The rules</a><a href="#v1-opening-a-pull-request">Opening a pull request</a><a href="#v1-review-and-merge">Review and merge</a><a href="#v1-if-something-breaks">If something breaks</a><a href="#v1-using-an-ai-tool-in-this-repo">Using an AI tool in this repo</a></aside>
+    <article class="tp-body"><p>One page. Your rules for this project — for you and for your AI tool. Copy it into your project, fill in the blanks, and push it. If something here is wrong, fix it with a pull request.</p>
+<h2 id="v1-the-rules">The rules</h2>
+<ol>
+<li><strong>Never work directly on <code>main</code>.</strong> It is your live site. One branch per idea.</li>
+<li><strong>Pull before you start</strong> each session, especially if you use two laptops or your AI tool pushes for you.</li>
+<li><strong>Branch names:</strong> <code>area/short-description</code> — e.g. <code>tokens/update-spacing</code>, <code>components/button-states</code>.</li>
+<li><strong>Commit notes</strong> say what changed and why, in one line.</li>
+<li><strong>This project is public.</strong> Never add passwords, keys or <code>.env</code> files. Git history is permanent.</li>
+</ol>
+<h2 id="v1-opening-a-pull-request">Opening a pull request</h2>
+<p>Every pull request has:</p>
+<ul>
+<li>A short summary of what changed and why</li>
+<li>A screenshot, if the UI changed</li>
+<li>Which tokens or components you touched</li>
+</ul>
+<h2 id="v1-review-and-merge">Review and merge</h2>
+<ul>
+<li><strong>Read your own changes</strong> on the pull request as if someone else wrote them, before you merge.</li>
+<li>Merge into <code>main</code> — your live site updates.</li>
+<li>Then pull, and start your next branch.</li>
+<li><em>If you add collaborators later:</em> name a reviewer and an owner who merges here.</li>
+</ul>
+<h2 id="v1-if-something-breaks">If something breaks</h2>
+<p>Delete the branch. <code>main</code> is untouched, so your live site is fine. If two copies changed the same file, stop and decide which version stays — it's a design decision, not a tool error.</p>
+<h2 id="v1-using-an-ai-tool-in-this-repo">Using an AI tool in this repo</h2>
+<p>Point it at the rules file and this file first. It must follow the tokens and components already here, must never touch <code>main</code>, and must not edit files outside the change you asked for. Read its answer, and review the changes in GitHub Desktop, before agreeing to a push.</p>
+<p>Useful prompts (from the Lesson 4 deck):</p>
+<ul>
+<li>Check if GitHub has anything new for this project, and bring it into my folder.</li>
+<li>Run localhost so I can preview my work.</li>
+<li>Create a new branch called area/short-description and switch to it. Don't touch main.</li>
+<li>Show me what I've changed since my last commit, in plain language.</li>
+<li>Open a pull request for this branch. Write a short summary of what changed and why.</li>
+<li>Clone <repo URL> into a new folder and tell me what's in it. <em>(Set up on another laptop.)</em></li>
+<li>Undo my last commit but keep my changes, so I can edit them again.</li>
+</ul></article>
+  </div>
+</div><div data-var-panel data-var-id="2" hidden>
+  <div class="tp-layout">
+    <aside class="tp-toc" aria-label="On this page"><p class="tp-toc__label">On this page</p><a href="#v2-overview">Overview</a><a href="#v2-curriculum-summary">Curriculum Summary</a><a href="#v2-learning-objectives">Learning Objectives</a><a href="#v2-materials-needed">Materials Needed</a></aside>
+    <article class="tp-body"><blockquote>
+<p><strong>Not a separate session — this is the first part of Session 1.</strong> Session 1 runs Lesson 0 and Lesson 1 back to back, in one sitting, the same day: this orientation opens it, then Lesson 1's content runs immediately after. It isn't a fifth session added on top of the 4 the coaching plan commits to — it's the first slice of Session 1's time, before the folder-setup work begins. Keep it brief: the point is shared clarity before that work starts, not a session of its own.</p>
+</blockquote>
+<h2 id="v2-overview">Overview</h2>
+<p>This is a 4-lesson arc that takes a designer from prototyping screen-by-screen — in whatever tool is in front of them — to running a systematic, pattern-first method for AI-assisted prototyping. Define the system once (component inventory + interaction pattern), save it as reference files an AI coding tool reads directly, then let AI build and scale from it.</p>
+<p><strong>This lesson assumes an existing design system.</strong> The student should arrive with their own component library (tokens + components in Figma or similar) already built — this arc is about <em>prototyping from</em> a system, not building one. If a student doesn't have one yet, hand them a starter system before Lesson 1; don't spend lesson time building one from scratch.</p>
+<p><strong>Not portfolio-specific.</strong> The method applies to any real prototype — a portfolio case study, client work, or a product idea. Frame the anchor project around whatever the student is actually there to build.</p>
+<hr />
+<h2 id="v2-curriculum-summary">Curriculum Summary</h2>
+<p>The four lessons build on each other and are delivered in order, one per week — each one builds directly on the artifact the last one produced, nothing is a disconnected exercise.</p>
+<pre><code>                          | Lesson | Focus | You'll walk away with |
+</code></pre>
+<p>|---|---|---|
+| 1 | Project Setup &amp; the Pattern-First Method | A scalable project folder — including the persistent context file — and your Design Pattern (tokens, component inventory, template) named and ready to build from |
+| 2 | Interaction Pattern, Build &amp; Editing Craft | A synced token file, a corrected component inventory, an interaction pattern, and working screens — built from saved artifacts instead of retyped prompts |
+| 3 | Stitching the Journey &amp; Presenting the Work | One demoable, navigable journey, plus a draft outline for presenting it |
+| 4 | Publish — Git &amp; GitHub for Non-Technical Designers | The prototype live at a real, self-updating URL |</p>
+<hr />
+<h2 id="v2-learning-objectives">Learning Objectives</h2>
+<p>By the end of this arc, students will be able to:</p>
+<ol>
+<li><strong>Organise</strong> a prototype project folder that scales, including a persistent context file an AI coding tool reads automatically</li>
+<li><strong>Explain</strong> why pattern-first prototyping is faster and more consistent than screen-by-screen, and why artifacts (not repeated prompting) should carry that consistency</li>
+<li><strong>Generate</strong> a component inventory and interaction pattern from an existing design system, saved as reusable reference files</li>
+<li><strong>Build</strong> a working, browser-viewable prototype from those files using an AI coding tool</li>
+<li><strong>Stitch</strong> multiple screens into one demoable journey and present the process behind it</li>
+<li><strong>Publish</strong> the finished prototype to a live URL via Git/GitHub, independent of any design tool account</li>
+</ol>
+<hr />
+<h2 id="v2-materials-needed">Materials Needed</h2>
+<ul>
+<li>Student's own design system (Figma file with tokens + components) — bring to Lesson 1</li>
+<li>One AI tool for prototyping, picked from the comparison below (primary tool for the whole arc)</li>
+<li>A second AI tool, for the Lesson 2 comparison (optional but recommended)</li>
+<li>A GitHub account and GitHub Desktop, installed <em>before</em> Lesson 4 — don't let install friction eat lesson time</li>
+<li>The prompt reference in each lesson file's own Prompt &amp; Reference section</li>
+</ul>
+<h3 id="v2-choosing-an-ai-tool">Choosing an AI Tool</h3>
+<pre><code>                                                 | Tool | Type | Design-system support | Strengths | Weaknesses | Use when |
+</code></pre>
+<p>|---|---|---|---|---|---|
+| Cursor / Claude Code / Windsurf | AI coding tool | Highest — connects via Figma MCP, reads variables, tokens, components, and variants directly | Most detail on the design system via MCP | Requires manual MCP setup; no visual design UI | Already comfortable in a code editor, need the tightest adherence to the design system |
+| Claude Design | AI design tool | Highest — builds the design system from the design file itself during onboarding, then reuses it for every later prototype | No MCP setup needed; generates a visual prototype quickly from text or an image; edits directly via comments | Not as deep as a code editor for complex logic | Want the design system to self-sync with no config; need a fast prototype or deck |
+| Bolt / Replit | AI coding tool | High — reads Figma metadata directly, including real tokens and components | Ships with frontend, backend, and database; high fidelity | Can be more complex than a simple MVP needs | Full-stack app that still needs high fidelity to the original design |
+| Figma Make | AI design tool | Medium — connects directly to Figma but doesn't yet expose tokens clearly | High visual fidelity, easiest to use since it lives inside Figma | Tokens not clearly exposed; less flexible outside Figma | Design already exists in Figma, just need to add interactivity |
+| Lovable | AI coding tool | Low — relies on a written brand description, doesn't extract tokens directly | Generates a complete app from a written description | Can drift from the original design | MVP or small production app, no interest in touching code |</p>
+<p><em>Snapshot as of September 2026 — the market moves fast, so choose by category and support level, not by clinging to a specific tool name.</em></p>
+<p><strong>Sync note (2026-09-14), deliberate exception:</strong> this table names specific tools, per Winnie's direct request — an intentional exception to the "no specific AI tool names" convention in <code>CLAUDE.md</code>, scoped to this table only. Matches the same exception already applied to <code>programs/online-course/AI Prototype Development/Section 1 - Giới Thiệu/learning/section 1-slide-outline.md</code>.</p>
+<hr />
+<p><em>Created by Winnie Nguyen · Private Training · Last updated September 2026</em></p></article>
+  </div>
+</div><div data-var-panel data-var-id="3" hidden>
+  <div class="tp-layout">
+    <aside class="tp-toc" aria-label="On this page"><p class="tp-toc__label">On this page</p><a href="#v3-overview">Overview</a><a href="#v3-session-structure">Session Structure</a><a href="#v3-why-mindset-reframe-why-screen-by-screen-breaks">WHY — Mindset Reframe: Why Screen-by-Screen Breaks</a><a href="#v3-what-ai-foundations-recap">WHAT — AI Foundations Recap</a><a href="#v3-what-your-design-pattern">WHAT — Your Design Pattern</a><a href="#v3-what-choosing-an-ai-tool">WHAT — Choosing an AI Tool</a><a href="#v3-how-organise-the-project-folder">HOW — Organise the Project Folder</a><a href="#v3-how-class-activity-set-up-your-project-folder-10-min">HOW — Class Activity: Set Up Your Project Folder (10 min)</a><a href="#v3-do-wrap-up-homework">DO — Wrap-up &amp; Homework</a><a href="#v3-instructor-notes">Instructor Notes</a></aside>
+    <article class="tp-body"><h2 id="v3-overview">Overview</h2>
+<p>Most designers who try AI prototyping start the same way: open a screen, describe it, generate it, move to the next screen. It works for the first one or two screens, then falls apart — components drift, states go missing, every new prompt starts from zero because nothing was defined ahead of time.</p>
+<p>This lesson flips that. Before touching a single screen, the student sets up a project folder built to last, then learns to name what already exists in their design system — tokens, component inventory, template — as a <strong>Design Pattern</strong> the AI coding tool will eventually build from. This lesson stops at naming it well and getting the folder ready. Turning the Design Pattern into the two markdown layers AI actually reads — the <strong>component inventory</strong> and the <strong>interaction pattern</strong> — is hands-on work that starts next lesson, along with Pre-Flight cleanup and syncing design tokens.</p>
+<p><strong>Scope reconciliation (2026-09-18):</strong> this lesson used to also cover Pre-Flight cleanup, token sync, and component-inventory generation. Those moved to <code>lesson-2-interaction-pattern-build-editing-craft.md</code> to match the actual delivered deck (see <code>lesson-1-slide-outline.md</code>, which was reverse-synced from the built deck and flagged this gap) — the live session ends at the conceptual Design Pattern overview, not a hands-on build. If teaching from this file, don't build the component inventory or sync tokens today; that's next lesson's opening work.</p>
+<p><strong>Known gap, not yet reconciled:</strong> the built deck also carries three content pieces this file doesn't yet have in prose — a "Design It in Figma" 3-step process for the template ingredient, a 7-type "common template pattern types" lookup table, and a "Which Screens Are Right" scoping slide with three named traps. Flagged here rather than silently trusted, same convention as the slide outline's own mismatch notes — reconcile when next revising this file in full.</p>
+<p><strong>This lesson runs on top of <code>03-develop/ai-prototype-development-lesson.md</code> ("AI Prototype Development"), not alongside it.</strong> The AI foundations recap and the mindset reframe below are that lesson's Phase 0 and Phase 1, run as written — the method doesn't change for private-training delivery, only the pacing and the audience (1:1, not a cohort). What's actually new here — and written out in full — is the project folder setup and where the "artifacts over prompts" habit starts. See that lesson's Overview for the full pattern-first rationale if it's useful background before teaching this.</p>
+<h2 id="v3-session-structure">Session Structure</h2>
+<p><strong>Organised Why → What → How → Do</strong> — motivation before mechanics, mechanics before hands-on practice. Each segment below is tagged with which stage it serves.</p>
+<ol>
+<li><strong>[WHY]</strong> Mindset reframe: why screen-by-screen breaks</li>
+<li><strong>[WHAT]</strong> AI foundations recap</li>
+<li><strong>[WHAT]</strong> Your Design Pattern — naming tokens, component inventory, and template</li>
+<li><strong>[HOW]</strong> Organise the project folder</li>
+<li><strong>[HOW]</strong> Class activity (10 min): set up your project folder</li>
+<li><strong>[DO]</strong> Wrap-up &amp; homework</li>
+</ol>
+<hr />
+<h2 id="v3-why-mindset-reframe-why-screen-by-screen-breaks">WHY — Mindset Reframe: Why Screen-by-Screen Breaks</h2>
+<p><strong>Run Phase 1 — Mindset Reframe from <code>03-develop/ai-prototype-development-lesson.md</code> exactly as written:</strong> the 3-screen screen-by-screen demo (e.g. Login → Dashboard → Detail), the pattern-first alternative it lands on right after (component inventory → interaction pattern → states → screens as arrangement — now its own four slides in <code>lesson-1-slide-outline.md</code>, one per step, immediately after the drift demo), the key message that the design system is the <em>input</em> to the prototype rather than the finished output of earlier work, and the discussion prompt mapping what's missing to the two prototype-pattern layers ("what clicks lead where" → interaction pattern, Lesson 2; "what components exist and what they can look like" → component inventory, this lesson). None of it needs adapting for private-training delivery — the concept and the demo don't change with format.</p>
+<p><strong>Two more problems now named explicitly, before the fix — sourced from the online course's Section 2 (<code>programs/online-course/AI Prototype Development/Section 2 - Thay Đổi Tư Duy Phát Triển AI Prototype/section 2-lesson.md</code>), not from Phase 1 of the source lesson.</strong> Phase 1's demo only dramatises component drift. Section 2 names two more problems with the old way that Phase 1 doesn't: AI keeps no memory between prompts (every request starts from zero), and states get forgotten until a developer or the user finds the gap after launch. Both now have their own slide in <code>lesson-1-slide-outline.md</code>, right after the drift demo and before the pattern-first fix — naming all three before showing the fix makes the fix land harder.</p>
+<p><strong>Why this comes first:</strong> motivation before mechanics. The student needs to feel the drift problem before being asked to spend twenty minutes on folder structure — otherwise the folder work reads as busywork instead of the fix.</p>
+<p><strong>One-on-one adjustment:</strong> the source lesson frames the discussion prompt as a neighbour exercise for a cohort. In a 1:1 session, just ask it directly and talk it through together — there's no room to turn to.</p>
+<hr />
+<h2 id="v3-what-ai-foundations-recap">WHAT — AI Foundations Recap</h2>
+<p><strong>This lives in <code>03-develop/ai-prototype-development-lesson.md</code> as Phase 0</strong> — run it exactly as written there, in its two parts: Part A (mindset — maker-to-strategist, treating AI like an intern, the VR hype-cycle expectation-setting) and Part B (working vocabulary — markdown, HTML, AI-generated vs. AI-assisted, CARE, the context habit, tool types). Source material is <code>ai-workflow-for-ux-designers</code> ("Set Up Your AI Workflow"), slides 5–20 — Phase 0 already documents which of those slides it draws on and why, so this file doesn't need to repeat that.</p>
+<p><strong>Now reflected as slides, not just a pointer.</strong> <code>lesson-1-slide-outline.md</code> carries dedicated slides for the maker-to-strategist reframe, all three Part A mindsets, the markdown/HTML/folder vocabulary, and CARE — condensed for a 1:1 session, not a 1:1 copy of all 14 source items. Left as verbal-only or folded into an existing slide, on purpose: "What a prototype actually is" (already its own WHAT slide), AI-generated vs. AI-assisted (already implied in that slide's own visual), folder organisation (covered properly in the HOW section below, no need twice), the vague-vs-CARE live demo (deferred to Lesson 2's build, per Phase 0's own suggestion, so it isn't run twice), and the AI-coding-tool-vs-chat-tool map (the student's already using one specific tool by this point — no taxonomy needed).</p>
+<p><strong>Check comfort level before trimming — don't default to the coaching plan's assumption.</strong> Part A is flagged as trimmable for students already comfortable with AI tools generally, but confirm that directly with the student first. If they're newer to this than expected, treat Part A as real onboarding, not a skip.</p>
+<p><strong>Why this comes second:</strong> now that the student wants the fix, define the vocabulary before showing them the mechanics — "component inventory," "AI-assisted," "context file" all need a shared definition before the folder setup puts them into practice.</p>
+<p><strong>Run it, don't skip it — check first, don't assume:</strong> a student may be newer to their AI coding tool than a "comes in already using it" read of the coaching plan suggests, so this isn't a formality — check their comfort with the chosen tool's basic interface (where to type, where output appears, how to accept/reject a change) before moving into the folder setup below.</p>
+<hr />
+<h2 id="v3-what-your-design-pattern">WHAT — Your Design Pattern</h2>
+<p><strong>Name the three ingredients, don't re-teach them.</strong> Tokens, component inventory, and template are concepts the student already knows — this lesson deliberately doesn't teach design-system fundamentals (see Instructor Notes below). What's new here is naming how the three combine, for the rest of this arc: <strong>Design Pattern</strong> — tokens (colour, type, spacing values) + component inventory (every component, every state) + template (the skeleton layout screens are built from). All three should already exist in the student's Figma file; nothing here gets built from scratch.</p>
+<p><strong>Distinguish it from "prototype pattern" immediately — the names are close on purpose, but the concepts aren't the same.</strong> Design Pattern lives in Figma — it's what the student already has. Prototype pattern (component inventory + interaction pattern, built later this lesson and next) lives in the project folder as markdown — it's what gets built <em>from</em> the Design Pattern, for AI to read. Say the distinction out loud if the student looks confused: "Design Pattern lives in Figma. Prototype pattern lives in your project folder."</p>
+<p><strong>Why this comes here:</strong> right before the folder setup and the token-sync/component-inventory work below — this is what those steps read from. Naming it first means "sync your tokens" and "generate the component inventory" aren't abstract instructions, they're operations on something just named.</p>
+<hr />
+<h2 id="v3-what-choosing-an-ai-tool">WHAT — Choosing an AI Tool</h2>
+<p><strong>If the student hasn't already picked a tool from Lesson 0's comparison, do it now — before the folder setup below.</strong> The choice determines how the design-token sync step later in this lesson actually works, so it can't be deferred past this point.</p>
+<pre><code>                                                 | Tool | Type | Design-system support | Strengths | Weaknesses | Use when |
+</code></pre>
+<p>|---|---|---|---|---|---|
+| Cursor / Claude Code / Windsurf | AI coding tool | Highest — connects via Figma MCP, reads variables, tokens, components, and variants directly | Most detail on the design system via MCP | Requires manual MCP setup; no visual design UI | Already comfortable in a code editor, need the tightest adherence to the design system |
+| Claude Design | AI design tool | Highest — builds the design system from the design file itself during onboarding, then reuses it for every later prototype | No MCP setup needed; generates a visual prototype quickly from text or an image; edits directly via comments | Not as deep as a code editor for complex logic | Want the design system to self-sync with no config; need a fast prototype or deck |
+| Bolt / Replit | AI coding tool | High — reads Figma metadata directly, including real tokens and components | Ships with frontend, backend, and database; high fidelity | Can be more complex than a simple MVP needs | Full-stack app that still needs high fidelity to the original design |
+| Figma Make | AI design tool | Medium — connects directly to Figma but doesn't yet expose tokens clearly | High visual fidelity, easiest to use since it lives inside Figma | Tokens not clearly exposed; less flexible outside Figma | Design already exists in Figma, just need to add interactivity |
+| Lovable | AI coding tool | Low — relies on a written brand description, doesn't extract tokens directly | Generates a complete app from a written description | Can drift from the original design | MVP or small production app, no interest in touching code |</p>
+<p><em>Snapshot as of September 2026 — the market moves fast, so choose by category and support level, not by clinging to a specific tool name.</em></p>
+<p><strong>Why this comes here:</strong> right before the project folder gets built and the rules/context file gets written for a specific tool — the choice has to be locked before that step, not during it.</p>
+<p><strong>Sync note (2026-09-14), deliberate exception:</strong> this table names specific tools, per Winnie's direct request — an intentional exception to the "no specific AI tool names" convention in <code>CLAUDE.md</code>, scoped to this table only. Matches the same exception already applied to <code>programs/online-course/AI Prototype Development/Section 1 - Giới Thiệu/learning/section 1-slide-outline.md</code>.</p>
+<p><strong>What MCP actually is — one line, deliver verbally.</strong> The table above says the top row "connects via Figma MCP" without ever defining it — give the student one sentence before moving on: MCP (Model Context Protocol) is an open standard that lets an AI coding tool read a tool like Figma directly, the same way a USB-C port works with any device rather than needing a different cable for each one. Full setup steps aren't needed yet — they live in <code>lesson-2-interaction-pattern-build-editing-craft.md</code>'s Prompt &amp; Reference Library, for when the student actually connects it next lesson.</p>
+<p><strong>Known gap, not yet reconciled:</strong> like the other prose gaps already flagged in the Overview above, this MCP one-liner isn't in the built deck yet either — deliver it verbally from this file until the deck catches up.</p>
+<hr />
+<h2 id="v3-how-organise-the-project-folder">HOW — Organise the Project Folder</h2>
+<p><strong>"No wrong choice. Only mistake: no structure."</strong> (<code>ai-workflow-for-ux-designers</code>, slide 14). Open with the end in mind: this folder is what the student will work in for the entire 4-lesson arc, and it's the same folder that gets published to GitHub in Lesson 4. Structure it right now and there's no rework later.</p>
+<p><strong>The structure to set up:</strong></p>
+<pre><code>project-name/
+├── README.md              — one paragraph: what this is, how to run it (human-facing)
+├── AGENTS.md               — a short router, not the full spec
+│                             (recognised by Claude Code, Cursor, Copilot CLI,
+│                             Codex CLI, and Gemini CLI — the closest thing
+│                             to a cross-tool standard right now)
+├── CLAUDE.md, .cursorrules, etc.   — only if a student's specific tool insists
+│                                      on its own filename; one line each,
+│                                      &quot;Rules live in AGENTS.md, read that first&quot;
+├── learning/                — everything the router points to, read on demand
+│   ├── prd.md               — what's being built and why
+│   ├── flowchart.md         — how screens connect
+│   ├── preferences.md       — visual/voice/decision rules for this project
+│   ├── component-inventory.md    (built this lesson)
+│   └── interaction-pattern.md    (built next lesson)
+├── design-system/         — exported tokens + reference screenshots from Figma
+├── screens/                — the actual built screens, once they exist
+└── assets/                 — images, icons, fonts
+
+</code></pre>
+<p><strong>Why AGENTS.md matters, and why it's a router, not a file cabinet, this is the crux of the whole arc:</strong> most designers trying AI prototyping re-explain their system in every single prompt. That's slow, inconsistent, and doesn't scale. The fix isn't just "write it down once", it's writing it down in a shape that doesn't get reloaded in full on every prompt, and naming it something most tools already recognise without a second copy. Keep AGENTS.md itself short and stable, project overview, core conventions, and pointers to the files below it, so it's cheap to load every time. The actual detail lives in <code>learning/</code>, and the AI coding tool only pulls in the specific file a task needs, <code>prd.md</code> when scoping a new screen, <code>preferences.md</code> when a visual call is ambiguous, <code>component-inventory.md</code> and <code>interaction-pattern.md</code> when building. Point the router at <code>learning/component-inventory.md</code> and <code>learning/interaction-pattern.md</code>, and every future prompt can be short, because the system context is already loaded, on demand rather than all at once.</p>
+<p><strong>Facilitator watch-fors:</strong></p>
+<ul>
+<li>Don't let the student skip AGENTS.md "because the folder is small right now." The point is to build the habit before it matters, not after the project has grown past the point where retrofitting it is easy.</li>
+<li>Watch for the file becoming a dumping ground, if the student starts pasting the whole PRD or long visual explanations straight into the router file, redirect that content into <code>learning/</code> and leave a one-line pointer behind instead. A bloated router file is a token-cost problem in its own right, it reloads in full on every single prompt whether or not that prompt needs it.</li>
+<li>If the student's tool insists on its own filename instead of reading AGENTS.md directly (a Claude Code student wanting <code>CLAUDE.md</code>, a Cursor student wanting <code>.cursorrules</code>), don't let them duplicate content into it. One line is enough: "Rules live in AGENTS.md, read that first." Two files with the same information drift apart the moment one gets updated and the other doesn't.</li>
+<li>One rule file is enough for the project sizes in this lesson. If a student's project later grows into genuinely distinct areas with different conventions (a design-system-heavy marketing site plus a data-heavy dashboard, say), nested <code>AGENTS.md</code> files per area are a real pattern, root file for global rules, a subdirectory file only where that area's rules actually differ, loaded on demand the same way <code>learning/</code> already is. Not needed for a typical single-flow prototype, worth knowing exists for when one outgrows a single file.</li>
+</ul>
+<p><strong>Minimum result:</strong> the folder above exists, with <code>README.md</code> and <code>AGENTS.md</code> both written (even briefly), <code>learning/</code> created (empty is fine — <code>component-inventory.md</code> gets real content next lesson), and the design system already exported into <code>design-system/</code>.</p>
+<hr />
+<h2 id="v3-how-class-activity-set-up-your-project-folder-10-min">HOW — Class Activity: Set Up Your Project Folder (10 min)</h2>
+<p><strong>Build it live, don't just show it.</strong> After the diagram and the AGENTS.md explanation above, hand the folder structure over to the student to build for real, on their own machine, while you watch — not a follow-along demo, actual hands-on time.</p>
+<p><strong>What happens in the 10 minutes:</strong></p>
+<ul>
+<li>Student creates the folder structure from above — README, <code>AGENTS.md</code>, <code>learning/</code>, <code>design-system/</code>, <code>screens/</code>, <code>assets/</code></li>
+<li>Student exports their design system (tokens + reference screenshots) into <code>design-system/</code></li>
+<li>Student writes a first pass at the rules/context file — even a few lines is enough to start</li>
+</ul>
+<p><strong>Facilitator role during the 10 minutes:</strong> most of this takes minutes and doesn't need supervision — check email, let the student work. The one thing worth stopping to check personally is the rules/context file, since that's this session's one must-get-right item (see the watch-fors above). If the student finishes early, let them get a head start skimming the Design Pattern material above rather than sit idle — Pre-Flight, token sync, and the component inventory are next lesson's work, not today's.</p>
+<hr />
+<h2 id="v3-do-wrap-up-homework">DO — Wrap-up &amp; Homework</h2>
+<p><strong>Land the key idea:</strong> the system isn't the output of design work anymore — starting today, it's the input to everything that gets built from here.</p>
+<p><strong>Homework before next lesson — checklist:</strong></p>
+<ul>
+<li>☐ Bring the Figma file with tokens, components, and a template already in it — Pre-Flight cleanup runs at the top of next lesson, so it doesn't need to be spotless yet</li>
+<li>☐ Scope the case study: pick 2–3 screens from the anchor project to prototype first — enough to prove the pattern works, not the whole product</li>
+<li>☐ Confirm the project folder from today (<code>README.md</code>, <code>AGENTS.md</code>, <code>learning/</code>, <code>design-system/</code>, <code>screens/</code>, <code>assets/</code>) is set up and the design system is exported into <code>design-system/</code></li>
+</ul>
+<hr />
+<h2 id="v3-instructor-notes">Instructor Notes</h2>
+<ul>
+<li><strong>This lesson is organised Why → What → How → Do</strong> — mindset reframe and the pattern-first alternative (Why) → foundations recap and the Design Pattern concept (What) → folder setup (How) → wrap-up (Do). Apply the same ordering to later lessons.</li>
+<li><strong>This lesson points to <code>03-develop/ai-prototype-development-lesson.md</code> for method content instead of restating it.</strong> The AI-foundations recap (Phase 0) and the mindset reframe (Phase 1) live there. This file only carries what's genuinely new to private-training delivery: folder organisation, the artifacts-over-prompts habit (the rules/context file and where it starts pointing to saved artifacts next lesson), and 1:1 pacing/adaptation notes. Rewriting method content here instead of pointing to it creates two sources of truth that will drift the moment the method changes.</li>
+<li><strong>Pre-Flight cleanup, token sync, and component-inventory generation are not in this lesson</strong> — see the scope-reconciliation note in the Overview above. They open <code>lesson-2-interaction-pattern-build-editing-craft.md</code> instead.</li>
+<li>The rules/context file set up in this lesson is the single idea the whole arc hangs on — artifacts over prompts, this arc's application of the Feed Forward habit from Phase 0. It has nothing to point to yet by the end of this lesson besides itself and the exported design system — that's expected; <code>component-inventory.md</code> and <code>interaction-pattern.md</code> don't exist until next lesson. If a student walks away from this lesson without the folder and router file set up, next lesson starts from behind.</li>
+<li>Keep tool references generic in delivery ("your AI coding tool," "a second AI coding tool") so this lesson is reusable across students regardless of which tools they use — note the specific tools for a given cohort separately, outside this file.</li>
+<li>This lesson deliberately doesn't teach design-system fundamentals (tokens, atomic design, states) — it assumes that fluency already exists. If a student is shaky on those concepts, that's a different, earlier lesson. The "Design Pattern" slide doesn't re-teach these concepts — it names how three things the student already knows combine into the term this arc uses, and draws the line between that and "prototype pattern" (the artifact built from it).</li>
+</ul>
+<hr />
+<p><em>Created by Winnie Nguyen · Private Training · Last updated September 2026</em></p></article>
+  </div>
+</div><div data-var-panel data-var-id="4" hidden>
+  <div class="tp-layout">
+    <aside class="tp-toc" aria-label="On this page"><p class="tp-toc__label">On this page</p><a href="#v4-overview">Overview</a><a href="#v4-session-structure">Session Structure</a><a href="#v4-why-recap-the-design-pattern-is-named-not-yet-real">WHY — Recap: The Design Pattern Is Named, Not Yet Real</a><a href="#v4-how-pre-flight-clean-up-the-design-file">HOW — Pre-Flight: Clean Up the Design File</a><a href="#v4-how-scope-the-build">HOW — Scope the Build</a><a href="#v4-how-confirm-your-setup">HOW — Confirm Your Setup</a><a href="#v4-do-sync-your-design-tokens">DO — Sync Your Design Tokens</a><a href="#v4-do-generate-the-component-inventory">DO — Generate the Component Inventory</a><a href="#v4-do-bring-the-templates-into-code">DO — Bring the Templates Into Code</a><a href="#v4-do-consolidate-into-design-system-html">DO — Consolidate Into design-system.html</a><a href="#v4-what-the-interaction-pattern">WHAT — The Interaction Pattern</a><a href="#v4-do-generate-the-interaction-pattern">DO — Generate the Interaction Pattern</a><a href="#v4-do-wrap-up-homework">DO — Wrap-up &amp; Homework</a><a href="#v4-prompt-reference-library">Prompt &amp; Reference Library</a><a href="#v4-reference-mcp-code-connect-token-naming">Reference: MCP, Code Connect &amp; Token Naming</a><a href="#v4-instructor-notes">Instructor Notes</a><a href="#v4-connection-to-curriculum">Connection to Curriculum</a></aside>
+    <article class="tp-body"><blockquote>
+<p><strong>Filename note:</strong> this file is still named <code>lesson-2-interaction-pattern-build-editing-craft.md</code> from when the lesson carried the build and editing-craft content. That content has moved to Lesson 3 (see the scope note below), so the filename no longer describes the lesson. Renaming it means updating <code>lesson_file</code> in the slide outline and the README table — worth doing in one pass, not piecemeal. <strong>Scope note (2026-09-18):</strong> Pre-Flight cleanup, syncing design tokens and generating the component inventory — originally taught in Lesson 1 — moved here to match the delivered Lesson 1 deck, which ends at the conceptual "Design Pattern" overview rather than building it hands-on. <strong>Scope reconciliation (2026-09-19) — this lesson no longer teaches building screens.</strong> The built deck (<code>Lesson 2 - Build It standalone.html</code>) ends at "Map the Pattern." The three-file model, the five-ingredient build prompt, the three edit modes, the timed hands-on build and the second-tool comparison have been removed from this file; they are Lesson 3's opening work now. Two additions came the other way: <strong>scoping the build</strong> and <strong>confirming the student's setup</strong> are now explicit steps of their own, before any tool work. Net effect is a shorter, tighter session — see the time budget below, which now comes in around 70 minutes rather than 90. <strong>Two known deck mismatches, recorded not fixed:</strong> the Closing slide still claims "2–3 screens working in the browser, refined with the three edit modes," and the Cover's speaker notes still reference working screens and a Section 4 second-tool comparison. Neither happens in this deck. Replacement wording is proposed at the top of <code>lesson-2-slide-outline.md</code>.</p>
+</blockquote>
+<h2 id="v4-overview">Overview</h2>
+<p>Lesson 1 named the Design Pattern — tokens, component inventory, template — as three things the student already has in Figma. Naming it isn't the same as having it in a form AI can read. This lesson turns that named concept into real, saved artifacts: synced tokens, a component inventory, coded templates, all consolidated into one page, <code>design-system.html</code>. It then adds the second half of a prototype pattern — the <strong>interaction pattern</strong> — and folds that back into the same page, so it stops being a static swatch sheet and becomes navigable.</p>
+<p><strong>What the student leaves with:</strong> <code>design-system/tokens.css</code>, <code>learning/component-inventory.md</code>, one coded template per pattern type, <code>learning/interaction-pattern.md</code>, and a <code>design-system.html</code> they can open in a browser and click through. No screens yet — screens are Lesson 3.</p>
+<p><strong>Three ways to get there, same destination.</strong> A student with Figma MCP set up reads the design file directly (Method A). A student without it pastes what they have into their AI coding tool and has it generate the same output (Method B). A student whose team's design system already lives in code points the tool at the repository instead (Method C). None is a lesser fallback. Confirm which applies at the setup step and walk only that path — a given student runs exactly one.</p>
+<p><strong>This lesson runs on top of <code>03-develop/ai-prototype-development-lesson.md</code> ("AI Prototype Development"), not alongside it</strong> — same relationship Lesson 1 has to it. The Pre-Flight checklist and the token-sync and component-inventory prompts are that lesson's Phase 4 Steps 1, 3 and 4, run as written. What's new here: the three-method framing, one coded template per pattern type, consolidating everything into one demoable page, and the interaction pattern taught as its own concept rather than a single prompt.</p>
+<h2 id="v4-session-structure">Session Structure</h2>
+<p><strong>Organised Why → What → How → Do</strong>, same convention as Lesson 1.</p>
+<ol>
+<li><strong>[WHY]</strong> Recap: the Design Pattern is named, not yet real</li>
+<li><strong>[HOW]</strong> Pre-Flight: clean up the design file</li>
+<li><strong>[HOW]</strong> Scope the build — 2–3 screens, decided before any tool work</li>
+<li><strong>[HOW]</strong> Confirm your setup — MCP, no MCP, or design system in code</li>
+<li><strong>[DO]</strong> Sync your design tokens</li>
+<li><strong>[DO]</strong> Generate the component inventory</li>
+<li><strong>[DO]</strong> Bring the templates into code</li>
+<li><strong>[DO]</strong> Consolidate into <code>design-system.html</code> — review everything once, together</li>
+<li><strong>[WHAT]</strong> The interaction pattern</li>
+<li><strong>[DO]</strong> Generate the interaction pattern — prompt, cross-check, update the showroom</li>
+<li><strong>[DO]</strong> Wrap-up &amp; homework</li>
+</ol>
+<p><strong>Suggested time budget — treat as the default plan, not an aspirational one:</strong></p>
+<pre><code>                                                                       | # | Segment | Minutes |
+</code></pre>
+<p>|---|---|---|
+| 1 | Recap | 3 |
+| 2 | Pre-Flight | 8 |
+| 3 | Scope the build | 3 |
+| 4 | Confirm setup | 2 |
+| 5 | Sync tokens (generate only) | 5 |
+| 6 | Component inventory (generate only) | 5 |
+| 7 | Templates into code (generate only) | 6 |
+| 8 | Consolidate + review everything, once | 10 |
+| 9 | Interaction pattern (concept) | 6 |
+| 10 | Interaction pattern (prompt + cross-check + update showroom) | 12 |
+| 11 | Wrap-up | 5 |
+| — | Buffer | 5 |
+| <strong>Total</strong> |  | <strong>~70</strong> |</p>
+<p><strong>This session now runs about 70 minutes, not 90 — an open decision, not an oversight.</strong> Removing the build freed roughly twenty minutes. Three reasonable uses, in rough order of preference: spend it on the consolidation review, which is where every deferred correction lands and where a rushed pass costs the most later; let the session genuinely end early, which a 1:1 can do and a cohort can't; or pull the first screen build forward from Lesson 3, which re-fattens this lesson and thins the next. Decide deliberately rather than letting the time drift into whichever segment overruns first. <strong>Recommendation as of 2026-09-19: spend it on the consolidation review, and do not pull the first screen forward.</strong> Lesson 3 is built around screen one being the screen whose corrections generate the rules file; moving it here separates the build from the harvest by a week and the harvest is what makes Lesson 3 work.</p>
+<p><strong>Review moved, not added.</strong> Segments 5–7 look short because they are: no correction happens at any of them. The single combined pass in segment 8 replaces three separate reviews (a CSS file, a markdown table, a mental check against Figma) with one look at a rendered page.</p>
+<hr />
+<h2 id="v4-why-recap-the-design-pattern-is-named-not-yet-real">WHY — Recap: The Design Pattern Is Named, Not Yet Real</h2>
+<p><strong>Open with a callback, not a re-teach.</strong> Lesson 1 already taught the Design Pattern (tokens, component inventory, template, in Figma) and how it differs from the prototype pattern (in the project folder, in markdown, for AI to read). Don't restate either. Ask the student to say the difference back in one sentence, and move on.</p>
+<p><strong>Key message:</strong> naming a system and having AI build from it are two different milestones. Today closes that gap.</p>
+<p><strong>One-on-one adjustment:</strong> ask whether the student's Figma file changed since Lesson 1. Pre-Flight catches drift either way, so this isn't an inspection — it's a natural opener.</p>
+<hr />
+<h2 id="v4-how-pre-flight-clean-up-the-design-file">HOW — Pre-Flight: Clean Up the Design File</h2>
+<p><strong>This is Phase 4 Step 1 in <code>03-develop/ai-prototype-development-lesson.md</code>, run exactly as written.</strong> Before AI reads anything, remove what shouldn't be there. AI can't tell "this is part of my system" from "I forgot to delete this" — it includes all of it in the component inventory, and everything after is built on top of the mess instead of the system.</p>
+<p><strong>Checklist:</strong></p>
+<ul>
+<li>Delete or archive components not used in this prototype</li>
+<li>Merge duplicate variants of the same component</li>
+<li>Remove hidden/test layers and old exploration frames</li>
+<li>Confirm naming is consistent across the file</li>
+</ul>
+<p><strong>Prompt to use</strong>, if the file's too large to eyeball:</p>
+<blockquote>
+<p>"Here is my Figma component list: [paste]. Which of these look like duplicates, unused variants, or one-off experiments rather than real system components?"</p>
+</blockquote>
+<p><strong>Facilitator note:</strong> feels like tidying, isn't optional — it's the difference between a short, clean inventory in the next step and a bloated one built on messy design work. The deck's before/after shows exactly what this catches: <code>Button</code>, <code>Button v2</code>, <code>btn_old</code> collapsing to one <code>Button</code>.</p>
+<hr />
+<h2 id="v4-how-scope-the-build">HOW — Scope the Build</h2>
+<p><strong>Screen scoping was taught in Lesson 1</strong> ("Which Screens Are Right": one user goal, 2–3 screens, and the three traps), and the student scoped their screens as Lesson 1 homework. This is a decision, not a lesson — keep it to a minute or two.</p>
+<p><strong>Two things to settle:</strong></p>
+<ul>
+<li>Pick 2–3 screens from the interaction pattern named last lesson.</li>
+<li>The goal is to prove the pattern works, not to finish the prototype.</li>
+</ul>
+<p><strong>Why it sits here rather than later:</strong> the number and type of screens picked here is what makes the template step concrete — it tells you how many templates you need and which pattern types they have to cover. Scope after the templates are built and you find out too late.</p>
+<hr />
+<h2 id="v4-how-confirm-your-setup">HOW — Confirm Your Setup</h2>
+<p><strong>One question, asked once, before any tool work: is Figma MCP connected?</strong> The answer decides which method the student runs for every generation step ahead — token sync, component inventory, templates. Confirming it now means the rest of the session walks one path instead of re-asking at each step.</p>
+<ul>
+<li><strong>MCP connected</strong> — read the design file live for every step ahead.</li>
+<li><strong>Design system already in code</strong> — point at the repository instead of Figma.</li>
+<li><strong>No MCP</strong> — paste the values and component list in directly. <em>This third path is in the notes but is not a card on the deck's slide; if a student is on it, say so aloud, because the slide won't.</em></li>
+</ul>
+<p><strong>Facilitator note:</strong> if Method A stalls mid-session, don't troubleshoot the connection live — drop straight to the paste-based path for whichever step failed. Same saved file, same output, no time lost debugging.</p>
+<hr />
+<h2 id="v4-do-sync-your-design-tokens">DO — Sync Your Design Tokens</h2>
+<p><strong>Runs once, matters for every screen after.</strong> Without it, AI defaults to generic visual styles — colours and type that could belong to any product. This is what makes everything built later look like the student's actual product rather than a template.</p>
+<p><strong>Prompt to use</strong> (this is the deck's wording, the MCP version — adapt the first line for the other two methods):</p>
+<blockquote>
+<p>"Read my design file [Link]. Extract the design tokens: colour values, typography styles, and spacing. Generate a CSS variables file from these tokens so every screen uses the exact values from my design system."</p>
+</blockquote>
+<p><strong>Practical tip worth saying out loud:</strong> have the file open and selected in the Figma desktop app first, then copy the link of the section or the whole file. A link to a file that isn't open is the most common reason this step returns nothing useful.</p>
+<p><strong>What comes back</strong> is a <code>:root</code> block of CSS variables named by purpose — <code>--color-action-primary</code>, <code>--space-card-gap</code> — not by raw value. If they come back named <code>--color-blue</code>, that's a correction, but not now.</p>
+<p><strong>Save the result</strong> as <code>design-system/tokens.css</code> and wire it into the router file the same way it already points at <code>learning/</code>. <strong>Don't check the values yet</strong> — that happens once, at consolidation.</p>
+<hr />
+<h2 id="v4-do-generate-the-component-inventory">DO — Generate the Component Inventory</h2>
+<p><strong>Structure: brief demo → student runs it on their own system → move straight to the templates.</strong> Correction happens once, for everything together, at consolidation.</p>
+<p><strong>Prompt to use</strong> (the deck's wording):</p>
+<blockquote>
+<p>"Read my design file [Link]. Generate a component inventory: list every component with its name, purpose, and all its states (default, hover, loading, error, etc.)."</p>
+</blockquote>
+<p><strong>What "good" looks like:</strong> every component, every state, nothing invented. The deck shows the output as a rendered gallery rather than a markdown table — Button across four variants, three colours and three states — which is a more honest picture of what a useful inventory contains than a table of names.</p>
+<p><strong>Watch-fors, deferred not skipped.</strong> Method B needs the heaviest check later: without live file access, AI is likelier to guess at a state that doesn't exist or miss one that does. Method C usually needs the lightest — states are visible in the component code — but it can miss anything designed in Figma that hasn't shipped. Say which caveat applies to this student now, out loud, so it isn't forgotten a few minutes from now.</p>
+<p><strong>Save the output</strong> to <code>learning/component-inventory.md</code>. This is the file the rest of this lesson and Lessons 3–4 build from. Nothing written here gets retyped into a prompt again.</p>
+<hr />
+<h2 id="v4-do-bring-the-templates-into-code">DO — Bring the Templates Into Code</h2>
+<p><strong>One template per pattern type, not one overall.</strong> A Read screen and an Edit screen don't share a skeleton — Read has content to look at, Edit has fields to fill. Lesson 1 tells the student most prototypes use three or four pattern types, so needing more than one template is the normal case, not the exception. The scoping step above already told you which types are in play.</p>
+<p><strong>Structure: one prompt, not three.</strong> Token sync and the component inventory each needed three parallel methods because the whole task was getting untouched design data out of Figma. By this step that data already exists as saved artifacts, so this prompt leads with them as fixed inputs. The only thing that still varies is how the template frame gets handed over — pasted, screenshotted, or described — and that's one bracket, not a separate prompt per method.</p>
+<p><strong>Prompt to use</strong> (the deck's wording):</p>
+<blockquote>
+<p>"Here's my template frame: [paste or screenshot]. Using tokens.css and component-inventory.md, output is html. Match the layout exactly."</p>
+</blockquote>
+<p><strong>Say the expanded version aloud even though the slide is terse:</strong> use only the tokens and components already in those two files; if a value or element doesn't match anything already built, flag it rather than inventing a new one. The fuller CARE version is in the Prompt Library below for a student who wants it written out.</p>
+<p><strong>The template was already designed in Figma, in Lesson 1</strong> ("Design It in Figma", which promised it was the one ingredient nothing would regenerate for them). This step translates it into code — it doesn't redesign it and it doesn't replace the Figma step. Say that explicitly, or a student will open Figma and start over.</p>
+<p><strong>Open knock-on:</strong> Lesson 1 has the student design a single template in Figma. If Lesson 2 wants one per pattern type, Lesson 1's Figma step should produce one per type too. Not a Lesson 2 fix — flagged here so it isn't a surprise.</p>
+<p><strong>Save each as <code>design-system/template-&lt;type&gt;.html</code>.</strong> Don't review yet — move straight to consolidation.</p>
+<hr />
+<h2 id="v4-do-consolidate-into-design-system-html">DO — Consolidate Into design-system.html</h2>
+<p><strong>This is the payoff of the last three steps, and the first "open it in a browser" moment of the lesson.</strong> Tokens, component inventory and templates were generated separately; now they become one real page, and the review deferred three times finally happens, once, together.</p>
+<p><strong>Prompt to use</strong> (the deck's wording — the longest prompt in the deck, and the one worth reading aloud in full):</p>
+<blockquote>
+<p>"Build <code>design-system.html</code> from tokens.css, component-inventory.md, and template.html. This page is my checkpoint — where I check my design system against Figma before I build any screens. Storybook as a layout preference only — not the tool. One plain HTML file, no build step. Tokens: every value as a labelled swatch showing the token name and the value. Components: one block per component — its name, then every state side by side, each labelled. Show hover and focus as static examples. Template: the empty structure, generic content. Link to tokens.css. Everything on the page uses those tokens, not browser defaults. End with a list of anything you couldn't render."</p>
+</blockquote>
+<p><strong>Two phrases do most of the work.</strong> Naming the page a <em>checkpoint</em> tells the AI what it's for, so it resolves layout questions itself instead of guessing. <em>Storybook as a layout preference</em> buys the whole component-gallery convention — name, then variants in a labelled grid — in four words. The "not the tool" clause is not optional: Storybook is a real tool with a config folder and a build step, and without that clause the AI may scaffold one, contradicting the no-build-step model taught in Lesson 1.</p>
+<p><strong>Teaching line for the Storybook mention:</strong> this is the designer's version of the page engineers already keep in Storybook — and the same kind of page as MUI's component docs, which the student saw in Lesson 1 ("Template, Seen in MUI"). Said that way it's a callback and shared vocabulary, not a new concept.</p>
+<p><strong>Why "end with a list of anything you couldn't render."</strong> Tokens and the component inventory were both told to flag rather than invent, but their review was deferred to this moment — so the whole design otherwise rests on the student spotting problems by eye. This line makes the page report its own gaps: a component in the inventory with no markup, a token referenced but never defined, a state listed with no distinct styling. It's also the first time in the arc the AI is asked to account for its own output rather than just produce it — worth naming as a habit, not just a rule in this prompt.</p>
+<p><strong>Review everything here, once — starting with the page's own "couldn't render" list.</strong> Read that list first: it's the fastest route to the real gaps, and anything on it is a correction before the visual pass even starts. Then open the page in the browser together and check it against Figma — token colours match, every component state that should exist is rendered, the templates' structure matches the design.</p>
+<p><strong>Real test:</strong> components must visibly use the synced tokens, not browser defaults. A component that renders but ignores the tokens hasn't implemented them — that's a correction.</p>
+<p><strong>Facilitator note on the deferred caveats:</strong> if the student ran Method B, look harder here for an invented or missing state — this is exactly where it shows up. If Method C, check specifically for anything designed but not yet shipped.</p>
+<p><strong>Save the corrected result.</strong> This page, and the <code>tokens.css</code> it links to, are what every screen built in Lesson 3 gets compared against, not Figma directly.</p>
+<hr />
+<h2 id="v4-what-the-interaction-pattern">WHAT — The Interaction Pattern</h2>
+<p><strong>This is Phase 2 in <code>03-develop/ai-prototype-development-lesson.md</code></strong> — the second of the two prototype-pattern layers, and the thing still missing at the end of Lesson 1. A component inventory says what exists. An <strong>interaction pattern</strong> says how it connects: which screens exist, what triggers a move from one to the next, and what carries over between them.</p>
+<p><strong>Define it by the gap, not by a definition.</strong> The student has just spent roughly 35 minutes on artifacts that describe things that exist. The fastest way in is the absence: the inventory says a Button exists in four states, and nothing built so far says what happens when it's pressed. Named concretely — AI builds beautiful screens where nothing goes anywhere — this lands faster than any definition of the term.</p>
+<p><strong>How it connects to what's already built — teach it as the floor plan.</strong> The deck runs on a house metaphor (tokens are the paint, components are the furniture, a screen is a room, <code>design-system.html</code> is the showroom). The interaction pattern extends it rather than introducing anything new:</p>
+<pre><code>                          | Artifact | In the house | Answers |
+</code></pre>
+<p>|---|---|---|
+| <code>interaction-pattern.md</code> | <strong>the floor plan</strong> | <strong>how many rooms, which doors?</strong> |
+| <code>tokens.css</code> | the paint | what does it look like? |
+| <code>component-inventory.md</code> | the furniture | what exists? |
+| <code>template.html</code> | one room's shape | how is a room laid out? |</p>
+<p>The metaphor does real work here, it isn't decoration: a floor plan is exactly what reveals whether one room shape is enough. That's why the template cross-check has to happen <em>after</em> this file exists rather than before — an ordering that otherwise reads as arbitrary.</p>
+<p><strong>Remind the seven screen types, don't re-teach them — but do put them on screen.</strong> They were shown in Lesson 1 explicitly as a lookup catalogue, something not to memorise; here they change job and become load-bearing, since each screen in the pattern gets labelled with its type and that label is what tells AI which components and transitions the screen needs. Content that changes job a week later needs more than verbal recall, so the slide carries a light strip of the seven names — Read, Edit, Add, Confirm, Navigate, Search / Filter, Onboard. Say each in one breath and move on; the definitions stay off the slide. One screen can carry two — checkout is Edit and Confirm at once. Full definitions live in the source lesson's Phase 2 table.</p>
+<hr />
+<h2 id="v4-do-generate-the-interaction-pattern">DO — Generate the Interaction Pattern</h2>
+<p><strong>Three beats, in order: prompt, cross-check, update the showroom.</strong> The middle one is the beat people skip, and it's the one that costs rework if skipped.</p>
+<p><strong>Prompt to use</strong> (the deck's wording):</p>
+<blockquote>
+<p>"Based on the component inventory, map the interaction pattern for the screens I'm about to build: which screens exist, what connects them, and what triggers each transition. Describe it like a gallery of cards, where clicking one card opens its own detail screen with its own interactions. Use the component inventory as your reference. Once this checks out against the template, update <code>design-system.html</code> to include this file — make each screen card on it clickable so it opens that screen's own flow."</p>
+</blockquote>
+<p><strong>Save the result</strong> to <code>learning/interaction-pattern.md</code>, alongside the component inventory, and point the router file at it too. From here on every build prompt can be short, because both layers of the prototype pattern exist as files.</p>
+<p><strong>Why the template is deliberately not an input to this prompt.</strong> The prompt reads the component inventory only, even though the templates now exist — and a sharp student will ask why. Feeding a template in anchors the AI to the shape it just read: it proposes screens that fit that shape and reports back that one shape is enough. But the interaction pattern is the thing meant to <em>reveal</em> whether one shape is enough, so pre-loading the answer defeats the check. Worth saying as a prompting habit rather than a rule about this lesson: don't hand the AI the answer you're asking it to check. Map the pattern blind, then cross-check.</p>
+<p><strong>Cross-check against the templates — two questions, not one.</strong></p>
+<p><strong>1. Shape.</strong> If a scoped screen's type doesn't fit any template built — a list view when only a detail template exists — that's another quick template now, not a surprise later. Repeat "Bring the Templates Into Code" once more before moving on.</p>
+<p><strong>2. Flow.</strong> Does the template carry the shared elements the flow actually needs — a back affordance, persistent navigation, a progress indicator in a multi-step sequence? The templates were built before the interaction pattern existed, so they were designed without knowing there was a flow at all. Because every screen inherits from them, every screen will be missing the same element. This is the cheaper problem to fix and the more expensive one to miss: it surfaces in Lesson 3, when the student tries to move between screens and there's nothing to click. Fix it by editing the template file directly — a one-minute addition, not a regeneration.</p>
+<p><strong>3. Update the showroom.</strong> Once the cross-check passes, <code>design-system.html</code> gets regenerated to fold in <code>interaction-pattern.md</code>. It stops being a static swatch page and becomes navigable: each screen appears as a card tagged with its pattern type, and clicking a card opens that screen's own flow. This happens once, here, because <code>interaction-pattern.md</code> didn't exist at the first consolidation.</p>
+<p><strong>One thing to be honest about with the student:</strong> the screens don't exist yet, so clicking a card opens the <em>template's shape</em> for that screen type, not a built screen. That's still useful — it's the first time they see their whole prototype laid out — but don't let them think they've built it. <strong>Resolved (2026-09-19, when Lesson 3 was drafted):</strong> the cards stay pointed at template shapes. Lesson 3 builds a separate <code>index.html</code> as the stitched journey's entry point, so <code>design-system.html</code> stays what it is — the system checkpoint — rather than becoming a second, competing front door.</p>
+<hr />
+<h2 id="v4-do-wrap-up-homework">DO — Wrap-up &amp; Homework</h2>
+<p><strong>Land the key idea:</strong> the prototype pattern isn't a document that sits in a folder — it's the thing every screen built from here forward reads from instead of a retyped prompt.</p>
+<p><strong>Recap what today actually produced,</strong> which is four files and one page, not screens: <code>tokens.css</code>, <code>component-inventory.md</code>, one template per pattern type, <code>interaction-pattern.md</code>, and a navigable <code>design-system.html</code>.</p>
+<p><strong>Homework before next lesson — checklist:</strong></p>
+<ul>
+<li>☐ Finish correcting the component inventory if anything on the "couldn't render" list is still outstanding</li>
+<li>☐ Confirm every scoped screen has a template to build from — add one if the cross-check found a gap</li>
+<li>☐ Open <code>design-system.html</code> once more away from the session and click through every screen card</li>
+<li>☐ Bring the 2–3 scoped screens to Lesson 3 ready to build</li>
+</ul>
+<p><strong>Name what's next explicitly:</strong> Lesson 3 builds the screens from these files and stitches them into one demoable journey. Nothing built today gets thrown away or redone.</p>
+<hr />
+<h2 id="v4-prompt-reference-library">Prompt &amp; Reference Library</h2>
+<p><strong>The deck's wording is canonical</strong> — the prompts below are exactly what's on the slides and what the student should run. The CARE templates that follow each one are the expanded form, for a student who wants more scaffolding than the short prompt gives. If the deck's wording changes, re-derive the CARE version from it rather than letting the two drift.</p>
+<p><strong>Pre-Flight cleanup:</strong></p>
+<blockquote>
+<p>"Here is my Figma component list: [paste]. Which of these look like duplicates, unused variants, or one-off experiments rather than real system components?"</p>
+</blockquote>
+<p><strong>Token sync — deck wording:</strong></p>
+<blockquote>
+<p>"Read my design file [Link]. Extract the design tokens: colour values, typography styles, and spacing. Generate a CSS variables file from these tokens so every screen uses the exact values from my design system."</p>
+</blockquote>
+<p><em>Expanded (CARE), Method A — MCP:</em></p>
+<blockquote>
+<p><strong>Context:</strong> I'm building [project name] and I've already got my design tokens set up in Figma, in [file or page name]. <strong>Ask:</strong> Read my design file via MCP. Extract the design tokens — colour values, typography styles, and spacing. <strong>Rules:</strong> Generate a CSS variables file from these tokens, named by purpose (e.g. <code>--color-action-primary</code>, not <code>--color-blue</code>). Every screen built from here on should use these exact values, never a default or an arbitrary one. Save the file as <code>design-system/tokens.css</code>. <strong>Examples:</strong> For example: <code>--color-action-primary: #6B3FEE; --spacing-card-gap: 24px;</code></p>
+</blockquote>
+<p><em>Expanded (CARE), Method B — no MCP:</em></p>
+<blockquote>
+<p><strong>Context:</strong> I'm building [project name]. I don't have Figma MCP connected, so I'm giving you the token values directly. <strong>Ask:</strong> Here are the design tokens from my Figma file: [paste colour values, type styles, spacing scale]. Generate a CSS variables file from these. <strong>Rules:</strong> Name tokens by purpose, not by raw value. Every screen built later should use these exact values, not a default. Save the file as <code>design-system/tokens.css</code>. <strong>Examples:</strong> For example: <code>--color-action-primary: #6B3FEE; --spacing-card-gap: 24px;</code></p>
+</blockquote>
+<p><em>Expanded (CARE), Method C — design system in code:</em></p>
+<blockquote>
+<p><strong>Context:</strong> I'm building [project name]. My team's design system already lives in code, at [repo or file path], not primarily in Figma. <strong>Ask:</strong> Here is my design system's codebase: [open the repo, or paste the theme/token config file]. Extract the design tokens — colour values, typography styles, and spacing — into a CSS variables file I can reuse. <strong>Rules:</strong> Use the codebase as the source of truth. If Figma and the codebase disagree on a value, flag it — don't guess which one is current. Save the file as <code>design-system/tokens.css</code>. <strong>Examples:</strong> For example: <code>--color-action-primary: #6B3FEE; --spacing-card-gap: 24px;</code></p>
+</blockquote>
+<p><strong>Component inventory — deck wording:</strong></p>
+<blockquote>
+<p>"Read my design file [Link]. Generate a component inventory: list every component with its name, purpose, and all its states (default, hover, loading, error, etc.)."</p>
+</blockquote>
+<p><em>Expanded (CARE), Method A — MCP:</em></p>
+<blockquote>
+<p><strong>Context:</strong> I'm building [project name], a [what kind of product] for [who it's for]. My Figma file's components live in [where in the file]. <strong>Ask:</strong> Read my design file via MCP. Generate a component inventory: list every component with its name, purpose, and every state it has. <strong>Rules:</strong> Only include components and states that actually exist in the file — flag anything incomplete instead of inventing it. Group by component. Output as a markdown table. Save it as <code>learning/component-inventory.md</code>. <strong>Examples:</strong> For example: <code>| Button | Primary action | default, hover, loading, disabled |</code></p>
+</blockquote>
+<p><em>Expanded (CARE), Method B — no MCP:</em></p>
+<blockquote>
+<p><strong>Context:</strong> I'm building [project name]. I don't have Figma MCP connected, so I'm giving you the component list directly. <strong>Ask:</strong> Here is my component list: [paste names, variants, and any states you already know]. Generate a component inventory from this. <strong>Rules:</strong> Every component needs its purpose and every state — flag anywhere you'd expect a state that isn't listed, rather than inventing one. Output as a markdown table. Save it as <code>learning/component-inventory.md</code>. <strong>Examples:</strong> For example: <code>| Button | Primary action | default, hover, loading, disabled |</code></p>
+</blockquote>
+<p><em>Expanded (CARE), Method C — design system in code:</em></p>
+<blockquote>
+<p><strong>Context:</strong> I'm building [project name]. My design system already lives in code, at [repo or file path]. <strong>Ask:</strong> Here is my design system's codebase: [open the repo]. Generate a component inventory from the actual components. <strong>Rules:</strong> Read states from the component code itself — props, variants, conditional styles — not from comments or docs alone. Output as a markdown table. Save it as <code>learning/component-inventory.md</code>. Cross-check against Figma in case something's been designed but hasn't shipped. <strong>Examples:</strong> For example: <code>| Button | Primary action | default, hover, loading, disabled |</code></p>
+</blockquote>
+<p><strong>Templates into code — deck wording:</strong></p>
+<blockquote>
+<p>"Here's my template frame: [paste or screenshot]. Using tokens.css and component-inventory.md, output is html. Match the layout exactly."</p>
+</blockquote>
+<p><em>Expanded (CARE), one template per pattern type:</em></p>
+<blockquote>
+<p><strong>Context:</strong> I'm building [project name]. I've already got <code>design-system/tokens.css</code> and <code>learning/component-inventory.md</code> — here they are: [paste or attach both files]. I'm building a [type] screen and a [type] screen. Here are my template frames, structure without real content: [paste the frames, screenshots, or describe them]. <strong>Ask:</strong> Generate a skeleton for each in HTML and CSS — structure only, placeholder content, one file per template. Use only the tokens and components already in the two files above. <strong>Rules:</strong> Match each layout exactly — spacing, grouping, and hierarchy as designed. Use the synced tokens for any colour, type, or spacing value; use the exact component names from the inventory. If something doesn't match anything already built, flag it — don't invent it. Save as <code>design-system/template-&lt;type&gt;.html</code>. <strong>Examples:</strong> For example, a Read template with a sticky header using the <code>Nav</code> component and a scrollable content area of placeholder <code>Card</code> components; an Edit template with labelled <code>Input</code> fields and a Cancel / Save row.</p>
+</blockquote>
+<p><strong>Consolidate into design-system.html — deck wording:</strong></p>
+<blockquote>
+<p>"Build <code>design-system.html</code> from tokens.css, component-inventory.md, and template.html. This page is my checkpoint — where I check my design system against Figma before I build any screens. Storybook as a layout preference only — not the tool. One plain HTML file, no build step. Tokens: every value as a labelled swatch showing the token name and the value. Components: one block per component — its name, then every state side by side, each labelled. Show hover and focus as static examples. Template: the empty structure, generic content. Link to tokens.css. Everything on the page uses those tokens, not browser defaults. End with a list of anything you couldn't render."</p>
+</blockquote>
+<p><strong>Interaction pattern — deck wording:</strong></p>
+<blockquote>
+<p>"Based on the component inventory, map the interaction pattern for the screens I'm about to build: which screens exist, what connects them, and what triggers each transition. Describe it like a gallery of cards, where clicking one card opens its own detail screen with its own interactions. Use the component inventory as your reference. Once this checks out against the template, update <code>design-system.html</code> to include this file — make each screen card on it clickable so it opens that screen's own flow."</p>
+</blockquote>
+<hr />
+<h2 id="v4-reference-mcp-code-connect-token-naming">Reference: MCP, Code Connect &amp; Token Naming</h2>
+<p><strong>This section is reference depth, not live-session content</strong> — the lesson itself only needs the one-question setup check and Method C's prompts above. Pull from here only if a student wants MCP working live, asks what Code Connect is, or wants the reasoning behind a token-naming correction. Snapshot as of September 2026 — setup steps for any specific tool move fast, confirm current steps rather than assuming these hold indefinitely.</p>
+<p><strong>What MCP is.</strong> Model Context Protocol is an open standard (from Anthropic) that lets an AI tool connect to external tools and data sources through one consistent interface, instead of a custom integration per tool. The common analogy: a USB-C port for AI — one standard connector instead of a different cable for every device. Figma's MCP server is what exposes a design file's components, tokens and layout data to an AI coding tool as structured data, rather than the AI having to guess from a description.</p>
+<p><strong>Setting up Figma's MCP server.</strong> Two versions exist:</p>
+<ul>
+<li><strong>Remote (cloud-hosted)</strong> — Figma's recommended default, simpler to set up. For Claude Code specifically, install Figma's plugin (<code>claude plugin install figma@claude-plugins-official</code>), which bundles MCP settings and skills together.</li>
+<li><strong>Desktop (local)</strong> — more powerful, runs on the student's machine. Enable it inside the Figma desktop app: open a design file → toggle to Dev Mode → in the Inspect panel, find the MCP section → turn on "Enable desktop MCP server."</li>
+</ul>
+<p><strong>Why Method C exists, and what Code Connect is.</strong> Even with MCP fully working, an AI coding tool reading a Figma file has no way to know a real, already-coded component library exists unless it's told — by default it will still generate fresh code that only resembles the design. Figma's own answer is <strong>Code Connect</strong>: it maps each Figma component to its real production code counterpart, so Dev Mode (and MCP) can return the actual code snippet from the codebase instead of an autogenerated guess. Code Connect setup is its own configuration step most students won't have done — which is exactly why Method C skips Figma and points the AI coding tool straight at the repository instead. Same goal, simpler path for a single lesson.</p>
+<p><strong>Token naming.</strong> Tokens named by purpose (<code>--color-action-primary</code>) survive a rebrand; tokens named by value (<code>--color-blue</code>) become lies the first time the blue changes. If the sync returns value-named tokens, that's a correction at consolidation, not a style preference.</p>
+<hr />
+<h2 id="v4-instructor-notes">Instructor Notes</h2>
+<ul>
+<li><strong>This lesson is organised Why → What → How → Do</strong>, same convention as Lesson 1 — recap (Why), Pre-Flight/scope/setup and the interaction-pattern concept (How/What), everything hands-on (Do).</li>
+<li><strong>The session now runs around 70 minutes against a 90-minute slot.</strong> That's a deliberate consequence of moving the build to Lesson 3, not a gap to fill by accident. See the note under Session Structure for the three reasonable uses of the spare time; pick one before the session, not during it.</li>
+<li><strong>Two deck mismatches are known and unfixed</strong> — the Closing checklist and the Cover's speaker notes both still promise screens and a second-tool comparison this deck doesn't deliver. Proposed replacement wording is at the top of <code>lesson-2-slide-outline.md</code>. Until they're fixed, don't read those two slides' notes aloud verbatim.</li>
+<li><strong>Every prompt on the slides is short and plain — there is no CARE breakdown in this deck, deliberately.</strong> By Lesson 2 the CARE shape has been taught and used; the slides carry the runnable prompt. The expanded CARE versions in the Prompt Library are for a student who asks for more scaffolding, not the default teaching form.</li>
+<li><strong>Three methods, one per student.</strong> Confirm at the setup step, then walk only that path. Don't demo all three live — that's reference material, not a teaching sequence.</li>
+<li><strong>Method B needs closer review than Method A; Method C usually needs the least.</strong> Without live file access, Method B is likelier to invent a state that doesn't exist or miss one that does. Method C reads real component code, so states are usually accurate, but it can miss anything designed in Figma that hasn't shipped.</li>
+<li><strong>Don't cut Pre-Flight or token sync if running long.</strong> Everything after depends on both being done properly. The first thing to trim is the Pre-Flight before/after walkthrough, then the interaction-pattern concept slide; final polish of the component inventory pushes to homework before either.</li>
+<li><strong>The router file from Lesson 1 keeps paying off.</strong> By the end of this lesson it should point to four things: <code>component-inventory.md</code>, <code>interaction-pattern.md</code>, <code>design-system/tokens.css</code>, and <code>design-system.html</code>. If any aren't wired in, Lesson 3 gets harder than it needs to be.</li>
+<li><strong>Open knock-on for Lesson 1:</strong> its "Design It in Figma" slide has the student design a single template. This lesson expects one per pattern type. Reconcile in one pass when Lesson 1 is next touched.</li>
+<li>Keep tool references generic in delivery ("your AI coding tool") so this lesson is reusable across students regardless of which tools they use.</li>
+</ul>
+<hr />
+<h2 id="v4-connection-to-curriculum">Connection to Curriculum</h2>
+<p>This lesson is a private-training adaptation layer on top of <code>03-develop/ai-prototype-development-lesson.md</code> ("AI Prototype Development") — Phase 4 Steps 1, 3 and 4, and Phase 2, re-paced for 1:1 delivery and picking up exactly where Lesson 1 ends. The genuinely new content, not covered in the source lesson as written: the three-method framing (MCP / no-MCP / design-system-in-code), explicit scope and setup steps before any tool work, one coded template per pattern type, consolidating everything into a single demoable <code>design-system.html</code>, the interaction pattern taught as its own concept rather than a single prompt, and folding that pattern back into the same page so it becomes navigable.</p>
+<p>Phase 4 Steps 5 and 6 — the five-ingredient build prompt and the three edit modes — are <strong>not</strong> covered here. They open Lesson 3.</p>
+<hr />
+<p><em>Created by Winnie Nguyen · Private Training · Last updated September 2026</em></p></article>
+  </div>
+</div><div data-var-panel data-var-id="5" hidden>
+  <div class="tp-layout">
+    <aside class="tp-toc" aria-label="On this page"><p class="tp-toc__label">On this page</p><a href="#v5-overview">Overview</a><a href="#v5-session-structure">Session Structure</a><a href="#v5-why-recap-you-have-the-system-not-the-product">WHY — Recap: You Have the System, Not the Product</a><a href="#v5-what-rules-before-prompts">WHAT — Rules Before Prompts</a><a href="#v5-do-set-up-the-rules-file">DO — Set Up the Rules File</a><a href="#v5-how-three-ways-in-feed-the-flow">HOW — Three Ways In: Feed the Flow</a><a href="#v5-do-build-the-journey">DO — Build the Journey</a><a href="#v5-do-review-the-journey">DO — Review the Journey</a><a href="#v5-do-update-the-rules-then-propagate">DO — Update the Rules, Then Propagate</a><a href="#v5-do-the-shared-layout">DO — The Shared Layout</a><a href="#v5-what-do-one-product-many-journeys">WHAT / DO — One Product, Many Journeys</a><a href="#v5-do-stitch-then-walk-the-journey">DO — Stitch, Then Walk the Journey</a><a href="#v5-do-wrap-up-homework">DO — Wrap-up &amp; Homework</a><a href="#v5-prompt-reference-library">Prompt &amp; Reference Library</a><a href="#v5-reference-the-rules-file-template">Reference: The Rules File Template</a><a href="#v5-instructor-notes">Instructor Notes</a><a href="#v5-connection-to-curriculum">Connection to Curriculum</a><a href="#v5-secondary-research-notes">Secondary Research Notes</a></aside>
+    <article class="tp-body"><blockquote>
+<p><strong>Cover title: "Scaling the Prototype" — the same as the formal title, deliberately.</strong> Lessons 1 and 2 front a tagline distinct from their title ("Stop Starting From Zero," "From Blueprint to Working Screens"); this lesson does not. An earlier draft used "Build Once, Scale by Rule" as the cover — that is retired, not kept as a subtitle. Don't reintroduce it when the deck is built. <strong>Spine reworked (2026-09-20) to match how Winnie actually works.</strong> The first draft taught rule <em>harvesting</em>: build one screen slowly, correct it, mine the corrections for rules, then build the rest. That is not the real workflow. In practice, with the design system and templates already built, the next move is to <strong>set the rules first</strong>, then hand the AI a user flow and have it build the whole journey in one prompt. The lesson now teaches that. What survived the rework untouched: the layer ladder, the ten rules, the propagation prompt, multi-journey scoping, and the stitch. What changed: rules moved from output to input, the build moved from screen-at-a-time to journey-at-once, and feeding an existing flow artifact became a first-class path. <strong>The second-tool comparison is removed from the programme,</strong> not deferred. It was promised in the coaching plan, cut from Lesson 2, and has no room here. The coaching plan has been updated in five places. If a student asks, say plainly that one method taught properly beats two half-learned — and that the rules file transfers to any tool unchanged. <strong>No deck exists yet.</strong> Until one is built, <strong>this file is canonical for prompt wording</strong> — the reverse of the Lesson 2 relationship, where the built deck was the source of truth. When the deck is built, reverse-sync <code>lesson-3-slide-outline.md</code> from it the same way Lesson 2's was. <strong>Segment 8 "The Shared Layout" added (2026-09-20), pulled out of the propagation segment's one-minute GOV.UK reference and given its own timed segment.</strong> Session time updated from 90 to 97 minutes to give it real room — protected in the cut order alongside rules, build and review. Journey two and stitching renumber to segments 9 and 10 accordingly. The slide outline gets the matching change: Section 3 "The Shared Layout" (5 slides), old Sections 3 and 4 renumber to 4 and 5.</p>
+</blockquote>
+<h2 id="v5-overview">Overview</h2>
+<p>Lesson 2 ended with four files and a navigable <code>design-system.html</code>, and no screens. That was deliberate. This lesson builds the screens — and it builds them the way a designer with a working system actually builds them, which is not one screen at a time.</p>
+<p><strong>The order is the lesson.</strong> Rules first, before any prompt. Then the flow — fed in, not invented by the AI. Then the build, in one pass, because the system is what constrains the output now. Then the review, which is the longest segment in the session and the one where design judgement actually lives. Then it scales: a second journey costs a fraction of the first, and that is the proof the system works rather than a claim about it. It closes by stitching both journeys into one thread and walking it in sixty seconds.</p>
+<p><strong>What the student leaves with:</strong> two journeys built and reviewed, a rules file that visibly changes what the tool generates and that they've now rewritten in their own words, an <code>index.html</code> stitching the journeys, and a triage list sorted by which layer fixes it.</p>
+<p><strong>What this lesson is honest about, in two places.</strong> First, the rules handed over at the start are not the student's yet — they come from someone else's experience, and only the ones they rewrite after their first build will survive contact with a deadline. Second, "update one template and the whole prototype updates" is true of exactly one layer — tokens — and a governed prompt everywhere else. Both are taught as stated limits rather than glossed.</p>
+<p><strong>This lesson runs on top of <code>03-develop/ai-prototype-development-lesson.md</code> ("AI Prototype Development")</strong>, same relationship Lessons 1 and 2 have to it — but it deliberately <strong>departs from that lesson's Phase 4 Step 6</strong>, which says to build one screen at a time. See <em>Why not screen-by-screen any more</em> below; the departure is reasoned, not accidental, and should be said out loud to a student who has read the source lesson.</p>
+<h2 id="v5-session-structure">Session Structure</h2>
+<p><strong>Organised Why → What → How → Do</strong>, same convention as Lessons 1 and 2.</p>
+<ol>
+<li><strong>[WHY]</strong> Recap: you have the system, not the product</li>
+<li><strong>[WHAT]</strong> Rules before prompts — why the file comes first</li>
+<li><strong>[DO]</strong> Set up the rules file — starter set, then adapt it</li>
+<li><strong>[HOW]</strong> Three ways in: feed the flow</li>
+<li><strong>[DO]</strong> Build the journey — one prompt</li>
+<li><strong>[DO]</strong> Review the journey — three edit modes, then the layer ladder</li>
+<li><strong>[DO]</strong> Update the rules, then propagate</li>
+<li><strong>[WHAT/DO]</strong> The shared layout — one file, one standing rule, for the shell every screen repeats</li>
+<li><strong>[WHAT/DO]</strong> One product, many journeys — scope and build journey two</li>
+<li><strong>[DO]</strong> Stitch, then walk the journey</li>
+<li><strong>[DO]</strong> Wrap-up &amp; homework</li>
+</ol>
+<p><strong>Time budget — the default plan, not an aspirational one. Runs seven minutes longer than Lessons 1 and 2, on purpose — see the note below.</strong></p>
+<pre><code>                                                                  | # | Segment | Minutes |
+</code></pre>
+<p>|---|---|---|
+| 1 | Recap | 4 |
+| 2 | Rules before prompts | 5 |
+| 3 | Set up the rules file | 9 |
+| 4 | Three ways in — feed the flow | 5 |
+| 5 | Build the journey (one prompt) | 13 |
+| 6 | Review — modes, then the layer ladder | 15 |
+| 7 | Update the rules, then propagate | 9 |
+| 8 | The shared layout | 7 |
+| 9 | Journey two — scope and build | 13 |
+| 10 | Stitch and walk | 13 |
+| 11 | Wrap-up | 4 |
+| <strong>Total</strong> |  | <strong>97</strong> |</p>
+<p><strong>Segment 6 is the longest in the session, and that is a direct consequence of segment 5.</strong> One prompt builds a whole journey, so all of its corrections arrive at once instead of trickling in screen by screen. That's the trade this method makes: less time prompting, more time reviewing. Say it to the student before the build so the size of the pile isn't a surprise.</p>
+<p><strong>This session runs seven minutes longer than Lessons 1 and 2, on purpose.</strong> Segment 8 — the shared layout — earns its own room rather than being folded into segment 7 as a one-minute reference. Propagation only becomes credible once a student has seen a governed, standing version of it, not just heard that one exists elsewhere. That's worth seven minutes on its own.</p>
+<p><strong>Cut order if you run long, in this order and no other:</strong> journey two collapses to <em>scope only, build as homework</em> (segment 9 → 5 minutes); then the propagation demo in segment 7 becomes a walkthrough rather than a live run; then the stitch index is generated and walked but not tidied. <strong>Never cut segments 3, 5, 6 or 8</strong> — rules, build, review, the shared layout. A session that builds two journeys and reviews neither has taught nothing, and a session that drops the shared layout back to a footnote loses the point of teaching it at all.</p>
+<p><strong>Where the 1:1 format earns its keep.</strong> Segments 5, 9 and 10 all involve generation the student can start and then talk over. Wall-clock cost is lower than the table implies, as long as you are asking the coaching questions while the tool runs rather than watching it together in silence.</p>
+<hr />
+<h2 id="v5-why-recap-you-have-the-system-not-the-product">WHY — Recap: You Have the System, Not the Product</h2>
+<p><strong>Open with the inventory, not a re-teach.</strong> Ask the student to name what they have, from memory: <code>design-system/tokens.css</code>, <code>learning/component-inventory.md</code>, one template per pattern type, <code>learning/interaction-pattern.md</code>, and <code>design-system.html</code>. If they can't name them, that's the more useful diagnostic than anything else in the first five minutes — it means the files are on disk but not in their head, and the rules step next will land flat.</p>
+<p><strong>Key message:</strong> everything built last lesson describes the product. Nothing built last lesson <em>is</em> the product. Today the description starts generating the thing — and the first move is not a prompt.</p>
+<p><strong>Check the homework in one question:</strong> does every scoped screen have a template to build from? If the cross-check gap from Lesson 2 is still open, fix it now — a minute here costs a segment later.</p>
+<hr />
+<h2 id="v5-what-rules-before-prompts">WHAT — Rules Before Prompts</h2>
+<p><strong>The claim, stated plainly: the rules file is written before the first build prompt, not after it.</strong> This is the move that separates a designer who prototypes with AI occasionally from one who does it systematically, and it is the single most transferable thing in the session.</p>
+<p><strong>Why it has to come first.</strong> An AI coding tool with a design system in front of it and no constraints will still generate something reasonable — and reasonable is the problem. It will invent a component that looks like yours, pick a hex value near your token, add a state nobody designed. None of that reads as an error on screen; it reads as a slightly different product. Constraints applied afterwards mean finding and undoing that, screen by screen. Constraints applied first mean it never happens.</p>
+<p><strong>What the tool predictably gets wrong, which is why a starter set is possible at all.</strong> NN/g's study of AI prototyping in real design contexts found that even well-prompted output "missed subtle but important details related to spacing, grouping, and hierarchy," and that without explicit direction the output "defaults to neutral, minimalistic visual aesthetics" with no visual identity. These failures are boringly consistent across tools and projects. <strong>A consistent failure is a rule waiting to be written</strong> — which is exactly how the starter set in the next segment came to exist.</p>
+<p><strong>Say the governance line here, because the student can finally see its consequence:</strong> if the tool can read your system, it generates on-system; if it can't, it generates something else. That is why Lesson 2 existed. The rules file is the second half of the same idea — the system says what exists, the rules say what the tool is allowed to do with it.</p>
+<hr />
+<h2 id="v5-do-set-up-the-rules-file">DO — Set Up the Rules File</h2>
+<h3 id="v5-where-the-rules-go">Where the rules go</h3>
+<p><strong>Into the rules/context file set up in Lesson 1</strong> — the one the AI coding tool reads automatically — not a new file. That file now carries two jobs, so give it two labelled sections so they stay separable:</p>
+<pre><code># Project rules &amp; context
+
+## Where things live
+- Design tokens: design-system/tokens.css
+- Component inventory: learning/component-inventory.md
+- Interaction pattern: learning/interaction-pattern.md
+- Templates: design-system/template-&lt;type&gt;.html
+- Screens: screens/&lt;journey&gt;/&lt;screen&gt;.html
+- System checkpoint page: design-system.html
+
+## Rules for building screens
+1. ...
+
+</code></pre>
+<p><strong>Why the split matters:</strong> the pointers go stale when files move; the rules go stale when the system changes. Mixed together, you can't tell which half is lying to you. Stale context files actively degrade output, so this file gets maintained like the artifacts it points at — not written once and forgotten.</p>
+<p><strong>Check the wiring before anything else.</strong> If the student's tool isn't actually reading this file, everything after this segment is theatre. A perfect rules file in a file nobody reads is the most expensive kind of nothing.</p>
+<h3 id="v5-the-starter-set-ten-rules">The starter set — ten rules</h3>
+<ol>
+<li><strong>Only components from the inventory.</strong> If a screen needs one that isn't in <code>component-inventory.md</code>, stop and add it to the inventory first — then build.</li>
+<li><strong>No raw values.</strong> Every colour, type and spacing value comes from <code>tokens.css</code>. If a needed value doesn't exist there, flag it; don't invent one.</li>
+<li><strong>Screens inherit the template, they don't fork it.</strong> Anything shared across screens of a type belongs in <code>template-[type].html</code>.</li>
+<li><strong>Every build carries flow context</strong> — what precedes each screen, what follows, what carries over.</li>
+<li><strong>Real content, never lorem ipsum.</strong> Placeholder text hides hierarchy problems until the day someone else reads the screen.</li>
+<li><strong>One layer per edit, and name the layer in the prompt.</strong></li>
+<li><strong>Attach only the files the step needs.</strong> Extra context doesn't improve the answer; it widens what the tool might modify.</li>
+<li><strong>Flag, don't invent.</strong> Every generation ends with a list of what it had to invent or couldn't do.</li>
+<li><strong>Save before a structural edit</strong>, so a bad edit is recoverable. This becomes literal in Lesson 4.</li>
+<li><strong>WCAG 2.1 AA on every generated screen</strong> — colour contrast, visible focus states, minimum target size — and flag anything that can't be verified.</li>
+</ol>
+<p><strong>Rules 1 and 2 are the whole answer to "don't use anything outside the design system."</strong> Rule 2's second clause matters as much as the first: <em>flag what doesn't exist</em> is what stops a missing token becoming an invented hex code that looks fine and is wrong.</p>
+<p><strong>Rule 10 is the one nothing in this arc has caught until now.</strong> AI-built screens routinely ship invisible focus states and near-miss contrast, and by Lesson 4 the prototype is at a public URL. Say it to a senior designer straight: enforcing it at generation costs nothing per screen, auditing it afterwards costs a session. It's a rule, not a review — there is no audit in this lesson.</p>
+<h3 id="v5-the-honest-part-these-rules-aren-t-the-student-s-yet">The honest part: these rules aren't the student's yet</h3>
+<p><strong>Say this out loud rather than hoping it goes unnoticed.</strong> The ten rules above came from someone else's scar tissue — a mentor's practice and published research — not from anything the student has watched go wrong on their own product. That's a legitimate way to start; it's most of what a masterclass is for. But it has a predictable consequence worth naming in advance:</p>
+<ul>
+<li><strong>They'll believe about three of them today.</strong> Probably 1, 2 and 8 — the ones whose failure mode they can already picture.</li>
+<li><strong>The rest earn belief in segment 6</strong>, when the review turns up the exact thing a rule was written to prevent.</li>
+<li><strong>The ones that stick are the ones they rewrite in their own words</strong> after that review. That's segment 7, and it's why the rules file is revisited rather than written once.</li>
+<li><strong>A rules file that hasn't changed since week one isn't being used.</strong> Say that as the test they apply on their own projects.</li>
+</ul>
+<p><strong>Facilitator note:</strong> don't oversell the starter set to compensate. A student who is told these are proven and then watches one fail will discount all ten. Framing them as a well-founded starting point that they will edit is both true and more durable.</p>
+<hr />
+<h2 id="v5-how-three-ways-in-feed-the-flow">HOW — Three Ways In: Feed the Flow</h2>
+<p><strong>The AI needs to know the journey before it can build it, and there are three places that knowledge can come from.</strong> Same structure as Lesson 2's three methods: confirm which applies to this student, then walk only that path. A given student runs exactly one.</p>
+<ul>
+<li><strong>Method A — a flow artifact they already have.</strong> A Figma flow, a FigJam board, a journey map, a written user flow from research. Feed it: paste it, screenshot it, or read the file live if MCP is connected. <strong>This is the most common case for a senior designer and the fastest path</strong> — the thinking is already done, it just hasn't been handed over.</li>
+<li><strong>Method B — nothing written down.</strong> Describe the journey in the prompt: the screens in order, what the user does on each, what moves them to the next. Slower to type, identical output.</li>
+<li><strong>Method C — <code>learning/interaction-pattern.md</code> from Lesson 2.</strong> Already in the project, already in the tool's reach. The tightest path when the student built it properly last lesson.</li>
+</ul>
+<p><strong>What a flow artifact says and doesn't say.</strong> Method A's input usually covers which screens exist and what connects them, and says nothing about what components each screen needs — that's what <code>component-inventory.md</code> supplies. Worth naming, because a student feeding a rich-looking flow can assume it's the whole brief and skip the inventory in the prompt. The flow is the thread; the inventory is the parts.</p>
+<p><strong>Whichever method, the flow gets saved into the project</strong> rather than living only in the prompt. If it isn't already <code>interaction-pattern.md</code>, it becomes it, or sits beside it. This is the <em>artifacts over prompts</em> habit — nothing that will be needed twice gets retyped.</p>
+<p><strong>Facilitator note:</strong> if Method A's artifact is messy or half-finished, feed it anyway rather than tidying it first. The gaps show up as flagged items in the build output, which is a faster and more honest audit of the flow than reading it again.</p>
+<hr />
+<h2 id="v5-do-build-the-journey">DO — Build the Journey</h2>
+<p><strong>One prompt, one journey. Not one screen at a time.</strong></p>
+<p><strong>Prompt to use:</strong></p>
+<blockquote>
+<p>"Build the [journey name] journey as a working prototype. The flow: [paste the flow artifact, or describe it — the screens in order, what the user does on each, what moves them to the next]. Use <code>design-system/tokens.css</code>, <code>learning/component-inventory.md</code> and <code>design-system/template-[type].html</code> as they are — read them, don't restate them. Follow the project rules. Output one HTML file per screen at <code>screens/[journey]/</code>, linked to each other in flow order. End with a list of anything you had to invent, and anything in the flow you couldn't build from the system."</p>
+</blockquote>
+<p><strong>Three clauses are load-bearing.</strong> <em>Read them, don't restate them</em> is artifacts-over-prompts made literal — if the student starts pasting the inventory into the prompt, the router file isn't wired and that's the real fix. <em>Follow the project rules</em> is the entire previous segment collapsing into four words, and it only works if the wiring check passed. <em>End with a list of anything you had to invent</em> makes the build report its own gaps, which front-loads the review.</p>
+<p><strong>If they have a reference screenshot</strong> — a similar product, a competitor layout, visual inspiration — attach it. NN/g is unambiguous that a visual reference produces more consistent and accurate output than description alone.</p>
+<h3 id="v5-why-not-screen-by-screen-any-more">Why not screen-by-screen any more</h3>
+<p><strong>The source lesson says to build one screen at a time, and this lesson doesn't. Say that difference out loud</strong> — a student who has read it will notice, and the reasoning is worth more than the rule.</p>
+<p>That advice existed because, at the time, <strong>nothing constrained the output except the sequence itself.</strong> Building one screen and correcting it before the next was the only available review loop; a single giant prompt meant a single giant pile of drift with no shared reference to check it against.</p>
+<p>That condition no longer holds. Tokens, the component inventory, the templates and now the rules file all constrain every screen equally, whether they're generated one at a time or together. <strong>The constraint moved from the sequence into the system.</strong> Two things follow:</p>
+<ul>
+<li><strong>Flow context stops being something you remember to type.</strong> It was the most commonly dropped of the five build ingredients precisely because it had to be restated per screen. Build the journey at once and the AI sees the whole thread by construction.</li>
+<li><strong>The seams get designed rather than discovered.</strong> Screens built in one pass share navigation and carried-over state because they were generated against the same flow, instead of being reconciled afterwards.</li>
+</ul>
+<p><strong>The honest cost, stated before the build rather than after:</strong> one prompt produces one large pile of corrections. That's why the next segment is the longest in the session. This method trades prompting time for reviewing time — it does not remove the reviewing.</p>
+<hr />
+<h2 id="v5-do-review-the-journey">DO — Review the Journey</h2>
+<p><strong>This is the longest segment in the lesson and the one where design judgement actually lives.</strong> Fifteen minutes, and it will feel like more, because everything arrives at once.</p>
+<p><strong>Start with the build's own list.</strong> It was asked to report what it invented and what it couldn't build from the system. Read that first — it's the fastest route to real gaps, and anything on it is a correction before the visual pass even starts.</p>
+<p><strong>Then walk the screens in flow order, not file order.</strong> The journey is the unit now, so review it as one: does the thread hold, does each screen lead where the flow says, does carried-over state actually carry.</p>
+<h3 id="v5-question-one-how-big-is-the-fix">Question one — how big is the fix?</h3>
+<pre><code>                     | Mode | Use for | Example |
+</code></pre>
+<p>|---|---|---|
+| Chat | Broad or structural changes, anything needing explanation | "Rearrange this screen so the primary action is in the top row." |
+| Targeted feedback | One specific element — name exactly what's wrong and where | "The button padding here is too tight." |
+| Direct adjustment | Quick spacing or alignment nudges you can drag | (no prompt needed, if the tool supports it) |</p>
+<p>Rule of thumb: chat for structure, targeted feedback for component-level fixes, direct manipulation for anything draggable. If a screen isn't working at all, say "save what we have and try a completely different layout" rather than overwriting blindly — most tools preserve the current version so you can compare instead of losing it.</p>
+<h3 id="v5-question-two-where-does-the-fix-belong">Question two — where does the fix belong?</h3>
+<pre><code>                               | Symptom | Fix at | File |
+</code></pre>
+<p>|---|---|---|
+| The heading copy on this one screen is wrong | instance | <code>screens/[journey]/[screen].html</code> |
+| Every screen of this type is missing a back affordance | template | <code>design-system/template-[type].html</code> |
+| The blue is wrong, everywhere | token | <code>design-system/tokens.css</code> |
+| A state got built that isn't in the system | inventory | <code>learning/component-inventory.md</code> |
+| The screen has nowhere to go | flow | <code>learning/interaction-pattern.md</code> |</p>
+<p><strong>The rule: fix at the highest layer the symptom is true at.</strong></p>
+<p><strong>The test question, asked out loud on every correction:</strong> <em>"is this wrong on more than one screen?"</em> With a whole journey in front of them the student can now answer that by looking rather than predicting — which is the one genuine advantage a journey-at-once build has over a screen-at-a-time one at review time. Use it.</p>
+<p><strong>Two ways to get it wrong, and only one of them is obvious.</strong></p>
+<ul>
+<li><strong>Fix too low</strong> and you fix the same thing on every screen, with the versions drifting apart a little more each time. This is screen-by-screen prototyping wearing a different hat.</li>
+<li><strong>Push too high</strong> and the system carries something only one screen ever needed. A component inventory quietly fills up with one-offs this way.</li>
+</ul>
+<p>Not the highest layer available — the highest layer the symptom is actually true at.</p>
+<p><strong>Editing the design system means editing the file, not regenerating from Figma.</strong> A student who finds a missing state will instinctively go back to Figma. Stop them: add it to <code>component-inventory.md</code>, then regenerate <code>design-system.html</code> from the corrected files. Figma is upstream of Lesson 2, not upstream of every correction — and the arc's artifacts only stay authoritative if corrections land in them.</p>
+<p><strong>Coaching question to ask before they look at anything:</strong> <em>"what do you think it got wrong?"</em> Getting the student predicting is what turns review from inspection into judgement, and it's the habit that outlives the mentor.</p>
+<hr />
+<h2 id="v5-do-update-the-rules-then-propagate">DO — Update the Rules, Then Propagate</h2>
+<h3 id="v5-rewrite-the-rules-in-their-own-words">Rewrite the rules in their own words</h3>
+<p><strong>Go back to the rules file with the review still fresh.</strong> Two passes, both short:</p>
+<ul>
+<li><strong>Which rule caught something?</strong> Those are now believed rather than accepted. Nothing to change — but say which ones they were, because naming them is what converts them.</li>
+<li><strong>What got corrected that no rule covers?</strong> That's a new rule, written in the student's words, at the top of the list. A correction they'd make again on the next journey is a rule by definition.</li>
+</ul>
+<p><strong>Also worth pruning:</strong> a starter rule that produced nothing on this build isn't necessarily wrong, but a rules file nobody can justify line by line stops being read. If the student can't say why a rule is there, mark it rather than deleting it, and revisit after journey two.</p>
+<p><strong>This is where a handed-over rules file becomes theirs</strong>, which is the whole answer to the honesty problem raised in segment 3. It's five minutes and it's the most important five minutes in the session for what happens after the programme ends.</p>
+<h3 id="v5-the-propagation-truth">The propagation truth</h3>
+<p>The student will ask the obvious question: if I change a template, does every screen update?</p>
+<p><strong>Be honest, in three parts:</strong></p>
+<ul>
+<li><strong>Tokens — genuinely automatic.</strong> Change <code>tokens.css</code> and every screen changes, because every screen links it. One file, one edit, whole prototype. This is the retroactive payoff of Lesson 2's token sync.</li>
+<li><strong>Templates and components — not automatic.</strong> A template change is a <em>prompt you run</em>, governed by rule 3. Nothing propagates by itself.</li>
+<li><strong>Which is fine, as long as nobody pretends otherwise.</strong> "The prototype updates automatically" is doing a lot of work in most demos of this. Yours updates reliably, which is the more useful property.</li>
+</ul>
+<p><strong>The propagation prompt:</strong></p>
+<blockquote>
+<p>"I've changed <code>[file]</code>. Every screen in <code>screens/</code> was built from it. Update each screen to match that change — only that change, nothing else. List every file you touched and what changed in each. If a screen has diverged from the template in other ways, report it — don't fix it."</p>
+</blockquote>
+<p><strong>Three clauses, three jobs.</strong> <em>Only that change</em> is the scope guardrail — an agent given a wide brief edits widely, and unasked-for edits are how a working prototype quietly breaks. <em>List every file you touched</em> makes the blast radius visible instead of trusting it. <em>Report, don't fix</em> keeps unrelated drift as information rather than a second uncontrolled edit.</p>
+<p><strong>Run it live on whatever template-layer correction came out of the review.</strong> There will almost always be one, and running it now rather than describing it is what makes the layer ladder feel usable rather than theoretical.</p>
+<hr />
+<h2 id="v5-do-the-shared-layout">DO — The Shared Layout</h2>
+<p><strong>Templates (rule 3) solve consistency inside one screen type.</strong> They don't solve the header, footer and navigation repeating identically across every type, in every journey — that's a different seam, and it's the one that gets expensive as the prototype grows rather than the one visible on day one.</p>
+<p><strong>Name it, and give it a standing rule rather than a one-off prompt.</strong> One file — <code>shared-layout.html</code> — owns the shell. Every screen references it; none of them fork it. Add one line to the rules file: <em>when <code>shared-layout.html</code> changes, run the propagation prompt against every screen that uses it.</em> This is the exact same propagation prompt from the previous segment — the only thing that changes is that it's now a standing instruction tied to one named file, not a decision made fresh each time.</p>
+<p><strong>Why that distinction matters:</strong> a technique the student has to remember to apply is a technique that lapses under deadline pressure — precisely the failure mode segment 3 warned about with the rules file itself. A technique wired into the rules file as a standing condition doesn't depend on anyone remembering it.</p>
+<p><strong>Say the sustainability case plainly, because it's the actual argument for teaching this now rather than leaving it as a footnote:</strong> two journeys today, the shell barely matters. Five journeys in a month, it either scales for free or becomes the file nobody dares touch. This segment exists to make sure it's the first, before the next segment asks whether the system holds up as journeys multiply — the shared layout is most of that answer.</p>
+<p><strong>The grown-up version, worth landing here rather than earlier:</strong> the GOV.UK Prototype Kit. Pages <code>extend</code> a shared layout; change the layout once and every page that extends it updates. That's designers, at government scale, running exactly this model with propagation built in instead of prompted. Say it now, after the student has seen a working version of the pattern, not before: it tells a senior designer this isn't a workaround — it's the lightweight version of an established method, and nothing learned here gets thrown away if the prototype outgrows plain HTML.</p>
+<hr />
+<h2 id="v5-what-do-one-product-many-journeys">WHAT / DO — One Product, Many Journeys</h2>
+<p><strong>A product is not one journey, and a prototype of one journey is a demo of a fragment.</strong> The student has just built a thread. Someone else touches the same object, with a different goal, and nothing built so far says anything about them.</p>
+<p><strong>Teach the scoping question, not an example.</strong> This arc stays generic on purpose and the student's own product is the right vehicle. Ask:</p>
+<blockquote>
+<p><strong>"Who else touches this object, and what are they trying to do with it?"</strong></p>
+</blockquote>
+<p>Three answers that usually land, offered as prompts if the student stalls — not as a menu to pick from:</p>
+<ul>
+<li><strong>A second persona on the same object.</strong> The customer submits; someone reviews, approves, or processes. This is the one that makes stitching genuinely worth doing, because it's the journey no single squad ever demos.</li>
+<li><strong>A second goal for the same persona.</strong> Same user, different intent — the thing they do the other 90% of the time.</li>
+<li><strong>The unhappy path.</strong> Error, empty, rejected, interrupted. Ties straight back to the states in the component inventory, most of which have never been built.</li>
+</ul>
+<p><strong>Scope it the same way as journey one:</strong> one user goal, two or three screens. The goal is to prove the system carries across journeys, not to finish the product.</p>
+<p><strong>Then name the real test, before building:</strong> journey two should cost a fraction of journey one — less prompting, and visibly less correcting, because the rules file has just been rewritten from journey one's review. <strong>If it doesn't feel dramatically cheaper, the rules file isn't doing its job</strong>, and that's the finding, not a failure. Diagnose it rather than pushing through: rules too vague to be checkable, sitting in a file the tool doesn't read, or corrections that should have become rules in segment 7 and didn't.</p>
+<p><strong>Two things journey two will surface, both normal:</strong></p>
+<ul>
+<li><strong>A screen type with no template.</strong> Back to the template step for one quick addition. Cheaper now than at the stitch.</li>
+<li><strong>A second thread in the interaction pattern.</strong> <code>interaction-pattern.md</code> gets a second journey section. Same file, not a second file — one map of the product.</li>
+</ul>
+<p><strong>File organisation:</strong> <code>screens/journey-[name]/</code>. One folder per journey keeps the propagation prompt's blast radius legible and makes the stitch index trivial to generate.</p>
+<hr />
+<h2 id="v5-do-stitch-then-walk-the-journey">DO — Stitch, Then Walk the Journey</h2>
+<p><strong>This is the source lesson's "Concept Extension — Stitching Prototypes," run as written.</strong> Five steps, and the method is a pointer, not a rewrite.</p>
+<ol>
+<li><strong>Define the journey thread.</strong> One sentence: <em>"the user's goal across all of these screens is [goal]."</em> With two journeys there may be two threads meeting at one object — say where they meet, because that's the seam that matters most.</li>
+<li><strong>Gather, don't rebuild.</strong> Everything needed already exists. If something is missing, note it as a gap; don't fill it now.</li>
+<li><strong>Build the index.</strong> One page listing every screen in both journeys with its status.</li>
+<li><strong>Add the seams.</strong> Navigation between screens. A clickable thing that goes to the next screen is enough — don't perfect transitions, get the path walkable.</li>
+<li><strong>Walk it, in character, in sixty seconds.</strong></li>
+</ol>
+<p><strong>Index prompt:</strong></p>
+<blockquote>
+<p>"Here are my prototype screens: [list each with a one-sentence description and status — complete, in progress, missing]. Generate <code>index.html</code>: list them grouped by journey with their status, link to each, and show the journey flow. Use <code>tokens.css</code> and follow the project rules."</p>
+</blockquote>
+<p><strong>Seams prompt:</strong></p>
+<blockquote>
+<p>"I have these screens as separate HTML files: [list]. Add a navigation wrapper that stitches them into one prototype — links from each screen to the next in its journey, a way back to the index, and an indicator of where the user is. Put the shared chrome in the template, not in each screen."</p>
+</blockquote>
+<p>That last clause is rule 3 doing its job at the exact moment it's most tempting to break it.</p>
+<h3 id="v5-the-walk-and-the-critique">The walk, and the critique</h3>
+<p><strong>The critique happens during the walk, and takes the note-and-move-on form.</strong> Walk the journey start to finish, in character, narrating the user's goal rather than the design decisions. Log every flaw. Fix nothing.</p>
+<p><strong>Nathan Curtis's rule, which is the whole reason this works:</strong> a stitched prototype reveals inconsistency; it is not an audit tool. Turning a stitch session into a design review kills the collaboration that makes stitching valuable.</p>
+<p><strong>Capture format — one line per issue, three columns:</strong></p>
+<pre><code>           | Where | What | Layer |
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>---</th>
+<th>---</th>
+<th>---</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>The third column is where the layer ladder pays off twice.</strong> The triage list comes out of the walk already sorted, so the fixing pass is fast and the highest-leverage fixes are obvious.</p>
+<p><strong>If it takes longer than a minute to walk, the thread isn't clear enough yet.</strong> That's a finding about the journey, not about the prototype's polish.</p>
+<h3 id="v5-the-stitch-mindset-three-things-to-land-before-the-demo">The stitch mindset — three things to land before the demo</h3>
+<ol>
+<li><strong>It's a throwaway artefact.</strong> It exists to communicate the journey while the product gets built, and it retires the day the product ships. Treating it as a deliverable is what makes people polish it instead of using it.</li>
+<li><strong>The goal is the journey, not the screens.</strong> Inconsistencies will be visible. That's what stitching is for — a polished individual demo hides exactly what a stakeholder needs to see.</li>
+<li><strong>One minute hooks the room.</strong> Walk the user's goal, not the design decisions, then stop and invite discussion. If the story takes longer, the thread isn't clear — and the fix is in the thread sentence, not the screens.</li>
+</ol>
+<p><strong>Facilitator note:</strong> the strongest pull in this segment is toward fixing one small thing "while we're here." Don't. The walk is ten minutes; a fixing detour is twenty and the walk never finishes. Say up front that nothing gets fixed and hold it.</p>
+<hr />
+<h2 id="v5-do-wrap-up-homework">DO — Wrap-up &amp; Homework</h2>
+<p><strong>Land the key idea:</strong> the screens are not the deliverable of this lesson. The rules file is — specifically, the version they rewrote in segment 7. Screens are what it produces, and it will produce them again on the next project, for a different product, without a mentor in the room.</p>
+<p><strong>Recap what today produced:</strong> two journeys built and reviewed, a rules file that has changed since it was handed over, a stitched <code>index.html</code>, and a triage list sorted by layer.</p>
+<p><strong>Homework before Lesson 4 — checklist:</strong></p>
+<ul>
+<li>☐ Work the triage list, highest layer first — token fixes before template fixes before instance fixes</li>
+<li>☐ Finish journey two if it was scoped but not built</li>
+<li>☐ Walk the stitched journey once, alone, and time it. Over sixty seconds means the thread needs tightening, not the screens</li>
+<li>☐ Add any rule the homework earns — the rules file keeps growing after the session</li>
+<li>☐ Draft three sentences on how you'd introduce this prototype to someone who's never seen it. Raw material, not a script</li>
+<li>☐ Have a GitHub account and GitHub Desktop installed before the session — install friction shouldn't eat session time</li>
+</ul>
+<p><strong>Name what's next explicitly:</strong> Lesson 4 opens with presenting the work — the methodology and decisions, not the pixels — then publishes the prototype to a live, self-updating URL that doesn't depend on any design tool account.</p>
+<hr />
+<h2 id="v5-prompt-reference-library">Prompt &amp; Reference Library</h2>
+<p><strong>This file is canonical for prompt wording until a deck is built.</strong> When the deck exists, reverse-sync the outline from it and treat the deck as the presentation reality, same as Lesson 2.</p>
+<p><strong>Build a journey — one prompt:</strong></p>
+<blockquote>
+<p>"Build the [journey name] journey as a working prototype. The flow: [paste the flow artifact, or describe it — the screens in order, what the user does on each, what moves them to the next]. Use <code>design-system/tokens.css</code>, <code>learning/component-inventory.md</code> and <code>design-system/template-[type].html</code> as they are — read them, don't restate them. Follow the project rules. Output one HTML file per screen at <code>screens/[journey]/</code>, linked to each other in flow order. End with a list of anything you had to invent, and anything in the flow you couldn't build from the system."</p>
+</blockquote>
+<p><strong>Build a single screen — for a gap found later:</strong></p>
+<blockquote>
+<p>"Build the [screen name] screen into the [journey] journey. Goal: [what the user is doing]. It follows [screen] and leads to [screen], carrying over [state]. Follow the project rules."</p>
+</blockquote>
+<p><strong>Correct a screen:</strong></p>
+<blockquote>
+<p>"This is what you built: [describe]. Here is what should be different: [list corrections]. Change only those things. Update the output."</p>
+</blockquote>
+<p><strong>Explore a different direction without losing what exists:</strong></p>
+<blockquote>
+<p>"Save what we have and try a completely different layout for this screen."</p>
+</blockquote>
+<p><strong>Propagate a system-layer change:</strong></p>
+<blockquote>
+<p>"I've changed <code>[file]</code>. Every screen in <code>screens/</code> was built from it. Update each screen to match that change — only that change, nothing else. List every file you touched and what changed in each. If a screen has diverged from the template in other ways, report it — don't fix it."</p>
+</blockquote>
+<p><strong>Find the undesigned seams (chat tool, before stitching):</strong></p>
+<blockquote>
+<p>"Here is my interaction pattern: [paste]. Here are the screens I've built: [list]. What transitions are undesigned? What does the user see between [screen] and [screen] that hasn't been prototyped?"</p>
+</blockquote>
+<p><strong>Generate the index:</strong></p>
+<blockquote>
+<p>"Here are my prototype screens: [list each with a one-sentence description and status — complete, in progress, missing]. Generate <code>index.html</code>: list them grouped by journey with their status, link to each, and show the journey flow. Use <code>tokens.css</code> and follow the project rules."</p>
+</blockquote>
+<p><strong>Add the seams:</strong></p>
+<blockquote>
+<p>"I have these screens as separate HTML files: [list]. Add a navigation wrapper that stitches them into one prototype — links from each screen to the next in its journey, a way back to the index, and an indicator of where the user is. Put the shared chrome in the template, not in each screen."</p>
+</blockquote>
+<hr />
+<h2 id="v5-reference-the-rules-file-template">Reference: The Rules File Template</h2>
+<p>Give this to the student as a starting shape, not a finished file. After segment 7 it should no longer look exactly like this — that's the point.</p>
+<pre><code># Project rules &amp; context
+
+## Where things live
+- Design tokens: design-system/tokens.css
+- Component inventory: learning/component-inventory.md
+- Interaction pattern: learning/interaction-pattern.md
+- Templates: design-system/template-&lt;type&gt;.html
+- Screens: screens/&lt;journey&gt;/&lt;screen&gt;.html
+- System checkpoint page: design-system.html
+
+## Rules for building screens
+1. Only use components listed in component-inventory.md. If a screen needs
+   one that isn't there, add it to the inventory first, then build.
+2. Never use a raw colour, type or spacing value. Use the tokens in
+   tokens.css. If a needed value doesn't exist, flag it — don't invent one.
+3. Screens inherit from their template. Anything shared across screens of a
+   type goes in template-&lt;type&gt;.html, not in each screen.
+4. Every build carries flow context: what precedes each screen, what
+   follows it, and what carries over.
+5. Real content, never lorem ipsum.
+6. One layer per edit — instance, template, token, inventory or flow — and
+   name the layer in the prompt.
+7. Only read the files the task needs.
+8. Every generation ends with a list of anything invented or unresolved.
+9. Save before any structural edit.
+10. Every generated screen meets WCAG 2.1 AA — colour contrast, visible
+    focus states, minimum target size. Flag anything you can't verify.
+
+</code></pre>
+<hr />
+<h2 id="v5-instructor-notes">Instructor Notes</h2>
+<ul>
+<li><strong>This lesson is organised Why → What → How → Do</strong>, same convention as Lessons 1 and 2.</li>
+<li><strong>The order is the lesson — rules, flow, build, review.</strong> If a student wants to skip straight to the build prompt, that's the moment to hold the line: the rules file is what makes the one-prompt build safe, and without it this method is just a bigger version of the thing Lesson 1 warned about.</li>
+<li><strong>Segments 3, 5, 6 and 8 are the spine.</strong> If the session runs late, journey two becomes scope-only and the build becomes homework. Never trade away rules, build, review or the shared layout to protect a later segment.</li>
+<li><strong>This lesson deliberately departs from the source lesson's "one screen at a time."</strong> The reasoning is in <em>Why not screen-by-screen any more</em> — say it out loud to a student who has read the source lesson, because the departure is the interesting part, not an inconsistency to hide.</li>
+<li><strong>Be honest about the starter rules twice.</strong> Once in segment 3, when they're handed over, and once in segment 7, when the student rewrites them. Overselling them in segment 3 is the failure mode: one visibly wrong rule discredits all ten.</li>
+<li><strong>Don't oversell propagation either.</strong> Tokens are automatic, everything else is a governed prompt. A senior designer will find out within a week if you claimed otherwise.</li>
+<li><strong>Segment 8 earns its own time on purpose — it's the sustainability argument, not a technique demo.</strong> The shared layout is what makes propagation credible rather than aspirational: don't compress it back into a one-line reference to save time elsewhere.</li>
+<li><strong>Rule 10 is enforced at generation, not audited in session.</strong> Don't turn the review or the stitch walk into an accessibility audit — there isn't time and it isn't the point.</li>
+<li><strong>Hold the line on note-and-move-on.</strong> The pull to fix one small thing during the walk is strong and it eats the segment.</li>
+<li><strong>Three flow methods, one per student.</strong> Confirm at segment 4, then walk only that path. Don't demo all three — that's reference material, not a teaching sequence.</li>
+<li><strong>The second tool is removed from the programme.</strong> Huy's coaching plan has been updated in five places. If he raises it, say plainly: one method taught properly beats two half-learned, and the rules file transfers to any tool unchanged.</li>
+<li><strong>Lesson 4 now opens with fifteen minutes of presenting</strong>, moved here from the original Lesson 3 stub. That puts Lesson 4 under real pressure — the git guide's solo practice rep is the first thing to trim there, not the recovery-from-a-mistake beat.</li>
+<li><strong>Open knock-on, recorded not fixed:</strong> <code>lesson-2-interaction-pattern-build-editing-craft.md</code> still carries a filename describing content that now lives here.</li>
+<li>Keep tool references generic in delivery ("your AI coding tool") so this lesson is reusable across students regardless of which tools they use.</li>
+</ul>
+<hr />
+<h2 id="v5-connection-to-curriculum">Connection to Curriculum</h2>
+<p>A private-training adaptation layer on top of <code>03-develop/ai-prototype-development-lesson.md</code> ("AI Prototype Development") — Phase 4 Steps 2 and 5 and the whole "Concept Extension — Stitching Prototypes," re-paced for 1:1 delivery and picking up exactly where Lesson 2 ends.</p>
+<p><strong>A deliberate departure from the source lesson:</strong> Phase 4 Step 6's "build one screen at a time" is not taught here. With tokens, a component inventory, templates and a rules file all in place, the constraint that used to come from sequencing now comes from the system, so the journey builds in one pass. The reasoning is spelled out in the lesson body rather than left implicit.</p>
+<p><strong>Genuinely new here, not in the source lesson:</strong> the rules file as a precondition rather than an output, and the honesty about where a student's first rules come from; the three flow-input methods; the journey-at-once build prompt; the layer ladder for edits and the rule to fix at the highest layer the symptom is true at; the propagation prompt and the honest account of what does and doesn't update automatically; the shared layout as a standing rule rather than a one-off prompt, taught as its own segment rather than a passing reference; multi-journey scoping as the proof the system scales; WCAG 2.1 AA enforced at generation as rule 10; and the note-and-move-on critique folded into the stitch walk rather than run as a separate pass.</p>
+<p><strong>Moved to Lesson 4:</strong> coaching how to present the work, which the original stub placed here.</p>
+<hr />
+<h2 id="v5-secondary-research-notes">Secondary Research Notes</h2>
+<p>Sources behind the claims made in this lesson, for a facilitator who gets challenged on them.</p>
+<ul>
+<li><strong>NN/g, "AI Prototyping in Real Design Contexts"</strong> — output is assembled but misses spacing, grouping and hierarchy; defaults to generic, identity-free aesthetics without explicit direction; detailed prompts and visual references measurably improve results. Grounds segment 2's argument for rules-first and the reference-screenshot tip. https://www.nngroup.com/articles/ai-prototyping/</li>
+<li><strong>GOV.UK Prototype Kit — layouts</strong> — pages <code>extend</code> a shared layout; change it once and every page using it updates. The established precedent behind rule 3, the propagation segment, and segment 8's shared layout. https://prototype-kit.service.gov.uk/docs/how-to-use-layouts</li>
+<li><strong>Enterprise design system governance in the AI era</strong> — governance shifts from approving components before they're built to detecting and correcting after; machine-readable documentation is what makes tools generate on-system; components reference semantic tokens, never raw values. Grounds rules 1, 2 and 8, and the governance line in segment 2. https://f1studioz.com/blog/blog-enterprise-design-system-governance-ai/</li>
+<li><strong>Guardrails for AI coding agents</strong> — scoped context beats broad context; extra files widen the surface area of what gets modified. Grounds rules 6 and 7 and the propagation prompt's "only that change" clause. https://www.syncfusion.com/blogs/post/ai-guardrails-coding-agents</li>
+<li><strong>DESIGN.md / AGENTS.md / RULES.md</strong> — separating visual rules from code-behaviour rules, and the warning that stale context files actively degrade output. Grounds the two-section structure of the rules file. https://designmd.app/blog/design-md-agents-md-rules-md/</li>
+<li><strong>Nathan Curtis, "Stitching a Journey Together in a Prototype"</strong> (EightShapes) — the stitch definition, the seams argument, and the resist-fixing rule that shapes the walk. https://medium.com/eightshapes-llc/stitching-a-journey-together-in-a-prototype-d3b86d26ebb</li>
+</ul>
+<hr />
+<p><em>Created by Winnie Nguyen · Private Training · Last updated September 2026</em></p></article>
+  </div>
+</div></section><section class="tp-panel" data-tab-panel data-tab-id="slides" role="tabpanel" hidden><div class="deck-layout"><div class="deck-side" role="group" aria-label="Slide decks"><p class="deck-side__label">Decks (4)</p><ul><li><button type="button" class="deck-item deck-item--active" data-deck-btn data-src="../assets/lessons/ai-prototype-development/slides/AI%20Prototyping%20-%20Lesson%201.html" aria-pressed="true"><span class="deck-item__title">AI Prototyping - Lesson 1</span></button></li><li><button type="button" class="deck-item" data-deck-btn data-src="../assets/lessons/ai-prototype-development/slides/AI%20Prototyping%20-%20Lesson%202.html" aria-pressed="false"><span class="deck-item__title">AI Prototyping - Lesson 2</span></button></li><li><button type="button" class="deck-item" data-deck-btn data-src="../assets/lessons/ai-prototype-development/slides/AI%20Prototyping%20-%20Lesson%203.html" aria-pressed="false"><span class="deck-item__title">AI Prototyping - Lesson 3</span></button></li><li><button type="button" class="deck-item" data-deck-btn data-src="../assets/lessons/ai-prototype-development/slides/AI%20Prototyping%20-%20Lesson%204.html" aria-pressed="false"><span class="deck-item__title">AI Prototyping - Lesson 4</span></button></li></ul></div><div class="deck-main"><div class="tp-slides"><iframe id="deck-frame" src="../assets/lessons/ai-prototype-development/slides/AI%20Prototyping%20-%20Lesson%201.html" title="Lesson slides" allowfullscreen loading="lazy"></iframe></div>
+<p class="tp-slides__link"><a id="deck-open" href="../assets/lessons/ai-prototype-development/slides/AI%20Prototyping%20-%20Lesson%201.html" target="_blank" rel="noopener">Open slides full screen ↗</a></p></div></div></section><section class="tp-panel" data-tab-panel data-tab-id="homework" role="tabpanel" hidden><div class="tp-hw"><div class="tp-hw__grid"><div class="tp-hw__card tp-hw__card--link"><a class="tp-hw__thumb" href="../assets/homework/ai-prototype-development/huy-truong/Build%20DS%20with%20Claude.png" target="_blank" rel="noopener"><img src="../assets/homework/ai-prototype-development/huy-truong/Build%20DS%20with%20Claude.png" alt="Build Ds With Claude" loading="lazy"></a><div class="tp-hw__info"><strong>Build Ds With Claude</strong><span>by <a class="tp-meta__link" href="../mentees/huy-truong.html#homework">Huy</a></span></div></div></div></div></section>
+  <section class="tp-related"><h2>Related lessons</h2><div class="tp-related__grid"><div class="tp-related__card"><span>Previous lesson</span><strong>Design Once. Use Everywhere. (Atomic Design)</strong></div></div></section>
+</div>
+<script>
+(function () {
+  function group(btnSel, panelSel, attr, onShow) {
+    var btns = [].slice.call(document.querySelectorAll(btnSel)), panels = [].slice.call(document.querySelectorAll(panelSel));
+    function show(id) {
+      btns.forEach(function (b) { var on = b.getAttribute(attr) === id; b.setAttribute('aria-selected', on); b.classList.toggle('tabs__tab--active', on && b.classList.contains('tabs__tab')); });
+      panels.forEach(function (p) { p.hidden = p.getAttribute(attr) !== id; });
+      if (onShow) onShow(id);
+    }
+    btns.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute(attr)); }); });
+    return show;
+  }
+  var firstTab = (document.querySelector('[data-tab-btn]') || {getAttribute: function () {}}).getAttribute('data-tab-id');
+  var showTab = group('[data-tab-btn]', '[data-tab-panel]', 'data-tab-id', function (id) { history.replaceState(null, '', id === firstTab ? location.pathname : '#' + id); });
+  var showVar = group('[data-var-btn]', '[data-var-panel]', 'data-var-id');
+  var h = (location.hash || '').replace('#', '');
+  showTab(h && document.querySelector('[data-tab-btn][data-tab-id="' + h + '"]') ? h : firstTab);
+  if (document.querySelector('[data-var-btn]')) showVar('0');
+  var decks = [].slice.call(document.querySelectorAll('[data-deck-btn]'));
+  decks.forEach(function (b) { b.addEventListener('click', function () {
+    var f = document.getElementById('deck-frame'); f.src = b.dataset.src; document.getElementById('deck-open').href = b.dataset.src;
+    decks.forEach(function (x) { x.classList.toggle('deck-item--active', x === b); x.setAttribute('aria-pressed', x === b); });
+  }); });
+})();
+</script>
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Winnie Nguyen · Senior Product Designer</p>
+    <div class="footer-links">
+      <a href="mailto:nguyenphuctuongvan@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/winnienguyen2910" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script>(function(){if(location.protocol.indexOf('http')!==0)return;var u='../assets/build-stamp.txt',last=null;function c(){fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(t){if(t===null)return;if(last!==null&&t!==last)location.reload();last=t}).catch(function(){})}c();setInterval(c,1500)})();</script>
+</body>
+</html>
