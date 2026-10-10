@@ -124,7 +124,7 @@ Both are built from the same interviews. Both hang items off a spine. The differ
 
 ## Example
 
-Carrying forward the food-delivery job from `Library/frameworks/jtbd/framework-jtbd.md`, where the actual job derived from interviews was *"let me stop fearing it's not coming,"* sitting at the waiting-for-delivery stage.
+Carrying forward the food-delivery job from `library/frameworks/jtbd/framework-jtbd.md`, where the actual job derived from interviews was *"let me stop fearing it's not coming,"* sitting at the waiting-for-delivery stage.
 
 **Root outcome:** More customers get through waiting-for-delivery without checking the tracking screen to reassure themselves.
 
@@ -183,8 +183,8 @@ An opportunity map is an argument for spending other people's time and money. Pr
 
 - **Teresa Torres, "Continuous Discovery Habits":** The origin of the Opportunity Solution Tree and the assessment factors used in Step 6.
 - **Teresa Torres, Product Talk, "Opportunity Solution Trees":** https://www.producttalk.org/opportunity-solution-trees/
-- **Jobs to Be Done framework (internal):** `Library/frameworks/jtbd/framework-jtbd.md`, the map this one is built from.
-- **Assumption Map framework (internal):** `Library/frameworks/assumption-map/framework-assumption-map.md`, the discipline for handling anything not yet evidenced.
+- **Jobs to Be Done framework (internal):** `library/frameworks/jtbd/framework-jtbd.md`, the map this one is built from.
+- **Assumption Map framework (internal):** `library/frameworks/assumption-map/framework-assumption-map.md`, the discipline for handling anything not yet evidenced.
 - **NN/g, "5 Prioritization Methods in UX Roadmapping":** https://www.nngroup.com/articles/prioritization-methods/, for translating an assessment into the language your organisation already uses.
 
 ---

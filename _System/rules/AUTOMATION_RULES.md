@@ -10,14 +10,14 @@
 
 When you request a new slide deck, Claude will automatically save it here:
 ```
-📁 Library/slides/[slide-deck-name]/
+📁 library/slides/[slide-deck-name]/
    ├── learning/     (main slide content goes here)
    └── assets/       (images, files, resources)
 ```
 
 **Example paths:**
-- `Library/slides/product-thinking-101/learning/`
-- `Library/slides/ux-research-methods-intro/learning/`
+- `library/slides/product-thinking-101/learning/`
+- `library/slides/ux-research-methods-intro/learning/`
 
 **What triggers this:** Any request like:
 - "Create a slide deck for..."
@@ -59,7 +59,7 @@ When creating slide decks, Claude will reference the **Templates folder** to ens
 ## Rule 3: Updating These Rules ✏️
 **How to modify this file:**
 
-1. **Location:** `/Users/winnie.nguyen/Library/CloudStorage/GoogleDrive-nguyenphuctuongvan@gmail.com/My Drive/03_Mentoring/AUTOMATION_RULES.md`
+1. **Location:** `/Users/winnie.nguyen/library/CloudStorage/GoogleDrive-nguyenphuctuongvan@gmail.com/My Drive/03_Mentoring/AUTOMATION_RULES.md`
 
 2. **To request changes:** Just tell Claude:
    - "Update Rule 1 to..."
@@ -93,11 +93,11 @@ The `Inbox/` folder is a **temporary processing zone**. Nothing stays there perm
 
 | Item type | Source file moved to | Structured artifact created in |
 |-----------|---------------------|-------------------------------|
-| Raw lesson notes | `Source/` | `Library/lessons/[name]/` |
-| Rough slide content | `Source/` | Brief → `Library/slides/[name]/` |
-| Private session notes | `Mentees/[mentee]/sessions/` | — (private, no published artifact) |
-| Framework or guide draft | `Source/` | `Library/guides/` or `Library/frameworks/` |
-| Reusable template | `_System/templates/` | — |
+| Raw lesson notes | `source/` | `library/lessons/[name]/` |
+| Rough slide content | `source/` | Brief → `library/slides/[name]/` |
+| Private session notes | `mentees/[mentee]/sessions/` | — (private, no published artifact) |
+| Framework or guide draft | `source/` | `library/guides/` or `library/frameworks/` |
+| Reusable template | `_system/templates/` | — |
 | Asset (image, export) | `Assets/` | — |
 | Ambiguous item | Stop and triage (Rule 4) | Confirmed by you before moving |
 
@@ -176,16 +176,16 @@ When you share an artifact without a clear destination folder, Claude will **sto
 4. **Wait for your confirmation** before creating or moving any file
 
 **Example response format:**
-> "This looks like a reusable framework guide, not a private session recap. My recommendation: `Library/guides/` — it would apply to any student, not just one mentee. Alternatively: `Source/` if it's still a rough draft. Which do you prefer?"
+> "This looks like a reusable framework guide, not a private session recap. My recommendation: `library/guides/` — it would apply to any student, not just one mentee. Alternatively: `source/` if it's still a rough draft. Which do you prefer?"
 
 **Routing logic Claude will use:**
 
 | Signal | Likely destination |
 |--------|--------------------|
-| Reusable across students | `Library/` (lessons, slides, guides, or frameworks subfolder) |
-| Specific to one private mentee | `Mentees/[mentee-name]/sessions/` |
-| Raw / unprocessed / incomplete | `Source/` |
-| Visual template or design file | `_System/templates/` |
+| Reusable across students | `library/` (lessons, slides, guides, or frameworks subfolder) |
+| Specific to one private mentee | `mentees/[mentee-name]/sessions/` |
+| Raw / unprocessed / incomplete | `source/` |
+| Visual template or design file | `_system/templates/` |
 | Finished asset (image, export) | `Assets/` |
 
 **Speed tip:** Include the artifact type in your message (slide deck, lesson plan, guide, session recap, template) — it eliminates most ambiguity immediately.
@@ -197,8 +197,8 @@ When you share an artifact without a clear destination folder, Claude will **sto
 | Trigger | Action | Output Folder |
 |---------|--------|---------------|
 | "Create slide deck / HTML / lesson / design" | Generate brief first, wait for approval, then build | Brief saved alongside artifact with `-brief.md` suffix |
-| "Create slide deck" (after brief approved) | Generate and organize | `Library/slides/[name]/learning/` |
-| Check before finalizing | Reference Templates folder | `_System/templates/` |
+| "Create slide deck" (after brief approved) | Generate and organize | `library/slides/[name]/learning/` |
+| Check before finalizing | Reference Templates folder | `_system/templates/` |
 | "Process my inbox" / "Process [file]" | Read → triage → brief (if build needed) → move source → create artifact → report | Source to permanent folder; artifact to Library |
 | "Not sure where this goes" | Triage with options + recommendation | Confirmed by you |
 | Need to adjust rules | Edit this file | `_Rules/AUTOMATION_RULES.md` |

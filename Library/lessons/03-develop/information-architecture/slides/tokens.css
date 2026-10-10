@@ -1,7 +1,7 @@
 /* ================================================================
    TOKENS — Information Architecture Slide Deck
    Now delegates to the unified design system.
-   Edit values in _System/Themes/tokens.css — changes apply here automatically.
+   Edit values in _system/Themes/tokens.css — changes apply here automatically.
 ================================================================ */
 
-@import url('../../../_System/Themes/slide-design/tokens.css');
+@import url('../../../_system/Themes/slide-design/tokens.css');

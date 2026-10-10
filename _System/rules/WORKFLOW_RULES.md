@@ -23,19 +23,19 @@
 
 ### When to migrate
 
-Pull a file from `Source/` into `Library/` when **all three** of these are true:
+Pull a file from `source/` into `library/` when **all three** of these are true:
 
 1. The content is still conceptually accurate (the framework, method, or principle holds)
 2. You would actually use it again in a current session or class
 3. It would take more effort to rewrite from scratch than to modernize the existing file
 
-If only 1 or 2 apply — leave it in `Source/`. Don't migrate content just because it exists.
+If only 1 or 2 apply — leave it in `source/`. Don't migrate content just because it exists.
 
 ### Migration steps
 
-1. **Copy, don't move** — always leave the original in `Source/` untouched
+1. **Copy, don't move** — always leave the original in `source/` untouched
 2. **Rename to current convention** — lowercase-hyphens, clear title (e.g. `how-might-we-framing.md`)
-3. **Update structure** — apply the current lesson or slide template (see `_System/templates/`)
+3. **Update structure** — apply the current lesson or slide template (see `_system/templates/`)
 4. **Modernize content:**
    - Replace outdated examples with current ones
    - Add the "AI in Practice" section (Rule LP-4 in `MENTORING_RULES.md`)
@@ -43,13 +43,13 @@ If only 1 or 2 apply — leave it in `Source/`. Don't migrate content just becau
 5. **Tag the Source original** — add this line at the top of the Source file:
 
    ```
-   <!-- MIGRATED → Library/[path/to/new-file] on YYYY-MM-DD -->
+   <!-- MIGRATED → library/[path/to/new-file] on YYYY-MM-DD -->
    ```
 
 6. **File in Library** under the correct subfolder:
-   - Lessons → `Library/lessons/<stage>/<lesson-name>/materials/`
-   - Slide decks → `Library/slides/[slide-name]/learning/`
-   - Guides / frameworks → `Library/guides/` or `Library/frameworks/`
+   - Lessons → `library/lessons/<stage>/<lesson-name>/materials/`
+   - Slide decks → `library/slides/[slide-name]/learning/`
+   - Guides / frameworks → `library/guides/` or `library/frameworks/`
 
 ### What not to migrate
 
@@ -96,7 +96,7 @@ Before using private content in class materials:
 
 ### File location after adaptation
 
-Adapted content lives in `Library/` under the appropriate subfolder — **not** in `Mentees/`. Mentee folders are for private notes only.
+Adapted content lives in `library/` under the appropriate subfolder — **not** in `mentees/`. Mentee folders are for private notes only.
 
 ---
 
@@ -127,7 +127,7 @@ When asking, Claude should:
 4. **Keep it short** — one question per ambiguous point, not a list of five
 
 Example of good ambiguity handling:
-> "I'm not sure whether this lesson should go in `Library/lessons/` or stay in `Mentees/anh-truong/sessions/`. My recommendation: `Library/lessons/` — it reads like a reusable class resource, not a private recap. Shall I save it there?"
+> "I'm not sure whether this lesson should go in `library/lessons/` or stay in `mentees/anh-truong/sessions/`. My recommendation: `library/lessons/` — it reads like a reusable class resource, not a private recap. Shall I save it there?"
 
 Example of bad ambiguity handling:
 > Silently choosing a folder and proceeding.
@@ -324,11 +324,11 @@ For each item in `Inbox/`, Claude:
 
 | Item type | Source file moved to | Structured artifact created in |
 |-----------|---------------------|-------------------------------|
-| Raw lesson notes | `Source/` | `Library/lessons/[name]/` |
-| Rough slide content | `Source/` | Brief → `Library/slides/[name]/` |
-| Private session notes | `Mentees/[mentee]/sessions/` | — (private, no published artifact) |
-| Framework or guide draft | `Source/` | `Library/guides/` or `Library/frameworks/` |
-| Reusable template | `_System/templates/` | — |
+| Raw lesson notes | `source/` | `library/lessons/[name]/` |
+| Rough slide content | `source/` | Brief → `library/slides/[name]/` |
+| Private session notes | `mentees/[mentee]/sessions/` | — (private, no published artifact) |
+| Framework or guide draft | `source/` | `library/guides/` or `library/frameworks/` |
+| Reusable template | `_system/templates/` | — |
 | Asset (image, export) | `Assets/` | — |
 | Ambiguous | Stop and triage (WF-3) | Confirmed by you before moving |
 

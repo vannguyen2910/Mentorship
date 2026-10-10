@@ -84,7 +84,7 @@ By the end of this session, students will be able to:
 
 *Snapshot as of September 2026 — the market moves fast, so choose by category and support level, not by clinging to a specific tool name.*
 
-**Sync note (2026-09-14), deliberate exception:** this table names specific tools, per Winnie's direct request — an intentional exception to the "no specific AI tool names" convention in `CLAUDE.md`, scoped to this table only. Matches the same exception already applied to `Programs/online-course/AI Prototype Development/Section 1 - Giới Thiệu/learning/section 1-slide-outline.md`.
+**Sync note (2026-09-14), deliberate exception:** this table names specific tools, per Winnie's direct request — an intentional exception to the "no specific AI tool names" convention in `CLAUDE.md`, scoped to this table only. Matches the same exception already applied to `programs/online-course/AI Prototype Development/Section 1 - Giới Thiệu/learning/section 1-slide-outline.md`.
 
 ---
 

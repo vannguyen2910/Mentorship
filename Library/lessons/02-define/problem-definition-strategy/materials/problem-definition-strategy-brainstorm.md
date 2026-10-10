@@ -12,7 +12,7 @@ previous-session: "Customer Understanding (Senior/Lead)"
 
 Working document that shaped the Define-stage session following Customer Understanding (Senior/Lead) in the private training track. Desk research plus the session shape.
 
-**Built, 2026-08-29.** The lesson pair now exists: `problem-definition-strategy-lesson.md` and `problem-definition-strategy-slide-outline.md` in this folder, plus `Library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md`. This file stays as the research and reasoning record; the lesson file is the source of truth for content from here on.
+**Built, 2026-08-29.** The lesson pair now exists: `problem-definition-strategy-lesson.md` and `problem-definition-strategy-slide-outline.md` in this folder, plus `library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md`. This file stays as the research and reasoning record; the lesson file is the source of truth for content from here on.
 
 **Scoping decisions locked in (2026-08-29):**
 - Format: one combined 90 minute session, problem definition and strategy together.
@@ -124,7 +124,7 @@ Both maps are built from the same interviews, both hang things off a spine, and 
 4. **Tag.** Each opportunity carries the stage it came from and the number of interviews it appeared in. This is what makes the map defensible later.
 5. **Prune and group.** Drop anything that cannot plausibly move the root outcome, group siblings under a parent where they share a cause, and mark single-source items as unconfirmed.
 
-This comparison is a strong candidate to live in `Library/frameworks/opportunity-solution-tree/` rather than only inside the lesson, since the mentee will need it again on the next project.
+This comparison is a strong candidate to live in `library/frameworks/opportunity-solution-tree/` rather than only inside the lesson, since the mentee will need it again on the next project.
 
 ---
 
@@ -215,7 +215,7 @@ The single most important join: **the JTBD gap becomes the diagnosis.** Customer
 
 **1:1 adaptation.** The source material for most of these techniques assumes a team workshop: silent clustering, dot voting, group scoring. Private training has one mentee, so group mechanics are replaced by forced ranking, a written scorecard, and the mentor playing the sceptical stakeholder. Worth stating in the lesson, since a mentee who later runs these as team workshops needs to know which parts were compressed for the 1:1 format.
 
-**Possible new framework doc.** `Library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md`, following the pattern already set by `assumption-map` and `jtbd`, so the tree is taught from a standalone reusable file rather than embedded in this one lesson. Decide before the build.
+**Possible new framework doc.** `library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md`, following the pattern already set by `assumption-map` and `jtbd`, so the tree is taught from a standalone reusable file rather than embedded in this one lesson. Decide before the build.
 
 ---
 
@@ -296,11 +296,11 @@ Four of the six original questions are now answered and recorded in the scoping 
 - principles.design, real-world design principle library: https://principles.design/
 
 **Internal cross-references**
-- `Library/lessons/01-discover/customer-understanding/materials/customer-understanding-senior-lesson.md`: the session this follows
-- `Library/frameworks/jtbd/framework-jtbd.md`: source of `jtbd-map.md`
-- `Library/frameworks/assumption-map/framework-assumption-map.md`
-- `Library/lessons/02-define/synthesis-problem-definition-in-ux/`: the Junior/class treatment, see section 4
-- `Library/lessons/leader-level/estimating-design-effort/`: companion session if scope extends to allocation
+- `library/lessons/01-discover/customer-understanding/materials/customer-understanding-senior-lesson.md`: the session this follows
+- `library/frameworks/jtbd/framework-jtbd.md`: source of `jtbd-map.md`
+- `library/frameworks/assumption-map/framework-assumption-map.md`
+- `library/lessons/02-define/synthesis-problem-definition-in-ux/`: the Junior/class treatment, see section 4
+- `library/lessons/leader-level/estimating-design-effort/`: companion session if scope extends to allocation
 
 ---
 

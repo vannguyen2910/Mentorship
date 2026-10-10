@@ -15,7 +15,7 @@
 Using the outline in this file, create an HTML slide deck for Solution Validation & User Testing.
 
 Follow the rules in _Config/rules/SLIDE_DECK_RULES.md exactly.
-Save the file to Library/lessons/solution-validation-user-testing/materials/deck.html.
+Save the file to library/lessons/solution-validation-user-testing/materials/deck.html.
 
 REAL IMAGES — embed these at the slides marked with 📷 in this outline:
 - ../assets/Unmoderated testing.png → DIAGRAM: Moderated vs Unmoderated slide (shows a real Maze test report — task completion rate, success rate, navigation overview)

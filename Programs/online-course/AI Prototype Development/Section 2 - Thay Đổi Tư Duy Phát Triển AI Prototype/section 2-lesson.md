@@ -4,7 +4,7 @@ subtitle: "Vì sao prototype bằng AI thất bại nếu không có kế hoạc
 course: Systematic AI Prototyping for Product Designers
 section: 2
 part: A
-source-lesson: Library/lessons/ai-prototype-development/materials/ai-prototype-development-lesson.md
+source-lesson: library/lessons/ai-prototype-development/materials/ai-prototype-development-lesson.md
 last-updated: 2026-08-17
 language: vi
 ---

@@ -23,7 +23,7 @@ So the useful question when choosing is not "which is most accurate," it is **wh
 
 - Before a roadmap conversation, a quarter, or a design direction where more than one option is genuinely live.
 - When you need to explain a decision to someone who was not in the room while it was made.
-- Not for choosing between problems on an opportunity map. That has its own assessment, which deliberately excludes effort. See `Library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md`.
+- Not for choosing between problems on an opportunity map. That has its own assessment, which deliberately excludes effort. See `library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md`.
 - Not as a substitute for a decision. If the score comes out even, that is information about your options, not a reason to add another column.
 
 ---
@@ -144,7 +144,7 @@ A prioritisation output looks objective and is not. Presenting a score without i
 ## Further Resources
 
 - **NN/g, "5 Prioritization Methods in UX Roadmapping":** https://www.nngroup.com/articles/prioritization-methods/
-- **Opportunity Solution Tree framework (internal):** `Library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md`, for choosing between problems rather than solutions, and why effort is excluded there
+- **Opportunity Solution Tree framework (internal):** `library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md`, for choosing between problems rather than solutions, and why effort is excluded there
 - **Noriaki Kano, the Kano model:** the original two-dimensional quality theory behind method 5
 
 ---

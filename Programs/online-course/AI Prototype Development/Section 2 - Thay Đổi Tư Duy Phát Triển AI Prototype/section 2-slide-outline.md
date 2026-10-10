@@ -15,7 +15,7 @@
 Dùng outline trong file này, build slide deck HTML cho Section 2 Phần A - Tư Duy Pattern-First
 (khóa Systematic AI Prototyping for Product Designers, bản tiếng Việt).
 
-Theo đúng rule trong _System/rules/SLIDE_DECK_RULES.md.
+Theo đúng rule trong _system/rules/SLIDE_DECK_RULES.md.
 Copy tokens.css và deck-stage.js vào thư mục module này (`Phần A - Tư Duy Pattern-First`) để deck tự chứa (self-contained).
 
 HƯỚNG DẪN THIẾT KẾ - áp dụng cho toàn bộ slide:

@@ -152,7 +152,7 @@ An assumption is anything your team believes about users, problems, solutions, o
 
 Every design brief contains assumptions. Every sprint planning session is full of them. The problem isn't having assumptions. It's not knowing which ones are true and which ones could kill the product if wrong.
 
-> **Full framework:** The four assumption types, the WHO/WHAT/WHY/SIGNAL formula, and the Importance × Evidence matrix now live in `Library/frameworks/assumption-map/framework-assumption-map.md`: teach directly from that file. It's the single source of truth for this framework; keep this section as the session-specific application only.
+> **Full framework:** The four assumption types, the WHO/WHAT/WHY/SIGNAL formula, and the Importance × Evidence matrix now live in `library/frameworks/assumption-map/framework-assumption-map.md`: teach directly from that file. It's the single source of truth for this framework; keep this section as the session-specific application only.
 
 #### Why this session runs it before the interview
 
@@ -402,7 +402,7 @@ Build a full assumption map for your project and rate your confidence in each as
 
 - **IDEO Design Thinking: Empathise:** https://designthinking.ideo.com/, empathy methods overview including observation and interview guides
 - **NNg: User Interviews:** https://www.nngroup.com/articles/user-interviews/, when to use them, how to structure them, and common mistakes
-- **Assumption Map framework (internal):** `Library/frameworks/assumption-map/framework-assumption-map.md`, full teaching content: types, formula, matrix
+- **Assumption Map framework (internal):** `library/frameworks/assumption-map/framework-assumption-map.md`, full teaching content: types, formula, matrix
 - **Assumption Mapping (Strategyzer):** https://www.strategyzer.com/, original framework for testing business and product assumptions
 - **Jobs-to-Be-Done:** https://jobs-to-be-done.com/, background on the JTBD framework referenced in this session
 - **Steve Portigal, Interviewing Users**: The foundational book on conducting user interviews. Chapter 3 on question types is most directly useful.

@@ -88,7 +88,7 @@
   - **Functional**: "Get this task done."
   - **Emotional**: "Feel confident, not anxious."
   - **Social**: "Be seen as in control."
-- Speaker notes: Most real jobs are functional, emotional, and social all at once. A functional-only reading usually misses why the friction actually hurts. Full examples to walk through live: functional: "Get my order to me while it's still hot"; emotional: "Feel confident I haven't been forgotten"; social: "Be seen as someone who has this under control, not someone anxiously refreshing an app." Full framework file: `Library/frameworks/jtbd/framework-jtbd.md`.
+- Speaker notes: Most real jobs are functional, emotional, and social all at once. A functional-only reading usually misses why the friction actually hurts. Full examples to walk through live: functional: "Get my order to me while it's still hot"; emotional: "Feel confident I haven't been forgotten"; social: "Be seen as someone who has this under control, not someone anxiously refreshing an app." Full framework file: `library/frameworks/jtbd/framework-jtbd.md`.
 - 🎨 Visual hint: White background. 3 stacked cards, each with a checkmark-style icon + bold label + short on-slide phrase.
 
 ---

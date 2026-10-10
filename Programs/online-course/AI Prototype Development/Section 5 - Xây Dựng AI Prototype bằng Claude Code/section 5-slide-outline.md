@@ -15,7 +15,7 @@
 Dùng outline trong file này, build slide deck HTML cho Section 5, Xây Dựng AI Prototype bằng Claude Code.
 Đây là section trong khóa Systematic AI Prototyping for Product Designers.
 
-Theo đúng rule trong _System/rules/SLIDE_DECK_RULES.md.
+Theo đúng rule trong _system/rules/SLIDE_DECK_RULES.md.
 Dùng đúng design system và design template mình đã set up từ trước (tokens.css, các layout class trong rule file). Không tự tạo style, màu, hay layout mới.
 Copy tokens.css và deck-stage.js vào thư mục Section 5 để deck tự chứa (self-contained).
 

@@ -3,20 +3,20 @@
 build-home.py — Mentoring Hub homepage generator
 
 Run from anywhere:
-    python3 _System/scripts/build-home.py          (one build)
-    python3 _System/scripts/build-home.py --watch  (keep rebuilding on any change)
+    python3 _system/scripts/build-home.py          (one build)
+    python3 _system/scripts/build-home.py --watch  (keep rebuilding on any change)
 
 Reads
   - Programs  : <WEBSITE>/src/pages/training/programs/*.sessions.js + *.jsx   (live program pages)
-  - Lessons   : Library/lessons/**/<topic>-lesson.md                          (+ EXTRA_LESSONS below)
+  - Lessons   : library/lessons/**/<topic>-lesson.md                          (+ EXTRA_LESSONS below)
   - Mentees   : <MENTEES>/<name>/plan|sessions|assessments                    (public: card + detail page)
   - Design    : <WEBSITE>/design-system/css + fonts  (copied, so the output is standalone)
 
 Writes (all static, relative links, open index.html straight from disk)
-  Homepage/index.html
-  Homepage/programs/<program>.html
-  Homepage/lessons/<lesson>.html
-  Homepage/assets/css|fonts|lesson-assets
+  docs/index.html
+  docs/programs/<program>.html
+  docs/lessons/<lesson>.html
+  docs/assets/css|fonts|lesson-assets
 
 Edit the CONFIG block to change paths, lesson↔program mapping or lesson titles.
 """
@@ -37,20 +37,20 @@ import markdown
 # CONFIG
 # ─────────────────────────────────────────────────────────────────────────────
 
-ROOT = Path(__file__).resolve().parent.parent.parent  # 03_Mentoring (this file lives in _System/scripts/)
-OUT = Path(os.environ.get("HOME_OUT", ROOT / "Homepage"))
+ROOT = Path(__file__).resolve().parent.parent.parent  # 03_Mentoring (this file lives in _system/scripts/)
+OUT = Path(os.environ.get("HOME_OUT", ROOT / "docs"))
 
-GDRIVE = Path("/Users/winnie.nguyen/Library/CloudStorage/GoogleDrive-nguyenphuctuongvan@gmail.com/My Drive")
+GDRIVE = Path("/Users/winnie.nguyen/library/CloudStorage/GoogleDrive-nguyenphuctuongvan@gmail.com/My Drive")
 WEBSITE = Path(os.environ.get("WEBSITE_DIR", GDRIVE / "02_Personal/01_Personal Website"))
-MENTEES = Path(os.environ.get("MENTEES_DIR", GDRIVE / "03_Mentoring/Mentees"))
+MENTEES = Path(os.environ.get("MENTEES_DIR", GDRIVE / "03_Mentoring/mentees"))
 if not MENTEES.exists():
-    MENTEES = ROOT / "Mentees"
+    MENTEES = ROOT / "mentees"
 
 DESIGN_SYSTEM = WEBSITE / "design-system"
 PROGRAMS_SRC = WEBSITE / "src/pages/training/programs"
-LESSONS_DIR = Path(os.environ.get("LESSONS_DIR", GDRIVE / "03_Mentoring/Library/lessons"))
+LESSONS_DIR = Path(os.environ.get("LESSONS_DIR", GDRIVE / "03_Mentoring/library/lessons"))
 if not LESSONS_DIR.exists():
-    LESSONS_DIR = ROOT / "Library/lessons"
+    LESSONS_DIR = ROOT / "library/lessons"
 
 # Optional: base URL of the live website, so program pages get an "Open live page" link.
 SITE_BASE = os.environ.get("SITE_BASE", "").rstrip("/")
@@ -62,6 +62,7 @@ STAGES = {
     "02-define": "Define",
     "03-develop": "Develop",
     "04-deliver": "Deliver",
+    "ai-design-workflow": "AI Design Workflow",
     "leader-level": "Leader level",
 }
 
@@ -401,7 +402,7 @@ MENTEE_PUBLISHED = set()
 
 
 def mentee_href(d, p):
-    """Mentees/ is git-ignored (private), so only slides and homework are copied into Homepage/assets/mentees/ and linked from there."""
+    """mentees/ is git-ignored (private), so only slides and homework are copied into docs/assets/mentees/ and linked from there."""
     rel = p.relative_to(d)
     dest = ASSETS / "mentees" / d.name / rel
     sync_file(p, dest)
@@ -414,7 +415,7 @@ def mentee_md_page(d, f, rel):
     body = parse_front_matter(f.read_text(encoding="utf-8"))[1]
     html_body, _ = render_markdown(body)
     dest = ASSETS / "mentees" / d.name / "md" / rel.with_suffix(".html")
-    depth = 4 + len(rel.parts) - 1   # Homepage/assets/mentees/<slug>/md/<rel>.html
+    depth = 4 + len(rel.parts) - 1   # docs/assets/mentees/<slug>/md/<rel>.html
     title = nice_topic(f.stem)
     page_html = page(f"{title} — {d.name.replace('-', ' ').title()}", f'''<div class="tp"><a class="tp-back" href="{"../" * depth}mentees/{d.name}.html#artifacts">← Back to mentee</a>
 <article class="tp-body">{html_body}</article></div>''', depth, "", body_cls="tp-white", active="mentees")
@@ -439,7 +440,7 @@ def nice_topic(stem):
 
 
 def read_sessions_table(path):
-    """Mentees/<slug>/sessions.md: `| # | Topic | Date | Status | Lesson | Playback |`, one row per session."""
+    """mentees/<slug>/sessions.md: `| # | Topic | Date | Status | Lesson | Playback |`, one row per session."""
     rows = []
     for line in path.read_text(encoding="utf-8").splitlines():
         cells = [c.strip() for c in line.strip().strip("|").split("|")] if line.strip().startswith("|") else []
@@ -450,7 +451,7 @@ def read_sessions_table(path):
 
 
 def read_assessment(path):
-    """Mentees/<slug>/assessment.md: `| Metric | Baseline | Post-training |` table, or front matter `na: "reason"`."""
+    """mentees/<slug>/assessment.md: `| Metric | Baseline | Post-training |` table, or front matter `na: "reason"`."""
     out = {"rows": [], "na": ""}
     if not path.exists():
         return out
@@ -1038,12 +1039,26 @@ def toks(t):
     return {w[:-1] if len(w) > 3 and w.endswith("s") else w for w in re.sub(r"[^a-z0-9]+", " ", t.lower().replace("&", " and ")).split() if w not in STOP}   # plural-insensitive
 
 
+def split_slugs(cell):
+    """A session's Lesson cell may hold several slugs, comma- or plus-separated (a session can teach two lessons)."""
+    return [x.strip() for x in re.split(r"[,+]", str(cell)) if x.strip()] or [""]
+
+
+def lessons_for(r, m, lessons):
+    """Every library lesson a session covers: all slugs in an explicit Lesson cell, else the single best title match."""
+    by_slug = {l["slug"]: l for l in lessons if l["has_page"]}
+    if r["n"] in m["lesson_map"]:
+        return [by_slug[s] for s in split_slugs(m["lesson_map"][r["n"]]) if s in by_slug]
+    one = lesson_for(r, m, lessons)
+    return [one] if one else []
+
+
 def lesson_for(r, m, lessons, min_score=0.75):
     """The library lesson a session belongs to: explicit `lessons:` override in profile.md, else the best title match
     (at least 75% of the shorter title's words shared, either direction). Returns None when nothing fits."""
     by_slug = {l["slug"]: l for l in lessons if l["has_page"]}
     if r["n"] in m["lesson_map"]:
-        return by_slug.get(m["lesson_map"][r["n"]])
+        return by_slug.get(split_slugs(m["lesson_map"][r["n"]])[0])
     best, best_score = None, 0.0
     for t in [r["title"]] + [d["topic"] for d in r["decks"] if d.get("topic")]:
         a = toks(t)
@@ -1057,6 +1072,8 @@ def lesson_for(r, m, lessons, min_score=0.75):
 
 
 def lesson_link(l):
+    if isinstance(l, list):
+        return "".join(lesson_link(x) if len(l) == 1 else f'<a class="btn btn--sm btn--text btn--primary" href="../lessons/{x["slug"]}.html">{esc(x["title"])} →</a>' for x in l)
     return f'<a class="btn btn--sm btn--text btn--primary" href="../lessons/{l["slug"]}.html">Lesson plan →</a>' if l else ""
 
 
@@ -1089,7 +1106,7 @@ def mentee_sessions_panel(m, lessons):
             play = f'<p class="sess__sum">{esc(pb)}</p>'
         else:
             play = '<span class="sess__none">Playback coming soon</span>'
-        meta.append(lesson_link(lesson_for(r, m, lessons)))
+        meta.append(lesson_link(lessons_for(r, m, lessons)))
         out.append(f"""<div class="sess"><div class="sess__idx">{r['n']}</div>
   <div><h4 class="sess__title">{esc(r['title'])}</h4>
   <div class="sess__meta">{"".join(x for x in meta if x)}</div>{play}</div></div>""")
@@ -1383,7 +1400,7 @@ def slides_panel(l):
 
 def homework_panel(l):
     if not l["homework"]:
-        return '<div class="tp-slides tp-slides--empty"><strong>No mentee homework yet</strong><span>Drop files in <code>Mentees/&lt;name&gt;/homework/%s/</code> and they show up here.</span></div>' % esc(l["slug"])
+        return '<div class="tp-slides tp-slides--empty"><strong>No mentee homework yet</strong><span>Drop files in <code>mentees/&lt;name&gt;/homework/%s/</code> and they show up here.</span></div>' % esc(l["slug"])
     cards = []
     for h in l["homework"]:
         # sibling links (not nested): the file opens from the thumbnail, the name opens that mentee's Homework tab
@@ -1475,18 +1492,18 @@ def copy_design_system():
     img_out = OUT / "assets/images"
     img_out.mkdir(parents=True, exist_ok=True)
     shutil.copy2(WEBSITE / "public/portfolio/images/logo-nav.svg", img_out / "logo-nav.svg")
-    # Older slide decks link to ../../../../_System/Themes/{tokens,components}.css, a folder that no longer exists
+    # Older slide decks link to ../../../../_system/Themes/{tokens,components}.css, a folder that no longer exists
     # in the Library. Serve the design-system versions at that path so those decks still render.
-    legacy = OUT / "_System/Themes"
+    legacy = OUT / "_system/Themes"
     legacy.mkdir(parents=True, exist_ok=True)
     for name in ("tokens.css", "components.css"):
         shutil.copy2(DESIGN_SYSTEM / "css" / name, legacy / name)
-    (OUT / "_System/fonts").mkdir(parents=True, exist_ok=True)
+    (OUT / "_system/fonts").mkdir(parents=True, exist_ok=True)
     fonts_out = OUT / "assets/fonts"
     fonts_out.mkdir(parents=True, exist_ok=True)
     for f in ["PublicSans-VariableFont_wght.ttf", "PublicSans-Italic-VariableFont_wght.ttf", "Syne-VariableFont_wght.ttf"]:
         shutil.copy2(DESIGN_SYSTEM / "fonts" / f, fonts_out / f)
-        shutil.copy2(DESIGN_SYSTEM / "fonts" / f, OUT / "_System/fonts" / f)
+        shutil.copy2(DESIGN_SYSTEM / "fonts" / f, OUT / "_system/fonts" / f)
 
 
 def mentee_health(mentees, lessons):
@@ -1634,7 +1651,7 @@ def homework_lesson_for(f, m, lessons):
 
 
 def sort_loose_homework(mentees, lessons):
-    """Files dropped straight into Mentees/<name>/homework/ are moved into homework/<lesson-slug>/ so the lesson page
+    """Files dropped straight into mentees/<name>/homework/ are moved into homework/<lesson-slug>/ so the lesson page
     picks them up. Returns the number moved. Files that can't be matched stay put (shown under 'General')."""
     moved = 0
     for m in mentees:
@@ -1793,7 +1810,7 @@ def serve_and_watch(port):
             pass
 
     try:
-        rel = OUT.relative_to(ROOT).as_posix()   # serve the whole 03_Mentoring folder so ../Mentees/... links work
+        rel = OUT.relative_to(ROOT).as_posix()   # serve the whole 03_Mentoring folder so ../mentees/... links work
         serve_dir, base = ROOT, f"http://localhost:{port}/{rel}/"
     except ValueError:
         serve_dir, base = OUT, f"http://localhost:{port}/"
@@ -1804,7 +1821,7 @@ def serve_and_watch(port):
     except OSError:
         try:
             urllib.request.urlopen(base + "index.html", timeout=2)
-            print(f"Port {port} is already serving the Homepage - reusing it")
+            print(f"Port {port} is already serving the site - reusing it")
         except Exception:
             sys.exit(f"Port {port} is busy with something else. Try:  --serve --port 8811")
     print(f"Open: {base}index.html   (pages refresh themselves after each rebuild)\n")

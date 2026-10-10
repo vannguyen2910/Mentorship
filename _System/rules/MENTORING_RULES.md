@@ -25,7 +25,7 @@
 When creating a new slide deck:
 
 ```
-Library/slides/[slide-name]/
+library/slides/[slide-name]/
 ├── learning/
 │   └── [slide-name].html (main presentation)
 ├── assets/
@@ -44,10 +44,10 @@ Library/slides/[slide-name]/
 ### Rule SD-2: Design System Compliance
 **Status:** Active | **Priority:** High
 
-**ALWAYS follow the design rules in `_System/Themes/slide-design/RULES.md`**
+**ALWAYS follow the design rules in `_system/Themes/slide-design/RULES.md`**
 
 Key requirements:
-- Link `../../../_System/Themes/slide-design/tokens.css` (correct relative path)
+- Link `../../../_system/Themes/slide-design/tokens.css` (correct relative path)
 - Load `deck-stage.js` from templates folder
 - **Use token colors ONLY** — never hardcode hex values:
   - Accent: `--sienna` (purple), `--ochre` (yellow)
@@ -130,7 +130,7 @@ If including AI examples or prompts in slides:
 ### Rule LP-1: Lesson Structure & Template
 **Status:** Active | **Priority:** High
 
-**Always use `_System/templates/learning/_template-lesson.md` as starting point**
+**Always use `_system/templates/learning/_template-lesson.md` as starting point**
 
 Required sections in every lesson:
 
@@ -271,7 +271,7 @@ Example:
 
 **After every mentee session, create a session recap using `_template-session.md`**
 
-File location: `Mentees/[student-name]/sessions/session-[number].md`
+File location: `mentees/[student-name]/sessions/session-[number].md`
 
 Required in every recap:
 - Session summary (2–3 sentences about energy/big moments)
@@ -335,22 +335,22 @@ This helps you:
 
 ```
 03_Mentoring/
-├── _Inbox/                  ← raw drops, triaged then cleared
-├── Source/                  ← raw inputs and archive (gitignored)
+├── _inbox/                  ← raw drops, triaged then cleared
+├── source/                  ← raw inputs and archive (gitignored)
 │   ├── my-teaching/         ← past classes and decks
 │   ├── ux-material/ , ux-methodology/
 │   └── _asset-packs/        ← icon and vector packs, kept out of search noise
-├── Library/                 ← PLAN + BUILD: reusable teaching content
+├── library/                 ← PLAN + BUILD: reusable teaching content
 │   ├── lessons/             ← by stage: 00-foundation, 01-discover … 04-deliver, leader-level
 │   ├── frameworks/ , guides/ , slides/
-├── Programs/                ← TEACH: what is taught and sold
-│   ├── online-course/ , training-hub/ , assessment-tool/
-├── Mentees/                 ← FOLLOW UP (private): one folder per mentee
+├── programs/                ← TEACH: what is taught and sold
+│   ├── online-course/ , assessment-tool/
+├── mentees/                 ← FOLLOW UP (private): one folder per mentee
 │   ├── training-log.md
 │   └── [mentee-name]/  plan/ sessions/ slides/ transcripts/ assessments/ homework/
-├── Showcase/                ← SHOW: public/, private/, testimonials.md
-├── Business/                ← services/ (pricing, leads), profile/ (CV, bios), content/ (social)
-└── _System/                 ← rules/, templates/, Themes/ (slide design), scripts/
+├── showcase/                ← SHOW: public/, private/, testimonials.md
+├── business/                ← services/ (pricing, leads), profile/ (CV, bios), content/ (social)
+└── _system/                 ← rules/, templates/, Themes/ (slide design), scripts/
 ```
 
 ---
@@ -492,7 +492,7 @@ Before finalizing a session recap, check:
 
 **Priority order:**
 
-1. **Design first** → Review `_System/Themes/slide-design/RULES.md`
+1. **Design first** → Review `_system/Themes/slide-design/RULES.md`
 2. **Structure second** → Create folder & link template files
 3. **Content third** → Write slides using preset layouts
 4. **Polish fourth** → Animate, test, fix spacing

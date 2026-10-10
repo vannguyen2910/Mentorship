@@ -332,7 +332,7 @@ Standalone lesson, so nothing is assumed before it and nothing is promised after
 - **Toward prototyping.** The token audit is the input. The five layers become the correction checklist for anything a generative tool produces, which is the difference between prompting until something looks right and knowing when it is.
 - **Toward critique.** The decision sheet is the input. A critique against stated reasons is a different exercise from a critique against taste, and considerably more useful to both people in the room.
 
-Adjacent material already in the library: `Library/guides/how-to-give-design-critique` for the critique protocol, `Library/frameworks/framework-nielsen-usability-heuristics.md` for the full set of heuristics this session pulls two from, and `03-develop/design-system` for Atomic Design, which owns the component taxonomy this session deliberately stops short of.
+Adjacent material already in the library: `library/guides/how-to-give-design-critique` for the critique protocol, `library/frameworks/framework-nielsen-usability-heuristics.md` for the full set of heuristics this session pulls two from, and `03-develop/design-system` for Atomic Design, which owns the component taxonomy this session deliberately stops short of.
 
 ---
 

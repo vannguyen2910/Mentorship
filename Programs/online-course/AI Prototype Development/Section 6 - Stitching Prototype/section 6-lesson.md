@@ -3,7 +3,7 @@ title: "Section 6: Stitching Prototype"
 subtitle: "Nhiều đoạn rời rạc, một hành trình kể được trọn vẹn: từ bản đồ tới demo 1 phút"
 course: Systematic AI Prototyping for Product Designers
 section: 6
-source-lesson: Library/lessons/ai-prototype-development/materials/ai-prototype-development-lesson.md
+source-lesson: library/lessons/ai-prototype-development/materials/ai-prototype-development-lesson.md
 last-updated: 2026-08-19
 language: vi
 ---

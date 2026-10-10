@@ -43,7 +43,7 @@ Qua Section 2, bạn thay đổi tư duy phát triển AI prototype, tự tay se
 
 ## Mục Đích
 
-Định nghĩa cấu trúc và nội dung đầy đủ của Course 02, dựa trên `Library/lessons/ai-prototype-development/materials/ai-prototype-development-lesson.md`, trước khi viết thêm bất kỳ file mới nào.
+Định nghĩa cấu trúc và nội dung đầy đủ của Course 02, dựa trên `library/lessons/ai-prototype-development/materials/ai-prototype-development-lesson.md`, trước khi viết thêm bất kỳ file mới nào.
 
 ## Tên Khóa Học & Định Vị (Positioning)
 

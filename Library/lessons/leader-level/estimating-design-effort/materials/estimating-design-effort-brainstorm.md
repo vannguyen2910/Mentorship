@@ -179,7 +179,7 @@ This also gives the lesson a natural narrative arc consistent with how other ses
 - **GitLab Handbook, Tracking gold, silver, and bronze UX research projects** (https://handbook.gitlab.com/handbook/product/ux/ux-research/tracking-research-projects/): the fuller handbook page behind the tier labels above (page renders client-side; the label descriptions were pulled directly instead)
 - **Lucidspark, How to Communicate UX Plans to Stakeholders** (https://lucid.co/blog/how-to-communicate-ux-plans-to-stakeholders): negotiation-not-declaration framing, alignment documents, matching stakeholder expertise
 - **UXmatters, Project Estimation Part 3: Estimating Services Within a Design-Thinking Model** (https://www.uxmatters.com/mt/archives/2019/06/project-estimation-part-3-estimating-services-within-a-design-thinking-model.php): integrated, phase-linked estimates; discovery investment as trust-builder
-- **Internal, Audit & Desk Research lesson (this library)** (`Library/lessons/audit-desk-research/materials/audit-desk-research-lesson.md`): source of the headline-first, evidence-backed stakeholder readout structure this lesson should reuse
+- **Internal, Audit & Desk Research lesson (this library)** (`library/lessons/audit-desk-research/materials/audit-desk-research-lesson.md`): source of the headline-first, evidence-backed stakeholder readout structure this lesson should reuse
 
 ---
 

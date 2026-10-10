@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heuristics Cheat Sheet</title>
+<style>
+@page { size: A4; margin: 14mm; }
+body { font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif; color:#1f2328; max-width:760px; margin:24px auto; padding:0 16px; font-size:14px; line-height:1.45; }
+h1 { font-size:22px; margin:0 0 4px; } .sub { color:#555; margin-bottom:14px; }
+.fam { border-left:6px solid; padding:6px 12px; margin:10px 0; border-radius:4px; }
+.f1 { background:#e7f5ff; border-color:#1c7ed6; } .f2 { background:#fff4e6; border-color:#e8590c; } .f3 { background:#ebfbee; border-color:#2f9e44; }
+.fam h2 { font-size:15px; margin:0 0 4px; } .fam ul { margin:0; padding-left:18px; }
+h3 { font-size:14px; margin:14px 0 4px; } ol,ul.plain { margin:4px 0; padding-left:20px; }
+.box { border:1px solid #ccc; border-radius:6px; padding:6px 12px; margin-top:8px; }
+</style></head><body>
+<h1>Heuristics Cheat Sheet</h1>
+<div class="sub">Evaluate Current Experience &middot; keep it beside you. No screenshot, no finding.</div>
+
+<div class="fam f1"><h2>Family 1 &middot; Can I see and understand what's going on?</h2><ul>
+<li><b>1 Visibility of system status:</b> after any action, show what happened</li>
+<li><b>2 Match with the real world:</b> use the user's words</li>
+<li><b>6 Recognition over recall:</b> show it, don't make me remember it</li>
+<li><b>8 Aesthetic and minimalist design:</b> if it doesn't help the task, remove it</li></ul></div>
+
+<div class="fam f2"><h2>Family 2 &middot; Can I stay in control and recover?</h2><ul>
+<li><b>3 User control and freedom:</b> undo, cancel, go back safely</li>
+<li><b>5 Error prevention:</b> stop the mistake before it happens</li>
+<li><b>9 Recognise, diagnose, recover from errors:</b> say what went wrong and what to do next</li></ul></div>
+
+<div class="fam f3"><h2>Family 3 &middot; Is it predictable and efficient?</h2><ul>
+<li><b>4 Consistency and standards:</b> same thing, same look, same word</li>
+<li><b>7 Flexibility and efficiency:</b> shortcuts for repeat users</li>
+<li><b>10 Help and documentation:</b> help at the point of need</li></ul></div>
+
+<h3>Finding format</h3>
+<div class="box">What I saw &middot; Where &middot; Which principle &middot; Proof (screenshot)</div>
+<h3>Three tests before you log it</h3>
+<ol><li>Did I see it, not feel it?</li><li>Does it change what the user can do or understand?</li><li>Is it a problem, not a fix?</li></ol>
+<h3>Severity</h3>
+<div class="box">0 not a problem &middot; 1 cosmetic &middot; 2 minor &middot; 3 major &middot; 4 catastrophe<br>Ask: how often? how bad? does it keep happening?</div>
+<h3>Walkthrough (each step of one task): a "no" to any is a finding</h3>
+<ol><li>Will they try to do the right thing at this step?</li><li>Will they notice the right action is available?</li><li>Will they connect that action with what they're trying to do?</li><li>After they act, will they see that it worked?</li></ol>
+<h3>Take-home accessibility check (WCAG 2.1 AA)</h3>
+<ul class="plain"><li>Contrast: 4.5:1 for text, 3:1 for UI parts</li><li>Not colour alone</li><li>Visible labels, not just placeholders</li><li>Tap targets about 44 pt (best practice)</li></ul>
+</body></html>

@@ -194,8 +194,8 @@ What the research does constrain, and what any activity design needs to satisfy:
 | `03-develop/design-system` (Atomic Design) | Atoms/molecules/organisms vocabulary, library architecture | Teach the atomic taxonomy. Layer 5 stops at component anatomy and reuse logic |
 | S7 AI Prototype Development | Build loop, correcting AI output, tokens in practice | Teach prototyping mechanics. It hands over the tokens and the checklist only |
 | S8 Interaction Design & Critique | All UI states, task vs user flows, critique format | Teach state design or run a full critique. Progress, defaults and success states belong there |
-| `Library/guides/how-to-give-design-critique` | Critique protocol | Redefine a critique format |
-| `Library/frameworks/framework-nielsen-usability-heuristics.md` | The 10 heuristics | Restate all ten. Pull heuristics 5 and 6 only |
+| `library/guides/how-to-give-design-critique` | Critique protocol | Redefine a critique format |
+| `library/frameworks/framework-nielsen-usability-heuristics.md` | The 10 heuristics | Restate all ten. Pull heuristics 5 and 6 only |
 
 ---
 
@@ -231,7 +231,7 @@ What the research does constrain, and what any activity design needs to satisfy:
 - Gestalt common region, a clean visual explainer suitable for beginners
 - Type scale: a defensible ratio-based method rather than "pick these sizes"
 - F-pattern / layer-cake scanning: the NN/g eyetracking source
-- Legacy material to mine: `Source/my-teaching/ui-ux-class/ui-ux-class-oct-2019/Day 2 - Color Theory.pdf` and `Day 4 to 6 - Design Components.key`; `Source/my-teaching/internal-uiux-class/week-2/` has a typescale reference image and moodboard set
+- Legacy material to mine: `source/my-teaching/ui-ux-class/ui-ux-class-oct-2019/Day 2 - Color Theory.pdf` and `Day 4 to 6 - Design Components.key`; `source/my-teaching/internal-uiux-class/week-2/` has a typescale reference image and moodboard set
 
 ---
 

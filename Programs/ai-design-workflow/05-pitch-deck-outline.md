@@ -304,7 +304,7 @@ last_synced: 2026-10-07
   - Dạy chương trình 1:1 về systematic AI prototyping
   - Cách dạy: framework trước, làm trên case thật, AI là đối tác tư duy
 - Speaker notes:
-  - Nội dung lấy từ coaching plan của các chương trình private training và từ `business/profile/winnie-teaching-profile.md`; **không nêu tên mentee, không nêu tên employer, không dùng testimonial**
+  - Nội dung lấy từ coaching plan của các chương trình private training và từ `business/profile/winnie-profile.md`; **không nêu tên mentee, không nêu tên employer, không dùng testimonial**
   - Mỗi chương trình 1:1 đều bắt đầu bằng đánh giá năng lực, có kế hoạch cá nhân, học trên một case thật của chính người học (ví dụ một flow đang làm ở công ty, một dự án redesign, một prototype cho portfolio); đây chính là khuôn mình dùng cho khoá này
   - Systematic AI prototyping đã được mình dạy 1:1 trước khi đưa vào khoá; nói điều này khi có người hỏi "bạn đã dạy phần này chưa", **không nói thành kết quả đã đo**
   - Ba nguyên tắc dạy: framework trước rồi mới tự do; làm ra thứ có thể chỉ vào và nói "mình đã làm cái này"; AI giúp nghĩ ở mức cao hơn, không phải đường tắt

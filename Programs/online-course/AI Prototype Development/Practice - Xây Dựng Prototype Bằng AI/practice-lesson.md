@@ -4,7 +4,7 @@ subtitle: "Build các journey còn lại, mở rộng design system đúng lúc,
 course: Systematic AI Prototyping for Product Designers
 section: practice
 position: "Giữa Section 4 (Xây Dựng AI Prototype bằng Figma Make) và Section 5 (Stitching Prototype) — không đánh số Section riêng, theo quyết định restructure khóa học tháng 8/2026"
-source-lesson: Library/lessons/ai-prototype-development/materials/ai-prototype-development-lesson.md
+source-lesson: library/lessons/ai-prototype-development/materials/ai-prototype-development-lesson.md
 last-updated: 2026-08-17
 language: vi
 ---

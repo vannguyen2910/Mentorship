@@ -1,10 +1,10 @@
 # Lesson 1: Stop Starting From Zero
 
-> **Source of truth:** this file now documents the actual, final built deck (`AI Prototyping - Lesson 1.html`, in `Library/lessons/03-develop/ai-prototype-development/standalone program/`). It was reverse-synced from the live deck on 2026-09-15, so wording, order, and structure here should match what's on screen exactly.
+> **Source of truth:** this file now documents the actual, final built deck (`AI Prototyping - Lesson 1.html`, in `library/lessons/03-develop/ai-prototype-development/standalone program/`). It was reverse-synced from the live deck on 2026-09-15, so wording, order, and structure here should match what's on screen exactly.
 > `lesson-1-project-setup-pattern-first-method.md` remains the source of truth for teaching content, timing, and instructor notes. If the two ever disagree going forward, treat the live deck as the presentation reality and flag the lesson file for reconciliation rather than silently trusting either one.
 > **Reconciled 2026-09-18:** the "Build It" gap this note used to flag (lesson file still taught Pre-Flight/token-sync/component-inventory as Lesson 1 content, deck had already moved them out) is now fixed — `lesson-1-project-setup-pattern-first-method.md` was updated to match this deck, and that content now opens `lesson-2-interaction-pattern-build-editing-craft.md` instead. The two smaller mismatches noted below (file path/name, and the CARE "Action" vs "Ask" wording) are now resolved — see the note below dated 2026-09-19.
 > **Speaker notes below are written as a teaching narrative, not scannable reference bullets** — connected sentences a facilitator can read or paraphrase aloud in order, explaining the *why* behind each beat, not just naming it. This is a deliberate departure from the standard "3–6 bullets" speaker-note convention for this file specifically, at Winnie's request, to make live 1:1 delivery smoother. The bolded sentence inside each note is the one beat not to skip if the rest gets compressed.
-> **Both mismatches from the original sync are now resolved (checked 2026-09-19):** (1) the "Prompt to use" section below points at the deck's actual current location, `Library/lessons/03-develop/ai-prototype-development/standalone program/AI Prototyping - Lesson 1.html` — confirmed against the file on disk. (2) On slide 1.8 (CARE), the built deck's on-slide title is simply "CARE." — there is no spelled-out "Context → Action → Rules → Examples" line in it, and the speaker notes already say "Ask," matching this outline and the CARE framework everywhere else in the project. Nothing further to fix here.
+> **Both mismatches from the original sync are now resolved (checked 2026-09-19):** (1) the "Prompt to use" section below points at the deck's actual current location, `library/lessons/03-develop/ai-prototype-development/standalone program/AI Prototyping - Lesson 1.html` — confirmed against the file on disk. (2) On slide 1.8 (CARE), the built deck's on-slide title is simply "CARE." — there is no spelled-out "Context → Action → Rules → Examples" line in it, and the speaker notes already say "Ask," matching this outline and the CARE framework everywhere else in the project. Nothing further to fix here.
 > **Structural change from the previous version of this outline:** the old Why → What → How → Do shape (pattern-first "4 steps," a standalone AI-tool comparison table, and a "Build It" phase of Pre-Flight / sync tokens / generate component inventory) is gone from this deck. The live deck runs Cover → **Section 1: AI Foundation** → **Section 2: Project Setup** → **Section 3: The Problem** → **Section 4: The Solution: Your Design Pattern**. The Closing slide's own notes confirm "Build It" has been split into a separate Lesson 2 draft.
 
 ---
@@ -15,7 +15,7 @@
 Using the outline in this file, update the HTML slide deck for Systematic AI Prototyping — Lesson 1 (Stop Starting From Zero).
 
 Follow the rules in _Config/rules/SLIDE_DECK_RULES.md exactly.
-File: Library/lessons/03-develop/ai-prototype-development/standalone program/AI Prototyping - Lesson 1.html
+File: library/lessons/03-develop/ai-prototype-development/standalone program/AI Prototyping - Lesson 1.html
 
 VISUAL DESIGN DIRECTION — apply globally to every slide:
 

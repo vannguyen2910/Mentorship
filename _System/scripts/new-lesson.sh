@@ -12,7 +12,7 @@
 #   ./new-lesson.sh lesson 03-develop/user-journey-mapping
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-BUILD="$REPO_ROOT/Library/build.py"
+BUILD="$REPO_ROOT/library/build.py"
 
 if [ -z "$1" ] || [ -z "$2" ]; then
   echo "Usage: ./new-lesson.sh <type> <folder-name>"

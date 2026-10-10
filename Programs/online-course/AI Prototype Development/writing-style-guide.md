@@ -1,5 +1,7 @@
 # Voice & Writing Style Guide — AI Prototype Development Course
 
+> **Cập nhật 2026-10-06:** quy tắc giọng văn, từ vựng và ngôn ngữ trên slide giờ nằm ở `_system/rules/VI_VOICE.md`. Khi có mâu thuẫn, `VI_VOICE.md` thắng. File này vẫn là nguồn cho cấu trúc riêng của khoá AI Prototype Development (format teleprompter, cấu trúc Practice/Bài Tập, format outline của khoá).
+
 Quy tắc viết Vietnamese lesson content, slide outline, và teleprompter script cho khoá học AI Prototype Development (và có thể áp dụng cho các nội dung mentoring khác của Winnie). File này là nguồn tham chiếu chính khi viết hoặc chỉnh sửa `*-lesson.md`, `*-slide-outline.md`, hay teleprompter script.
 
 ---

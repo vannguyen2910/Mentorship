@@ -1,0 +1,186 @@
+[
+ {
+  "index": 1,
+  "notes": "• Chào mừng cả lớp. Hôm nay mình chuyển từ hiểu vấn đề sang tạo ra giải pháp\n• Ban đầu sẽ hơi khó chịu: luật chơi của ideation khác với cách làm design thường ngày\n• Nhắc học viên để sẵn hai thứ trên bàn: problem statement và current-state user flow\n• 90 phút, bảy phần, ba activity thực hành, còn lại là phần dạy ngắn"
+ },
+ {
+  "index": 2,
+  "notes": "• Bảy phần, 90 phút, ba activity thực hành\n• Crazy 8s chỉ giải thích hôm nay, về nhà mới chạy\n• Storyboard giới thiệu hôm nay, làm trong bài tập\n• Validation là phần mới: kiểm tra concept trước khi làm prototype\n• Tập trung vào ba activity, đó là chỗ học được nhiều nhất"
+ },
+ {
+  "index": 3,
+  "notes": "• Đọc to tiêu đề, rồi nhắc lại \"almost never\"\n• Ví dụ: Grab muốn tăng đơn đặt xe. Ý tưởng đầu tiên thường là \"thêm mã giảm giá\". Đó là giải pháp dễ nghĩ nhất, chưa chắc tốt nhất\n• Lỗi phổ biến nhất: chốt quá sớm, chưa khám phá đủ rộng\n• Giá trị của ideation là quãng đường đi từ giả định ban đầu của bạn\n• Nếu cuối buổi quay về đúng chỗ xuất phát thì buổi học chưa đạt, dù ý tưởng đó có hay"
+ },
+ {
+  "index": 4,
+  "notes": "• Nhắc lại luật này ở đầu mỗi activity tạo ý tưởng\n• Không nói \"cái đó không chạy đâu\", \"có app làm rồi\". Ghi hết xuống\n• Ý tưởng dở là nhiên liệu cho ý tưởng hay. Ví dụ: \"giao hàng bằng drone\" nghe dở, nhưng dẫn tới \"điểm nhận hàng chung trong chung cư\"\n• Đánh giá để sau: phần Prioritisation dành cho việc đó\n• Lúc này thất bại duy nhất là dừng quá sớm"
+ },
+ {
+  "index": 5,
+  "notes": "• Công cụ bị đánh giá thấp nhất, và hầu hết team bỏ qua\n• Họ đi thẳng từ problem statement sang brainstorm\n• Khoảng 33 phút, gồm flow review và Activity 1"
+ },
+ {
+  "index": 6,
+  "notes": "• Khung hình ảnh nối một outcome với các cơ hội của người dùng, rồi tới giải pháp cho từng cơ hội\n• Nó làm rõ mối liên hệ giữa nhu cầu người dùng và hướng thiết kế\n• Không có cây, brainstorm vào khoảng trống; có cây, mỗi ý tưởng neo vào một nhu cầu\n• Lợi ích về sau: khi stakeholder hỏi \"sao mình làm cái này?\" bạn có câu trả lời gọn\n• Ví dụ Spotify: outcome \"tăng số người nghe mỗi tuần\". Opportunity \"người dùng khó tìm nhạc mới hợp gu\". Solution: Discover Weekly, Daily Mix\n• Cây đầy đủ của Torres còn lớp thứ tư: assumption test dưới mỗi giải pháp (Part 4)"
+ },
+ {
+  "index": 7,
+  "notes": "• Ví dụ để bạn nắm: outcome \"tăng tỉ lệ proposal được phản hồi trong 48 giờ\"\n• Opportunity: \"freelancer khó giữ cuộc trò chuyện vì follow-up giống như đi nhắc nợ\"\n• Solution: nhắc lịch tự động, hộp thư quyết định đang chờ, check-in nhẹ sau 48 giờ\n• Outcome tốt là thay đổi hành vi đo được. Ví dụ Duolingo: \"tăng số người học 3 ngày liên tiếp\"\n• Opportunity KHÔNG phải solution. \"Hệ thống thông báo tốt hơn\" là solution đội lốt\n• Công thức: \"Người dùng khó [nhu cầu] vì [rào cản]\". Thiếu chữ \"vì\" nghĩa là đang đoán"
+ },
+ {
+  "index": 8,
+  "notes": "• Bước 2 không bắt đầu từ con số không: mỗi HMW từ Define là một opportunity tiềm năng, viết lại thành \"users struggle to… because…\"\n• Bước 3 khó nhất: não sẽ nhảy sang giải pháp, hãy kéo nó về lại các opportunity\n• Giải pháp chỉ đến sau khi đã có opportunity\n• Opportunity đến từ research, không phải trí tưởng tượng. Nếu bạn đoán, ghi rõ là giả thuyết\n• Opportunity chưa có solution nghĩa là chưa nghĩ đủ sâu, không phải không có giải pháp\n• Nhánh dày và chỗ trống chính là tín hiệu"
+ },
+ {
+  "index": 9,
+  "notes": "• Tuỳ chọn: bỏ slide này nếu Part 1 đã quá 33 phút, đi thẳng sang ví dụ Go1\n• Opportunity được viết bằng giọng của người dùng\n• Ba solution cùng truy về một opportunity. Đó là kỷ luật của cây\n• Opportunity 2 chưa có solution: cây làm lỗ hổng lộ ra"
+ },
+ {
+  "index": 10,
+  "notes": "• Outcome: đưa khách hàng mid-market lên hệ thống nhanh hơn để mở rộng quy mô\n• Gắn với chỉ số đo được: time to value, từ lúc ký hợp đồng đến khi 30% learner dùng nội dung\n• Opportunity: giảm thời gian trình bày danh sách nội dung đã được chọn lọc\n• Solution: tự động curation, nâng cấp tìm kiếm, gắn tag kỹ năng cho nội dung\n• Rối hơn cây Disney. Cây thật thì vậy. Quan trọng: mỗi solution truy về opportunity, mỗi opportunity truy về outcome"
+ },
+ {
+  "index": 11,
+  "notes": "• Cây nằm trong không gian người dùng, flow nằm trong không gian sản phẩm. Cho chúng nói chuyện với nhau\n• Đặt flow và cây cạnh nhau; mỗi điểm ma sát phải chỉ tới một opportunity\n• Ví dụ flow đặt đồ ăn trên ShopeeFood: bước chọn địa chỉ bị sai, bước chờ tài xế quá lâu. Mỗi chỗ đó là một opportunity ứng viên\n• Opportunity không khớp bước nào: hoặc flow thiếu, hoặc opportunity yếu hơn bạn nghĩ\n• Hướng đi: ma sát dồn vào một bước thì cải thiện; rải khắp flow thì nghĩ lại cả flow\n• Câu này bạn viết ở Activity 1, Round 3: nó là mỏ neo cho mọi thứ bạn phác thảo sau đó"
+ },
+ {
+  "index": 12,
+  "notes": "• Dùng problem statement của bạn, hoặc kịch bản freelancer gửi proposal trên slide thực hành\n• Nhắc: round 1 chưa nghĩ solution, không đánh giá\n• Round 3: nối mỗi điểm ma sát với opportunity của nó; thêm opportunity còn thiếu\n• Chưa có flow? Dùng 5–7 bước freelancer làm sau khi gửi proposal, đánh dấu chỗ bạn đoán sẽ vướng\n• Debrief ngay trong round 4, không thêm thời gian: nhánh nào làm bạn bất ngờ?\n• Bấm giờ. Câu direction là mỏ neo cho mọi thứ bạn phác thảo tiếp theo"
+ },
+ {
+  "index": 13,
+  "notes": "• Mười lăm phút: khoảng ba phút giải thích, rồi Activity 2 (12 phút) chạy trực tiếp trong lớp\n• Giải thích ngắn rồi vẽ ngay, không để về nhà"
+ },
+ {
+  "index": 14,
+  "notes": "• Crazy 8s là bài tập phác thảo có giới hạn thời gian, lấy từ Design Sprint (Jake Knapp, Google Ventures)\n• What: gấp tờ giấy thành 8 ô, vẽ 8 ý tưởng khác nhau trong 8 phút, mỗi ô khoảng 1 phút\n• Why: ý tưởng đầu tiên hiếm khi là ý tưởng tốt nhất. Giới hạn thời gian ngăn bạn chỉnh sửa và ép bạn đi qua những ý tưởng hiển nhiên\n• When: sau khi đã có hướng đi từ opportunity tree, trước khi chọn concept để phác chi tiết\n• Ví dụ: bài toán \"đặt bàn nhà hàng\" cho ra 8 hướng: chat, giọng nói, đặt chung với bạn bè, trả trước, theo tâm trạng..."
+ },
+ {
+  "index": 15,
+  "notes": "• Từ Design Sprint (Jake Knapp, Google Ventures)\n• Phần lớn người dùng ý tưởng tốt nhất vào ý tưởng hợp lý đầu tiên; giới hạn thời gian ép bạn đi tiếp\n• Hộp, mũi tên, nhãn, người que. Đọc hiểu trong 15 giây\n• Bẫy: tám biến thể của một ý tưởng. Hãy nhắm tám hướng tiếp cận, trong đó có một cái đi ngược lẽ thường. Ví dụ cho \"đặt bàn nhà hàng\": đặt qua chat, đặt bằng giọng nói, đặt chung với bạn bè, đặt trả trước, đặt theo tâm trạng"
+ },
+ {
+  "index": 16,
+  "notes": "• Workshop về thực phẩm địa phương bền vững. Trái: các HMW theo nhóm, dot vote im lặng\n• Phải: Crazy 8s của bốn người tham gia. Nhanh, thô, có nhãn\n• Có ô chi tiết, có ô chỉ một logo và một nhãn. Không sao cả\n• Kết quả là độ rộng, không phải độ bóng bẩy\n• Các chấm cho thấy team tò mò ở đâu: đó là nơi cuộc trò chuyện tiếp theo bắt đầu"
+ },
+ {
+  "index": 17,
+  "notes": "• Activity 2 chạy trong lớp, 12 phút: 2 phút gấp giấy và chọn opportunity, 8 phút vẽ, 2 phút khoanh và chia sẻ\n• Nhắc luật: không đánh giá khi đang tạo ý tưởng. Điền hết 8 ô trước khi nghĩ ô nào hay\n• Bẫy: tám biến thể của một ý tưởng. Nhắm tám hướng khác nhau, trong đó có một hướng đi ngược lẽ thường\n• Tuỳ chọn sau khi xong: hỏi AI chat \"What assumption do all 8 share? Give me 3 ideas that break it\". Ví dụ: tám ý đều là app thì giả định chung là \"giải pháp phải là app\"\n• Bấm giờ"
+ },
+ {
+  "index": 18,
+  "notes": "• Bạn đã có hướng đi; giờ làm cho chúng đọc hiểu được\n• Khoảng 13 phút, gồm demo trực tiếp 2 phút và 8 phút phác thảo ở Activity 3"
+ },
+ {
+  "index": 19,
+  "notes": "• What: một hình vẽ thô cho một ý tưởng, cho thấy cấu trúc cốt lõi, tương tác chính và điểm khác biệt\n• Why: bản phác đọc, hỏi và test được trong vài phút. Nó làm lộ logic chưa rõ trước khi bỏ thời gian làm prototype\n• When: sau Crazy 8s hoặc opportunity tree, khi đã có ý tưởng triển vọng, trước khi validate hoặc làm prototype\n• Ví dụ: sau Crazy 8s cho \"đặt bàn nhà hàng\", chọn ô \"đặt bằng giọng nói\" và phác màn hình chính cùng nhãn thành phần"
+ },
+ {
+  "index": 20,
+  "notes": "• Một hình vẽ thô cho một ý tưởng\n• Phép thử: người không có mặt trong phòng có hiểu cấu trúc, tương tác và logic khác biệt không?\n• Nếu phải thuyết minh thì cách sửa là thêm nhãn, không phải làm đẹp hơn\n• Bốn phần của bản phác thảo hoàn chỉnh: khoảnh khắc chính, nhãn thành phần, ghi chú ý đồ, \"This works because...\""
+ },
+ {
+  "index": 21,
+  "notes": "• Chọn ý tưởng làm bạn bất ngờ, không phải ý tưởng chỉn chu nhất\n• Một màn hình hoặc một tương tác, khoảnh khắc làm concept dễ hiểu\n• Bản phác nhãn rõ nét nguệch ngoạc hơn màn hình đẹp nhưng không nhãn\n• Quy tắc hay vấp: hoàn thành \"This works because...\" Không viết được thì quay lại cây\n• Demo 2 phút: phác một concept trên board chung, nói to bạn gắn nhãn gì trước, dừng ở chỗ nó bị vướng. Ví dụ: nút \"Chia tiền\" trong app Momo, ghi nhãn \"ai trả trước\", \"ai nợ ai\""
+ },
+ {
+  "index": 22,
+  "notes": "• Ví dụ thật của Anh Truong: một sản phẩm mở khoá ghế bằng QR, phác hai hành trình\n• Hành trình 1: quét QR, đặt chỗ, thanh toán. Hành trình 2: tải app trước rồi mới quét QR\n• Mỗi hành trình có panel đánh số, nhãn thành phần viết tay, và phần Pros / Cons ở dưới\n• Để ý: các sticky note bên cạnh là phản hồi của team, ví dụ \"cần tải app để mở khoá\" làm đổi cả hành trình\n• Chỉ cho học viên: bản phác thô nhưng người ngoài vẫn đọc được cấu trúc và lý do chọn"
+ },
+ {
+  "index": 23,
+  "notes": "• Ví dụ thật: concept sketching 10 phút cho sản phẩm nông nghiệp đô thị\n• Ba hàng là ba concept khác nhau: The Seasonal Pack, luồng đối tác nông trại, Phygital Grocery Shopping\n• Mức độ hoàn thiện khác nhau: có hàng là wireframe, có hàng chỉ là sơ đồ và ký hiệu\n• Hỏi lớp: concept nào đọc hiểu nhanh nhất trong 30 giây, và vì sao?\n• Liên hệ cold read: người chưa thấy bao giờ có biết hàng nào làm gì, cho ai không?"
+ },
+ {
+  "index": 24,
+  "notes": "• Giải pháp mạnh nhất trên cây của bạn, hoặc ô Crazy 8s tốt nhất nếu đã chạy\n• Một màn hình, nhãn chứ không phải bóng bẩy, hoàn thành \"This works because...\"\n• Đôi khi phác thảo giết chết một ý tưởng. Hệ thống đang làm đúng việc của nó\n• Giữ lại bản phác: bạn dùng nó để thực hành các cách validation trong bài tập"
+ },
+ {
+  "index": 25,
+  "notes": "• Phác thảo cho thấy một khoảnh khắc; storyboard cho thấy cả hành trình\n• Khoảng 5 phút giới thiệu hôm nay. Học viên tự làm storyboard trong bài tập, cho concept sống sót"
+ },
+ {
+  "index": 26,
+  "notes": "• What: chuỗi 3–5 panel theo một người dùng từ bối cảnh, trigger, hành động, đến kết quả và cảm xúc\n• Why: một màn hình có thể đẹp nhưng hỏng khi thành flow. Storyboard cho thấy flow vỡ ở đâu và người dùng cảm thấy thế nào ở cuối\n• When: sau khi concept đã qua các bước kiểm tra đầu tiên, trước khi làm prototype\n• Ví dụ: đặt vé máy bay thành công nhưng phải trả thêm phí hành lý ở bước cuối. Panel cảm xúc là \"bị lừa\""
+ },
+ {
+  "index": 27,
+  "notes": "• Một màn hình có thể đẹp nhưng không dùng được khi thành flow\n• Thường 3–4 panel là đủ; dành khoảng 20 phút\n• Cảm xúc quan trọng: người dùng hoàn thành tác vụ nhưng rời đi thấy tệ hơn\n• Ví dụ: đặt vé máy bay thành công nhưng phải trả thêm phí hành lý ở bước cuối. Panel cảm xúc là \"bị lừa\"\n• Nếu panel cảm xúc xấu thì concept xấu\n• Bạn làm một storyboard trong bài tập, cho concept sống sót, không phải hôm nay"
+ },
+ {
+  "index": 28,
+  "notes": "• Theo một HR manager qua cả vòng cung\n• Mở đầu bằng trigger: cô ấy thấy banner về nội dung đề xuất\n• Hành động: nêu nhu cầu, xem danh sách, tinh chỉnh, chia sẻ với team\n• Kết bằng cảm xúc: cả team vui vì tiết kiệm được thời gian\n• Nó bắt đầu trước sản phẩm, có ma sát, kết bằng cảm xúc, dùng giọng của chính người dùng"
+ },
+ {
+  "index": 29,
+  "notes": "• Ví dụ thứ hai: storyboard UX của Amazon Go, theo Emilia (24 tuổi, động cơ: mua đồ tạp hoá)\n• Kịch bản 1: khách từ 21 tuổi tải ID chính phủ lên app\n• Bên trái ghi rõ persona và hai giai đoạn: Onboarding ở nhà, Shopping in store ở cửa hàng\n• Mỗi panel một câu mô tả, đọc được mà không cần người thuyết minh\n• Kết thúc bằng cảm xúc: cô ấy rời cửa hàng không gặp rắc rối\n• Hỏi lớp: panel nào cho thấy một điểm có thể gây ma sát? (cảm biến PIR, panel 5)"
+ },
+ {
+  "index": 30,
+  "notes": "• Không phải user testing. Không phải prototype. Không phải stakeholder duyệt\n• Một cách kiểm tra có cấu trúc rằng concept có cơ sở, dễ đọc và test được\n• Đi nhanh qua năm cách kiểm tra, mỗi cách khoảng một phút. Thực hành trong bài tập\n• Khoảng 5 phút"
+ },
+ {
+  "index": 31,
+  "notes": "• Hầu hết designer bỏ qua validation vì nghĩ nó tốn thời gian. Thực ra mỗi cách dưới đây chỉ mất 2–10 phút\n• Chi phí bỏ qua: làm prototype hai tuần rồi mới biết người dùng không hiểu concept\n• Năm cách, mỗi cách một slide, cùng cấu trúc: What, When, Why, How. Hôm nay chỉ đi nhanh qua từng cách, thực hành trong bài tập\n• Cách chọn: concept chưa rõ ràng thì cold read; nhiều hướng thì comparison; nhiều bước thì walkthrough; còn lại thì rationale và audit"
+ },
+ {
+  "index": 32,
+  "notes": "• What: cho xem bản phác 30 giây rồi giấu đi, hỏi nó làm gì và dành cho ai\n• When: ngay sau khi phác concept, trước khi thêm chi tiết\n• Why: người lạ không đọc được thì người dùng cũng không. Bắt được lỗi thiếu nhãn và giá trị không rõ\n• How: không nói gì, cho xem 30 giây, giấu đi, hỏi hai câu, ghi lại chỗ ngập ngừng\n• Ví dụ: concept nút \"Chia tiền\" trong Momo. Nếu người xem nghĩ đó là nút chuyển tiền thường thì nhãn và ngữ cảnh chưa đủ\n• Học một mình? Để bản phác sang hôm sau rồi đọc lại như người lạ, hoặc nhờ người nhà xem"
+ },
+ {
+  "index": 33,
+  "notes": "• What: đặt hai concept cạnh nhau, hỏi người xem sẽ dùng cái nào và vì sao\n• When: có từ hai hướng trở lên và chưa chọn được\n• Why: so sánh dễ hơn đánh giá một ý tưởng đơn lẻ. Lý do quan trọng hơn số phiếu\n• How: phác hai concept cho cùng một tác vụ, hỏi chọn cái nào, hỏi vì sao và còn thiếu gì, ghi lại lý do\n• Ví dụ Grab: hai hướng \"hiện giá cước trước khi đặt\" và \"so sánh nhiều loại xe\". Hỏi 5 người chọn cái nào cho chuyến đi sáng đi làm\n• Đừng hỏi \"bạn có thích không\". Người ta lịch sự nên hay nói có"
+ },
+ {
+  "index": 34,
+  "notes": "• What: dẫn người xem qua storyboard từng panel, hỏi họ mong đợi điều gì tiếp theo\n• When: concept có nhiều bước và storyboard đã vẽ xong\n• Why: một màn hình đẹp vẫn có thể hỏng khi thành flow. Kỳ vọng sai chỉ ra bước hỏng\n• How: che các panel trừ panel đầu, hỏi họ sẽ làm gì, lật panel tiếp theo hỏi có đúng như mong đợi, đánh dấu chỗ lệch\n• Ví dụ: đặt vé máy bay, panel cuối hiện phí hành lý. Người xem nói \"ủa, sao có phí nữa?\" chính là chỗ lệch kỳ vọng\n• Học viên làm bước này cho concept sống sót sau khi vẽ storyboard trong bài tập"
+ },
+ {
+  "index": 35,
+  "notes": "• What: nói to \"This works because...\" trong một câu, không rào đón\n• When: trước khi cho ai xem concept\n• Why: các từ \"nhưng\", \"nếu\", \"giả sử\" giấu giả định. Không tốn gì, hai phút là xong\n• How: viết câu, nói không dừng, khoanh các từ rào đón, mỗi từ khoanh là một giả định cần test\n• Yếu: \"Khách sẽ thấy nhắc nhở, nếu họ bật thông báo.\" Mạnh: \"Nó nhắc đúng ngày hạn quyết định của khách đóng lại\"\n• Bản mạnh vẫn có giả định, nhưng nằm ngoài câu, nơi test được"
+ },
+ {
+  "index": 36,
+  "notes": "• Hãy đi rộng: ý tưởng đơn giản cũng ẩn 20–30 giả định, phần lớn vô hại\n• Viết sao cho bạn cần nó đúng (\"khách sẽ nhớ mật khẩu\"), đủ cụ thể để test\n• Gắn loại để không sót nhóm nào. Dùng được khác với muốn dùng\n• Ví dụ: \"freelancer sẽ kết nối proposal lúc gửi\" có evidence 2, importance 5 nên nút nhắc không bao giờ chạy. Đó là giả định rủi ro nhất\n• Prototype test giả định rủi ro nhất trước"
+ },
+ {
+  "index": 37,
+  "notes": "• Không có cấu trúc, team sẽ chọn ý tưởng người cấp cao thích, ý tưởng được pitch tự tin nhất, hoặc ý tưởng ghi đầu tiên\n• Không lý do nào trong đó đủ để xây một sản phẩm\n• 5 phút: ma trận, một ví dụ mẫu, và giao bài tập về nhà"
+ },
+ {
+  "index": 38,
+  "notes": "• Impact: giá trị cho người dùng. Effort: chi phí xây và validate\n• Quick win làm trước; strategic bet cần validate trước khi cam kết; trap bỏ hoặc hoãn\n• Ví dụ Grab: \"hiện giá cước trước khi đặt\" là quick win. \"Siêu app thanh toán\" là strategic bet. \"Tự thiết kế lại logo tài xế\" là fill-in. \"Tự xây bản đồ riêng\" là trap\n• Effort và impact mang tính tương đối. Q1 của team này có thể là Q2 của team khác\n• Đây là công cụ trò chuyện, không phải bảng xếp hạng khách quan\n• Làm mẫu trực tiếp (2 phút): đặt ba solution từ cây freelancer lên ma trận, nói to lý do. Học viên làm của mình ở bước 1 bài tập"
+ },
+ {
+  "index": 39,
+  "notes": "• Ba phút. AI giúp ở đâu trong giai đoạn này, và hại ở đâu\n• Không chỉ prompt chat: còn có workflow đọc artifact của bạn và đối chiếu chéo\n• Chi tiết nằm trong bài học (Part 7). Phần mở rộng tuỳ chọn nằm trong bài tập"
+ },
+ {
+  "index": 40,
+  "notes": "• Brainstorm có AI thường cho tập ý tưởng hẹp hơn: công cụ trả về những câu trả lời có khả năng cao nhất\n• Vì vậy hãy tự tạo ý tưởng trước, rồi mới hỏi công cụ \"tám ý này chung giả định nào?\"\n• Mọi thứ AI tạo ra chỉ là giả thuyết cho tới khi truy được về research\n• Muốn mở rộng đầu ra, hãy đổi đầu vào: persona hoặc ràng buộc khác, dùng nhiều hơn một công cụ\n• Bạn quyết định. AI mở rộng, nối, kiểm tra và soạn nháp"
+ },
+ {
+  "index": 41,
+  "notes": "• Một ý duy nhất: kết quả của bước này là đầu vào của bước sau\n• Chỉ vào chuỗi từ trái sang phải: insight, outcome, opportunity, solution, assumption, prototype test\n• Mỗi mục có ID và nguồn, ví dụ I3 → O2 → S2.1 → A4\n• Quy tắc: không có parent thì không có solution. Solution không nối được về artifact trước là solution lơ lửng\n• Đưa artifact cho AI và bắt nó trích dẫn ID. Không trích dẫn nghĩa là đoán"
+ },
+ {
+  "index": 42,
+  "notes": "• Cách dùng AI ngoài chat: một vòng lặp lặp lại được\n• Trigger (có insight mới) → lấy ngữ cảnh từ research, whiteboard, file thiết kế (ví dụ qua MCP) → tạo đề xuất → nối với artifact → bạn duyệt → đóng gói bàn giao cho prototype\n• Chỉ vào bước 5: Human review. Đây là bước bạn quyết định\n• Ví dụ: insight mới đề xuất chỉnh cây; kiểm tra orphan báo solution chưa nối\n• Phần mở rộng tuỳ chọn nằm trong bài tập"
+ },
+ {
+  "index": 43,
+  "notes": "• Một bước cụ thể trong workflow: lấy kết quả Crazy 8s làm đầu vào, đưa một prompt, nhận lại giả định chung và ba ý tưởng phá giả định đó\n• Nhắc lại: tự tạo ý tưởng trước, rồi mới hỏi AI\n• Bước bạn kiểm tra: mỗi ý tưởng mới có truy được về một opportunity trên cây không? Nếu không, nó đang lơ lửng\n• Bạn quyết định. AI chỉ thách thức và gợi ý"
+ },
+ {
+  "index": 44,
+  "notes": "• Tổng khoảng 2,5 giờ\n• Bước 1 là prioritisation đã làm mẫu trên lớp: đặt mọi solution của cây lên ma trận, chọn hai\n• Concept thứ hai phải đi ngược một giả định của concept đầu, không phải biến thể\n• Chỉ storyboard concept sống sót, để công sức dồn vào ý tưởng xứng đáng\n• Không có PO? Dùng đồng nghiệp hoặc mentor. Ghi lại phản ứng là bối rối, tò mò hay thách thức một giả định\n• Buổi sau bắt đầu từ concept sống sót. Nhắn mình nếu bị kẹt"
+ },
+ {
+  "index": 45,
+  "notes": "• Buổi sau: biến concept sống sót thành prototype bấm được\n• Liên hệ mình giữa các buổi nếu bài tập bị kẹt"
+ },
+ {
+  "index": 46,
+  "notes": "• Chia sẻ khi được hỏi hoặc trong tin nhắn sau buổi học, không trình bày trên lớp\n• Quy trình 5 ngày nén nhiều tháng quyết định vào một tuần\n• Tài liệu: sách Sprint của Jake Knapp, và Google Design Sprint Kit"
+ }
+]

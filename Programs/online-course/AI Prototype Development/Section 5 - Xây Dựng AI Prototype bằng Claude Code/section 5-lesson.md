@@ -3,7 +3,7 @@ title: "Section 5: Xây Dựng AI Prototype bằng Claude Code"
 subtitle: "Từ prototype thị giác sang code thật, có link thật, tự cập nhật mỗi lần bạn sửa"
 course: Systematic AI Prototyping for Product Designers
 section: 5
-source-lesson: Library/lessons/ai-prototype-development/materials/ai-prototype-development-lesson.md
+source-lesson: library/lessons/ai-prototype-development/materials/ai-prototype-development-lesson.md
 last-updated: 2026-08-21
 language: vi
 ---

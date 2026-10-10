@@ -3,7 +3,7 @@ title: "Section 3: Xây Dựng AI Prototype bằng Claude Design"
 subtitle: "Từ file Figma đến Design System sống trong Claude Design, main journey chạy được trong trình duyệt, và chia sẻ nó ra ngoài"
 course: Systematic AI Prototyping for Product Designers
 section: 3
-source-lesson: Library/lessons/ai-prototype-development/materials/ai-prototype-development-lesson.md
+source-lesson: library/lessons/ai-prototype-development/materials/ai-prototype-development-lesson.md
 last-updated: 2026-08-18
 language: vi
 ---

@@ -3,7 +3,7 @@ title: "Section 4: Xây Dựng AI Prototype bằng Figma Make"
 subtitle: "Cùng một prototype pattern, một tool khác — từ Figma Make kit đến prototype chia sẻ được"
 course: Systematic AI Prototyping for Product Designers
 section: 4
-source-lesson: Library/lessons/ai-prototype-development/materials/ai-prototype-development-lesson.md
+source-lesson: library/lessons/ai-prototype-development/materials/ai-prototype-development-lesson.md
 last-updated: 2026-08-17
 language: vi
 ---

@@ -12,7 +12,7 @@
 Using the outline in this file, build an HTML slide deck for Systematic AI Prototyping — Lesson 0 (Program Introduction).
 
 Follow the rules in _Config/rules/SLIDE_DECK_RULES.md exactly.
-File: Library/lessons/03-develop/ai-prototype-development/learning/Systematic AI Prototyping - Lesson 0.dc.html
+File: library/lessons/03-develop/ai-prototype-development/learning/Systematic AI Prototyping - Lesson 0.dc.html
 Copy tokens.css and deck-stage.js locally so the deck is self-contained.
 Match the visual system already established in Build the Framework First.dc.html and Systematic AI Prototyping - Lesson 1.dc.html: same tokens, same layout types, same restraint.
 This deck is short and stays that way: 6 slides, no section dividers, straight through cover to bridge. Don't pad it out to look more substantial than it is.

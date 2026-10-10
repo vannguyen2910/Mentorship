@@ -3,10 +3,10 @@
 sync-lesson.py — Syncs a lesson's markdown → HTML lesson page.
 
 Usage:
-    python3 _System/scripts/sync-lesson.py <lesson-folder-path>
+    python3 _system/scripts/sync-lesson.py <lesson-folder-path>
 
 Example:
-    python3 _System/scripts/sync-lesson.py Library/lessons/synthesis-problem-definition-in-ux
+    python3 _system/scripts/sync-lesson.py library/lessons/synthesis-problem-definition-in-ux
 
 The lesson folder must contain:
   - materials/Synthesis & Problem Definition.md  (or any single .md in materials/)
@@ -85,6 +85,6 @@ def sync(lesson_path: str):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python3 _System/scripts/sync-lesson.py <lesson-folder-path>")
+        print("Usage: python3 _system/scripts/sync-lesson.py <lesson-folder-path>")
         sys.exit(1)
     sync(sys.argv[1])

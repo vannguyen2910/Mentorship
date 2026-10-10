@@ -21,7 +21,7 @@ next-session: ""
 
 # Lesson 4: Present & Publish — Git & GitHub for Non-Technical Designers
 
-*(Objectives locked in from the coaching plan — full lesson content to follow; can draw directly on `Library/guides/publish-your-work-git-github-for-non-technical-designers`, which already covers the publishing half in full.)*
+*(Objectives locked in from the coaching plan — full lesson content to follow; can draw directly on `library/guides/publish-your-work-git-github-for-non-technical-designers`, which already covers the publishing half in full.)*
 
 **Learning Objectives**
 - Frame the finished prototype's story for its audience — the methodology and decisions behind it, not just the finished pixels *(moved here from Lesson 3)*
@@ -54,7 +54,7 @@ Lesson 4 reuses the git/github guide's own reference material; this section will
 
 ## Connection to Curriculum
 
-A private-training adaptation layer on top of `Library/guides/publish-your-work-git-github-for-non-technical-designers`, pointed to directly rather than restated, re-paced for 1:1 delivery. The presentation coaching is the only genuinely new content left to draft in this arc — not covered in that guide or in `03-develop/ai-prototype-development-lesson.md`.
+A private-training adaptation layer on top of `library/guides/publish-your-work-git-github-for-non-technical-designers`, pointed to directly rather than restated, re-paced for 1:1 delivery. The presentation coaching is the only genuinely new content left to draft in this arc — not covered in that guide or in `03-develop/ai-prototype-development-lesson.md`.
 
 ---
 

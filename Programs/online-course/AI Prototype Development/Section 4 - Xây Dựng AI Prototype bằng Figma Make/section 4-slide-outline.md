@@ -13,7 +13,7 @@
 Dùng outline trong file này, build slide deck HTML cho Section 4 - Xây Dựng AI Prototype bằng Figma Make
 (khóa Systematic AI Prototyping for Product Designers, bản tiếng Việt).
 
-Theo đúng rule trong _System/rules/SLIDE_DECK_RULES.md.
+Theo đúng rule trong _system/rules/SLIDE_DECK_RULES.md.
 Copy tokens.css và deck-stage.js vào thư mục Section 4 để deck tự chứa (self-contained).
 
 Kiểm tra dòng "Loại visual" của từng slide trước khi build.

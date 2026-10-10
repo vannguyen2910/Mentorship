@@ -15,7 +15,7 @@
 Using the outline in this file, create an HTML slide deck for Design Thinking for UX Designer.
 
 Follow the rules in _Config/rules/SLIDE_DECK_RULES.md exactly.
-Save the file to Library/lessons/design-thinking/materials/deck.html.
+Save the file to library/lessons/design-thinking/materials/deck.html.
 
 VISUAL DESIGN DIRECTION — apply globally to every slide:
 - Prefer simple diagrams, icons, and visual metaphors over bullet lists.
@@ -229,6 +229,10 @@ VISUAL DESIGN DIRECTION — apply globally to every slide:
   - **Jobs-to-Be-Done mapping** — Functional, emotional, and social jobs. Most design misses emotional and social.
   - **How Might We (HMW)** — Convert each insight into a design opportunity. Not too broad, not too narrow.
   - **Current-state journey mapping** — Map the experience as it actually is, not as it should be.
+- Speaker notes:
+  - HMW sits at the end of Define: insight → HMW → problem statement
+  - Writing and choosing HMW belongs to Define; answering them with ideas belongs to Ideate (next stage)
+  - Hint at the 'HMW ideation' card coming up in Stage 3
 - 🎨 Visual hint: 2×2 grid of cards (green-tinted). Each card with small icon (canvas grid, concentric ovals for JTBD, HMW? bold text, dotted journey line) + name + 1-sentence description.
 
 ---
@@ -240,6 +244,7 @@ VISUAL DESIGN DIRECTION — apply globally to every slide:
 ### STATEMENT · Stage intro (Ideate)
 - Kicker: Stage 3
 - Title: IDEATE
+- Lead: Called "Develop" in the Double Diamond.
 - 🎨 Visual hint: Full-bleed --ochre background. Stage number and title only.
 
 ---

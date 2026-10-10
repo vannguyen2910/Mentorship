@@ -543,7 +543,7 @@ def get_css():
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* ── Mapped to unified design system (_System/Themes/tokens.css) ── */
+      /* ── Mapped to unified design system (_system/Themes/tokens.css) ── */
       --accent:       var(--purple);
       --accent-light: var(--purple-tint);
       --bg:           var(--surface-page);
@@ -932,8 +932,8 @@ def generate_detail_page(material, all_materials, bundle_path):
 
     library_root  = "../../"
     library_index = library_root + "index.html"
-    tokens_path     = "../../../_System/Themes/tokens.css"
-    components_path = "../../../_System/Themes/components.css"
+    tokens_path     = "../../../_system/Themes/tokens.css"
+    components_path = "../../../_system/Themes/components.css"
 
     def mat_link(m):
         return mat_link_from_root(m, library_root)

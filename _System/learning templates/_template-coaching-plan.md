@@ -30,7 +30,7 @@ Prepared by Winnie Nguyen · Senior Product Designer & Mentor
 
 ## About Your Coach
 
-<!-- Pull current bio bullets from Business/profile/winnie-teaching-profile.md — keep this in sync,
+<!-- Pull current bio bullets from business/profile/winnie-profile.md — keep this in sync,
      don't hand-write a new bio each time. -->
 
 ---
@@ -38,7 +38,7 @@ Prepared by Winnie Nguyen · Senior Product Designer & Mentor
 ## Baseline Assessment
 
 <!-- MANDATORY STEP — do this before Session 1, or in Session 1 itself.
-     Run the self-assessment tool (Programs/training-hub/student-design-assessment.html) with the student
+     Run the self-assessment tool (programs/assessment-tool/student-design-assessment.html) with the student
      and save the resulting PDF/summary into their student folder as `assessment-baseline-[date].pdf`.
      This is what the close-out reassessment gets compared against — without this, there's no
      before/after evidence at the end of the programme. -->

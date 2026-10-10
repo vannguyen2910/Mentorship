@@ -2,11 +2,11 @@
 title: "Evaluate Current Experience"
 lesson_file: "evaluate-current-experience-lesson.md"
 level: Junior
-slide_count: 40
+slide_count: 41
 duration: "90 min"
 status: draft
 built_deck: ""
-last_synced: 2026-10-01
+last_synced: 2026-10-07
 ---
 
 > **Source of truth:** `evaluate-current-experience-lesson.md`
@@ -14,7 +14,7 @@ last_synced: 2026-10-01
 > This file contains only slide-specific concerns: layout types, on-slide text, visual hints, kickers, and speaker notes.
 > See `CLAUDE.md` → Lesson file sync rule for what triggers an update on which side.
 
-> **Layout vocabulary is fixed.** Every slide header below uses one of the types documented in `_System/Themes/slide-design/RULES.md`. Activities use `MILESTONE`, assignments use `PRACTICE`, the closing slide uses `END`.
+> **Layout vocabulary is fixed.** Every slide header below uses one of the types documented in `_system/Themes/slide-design/RULES.md`. Activities use `MILESTONE`, assignments use `PRACTICE`, the closing slide uses `END`.
 
 ---
 
@@ -31,9 +31,9 @@ last_synced: 2026-10-01
 
 ---
 
-## Slide structure: 40 slides
+## Slide structure: 41 slides
 
-> **90-minute slot, fully scripted.** Arc: Frame (opinion vs finding) → Method (by stage) → Principles (ten principles plus accessibility) → Guided practice → Severity → Own product, manual → AI assist (brainstorm, `evaluation.md`, `evaluation.html`) → Assignment.
+> **90-minute slot, fully scripted (82 min plus an 8-minute buffer).** Arc: Frame (opinion vs finding) → Method (by stage) → Principles (ten principles plus accessibility) → Guided practice → Severity → Own product, manual → AI assist (brainstorm, `evaluation.md`, `evaluation.html`, three levels) → Assignment.
 > Slides 1 to 34 contain no AI. AI appears from Part 6 (slide 35) onward, by design.
 
 1. Introduction (slides 1 to 2)
@@ -43,8 +43,8 @@ last_synced: 2026-10-01
 5. Part 3: Evaluate together (slides 24 to 27)
 6. Part 4: Rate severity (slides 28 to 32)
 7. Part 5: Your own product (slides 33 to 34)
-8. Part 6: AI as an assistant (slides 35 to 38)
-9. Assignment + Close (slides 39 to 40)
+8. Part 6: AI as an assistant (slides 35 to 39)
+9. Assignment + Close (slides 40 to 41)
 
 ---
 
@@ -52,7 +52,7 @@ last_synced: 2026-10-01
 
 > Applies to every slide. Reuse before you build: the items marked **REUSE** already exist in the former Audit & Desk Research and Customer Understanding decks.
 
-- **Principle slides:** the ten "Heuristic NN / 10" slides are reused from the former Audit & Desk Research deck as is (`assets/heuristic-principle-slides.html`): one principle per slide with a bad and a good UI example. They use generic examples. The food-delivery checkout comes in through the speaker-note bridge, the matching activity and the seeded set.
+- **Principle slides:** the ten "Heuristic NN / 10" slides are reused from the former Audit & Desk Research deck as is (already inside the built deck `slides/Evaluate Current Experience.dc.html`, slides labelled "Heuristic 01 to 10"): one principle per slide with a bad and a good UI example. They use generic examples. The food-delivery checkout comes in through the speaker-note bridge, the matching activity and the seeded set.
 - **One thread:** the food-delivery checkout. The live demo uses a real screenshot (slide 3). Illustration slides use one original, neutral mock checkout so no real brand UI appears in the deck.
 - **Pins:** numbered --sienna pins mark issues on any screen. A pin keeps the same number from the moment it appears until it is plotted on the 2x2.
 - **Family colours:** the three heuristic families get three fixed tints (see/understand, control/recover, predictable/efficient), used on the overview page, the ten principle slides, the cheat sheet and the evaluation table.
@@ -268,7 +268,7 @@ last_synced: 2026-10-01
   - Checkout bridge: after Place Order, the screen sits on a spinner with no confirmation.
   - Often confused with 9: this is feedback on any action, 9 is about failures
   - **Look for silence: spinners, frozen states, no confirmation**
-- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 01: Visibility of system status", copied to `assets/heuristic-principle-slides.html`. Layout: left column with mono label "HEURISTIC 01 / 10", large 01 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is upload report: a file row "Report.pdf" with nothing shown during the wait. Good is same row with a progress bar, "64% · about 12 seconds left", and a Cancel button. Do not restyle.
+- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 01: Visibility of system status", already in the built deck. Layout: left column with mono label "HEURISTIC 01 / 10", large 01 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is upload report: a file row "Report.pdf" with nothing shown during the wait. Good is same row with a progress bar, "64% · about 12 seconds left", and a Cancel button. Do not restyle.
 ---
 ### DIAGRAM · Principle 2: Match between system and the real world
 - Kicker: Heuristic 02 / 10
@@ -284,7 +284,7 @@ last_synced: 2026-10-01
   - Checkout bridge: the fee line says "SF" instead of "Service fee".
   - Often confused with 4: here the word is unfamiliar, in 4 it is inconsistent
   - **Look for abbreviations, system names and codes shown to users**
-- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 02: Match between system and the real world", copied to `assets/heuristic-principle-slides.html`. Layout: left column with mono label "HEURISTIC 02 / 10", large 02 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is account menu: "Deprecate principal entity", "Purge user record", "Terminate session". Good is account menu: "Close account", "Delete my data", "Sign out". Do not restyle.
+- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 02: Match between system and the real world", already in the built deck. Layout: left column with mono label "HEURISTIC 02 / 10", large 02 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is account menu: "Deprecate principal entity", "Purge user record", "Terminate session". Good is account menu: "Close account", "Delete my data", "Sign out". Do not restyle.
 ---
 ### DIAGRAM · Principle 3: User control and freedom
 - Kicker: Heuristic 03 / 10
@@ -300,7 +300,7 @@ last_synced: 2026-10-01
   - Checkout bridge: pressing Back from payment empties the cart.
   - Often confused with 5: 3 is recovering after, 5 is preventing before
   - **Look for lost work, no cancel, and Back that destroys progress**
-- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 03: User control and freedom", copied to `assets/heuristic-principle-slides.html`. Layout: left column with mono label "HEURISTIC 03 / 10", large 03 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is dialog "Delete 12 photos? This cannot be changed." with a single OK button. Good is photos grid (8 items left) and a dark bar "12 photos deleted" with an Undo action. Do not restyle.
+- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 03: User control and freedom", already in the built deck. Layout: left column with mono label "HEURISTIC 03 / 10", large 03 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is dialog "Delete 12 photos? This cannot be changed." with a single OK button. Good is photos grid (8 items left) and a dark bar "12 photos deleted" with an Undo action. Do not restyle.
 ---
 ### DIAGRAM · Principle 4: Consistency and standards
 - Kicker: Heuristic 04 / 10
@@ -316,7 +316,7 @@ last_synced: 2026-10-01
   - Checkout bridge: "Checkout" on one screen, "Pay now" on the next, for the same step.
   - Often confused with 2: 4 is about sameness, 2 is about familiarity
   - **Look across screens, not within one. Place two screens side by side**
-- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 04: Consistency and standards", copied to `assets/heuristic-principle-slides.html`. Layout: left column with mono label "HEURISTIC 04 / 10", large 04 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is projects, Tasks and Members lists where each create action looks different: "+ New", "Add", "Invite". Good is the same three lists, each with the same "+ New" action in the same place. Do not restyle.
+- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 04: Consistency and standards", already in the built deck. Layout: left column with mono label "HEURISTIC 04 / 10", large 04 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is projects, Tasks and Members lists where each create action looks different: "+ New", "Add", "Invite". Good is the same three lists, each with the same "+ New" action in the same place. Do not restyle.
 ---
 ### DIAGRAM · Principle 5: Error prevention
 - Kicker: Heuristic 05 / 10
@@ -332,7 +332,7 @@ last_synced: 2026-10-01
   - Checkout bridge: the tip field accepts 5000 when the user meant 5.00.
   - Often confused with 9: 5 stops the error, 9 helps after it happens
   - **Look at inputs and irreversible buttons first**
-- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 05: Error prevention", copied to `assets/heuristic-principle-slides.html`. Layout: left column with mono label "HEURISTIC 05 / 10", large 05 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is booking form: check-in 31/02/2026, check-out 01/01/2020, a Book button. Good is a March 2026 calendar where past days are greyed out and cannot be picked. Do not restyle.
+- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 05: Error prevention", already in the built deck. Layout: left column with mono label "HEURISTIC 05 / 10", large 05 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is booking form: check-in 31/02/2026, check-out 01/01/2020, a Book button. Good is a March 2026 calendar where past days are greyed out and cannot be picked. Do not restyle.
 ---
 ### DIAGRAM · Principle 6: Recognition rather than recall
 - Kicker: Heuristic 06 / 10
@@ -348,7 +348,7 @@ last_synced: 2026-10-01
   - Checkout bridge: the promo code entered earlier is missing from the order summary.
   - Often confused with 8: 6 is missing information, 8 is too much
   - **Look for information that appeared once and then vanished**
-- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 06: Recognition rather than recall", copied to `assets/heuristic-principle-slides.html`. Layout: left column with mono label "HEURISTIC 06 / 10", large 06 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is orders screen with a field "Type the exact order ID". Good is orders screen with search plus a Recent list: #48213 Blue backpack, #48177 Desk lamp, #48090 Notebook set. Do not restyle.
+- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 06: Recognition rather than recall", already in the built deck. Layout: left column with mono label "HEURISTIC 06 / 10", large 06 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is orders screen with a field "Type the exact order ID". Good is orders screen with search plus a Recent list: #48213 Blue backpack, #48177 Desk lamp, #48090 Notebook set. Do not restyle.
 ---
 ### DIAGRAM · Principle 7: Flexibility and efficiency of use
 - Kicker: Heuristic 07 / 10
@@ -364,7 +364,7 @@ last_synced: 2026-10-01
   - Checkout bridge: no way to reorder a past meal or reuse a saved address.
   - Juniors often miss this one because it only shows on the second use
   - **Look for repeated tasks with no shortcut**
-- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 07: Flexibility and efficiency of use", copied to `assets/heuristic-principle-slides.html`. Layout: left column with mono label "HEURISTIC 07 / 10", large 07 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is invoices list where each row needs its own menu to Approve. Approving 3 invoices takes 3 menus. Good is same list with checkboxes and a bar "3 selected" with Approve and Reject for all. Do not restyle.
+- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 07: Flexibility and efficiency of use", already in the built deck. Layout: left column with mono label "HEURISTIC 07 / 10", large 07 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is invoices list where each row needs its own menu to Approve. Approving 3 invoices takes 3 menus. Good is same list with checkboxes and a bar "3 selected" with Approve and Reject for all. Do not restyle.
 ---
 ### DIAGRAM · Principle 8: Aesthetic and minimalist design
 - Kicker: Heuristic 08 / 10
@@ -380,7 +380,7 @@ last_synced: 2026-10-01
   - Checkout bridge: upsell banners push the order total below the fold.
   - This is not about pretty. It is about what competes with the task
   - **Look for what pushes the main action out of view**
-- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 08: Aesthetic and minimalist design", copied to `assets/heuristic-principle-slides.html`. Layout: left column with mono label "HEURISTIC 08 / 10", large 08 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is checkout crowded with warranty, gift wrap, newsletter, loyalty, coupon and referral extras around a small Pay button. Good is checkout with item, subtotal, shipping, total, an "Add promo code" link and a clear "Pay $48.00". Do not restyle.
+- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 08: Aesthetic and minimalist design", already in the built deck. Layout: left column with mono label "HEURISTIC 08 / 10", large 08 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is checkout crowded with warranty, gift wrap, newsletter, loyalty, coupon and referral extras around a small Pay button. Good is checkout with item, subtotal, shipping, total, an "Add promo code" link and a clear "Pay $48.00". Do not restyle.
 ---
 ### DIAGRAM · Principle 9: Help users recognize, diagnose, and recover from errors
 - Kicker: Heuristic 09 / 10
@@ -396,7 +396,7 @@ last_synced: 2026-10-01
   - Checkout bridge: "Payment failed. Error 4012." and nothing else.
   - Only applies once something has failed. Before that, it is 5 or 1
   - **Look for codes, vague messages, and no next step**
-- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 09: Help users recognize, diagnose, and recover from errors", copied to `assets/heuristic-principle-slides.html`. Layout: left column with mono label "HEURISTIC 09 / 10", large 09 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is create account form with a banner "Error: validation failed (E102)" and a field message "Invalid input". Good is password field message "Your password is too short. Use at least 8 characters." with a live checklist. Do not restyle.
+- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 09: Help users recognize, diagnose, and recover from errors", already in the built deck. Layout: left column with mono label "HEURISTIC 09 / 10", large 09 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is create account form with a banner "Error: validation failed (E102)" and a field message "Invalid input". Good is password field message "Your password is too short. Use at least 8 characters." with a live checklist. Do not restyle.
 ---
 ### DIAGRAM · Principle 10: Help and documentation
 - Kicker: Heuristic 10 / 10
@@ -412,7 +412,7 @@ last_synced: 2026-10-01
   - Checkout bridge: nothing explains what the service fee covers.
   - Usually the lowest severity in a flow. Rate it honestly
   - **Look for unexplained terms and help that sits far from the task**
-- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 10: Help and documentation", copied to `assets/heuristic-principle-slides.html`. Layout: left column with mono label "HEURISTIC 10 / 10", large 10 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is "Need help?" opening a file: user-guide-v3-final.pdf (412 pages). Good is a search box where "refund" returns short task results: Request a refund, Refund status, Refund policy. Do not restyle.
+- 🎨 Visual hint: REUSE as is. Source: former Audit & Desk Research deck, slide "Heuristic 10: Help and documentation", already in the built deck. Layout: left column with mono label "HEURISTIC 10 / 10", large 10 numeral, title, definition, and a "WHY IT MATTERS" block. Right: two phone panels, BAD (purple dot) and GOOD (yellow dot), with the italic caption under the BAD panel. UI shown: bad is "Need help?" opening a file: user-guide-v3-final.pdf (412 pages). Good is a search box where "refund" returns short task results: Request a refund, Refund status, Refund policy. Do not restyle.
 ---
 ### MILESTONE · Match the symptom
 - Kicker: Activity · Part 2
@@ -645,6 +645,25 @@ last_synced: 2026-10-01
 
 ---
 
+### DIAGRAM · Three levels of AI evaluation
+- Kicker: Part 6 · Beyond today
+- Title: You did level 1.\nTwo more *exist.*
+- On-slide:
+  1. **You capture, AI compares:** screenshots and principles in, possible issues out
+  2. **Paste a URL, a tool audits:** it scores each principle and attaches evidence
+  3. **An agent walks the flow:** it clicks through, captures each step, then evaluates
+  - Every level: you verify, you rate, you decide
+- Speaker notes:
+  - 2 minutes, talk only. Do not demo levels 2 and 3
+  - Name where each breaks: level 2 sees public pages only, level 3 follows the path you give it
+  - **Research: AI found about a fifth of what experts found, and added false positives. It was weakest on issues that need interaction.**
+  - Tie back to the seeded set: "Back empties the cart" needs interaction, so a still screenshot can't show it
+  - Keep your principles as a markdown file: the same file feeds all three levels
+  - Level 2 is an optional stretch in the assignment. Level 3 is for later
+- 🎨 Visual hint: SCHEMATIC. Three stairs rising left to right, one per level, each with a small icon (screenshot stack, URL bar, browser with a footprint path). Level 1 stair is solid and tagged "today". Levels 2 and 3 are dashed. A constant "you verify" bar runs beneath all three stairs. Progress rail complete.
+
+---
+
 ## 9. Assignment + Close
 
 ### PRACTICE · Assignment: Finish and share
@@ -659,10 +678,12 @@ last_synced: 2026-10-01
   - One line at the top: which method you started with, and why
   - Add "Open questions about users": for your top three findings, what do I believe that I haven't checked?
   - Optional: ask a peer to rate your top three blind
+  - Optional: run one public page through an AI audit tool and compare with your worksheet
 - Speaker notes:
   - Deliverable: `evaluation.md` and `evaluation.html`, at least 6 findings, ranked, plus three open questions about users
   - Time estimate: 2 to 2.5 hours
   - Save to your homework folder before the next session
+  - Optional level 2: run one public page through an AI heuristic-evaluation tool and compare three lists: both found, only you, only the tool
   - **Do the second flow by hand before you open AI**
 - 🎨 Visual hint: SCHEMATIC. Numbered steps on the left. Right: two stacked file-cards showing the deliverables (`evaluation.md`, `evaluation.html`) and a small "2 flows, 6 findings" counter. The AI prompt sits in a dark code-block card below. --sienna accent on "Deliverable".
 

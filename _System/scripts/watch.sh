@@ -3,14 +3,14 @@
 #
 # Usage:
 #   ./watch.sh <lesson-folder>              watch one lesson
-#   ./watch.sh                              watch ALL lessons under Library/
+#   ./watch.sh                              watch ALL lessons under library/
 #
 # First-time setup:
 #   brew install fswatch
 #   pip3 install markdown
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-SCRIPT="$REPO_ROOT/_System/scripts/sync-lesson.py"
+SCRIPT="$REPO_ROOT/_system/scripts/sync-lesson.py"
 
 if ! command -v fswatch &>/dev/null; then
   echo "fswatch not found. Run: brew install fswatch"
@@ -29,12 +29,12 @@ if [ -n "$1" ]; then
   done
 else
   # All lessons mode
-  WATCH_PATH="$REPO_ROOT/Library"
-  echo "👁  Watching all lessons under Library/"
+  WATCH_PATH="$REPO_ROOT/library"
+  echo "👁  Watching all lessons under library/"
   echo "    Press Ctrl+C to stop."
   fswatch --latency 2 -o "$WATCH_PATH" --include=".*\.md$" --exclude=".*" | while read changed; do
     # Find the lesson folder (3 levels up from the .md file)
-    LESSON=$(echo "$changed" | grep -o ".*/Library/[^/]*/[^/]*/[^/]*" | head -1)
+    LESSON=$(echo "$changed" | grep -o ".*/library/[^/]*/[^/]*/[^/]*" | head -1)
     if [ -n "$LESSON" ]; then
       echo "Change detected — syncing $(basename "$LESSON")…"
       python3 "$SCRIPT" "$LESSON"

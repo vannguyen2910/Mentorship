@@ -59,7 +59,7 @@ By the end of this session, students will be able to:
 - Their project's flow or key workflow, named in advance, so the competitor scan has something to compare against.
 - Access to 2 to 3 candidate comparators (live products or app downloads), picked in advance if possible.
 - The AI foundation folder set up in the Discovery stage, with an AI tool linked
-- `Library/frameworks/assumption-map/framework-assumption-map.md`: teach directly from this file for the Assumption Map section
+- `library/frameworks/assumption-map/framework-assumption-map.md`: teach directly from this file for the Assumption Map section
 - A pattern log worksheet (the schema as a table, one worked example row) to hand over for the manual scan. AI turns it into `competitor-pattern-log.md` later in the session.
 - Shared doc space for the three reusable assets and `readout.html` built during the AI block
 
@@ -125,7 +125,7 @@ Quick recap of where the evidence stands: Evaluate Current Experience produced f
 
 An assumption is anything believed about users, the problem, the solution, or the business that hasn't yet been proven with evidence. Every brief, every backlog, every "obviously users want X" carries them. If earlier sessions surfaced a raw list, the first job is to turn it into something that can direct the work. If not, write a quick list from the project in Activity 1.
 
-**Full framework teaching (the four assumption types, the WHO/WHAT/WHY/SIGNAL formula, the Importance × Evidence matrix, common mistakes) lives in `Library/frameworks/assumption-map/framework-assumption-map.md`. Teach directly from that file.** What follows is the condensed version plus this session's application.
+**Full framework teaching (the four assumption types, the WHO/WHAT/WHY/SIGNAL formula, the Importance × Evidence matrix, common mistakes) lives in `library/frameworks/assumption-map/framework-assumption-map.md`. Teach directly from that file.** What follows is the condensed version plus this session's application.
 
 | Type | Covers |
 |---|---|
@@ -346,7 +346,7 @@ Take today's practice pass to full scale on your actual project.
 
 ## Further Resources
 
-- **Assumption Map framework (internal):** `Library/frameworks/assumption-map/framework-assumption-map.md`: full teaching content: types, formula, matrix, common mistakes
+- **Assumption Map framework (internal):** `library/frameworks/assumption-map/framework-assumption-map.md`: full teaching content: types, formula, matrix, common mistakes
 - **UXPin, Desk Research in UX:** https://www.uxpin.com/studio/blog/desk-research/: methods and step-by-step guide
 - **UXPin, Competitive Analysis for UX:** https://www.uxpin.com/studio/blog/competitive-analysis-for-ux/: comparator selection and evaluation criteria
 - **Miro, How to Present UX Research Findings:** https://miro.com/research-and-design/ux-research-presentation-examples/: structuring a stakeholder-ready readout

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seeded Checkout Set</title>
+<style>
+  :root { --ink:#1f2328; --mute:#667085; --line:#e4e7ec; --bg:#f6f7f9; --brand:#d9480f; --brand-d:#b83a0a; --ok:#2f9e44; --warn:#fff4e6; }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif; color:var(--ink); background:#d0d5dd; }
+  .screen { width:390px; height:844px; background:#fff; overflow:hidden; position:relative; display:none; }
+  body.all { display:flex; flex-wrap:wrap; gap:24px; padding:24px; }
+  body.all .screen { display:block; }
+  .screen.on { display:block; }
+  .bar { height:56px; display:flex; align-items:center; gap:12px; padding:0 16px; border-bottom:1px solid var(--line); font-weight:600; font-size:17px; }
+  .bar .back { font-size:20px; color:var(--ink); }
+  .pad { padding:16px; }
+  h2 { font-size:15px; margin-bottom:8px; }
+  .muted { color:var(--mute); font-size:13px; }
+  .row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; font-size:15px; }
+  .row.total { border-top:1px solid var(--line); margin-top:6px; padding-top:12px; font-weight:700; font-size:17px; }
+  .item { display:flex; gap:12px; padding:10px 0; border-bottom:1px solid var(--line); align-items:center; }
+  .thumb { width:48px; height:48px; border-radius:8px; background:#ffe3d3; flex:none; }
+  .item .name { flex:1; font-size:15px; }
+  .qty { font-size:13px; color:var(--mute); }
+  .btn { display:block; width:100%; height:48px; border-radius:10px; background:var(--brand); color:#fff; font-weight:600; font-size:16px; text-align:center; line-height:48px; }
+  .foot { position:absolute; left:0; right:0; bottom:0; padding:12px 16px 24px; background:#fff; border-top:1px solid var(--line); }
+  .banner { border-radius:10px; padding:22px 14px; margin-bottom:12px; font-size:14px; font-weight:600; }
+  .b1 { background:#e7f5ff; } .b2 { background:#f3e8ff; } .b3 { background:#fff3bf; }
+  .tag { display:inline-block; font-size:12px; background:#ebfbee; color:#237a35; border-radius:6px; padding:2px 8px; font-weight:600; }
+  .field { border:1px solid #c5cad3; border-radius:8px; height:44px; padding:0 12px; display:flex; align-items:center; font-size:16px; margin-bottom:12px; }
+  .field.tip { gap:6px; } .field .pre { color:var(--mute); }
+  .lab { font-size:13px; color:var(--mute); margin-bottom:4px; }
+  .spin { width:56px; height:56px; border:6px solid #ffd8c2; border-top-color:var(--brand); border-radius:50%; margin:150px auto 24px; }
+  .center { text-align:center; }
+  .err { margin-top:120px; padding:0 24px; text-align:center; }
+  .err .icon { width:64px; height:64px; border-radius:50%; background:#ffe3e3; color:#c92a2a; font-size:34px; line-height:64px; margin:0 auto 20px; font-weight:700; }
+  .err p { font-size:17px; font-weight:600; }
+  .past { border:1px solid var(--line); border-radius:10px; padding:12px; margin-bottom:8px; font-size:14px; }
+</style>
+</head>
+<body>
+
+<!-- 01 Cart -->
+<div class="screen" id="s1">
+  <div class="bar"><span class="back">&#8592;</span>Your cart</div>
+  <div class="pad">
+    <div class="muted" style="margin-bottom:6px">Noodle Corner &middot; 25&ndash;35 min</div>
+    <div class="item"><div class="thumb"></div><div class="name">Beef pho<div class="qty">Qty 1</div></div><div>$14.00</div></div>
+    <div class="item"><div class="thumb"></div><div class="name">Fresh spring rolls<div class="qty">Qty 2</div></div><div>$10.00</div></div>
+    <div class="row" style="margin-top:8px"><span>Promo <span class="tag">SAVE5 applied</span></span><span>&minus;$5.00</span></div>
+    <div class="row"><span>Subtotal</span><span>$19.00</span></div>
+    <h2 style="margin-top:22px">Past orders</h2>
+    <div class="past"><b>Beef pho + Spring rolls</b><div class="muted">12 Sep &middot; $24.00</div></div>
+    <div class="past"><b>Chicken rice, Iced tea</b><div class="muted">3 Sep &middot; $16.50</div></div>
+    <div class="past"><b>Vegetarian bun cha</b><div class="muted">28 Aug &middot; $13.00</div></div>
+  </div>
+  <div class="foot"><div class="btn">Checkout</div></div>
+</div>
+
+<!-- 02 Review order -->
+<div class="screen" id="s2">
+  <div class="bar"><span class="back">&#8592;</span>Review order</div>
+  <div class="pad">
+    <div class="banner b1">Free dessert on orders over $30</div>
+    <div class="banner b2">Join Biteline Plus: free delivery for a month</div>
+    <div class="banner b3">Refer a friend and get $10 off</div>
+    <h2>Deliver to</h2>
+    <div class="field" style="height:auto;padding:10px 12px;display:block;font-size:15px">12 Larch Street, Apt 4<div class="muted">Leave at door</div></div>
+    <h2 style="margin-top:6px">Your items</h2>
+    <div class="item"><div class="thumb"></div><div class="name">Beef pho<div class="qty">Qty 1</div></div><div>$14.00</div></div>
+    <div class="item"><div class="thumb"></div><div class="name">Fresh spring rolls<div class="qty">Qty 2</div></div><div>$10.00</div></div>
+    <h2 style="margin-top:14px">Delivery time</h2>
+    <div class="field" style="margin-bottom:6px">As soon as possible (25&ndash;35 min)</div>
+    <h2 style="margin-top:14px">Summary</h2>
+    <div class="row"><span>Items (3)</span><span>$24.00</span></div>
+    <div class="row"><span>Delivery</span><span>$2.50</span></div>
+    <div class="row"><span>SF</span><span>$1.80</span></div>
+    <div class="row total"><span>Total</span><span>$23.30</span></div>
+  </div>
+  <div class="foot"><div class="btn">Continue to payment</div></div>
+</div>
+
+<!-- 03 Payment -->
+<div class="screen" id="s3">
+  <div class="bar"><span class="back">&#8592;</span>Payment</div>
+  <div class="pad">
+    <div class="lab">Card number</div>
+    <div class="field">4242 4242 4242 4242</div>
+    <div style="display:flex;gap:12px">
+      <div style="flex:1"><div class="lab">Expiry</div><div class="field">08 / 29</div></div>
+      <div style="flex:1"><div class="lab">CVC</div><div class="field">&bull;&bull;&bull;</div></div>
+    </div>
+    <div class="lab">Tip for your courier</div>
+    <div class="field tip"><span class="pre">$</span>5000</div>
+    <div class="row"><span>Order</span><span>$23.30</span></div>
+    <div class="row"><span>Tip</span><span>$5,000.00</span></div>
+    <div class="row total"><span>Total</span><span>$5,023.30</span></div>
+  </div>
+  <div class="foot"><div class="btn">Pay now</div></div>
+</div>
+
+<!-- 04 Placing order -->
+<div class="screen" id="s4">
+  <div class="bar">Checkout</div>
+  <div class="spin"></div>
+  <div class="center" style="font-size:17px;font-weight:600">Placing your order&hellip;</div>
+  <div class="foot"><div class="btn">Place order</div></div>
+</div>
+
+<!-- 05 Payment failed -->
+<div class="screen" id="s5">
+  <div class="bar"><span class="back">&#10005;</span></div>
+  <div class="err">
+    <div class="icon">!</div>
+    <p>Payment failed. Error 4012.</p>
+  </div>
+</div>
+
+<script>
+  var n = new URLSearchParams(location.search).get('s');
+  if (n) { document.getElementById('s' + n).classList.add('on'); }
+  else { document.body.classList.add('all'); }
+</script>
+</body>
+</html>

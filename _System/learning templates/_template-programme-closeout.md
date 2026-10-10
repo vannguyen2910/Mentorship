@@ -94,7 +94,7 @@ next_session: n/a           # Programme complete — no further sessions schedul
 
 > "[Student's testimonial quote]"
 
-Also logged to the central quote bank: `Showcase/testimonials.md` (permission to publish externally: not yet confirmed, per project convention).
+Also logged to the central quote bank: `showcase/testimonials.md` (permission to publish externally: not yet confirmed, per project convention).
 
 [1-2 sentences: what this testimonial is evidence of — teaching approach, material design, pacing, etc.
  Close with an honest read on how the programme went overall.]

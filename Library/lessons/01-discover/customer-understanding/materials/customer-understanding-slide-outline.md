@@ -15,7 +15,7 @@
 Using the outline in this file, create an HTML slide deck for Customer Understanding.
 
 Follow the rules in _Config/rules/SLIDE_DECK_RULES.md exactly.
-Save the file to Library/lessons/customer-understanding/materials/deck.html.
+Save the file to library/lessons/customer-understanding/materials/deck.html.
 
 VISUAL DESIGN DIRECTION: apply globally to every slide:
 - Prefer diagrams, frameworks, and annotated tables over bullet lists.
@@ -170,7 +170,7 @@ VISUAL DESIGN DIRECTION: apply globally to every slide:
 
 ## 4. Part 2 · Assumptions
 
-> **Content source:** The four types, the formula, and the Importance × Evidence matrix are authored in `Library/frameworks/assumption-map/framework-assumption-map.md` (single source of truth, shared with Audit & Desk Research). Slide content below still reflects that framework in full. Only the lesson.md prose was trimmed, not the teaching content itself.
+> **Content source:** The four types, the formula, and the Importance × Evidence matrix are authored in `library/frameworks/assumption-map/framework-assumption-map.md` (single source of truth, shared with Audit & Desk Research). Slide content below still reflects that framework in full. Only the lesson.md prose was trimmed, not the teaching content itself.
 
 ---
 

@@ -5,7 +5,7 @@ Full lesson plans for class sessions and private training, organised into folder
 Each file covers one session: run-of-show, activities, AI in Practice, and assessment.
 
 **Naming:** `lesson-[topic].md`
-**Template:** Copy `_System/templates/_template-lesson.md` to get started.
+**Template:** Copy `_system/templates/_template-lesson.md` to get started.
 
 ## Standard layout inside each lesson
 
@@ -17,7 +17,7 @@ Each file covers one session: run-of-show, activities, AI in Practice, and asses
   _archive/    superseded drafts
 ```
 
-Mentee homework is not stored here. It lives in `Mentees/<name>/homework/<lesson>/`.
+Mentee homework is not stored here. It lives in `mentees/<name>/homework/<lesson>/`.
 
 ## Folder structure
 
@@ -33,14 +33,16 @@ Topic folders keep their original names inside their stage folder (e.g. `01-disc
 
 `02-define/` holds two separate sessions in two folders: `synthesis-problem-definition-in-ux/` is the UX Class treatment of synthesis mechanics, `problem-definition-strategy/` is the Senior/Lead session that follows Customer Understanding. Same stage, different sessions, so they are not level variants of one topic and do not share a folder.
 
-`problem-understanding/` was a superseded early draft of the Customer Understanding session (same content now built out in `01-discover/customer-understanding/`) — moved to `Library/_to_delete/problem-understanding/` pending permanent deletion.
+`ai-design-workflow/` holds the lessons of the AI Design Workflow program for mid/senior designers (7 weeks, 14 sessions), a separate curriculum from the stage flow above. Lesson folders sit directly inside it. The program itself (plan, research, method, pitch deck, lesson order, how to add a lesson) lives in `programs/ai-design-workflow/`, moved there on 2026-10-07.
+
+`problem-understanding/` was a superseded early draft of the Customer Understanding session (same content now built out in `01-discover/customer-understanding/`) — moved to `library/_to_delete/problem-understanding/` pending permanent deletion.
 
 ## Files in this folder
 
 | File | Topic | Program | Level | Status |
 |---|---|---|---|---|
 | `00-foundation/design-thinking/materials/design-thinking-lesson.md` | Design Thinking for UX Designer | UX Class | — | ✅ Ready |
-| `00-foundation/ai-workflow-for-ux-designers/materials/ai-workflow-for-ux-designers-lesson.md` | Set Up Your AI Workflow | UX Class | — | 🚧 Draft |
+| `ai-design-workflow/design-process-with-ai/materials/design-process-with-ai-lesson.md` | Your Design Process, with AI (lesson 1 of 10) | AI Design Workflow series | — | 🚧 Draft |
 | `00-foundation/mental-models-in-ux-design/slides/mental-models-in-ux-design.html` | Mental Models in UX Design | UX Class | — | ✅ Ready |
 | `01-discover/desk-research/materials/desk-research-lesson.md` | Desk Research | Private Training | Mid | ✅ Ready |
 | `01-discover/customer-understanding/materials/customer-understanding-lesson.md` | Customer Understanding | UX Class | Junior | ✅ Ready |
@@ -61,11 +63,11 @@ Topic folders keep their original names inside their stage folder (e.g. `01-disc
 
 ## Track build status
 
-`track-senior-lead.md` maps the eight-session Roadmap to Senior/Lead curriculum (defined in `Business/services/service-catalog.md`) against what is actually built, with the gaps and the recommended build order. Three of eight sessions exist at senior level today.
+`track-senior-lead.md` maps the eight-session Roadmap to Senior/Lead curriculum (defined in `business/services/service-catalog.md`) against what is actually built, with the gaps and the recommended build order. Three of eight sessions exist at senior level today.
 
 ## The Library site
 
-`Library/index.html` (with `Library/library-data.js`) is a browsable site over these same lessons, with a stage filter, search, tags, and cross-references between sessions — open it locally for the fuller picture rather than reading this table.
+`library/index.html` (with `library/library-data.js`) is a browsable site over these same lessons, with a stage filter, search, tags, and cross-references between sessions — open it locally for the fuller picture rather than reading this table.
 
 ## Also in the library (status not yet recorded here)
 

@@ -13,7 +13,7 @@ interviews-behind-this: 0
 <!--
 Living file. Built in Problem Definition & Strategy, from your JTBD map (board and markdown).
 Parts 1 to 3 are written in the first build block, part 4 in the second.
-Framework: Library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md
+Framework: library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md
 
 Status field above: mark "provisional" if fewer than 3 interviews sit behind this map.
 Remove the label only once the pattern holds across three or more.

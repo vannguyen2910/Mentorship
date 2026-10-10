@@ -57,8 +57,8 @@ By the end of this session, mentees will be able to:
 - The mentee's **JTBD map**, both halves: `jtbd-map.md` and the board in Figma, FigJam or Miro. Stages, assumed job, actual job, the gap, the sticky rows, and the marked 🔥 focus area. This session is built directly on it and does not work without it.
 - The **top matter of that map**: business objective, target user context, goals and KPIs. It gets used in the first ten minutes, so it needs to be filled in rather than left blank.
 - Their updated **Assumption Map**, for anything on the board still carrying a single source.
-- `Library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md`: teach the map comparison and the conversion steps directly from this file.
-- `Library/frameworks/prioritisation-methods/framework-prioritisation-methods.md`: the reference covering the three methods not taught live (RICE, MoSCoW, Kano). Hand it over before the session so the choosing block can stay short.
+- `library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md`: teach the map comparison and the conversion steps directly from this file.
+- `library/frameworks/prioritisation-methods/framework-prioritisation-methods.md`: the reference covering the three methods not taught live (RICE, MoSCoW, Kano). Hand it over before the session so the choosing block can stay short.
 - The two starter files, copied from `_Config/templates/_template-opportunity-map.md` and `_Config/templates/_template-problem-brief.md` into the mentee's project folder before the session. The build blocks are timed on the assumption that the headings and prompts are already there; nobody should be formatting a document while the clock runs.
 - Their **Stakeholder Readout Template**, drafted for the first time in this session's practice block rather than reused from an earlier one.
 - AI tool linked to the mentee's project folder. Every prompt this session assumes the tool can already read their saved files; nobody re-explains the project from a blank prompt.
@@ -118,7 +118,7 @@ Name the shape of the day in the first minute: two files come out of this sessio
 
 #### Two maps, and why one is not enough
 
-**Full framework lives in `Library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md`. Teach the comparison and the conversion steps directly from that file.** What follows is the condensed version plus this session's application.
+**Full framework lives in `library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md`. Teach the comparison and the conversion steps directly from that file.** What follows is the condensed version plus this session's application.
 
 The JTBD map describes the customer's world as it is. The opportunity map describes the team's decision space. The first is a record and the second is an argument.
 
@@ -186,7 +186,7 @@ Positive exceptions is the one to lead with, because it cannot be done without s
 
 Most organisations do not speak in opportunity sizing and satisfaction gaps. They speak in impact and effort. The senior move is not to insist on better vocabulary in the room, it is to do the rigorous assessment privately and present it in the language the room already uses. The four factors produce the impact judgment, defensibly. Effort attaches later, at the solution layer, where it belongs.
 
-**What gets taught live is one assessment and one translation:** the four-factor opportunity assessment, which is how you decide, and impact/effort, which is how you present. The other named methods are worth recognising rather than running today, and they are in the reference the mentee already has: RICE gives arithmetic rigour and needs metrics many teams do not have, MoSCoW is fast and overloads its Must column without a fixed timebox, and Kano forces user evidence back into a feature-request culture, which makes it the useful one in a politically driven room. Full detail in `Library/frameworks/prioritisation-methods/framework-prioritisation-methods.md`.
+**What gets taught live is one assessment and one translation:** the four-factor opportunity assessment, which is how you decide, and impact/effort, which is how you present. The other named methods are worth recognising rather than running today, and they are in the reference the mentee already has: RICE gives arithmetic rigour and needs metrics many teams do not have, MoSCoW is fast and overloads its Must column without a fixed timebox, and Kano forces user evidence back into a feature-request culture, which makes it the useful one in a politically driven room. Full detail in `library/frameworks/prioritisation-methods/framework-prioritisation-methods.md`.
 
 #### The rejection is a deliverable
 
@@ -469,10 +469,10 @@ The next session takes it into structure: evidence-grounded information architec
 
 ## Further Resources
 
-- **Opportunity Solution Tree framework (internal):** `Library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md`, the map comparison, the conversion steps, and the assessment factors
-- **Jobs to Be Done framework (internal):** `Library/frameworks/jtbd/framework-jtbd.md`, the map this session builds from
-- **Assumption Map framework (internal):** `Library/frameworks/assumption-map/framework-assumption-map.md`
-- **Prioritisation methods reference (internal):** `Library/frameworks/prioritisation-methods/framework-prioritisation-methods.md`, all five methods and how to translate between them
+- **Opportunity Solution Tree framework (internal):** `library/frameworks/opportunity-solution-tree/framework-opportunity-solution-tree.md`, the map comparison, the conversion steps, and the assessment factors
+- **Jobs to Be Done framework (internal):** `library/frameworks/jtbd/framework-jtbd.md`, the map this session builds from
+- **Assumption Map framework (internal):** `library/frameworks/assumption-map/framework-assumption-map.md`
+- **Prioritisation methods reference (internal):** `library/frameworks/prioritisation-methods/framework-prioritisation-methods.md`, all five methods and how to translate between them
 - **Richard Rumelt, "Good Strategy / Bad Strategy":** the kernel, and the taxonomy of bad strategy used in Part 3
 - **Thomas Wedell-Wedellsborg, "What's Your Problem?" and "Are You Solving the Right Problems?" (HBR, 2017):** https://hbr.org/2017/01/are-you-solving-the-right-problems, the reframing practices
 - **Teresa Torres, "Continuous Discovery Habits" and Product Talk:** https://www.producttalk.org/opportunity-solution-trees/

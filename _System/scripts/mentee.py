@@ -2,12 +2,12 @@
 """
 mentee.py — set up mentees and log sessions, so the site (build-home.py) needs no hand-editing.
 
-  python3 _System/scripts/mentee.py new "Full Name" [--role R] [--level L] [--target T] [--program P]
+  python3 _system/scripts/mentee.py new "Full Name" [--role R] [--level L] [--target T] [--program P]
                                      [--sessions N] [--start YYYY-MM-DD] [--cadence C] [--goal G] [--project X]
-  python3 _System/scripts/mentee.py log <mentee> --topic "Topic" [--n N] [--date YYYY-MM-DD] [--status Completed]
+  python3 _system/scripts/mentee.py log <mentee> --topic "Topic" [--n N] [--date YYYY-MM-DD] [--status Completed]
                                      [--lesson slug] [--playback "text or https://link"] [--build]
-  python3 _System/scripts/mentee.py check       (rebuild and print the mentee health check: missing baseline, lesson, slides, playback...)
-  python3 _System/scripts/mentee.py migrate     (one-off: write mentee.md + sessions.md for mentees that lack them)
+  python3 _system/scripts/mentee.py check       (rebuild and print the mentee health check: missing baseline, lesson, slides, playback...)
+  python3 _system/scripts/mentee.py migrate     (one-off: write mentee.md + sessions.md for mentees that lack them)
 
 Each mentee folder keeps two public-facing source files; everything else on their page is derived:
   mentee.md    front matter: name, role, level, target, program, sessions, start, end, cadence, goal, project, status
@@ -24,8 +24,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-MENTEES = ROOT / "Mentees"
-TEMPLATES = ROOT / "_System" / "learning templates"
+MENTEES = ROOT / "mentees"
+TEMPLATES = ROOT / "_system" / "learning templates"
 SUBDIRS = ["artifacts", "assessments", "homework", "plan", "sessions", "slides", "transcripts"]
 HEADER = "| # | Topic | Date | Status | Lesson | Playback |\n|---|---|---|---|---|---|\n"
 
@@ -113,7 +113,7 @@ def cmd_new(a):
         t = re.sub(r'cadence: ""', f'cadence: "{a.cadence}"', t, 1)
         t = re.sub(r'project_vehicle: ""', f'project_vehicle: "{a.project}"', t, 1)
         plan.write_text(t, encoding="utf-8")
-    print(f"Created Mentees/{slug}/  (mentee.md, sessions.md, assessment.md, plan/{plan.name}, empty folders for the rest)")
+    print(f"Created mentees/{slug}/  (mentee.md, sessions.md, assessment.md, plan/{plan.name}, empty folders for the rest)")
     print("Still to do (per CLAUDE.md): run the self-assessment tool with them and save the baseline in assessments/.")
     if a.build:
         subprocess.run([sys.executable, str(Path(__file__).with_name("build-home.py"))], check=True)
@@ -191,7 +191,7 @@ def main():
     for k, default in [("role", ""), ("level", ""), ("target", ""), ("program", ""), ("start", dt.date.today().isoformat()), ("cadence", ""), ("goal", ""), ("project", "")]:
         n.add_argument(f"--{k}", default=default)
     n.add_argument("--sessions", type=int, default=8)
-    n.add_argument("--programme-page", dest="programme_page", default="", help="slug of the Homepage/programs page, e.g. junior-to-mid-level")
+    n.add_argument("--programme-page", dest="programme_page", default="", help="slug of the docs/programs page, e.g. junior-to-mid-level")
     n.add_argument("--build", action="store_true")
     g = sub.add_parser("log")
     g.add_argument("mentee")

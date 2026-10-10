@@ -16,8 +16,8 @@
 Using the outline in this file, create an HTML slide deck for Building a Design System from a Validated Concept.
 
 Follow the rules in _Config/rules/SLIDE_DECK_RULES.md exactly.
-Save the file to Library/lessons/03-develop/design-system/materials/deck.html.
-Copy tokens.css and deck-stage.js locally into Library/lessons/03-develop/design-system/ so the deck is self-contained.
+Save the file to library/lessons/03-develop/design-system/materials/deck.html.
+Copy tokens.css and deck-stage.js locally into library/lessons/03-develop/design-system/ so the deck is self-contained.
 
 VISUAL DESIGN DIRECTION — apply globally to every slide:
 

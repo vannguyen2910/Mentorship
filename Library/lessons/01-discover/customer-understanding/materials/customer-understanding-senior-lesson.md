@@ -47,7 +47,7 @@ By the end of this session, mentees will be able to:
 ## Materials Needed
 
 - The mentee's updated Assumption Map and draft Insight Synthesis Template from Audit & Desk Research; this session extends the Assumption Map, the Insight Synthesis Template carries forward untouched into next session
-- `Library/frameworks/jtbd/framework-jtbd.md`: teach directly from this file for the JTBD section
+- `library/frameworks/jtbd/framework-jtbd.md`: teach directly from this file for the JTBD section
 - The mentee's real audit findings from last session, to ground stage-map hypotheses in real evidence rather than a hypothetical
 - Shared doc space for the new living asset, `jtbd-map.md`
 - Figma or FigJam access (or Miro, whichever the mentee already uses) for the JTBD map board built at the end of the assignment
@@ -101,7 +101,7 @@ Last session produced evidence: heuristic violations, comparator patterns, an up
 
 People don't hire a product because of who they are. They hire it to make progress on something specific, in a specific circumstance. Jobs to Be Done is the framework for finding that circumstance and that motivation, not a demographic description of the person.
 
-**Full framework (the three job types, the job statement formula, the switch-interview technique, and how to derive an actual job from a pattern) lives in `Library/frameworks/jtbd/framework-jtbd.md`. Teach directly from that file.** What follows here is the condensed version plus this session's specific application.
+**Full framework (the three job types, the job statement formula, the switch-interview technique, and how to derive an actual job from a pattern) lives in `library/frameworks/jtbd/framework-jtbd.md`. Teach directly from that file.** What follows here is the condensed version plus this session's specific application.
 
 Quick recap for the room:
 
@@ -131,7 +131,7 @@ A job statement explains *why* someone is motivated. It doesn't say *where in th
 
 **One stage can carry more than one live job.** A stage isn't guaranteed to reduce to a single job statement. Real example: food delivery, the checkout stage. Three genuine jobs live inside the same circumstance at once: confirm the order is right before paying, trust the payment is safe, and know when it'll arrive. Same circumstance the whole time (I'm checking out), but three different anxieties are live, so three job statements, not one. Don't force a stage into a single flat sentence if the evidence doesn't support it.
 
-**Applied to the food-delivery job used throughout this session:** four stages, four genuinely different situations: browsing, ordering and checkout, waiting for delivery, receiving the order. The actual job ("let me stop worrying it's not coming") sits specifically at stage 3, waiting for delivery, not spread evenly across the whole thing. The job statement says that matters. The stage breakdown says exactly where. (The framework file's own worked example uses a different case, a home-loan application; full detail and its worked table: `Library/frameworks/jtbd/framework-jtbd.md`.)
+**Applied to the food-delivery job used throughout this session:** four stages, four genuinely different situations: browsing, ordering and checkout, waiting for delivery, receiving the order. The actual job ("let me stop worrying it's not coming") sits specifically at stage 3, waiting for delivery, not spread evenly across the whole thing. The job statement says that matters. The stage breakdown says exactly where. (The framework file's own worked example uses a different case, a home-loan application; full detail and its worked table: `library/frameworks/jtbd/framework-jtbd.md`.)
 
 This comes back in Part 4: once the actual job is derived from real interviews, it gets broken into its own stages to scope where the map and its focus area actually belong.
 
@@ -321,8 +321,8 @@ Run verbally at the close of Part 4 (2–3 min):
 
 ## Further Resources
 
-- **Jobs to Be Done framework (internal):** `Library/frameworks/jtbd/framework-jtbd.md`, full teaching content: job types, formula, switch-interview method, deriving a job from a pattern, breaking a job into stages
-- **Assumption Map framework (internal):** `Library/frameworks/assumption-map/framework-assumption-map.md`, reused this session for the stakeholder check-in
+- **Jobs to Be Done framework (internal):** `library/frameworks/jtbd/framework-jtbd.md`, full teaching content: job types, formula, switch-interview method, deriving a job from a pattern, breaking a job into stages
+- **Assumption Map framework (internal):** `library/frameworks/assumption-map/framework-assumption-map.md`, reused this session for the stakeholder check-in
 - **Problem Definition & Strategy (next session, internal):** where this map's gap becomes a pitched insight, using the three-leg formula (observation, implication, recommended decision) and the Opportunity Solution Tree
 - **Clayton Christensen, "Competing Against Luck":** The foundational JTBD book
 - **Tony Ulwick / Strategyn, Outcome-Driven Innovation:** The fixed eight-step Job Map that Part 1's flexible stage breakdown is adapted from

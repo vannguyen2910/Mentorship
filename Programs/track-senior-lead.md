@@ -9,7 +9,7 @@ draft: false
 
 # Track 3 · Roadmap to Senior/Lead: Build Status
 
-The curriculum for this track is defined in `Business/services/service-catalog.md`. This file maps that definition against what actually exists in the library, so the gap is visible without opening eight folders.
+The curriculum for this track is defined in `business/services/service-catalog.md`. This file maps that definition against what actually exists in the library, so the gap is visible without opening eight folders.
 
 **Positioning (from the catalog):** from strong executor to strategic partner. Mid-level designers, 3 to 6+ years, capable in craft but stalling at promotion because research leadership, strategic communication or influence are not there yet. Eight sessions, 90 minutes each, biweekly over three months, anchored to the student's own live project throughout.
 
@@ -25,7 +25,7 @@ The curriculum for this track is defined in `Business/services/service-catalog.m
 | 4 | Problem Definition & Strategy | `02-define/problem-definition-strategy/materials/` | ✅ | ✅ Ready. Senior/Lead. Built Aug 2026 |
 | 5 | System Architecture & IA | `03-develop/information-architecture/learning/` exists at class level only | class version only | ⚠️ No senior version. The class lesson does not cover defending IA decisions with evidence, which is the senior half of the catalog description |
 | 6 | Design | `03-develop/design-system/materials/` exists at class level only | class version only | ⚠️ No senior version. Atomic Design at intermediate level, not evidence-based design decisions |
-| 7 | AI Prototyping | `Programs/online-course/AI Prototype Development` plus `00-foundation/ai-workflow-for-ux-designers/` | ✅ | ✅ Reuses existing material by design, per the catalog |
+| 7 | AI Prototyping | `programs/online-course/AI Prototype Development` plus `00-foundation/ai-workflow-for-ux-designers/` | ✅ | ✅ Reuses existing material by design, per the catalog |
 | 8 | Validation & Iteration | `04-deliver/solution-validation-user-testing/learning/` exists at class level only | class version only | ⚠️ No senior version. Missing the prioritisation and measurement half the catalog names |
 
 **Summary:** three of eight sessions are built at senior level (2, 3, 4), one reuses existing material as intended (7), one has never been built at all (1), and three run on class-level lessons that do not cover the senior content the catalog promises (5, 6, 8).

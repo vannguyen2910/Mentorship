@@ -17,14 +17,14 @@ Claude will process each item, move the source file to the right folder, and cre
 
 | Item type | Source file moved to | Structured artifact created in |
 |-----------|---------------------|-------------------------------|
-| Raw lesson notes | `Source/` | `Library/lessons/<stage>/<name>/` |
-| Rough slide content | `Source/` | Brief, then `Library/slides/<name>/` |
-| Private session notes | `Mentees/<mentee>/sessions/` | n/a |
-| Mentee homework or transcript | `Mentees/<mentee>/homework/` or `transcripts/` | n/a |
-| Framework or guide draft | `Source/` | `Library/guides/` or `Library/frameworks/` |
-| Reusable template | `_System/templates/` | n/a |
-| Student work for the showcase | `Showcase/private/` | n/a |
-| Business doc (pricing, CV, social post) | `Business/` | n/a |
+| Raw lesson notes | `source/` | `library/lessons/<stage>/<name>/` |
+| Rough slide content | `source/` | Brief, then `library/slides/<name>/` |
+| Private session notes | `mentees/<mentee>/sessions/` | n/a |
+| Mentee homework or transcript | `mentees/<mentee>/homework/` or `transcripts/` | n/a |
+| Framework or guide draft | `source/` | `library/guides/` or `library/frameworks/` |
+| Reusable template | `_system/templates/` | n/a |
+| Student work for the showcase | `showcase/private/` | n/a |
+| Business doc (pricing, CV, social post) | `business/` | n/a |
 | Unsure | Ask Claude to triage | Confirmed by you |
 
 ## Rules

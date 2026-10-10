@@ -12,8 +12,8 @@
 Using the outline in this file, update the HTML slide deck for Build Your First AI Prototype.
 
 Follow the rules in _Config/rules/SLIDE_DECK_RULES.md exactly.
-File: Library/lessons/ai-prototype-development/materials/Build the Framework First.dc.html
-Copy tokens.css and deck-stage.js locally into Library/lessons/ai-prototype-development/ so the deck is self-contained.
+File: library/lessons/ai-prototype-development/materials/Build the Framework First.dc.html
+Copy tokens.css and deck-stage.js locally into library/lessons/ai-prototype-development/ so the deck is self-contained.
 
 VISUAL DESIGN DIRECTION — apply globally to every slide:
 

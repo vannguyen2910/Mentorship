@@ -146,6 +146,8 @@ Show the prototype to real users and observe what happens. Synthesise findings. 
 
 **Important:** Design Thinking is non-linear. You move freely between stages as insights emerge. Completing a test might send you back to Define. A Define session might reveal you need more Empathise work. The stages are a scaffold, not a fixed sequence.
 
+**Same stages, different names:** the Double Diamond calls the same territory *Discover → Define → Develop → Deliver*. Empathise maps to Discover, Define stays Define, and Ideate (with Prototype) maps to Develop. When a later lesson says "Develop", it means the Ideate stage here.
+
 ---
 
 ### The Pattern Most Teams Follow
@@ -203,7 +205,7 @@ The Define stage takes raw research from Empathise and turns it into a clear, va
 
 - **Lean UX Canvas** — Frames the business problem, the user, the solution hypothesis, the metrics, and the assumptions in one view.
 - **Jobs-to-Be-Done (JTBD) mapping** — Identifies functional (task), emotional (feeling), and social (perception) jobs. Most designs miss the emotional and social jobs, which is often where the real value is.
-- **How Might We (HMW)** — Converts each insight into a design opportunity question. Not too broad (unsolvable) and not too narrow (already a solution in disguise).
+- **How Might We (HMW)** — Converts each insight into a design opportunity question. Not too broad (unsolvable) and not too narrow (already a solution in disguise). HMW sits at the end of Define: insight → HMW → problem statement. Writing and choosing HMW questions belongs to Define; generating ideas against them belongs to Ideate.
 - **Current-state journey mapping** — Maps the experience as it actually is, not as it should be. Reveals friction, workarounds, and emotional lows.
 
 ---

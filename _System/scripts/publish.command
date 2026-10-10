@@ -2,18 +2,18 @@
 # Double-click to publish the site: builds, shows the mentee health check and what changed, then commits and pushes
 # ONLY after you confirm. Run with --dry-run to stop before committing.
 #
-# Publishes only: Homepage/ (the generated site) and _System/scripts/ (the generator). Anything else you have
-# changed (Library/, Programs/, ...) is listed but left alone. Mentees/ is git-ignored and never published;
-# slides and homework are copied into Homepage/assets/mentees/ by the build.
+# Publishes only: docs/ (the generated site) and _system/scripts/ (the generator). Anything else you have
+# changed (library/, programs/, ...) is listed but left alone. mentees/ is git-ignored and never published;
+# slides and homework are copied into docs/assets/mentees/ by the build.
 
 set -u
 cd "$(dirname "$0")/../.." || exit 1
 DRY=0; [ "${1:-}" = "--dry-run" ] && DRY=1
-PATHS=(Homepage _System/scripts)
+PATHS=(docs _system/scripts)
 LIMIT_MB=50
 
 echo "== 1/4  Build =="
-python3 -u _System/scripts/build-home.py || { echo "Build failed. Nothing was committed."; read -rp "Press Enter to close"; exit 1; }
+python3 -u _system/scripts/build-home.py || { echo "Build failed. Nothing was committed."; read -rp "Press Enter to close"; exit 1; }
 
 echo; echo "== 2/4  What would be published =="
 git add -N "${PATHS[@]}" 2>/dev/null
@@ -23,16 +23,16 @@ git diff --stat -- "${PATHS[@]}" | tail -1
 echo "$CHANGED" | awk -F/ '{print "  " $1 "/" $2 "/" $3}' | sort | uniq -c | sort -rn | head -12
 
 # safety: private material must never go out
-BAD=$( { echo "$CHANGED" | grep -E '^Mentees/'; echo "$CHANGED" | grep -Ei '(^|/)(transcripts|assessments)/|session-[0-9]+-.*\.md$|\.srt$|coaching plan'; } || true)
+BAD=$( { echo "$CHANGED" | grep -E '^mentees/'; echo "$CHANGED" | grep -Ei '(^|/)(transcripts|assessments)/|session-[0-9]+-.*\.md$|\.srt$|coaching plan'; } || true)
 if [ -n "$BAD" ]; then echo; echo "STOP: private-looking files are in the change set:"; echo "$BAD" | head; read -rp "Press Enter to close"; exit 1; fi
 BIG=$(echo "$CHANGED" | while IFS= read -r f; do [ -f "$f" ] && [ "$(du -m "$f" | cut -f1)" -ge $LIMIT_MB ] && echo "$f"; done)
 if [ -n "$BIG" ]; then echo; echo "STOP: files of ${LIMIT_MB} MB or more (GitHub rejects 100 MB, warns at 50 MB):"; echo "$BIG"; read -rp "Press Enter to close"; exit 1; fi
 
-NEWFILES=$(echo "$CHANGED" | grep '^Homepage/assets/mentees/' | sed 's#^Homepage/assets/mentees/##')
+NEWFILES=$(echo "$CHANGED" | grep '^docs/assets/mentees/' | sed 's#^docs/assets/mentees/##')
 if [ -n "$NEWFILES" ]; then echo; echo "Mentee files going public (slides, homework, loose files). Check none are private:"; echo "$NEWFILES" | sed 's/^/    /' | head -40; fi
 
-OTHER=$(git status --porcelain | grep -v -E "^.. (Homepage|_System/scripts)/" | wc -l | tr -d ' ')
-[ "$OTHER" != "0" ] && echo "  (not included: $OTHER other changed paths outside Homepage/ and _System/scripts/)"
+OTHER=$(git status --porcelain | grep -v -E "^.. (docs|_system/scripts)/" | wc -l | tr -d ' ')
+[ "$OTHER" != "0" ] && echo "  (not included: $OTHER other changed paths outside docs/ and _system/scripts/)"
 
 if [ $DRY = 1 ]; then echo; echo "Dry run: stopping before commit."; exit 0; fi
 

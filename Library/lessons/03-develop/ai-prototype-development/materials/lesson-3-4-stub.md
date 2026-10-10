@@ -163,7 +163,7 @@ Lesson 3's prompts live in `lesson-3-scaling-the-prototype.md`; Lesson 2's in `l
 ## Instructor Notes
 
 - **Every lesson follows Why → What → How → Do.** Lesson 4's Why is "a design-tool link isn't a real publish"; the What is the local-vs-published model and the ten words; the How is GitHub Desktop and the AI-tool shortcut; the Do is the first publish, the live URL and the team loop.
-- **This lesson points to the existing guide for method content instead of restating it** — `Library/guides/publish-your-work-git-github-for-non-technical-designers`. Rewriting its steps here creates two sources of truth. The guide has no coverage of branches or pull requests, so Section 5 is genuinely new content.
+- **This lesson points to the existing guide for method content instead of restating it** — `library/guides/publish-your-work-git-github-for-non-technical-designers`. Rewriting its steps here creates two sources of truth. The guide has no coverage of branches or pull requests, so Section 5 is genuinely new content.
 - **Hold the line on scope.** The safe loop teaches one clean path for a solo designer. Team collaboration and merge conflicts are no longer taught here — each gets at most a sentence.
 - **The rules/context file from Lessons 1 and 3 is the thread the whole arc hangs on** — artifacts over prompts, this arc's application of the Feed Forward habit from `ai-workflow-for-ux-designers`. The `CONTRIBUTING.md` slide makes the point for the mentee's own rulebook, and Homework 2 has them write it. The deck does not currently say that the mentee's own rules file ships in the repo they just published — worth saying aloud in the close.
 - **Main is the live site, and the repo is public.** Anything pushed is visible to everyone and goes live on merge. No keys, tokens or `.env` files, ever.
@@ -184,7 +184,7 @@ Places where the deck dropped something the earlier plan promised. Decide before
 
 ## Connection to Curriculum
 
-A private-training adaptation layer on top of `Library/guides/publish-your-work-git-github-for-non-technical-designers`, pointed to directly rather than restated, re-paced for 1:1 delivery. The branch-and-self-review section, the localhost preview and the AI-tool shortcut are the genuinely new content in this arc.
+A private-training adaptation layer on top of `library/guides/publish-your-work-git-github-for-non-technical-designers`, pointed to directly rather than restated, re-paced for 1:1 delivery. The branch-and-self-review section, the localhost preview and the AI-tool shortcut are the genuinely new content in this arc.
 
 ---
 

@@ -64,12 +64,13 @@ Say each of these once, in plain words, before using it. Keep this list on scree
 ## Materials Needed
 
 - A live food-delivery app on the mentor's phone or screen, used only for the opening. Live apps change without warning, so keep one screenshot of its checkout as a backup.
-- The seeded checkout set (Appendix F): 5 screens of a neutral mock food-delivery checkout with planted issues and an answer key. The guided practice runs on this, so every mentee faces the same findings.
-- `Library/frameworks/framework-nielsen-usability-heuristics.md`: teach the 10 heuristics from this file. The lesson below groups and simplifies it for juniors, it doesn't replace it.
-- `Library/frameworks/framework-severity-rating-scale.md`: teach the 0 to 4 scale and its factors from this file.
-- The ten heuristic slides reused from the former Audit & Desk Research deck: `assets/heuristic-principle-slides.html`
-- The Heuristics Cheat Sheet (Appendix A): one page, handed out before Part 2
-- The Evaluation Worksheet (Appendix B): the manual template the mentee fills in during Part 5
+- The seeded checkout set (Appendix F): 5 screens of a neutral mock food-delivery checkout with planted issues and an answer key, built as `assets/seeded-checkout/01-cart.png` to `05-payment-failed.png` (source: `checkout-set.html`). The guided practice runs on this, so every mentee faces the same findings.
+- `library/frameworks/framework-nielsen-usability-heuristics.md`: teach the 10 heuristics from this file. The lesson below groups and simplifies it for juniors, it doesn't replace it.
+- `library/frameworks/framework-severity-rating-scale.md`: teach the 0 to 4 scale and its factors from this file.
+- The ten heuristic principle slides (Heuristic 01 to 10), already inside the built deck `slides/Evaluate Current Experience.dc.html`. They come from the former Audit & Desk Research deck
+- The Heuristics Cheat Sheet (Appendix A): one page, handed out before Part 2. Print from `assets/heuristics-cheat-sheet.html`
+- The Evaluation Worksheet (Appendix B): the manual template the mentee fills in during Part 5. Print from `assets/evaluation-worksheet.html`
+- `assets/heuristics.md`: the principles as a markdown file for the AI (rules, output format, two worked examples). The mentee attaches it in the Part 6 brainstorm and keeps it in the AI foundation folder
 - The three pre-written calibration issues (Appendix D) for the severity activity, and the six symptom cards (Appendix E) for the matching activity
 - For the AI block: an AI chat tool for the brainstorm and `evaluation.md` steps, and an AI tool that can create files (an AI coding tool, or a chat tool with file creation) for the `evaluation.html` homework step. The AI foundation folder from earlier sessions is the working folder.
 
@@ -96,18 +97,19 @@ Ask the mentee to do the following before the session:
 | 4 · Practice | Guided activity | Evaluate the seeded checkout together | 12 min |
 | 5 · Severity | Teaching + Activity | Rate issues 0 to 4, then plot them | 10 min |
 | 6 · Own product | Activity (manual) | Evaluate and rate your own flow, no AI | 14 min |
-| 7 · AI assist | Teaching + Build | Brainstorm → `evaluation.md` → see `evaluation.html` | 12 min |
+| 7 · AI assist | Teaching + Build | Brainstorm → `evaluation.md` → see `evaluation.html`, then the three levels of AI evaluation | 14 min |
 | 8 · Close | Wrap | Checkpoint, homework, bridge to Customer Understanding | 4 min |
 
-**Scripted total: 80 min, with a 10-minute buffer inside the 90-minute slot.** The first 64 minutes (blocks 1 to 6) use no AI at all. AI is 12 minutes, by design. Expect block 3 and block 6 to run long; the buffer is for them.
+**Scripted total: 82 min, with an 8-minute buffer inside the 90-minute slot.** The first 64 minutes (blocks 1 to 6) use no AI at all. AI is 14 minutes, by design: 12 of hands-on work and a 2-minute talk on the three levels. Expect block 3 and block 6 to run long; the buffer is for them.
 
 **If time runs short, cut in this order:**
 
 1. Skip the optional knowledge check after Part 4
 2. In Part 4, the mentor plots the 2x2 instead of the mentee
 3. The `evaluation.html` demo in Part 6 moves entirely to homework
+4. The three-levels talk in Part 6 becomes a handout the mentee reads at home
 
-Do not cut the manual evaluation in block 6. It is the point of the session.
+Do not cut the manual evaluation in Part 5. It is the point of the session.
 
 > **Story logic:** The session moves from *why* (an opinion isn't a finding) to *how to choose* (method by stage) to *what to judge against* (principles) to *how to judge* (evidence plus severity) to *doing it yourself* (manual) to *doing it faster and sharing it* (AI). By the end, the mentee has a ranked, evidenced evaluation of their own product, and an `evaluation.md` they can reuse on every future project.
 
@@ -196,7 +198,7 @@ A finding in your own work isn't a failure. It's the evaluation doing its job.
 
 ### Part 2: The Principles
 
-Teach from `framework-nielsen-usability-heuristics.md`. Show all ten on **one overview page first**, grouped into three families so a junior has a map. Then take **each principle on its own slide**, about a minute each: the plain meaning, one broken food-delivery example, and one check-for line. The ten slides are reused as is from the Audit & Desk Research deck (Heuristic 01 to 10, saved in `assets/heuristic-principle-slides.html`): each has a definition, a Why it matters line, and a bad and good UI example. Teach the slide's own example first, then use the food-delivery line in the tables below as the bridge to the checkout. Budget 1 minute for the overview, 12 for the ten slides, 3 for the matching activity (Appendix E), and 1 to hand out the Cheat Sheet. Don't ask a discussion question on every slide: each slide's speaker notes mark the ones that earn one.
+Teach from `framework-nielsen-usability-heuristics.md`. Show all ten on **one overview page first**, grouped into three families so a junior has a map. Then take **each principle on its own slide**, about a minute each: the plain meaning, one broken food-delivery example, and one check-for line. The ten slides are reused as is from the Audit & Desk Research deck (Heuristic 01 to 10, already inside the built deck): each has a definition, a Why it matters line, and a bad and good UI example. Teach the slide's own example first, then use the food-delivery line in the tables below as the bridge to the checkout. Budget 1 minute for the overview, 12 for the ten slides, 3 for the matching activity (Appendix E), and 1 to hand out the Cheat Sheet. Don't ask a discussion question on every slide: each slide's speaker notes mark the ones that earn one.
 
 #### Family 1: Can I see and understand what's going on?
 
@@ -350,7 +352,7 @@ AI can look at a screenshot and miss the thing you saw, or invent something that
 
 #### Step 1: Brainstorm (4 min)
 
-The mentee gives AI their screenshots and the Cheat Sheet and asks it to brainstorm issues they may have missed, one family at a time. AI does not rate severity and does not suggest fixes at this stage.
+The mentee gives AI their screenshots and `assets/heuristics.md` (the Cheat Sheet as a markdown file) and asks it to brainstorm issues they may have missed, one family at a time. AI does not rate severity and does not suggest fixes at this stage.
 
 For every AI suggestion, the mentee asks three questions:
 
@@ -377,6 +379,22 @@ In class, the mentor shows the prompt and a finished `evaluation.html` built fro
 - **The page must pass its own checks.** Ask for text contrast of at least 4.5:1 and for severity to be shown by number or shape as well as colour.
 
 **Check the output:** spot-check three rows against the `.md`, and check the position of three points on the plot.
+
+#### Beyond today: three levels of AI evaluation (2 min, talk only)
+
+What the mentee just did is level 1. Name the other two so they know where the practice goes next. Do not demo them live.
+
+| Level | How it works | You still do | Where it breaks |
+|---|---|---|---|
+| 1. You capture, AI compares | You take the screenshots. AI gets them plus the principles as a text file, and returns a list of possible issues | Capture, verify every suggestion, rate severity | Only as complete as your screenshots. Today's level |
+| 2. Paste a URL, a tool audits | A dedicated heuristic-evaluation tool opens the page itself, scores each principle and attaches evidence | Compare its findings with your manual worksheet. Judge what it got right and what it missed | Public pages only. Behind a login it sees nothing. Scores can look more certain than they are |
+| 3. An agent walks the flow | A browser-automation agent clicks through a flow, captures every step, then evaluates against the principles | Define the task and the success path. Check the evidence. Log in by hand when the flow needs it | Web only. Needs setup. It follows the path you give it, so it can miss what a confused first-time user would try |
+
+**Why the manual pass still matters at every level.** Research comparing a vision-capable AI model with expert evaluators found it recovered only about a fifth of the issues the experts found (21.2%), added issues of its own, and produced false positives from hallucination. It did best on *Match with the real world* and *Aesthetic and minimalist design*, and worst on flexibility, control and efficiency, which need interaction rather than a still image. Feedback quality also dropped as a design was revised over several rounds. Source: *Can GPT-4o Evaluate Usability Like Human Experts?* (arXiv 2506.16345) and *Generating Automatic Feedback on UI Mockups with Large Language Models* (arXiv 2403.13139).
+
+Tie it back to the seeded set: the "Back empties the cart" issue (P5) is an interaction problem. A still screenshot can't show it, so an AI working from stills will not find it. A level 3 agent could.
+
+**Make the level 1 principles file reusable.** The Cheat Sheet is the mentee's principles file. Saved as a markdown file in the AI foundation folder, the same file feeds level 1 today, a level 2 comparison later, and a level 3 agent when they are ready.
 
 ---
 
@@ -461,8 +479,8 @@ This session's AI use is deliberately late and deliberately limited. The mentee 
 
 **Brainstorm:**
 
-> *"I'm evaluating the [flow name] of [product]. Attached are screenshots of each step, in order. Below are usability principles in three groups, each with a 'check for' line. Review one group at a time. For each possible problem, tell me which step, point to the exact element or quote the exact text, and name the principle. Do not rate severity. Do not suggest redesigns. If you can't tell from the screenshot, say 'not sure'."*
-> [paste the Cheat Sheet]
+> *"I'm evaluating the [flow name] of [product]. Attached are screenshots of each step, in order. The attached heuristics.md has the usability principles in three groups, with rules and an output format. Follow it. Review one group at a time. For each possible problem, tell me which step, point to the exact element or quote the exact text, and name the principle. Do not rate severity. Do not suggest redesigns. If you can't tell from the screenshot, say 'not sure'."*
+> [attach heuristics.md]
 
 **Build `evaluation.md`:**
 
@@ -477,6 +495,7 @@ This session's AI use is deliberately late and deliberately limited. The mentee 
 - Where did AI point to something that wasn't on the screen? What gave it away?
 - What did you catch in your manual pass that AI missed? What did AI catch that you missed?
 - Rating severity needs to know your users and your business. What did AI not know?
+- Which of your findings needed interaction, not a still image? Could levels 2 or 3 have found it?
 
 ### ✍️ Prompt engineering tip
 
@@ -515,6 +534,7 @@ Optional. Run verbally in the buffer after Part 4, or set as a take-home self-ch
 6. Write one line at the top of `evaluation.md`: which method you started with and why.
 7. At the bottom of `evaluation.md`, add a section called "Open questions about users". For your top three findings, write one line each: *what do I believe about the user here that I haven't checked?* You'll use these in Customer Understanding.
 8. Optional stretch: ask a peer to rate your top three issues without seeing your scores, then compare. Where you differ by more than one point, write down why.
+9. Optional stretch (level 2): run one public page of your product through a dedicated AI heuristic-evaluation tool. Compare its findings with your worksheet in three lists: both found, only you found, only the tool found. Write one line on which list surprised you.
 
 **Deliverable:** `evaluation.md` and `evaluation.html`, covering two flows, at least 6 findings in total, ranked by severity, each with evidence, plus three open questions about users. Save to your homework folder before the next session.
 
@@ -551,7 +571,12 @@ Mentees who can't bring their own product can evaluate the full seeded checkout 
 
 **Take-home accessibility check (WCAG 2.1 AA):** contrast 4.5:1 text and 3:1 UI parts · not colour alone · visible labels · tap targets about 44 pt (best practice)
 
-**Walkthrough (each step of one task):** will they try it, notice it, connect it, see it worked?
+**Walkthrough (each step of one task), a "no" to any is a finding:**
+
+1. Will they try to do the right thing at this step?
+2. Will they notice the right action is available?
+3. Will they connect that action with what they're trying to do?
+4. After they act, will they see that it worked?
 
 **Finding format:** What I saw · Where · Which principle · Proof
 
@@ -644,18 +669,26 @@ Five screens of a neutral mock food-delivery checkout (no real brand), exported 
 | P8 | Payment failed | "Payment failed. Error 4012." with no next step | 9 Recover from errors | 3 |
 | P9 | Cart | The past-orders list has no Reorder button | 7 Flexibility and efficiency | 2 |
 
-**To build:** draw the five screens as an original mock, one issue per spot, and export as PNG. Calibration issues C1 (P7) and C2 (P1) in Appendix D reuse these screens.
+**Built:** the five screens are original mocks (fictional brand "Biteline"), exported at 1170 px wide in `assets/seeded-checkout/`. Calibration issues C1 (P7) and C2 (P1) in Appendix D reuse these screens.
+
+**Mentor notes on the set:**
+
+- **P5 (Back empties the cart) is behaviour, not visible in a still.** The mentor narrates it. Use the Payment screen as the location evidence. Don't pick P5 as the modelled finding, and don't expect mentees to find it from the PNG alone.
+- **P7 shows the spinner and an enabled "Place order" button.** The 8 to 10 second wait is narrated.
+- **P2:** the Cart screen shows promo SAVE5 applied. The Review order summary has no promo line.
+- **P3:** on Review order the total sits below the fold, behind the sticky button.
+- **P4:** the tip field shows 5000 and the total reads $5,023.30.
 
 ---
 
 ## Further Resources
 
-- **Nielsen's 10 Usability Heuristics (internal):** `Library/frameworks/framework-nielsen-usability-heuristics.md`
-- **Severity Rating Scale (internal):** `Library/frameworks/framework-severity-rating-scale.md`
+- **Nielsen's 10 Usability Heuristics (internal):** `library/frameworks/framework-nielsen-usability-heuristics.md`
+- **Severity Rating Scale (internal):** `library/frameworks/framework-severity-rating-scale.md`
 - **NN/g, 10 Usability Heuristics for User Interface Design:** https://www.nngroup.com/articles/ten-usability-heuristics/
 - **NN/g, How to Rate the Severity of Usability Problems:** https://www.nngroup.com/articles/how-to-rate-the-severity-of-usability-problems/
 - **W3C, WCAG 2.1 Quick Reference:** https://www.w3.org/WAI/WCAG21/quickref/
 
 ---
 
-*Created by Winnie Nguyen · Private Training · Last updated October 2026*
+*Created by Winnie Nguyen · Private Training · Last updated October 2026 (prep pass 7 Oct)*

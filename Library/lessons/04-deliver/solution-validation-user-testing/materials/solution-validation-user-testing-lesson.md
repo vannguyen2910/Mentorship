@@ -42,7 +42,7 @@ By the end of this session, students will be able to:
 ## Materials Needed
 
 - Students' working prototypes from the AI Prototype Development session (Figma or browser-based)
-- Feedback Capture Grid template — printed or in FigJam (source: `Source/ux-material/design-thinking/feedback-capture-grid.pdf`)
+- Feedback Capture Grid template — printed or in FigJam (source: `source/ux-material/design-thinking/feedback-capture-grid.pdf`)
 - Test Plan template in Notion (to be shared at session start)
 - Access to an AI tool for the Phase 3 activity
 - Zoom or a shared FigJam board for the role-play in Phase 4
@@ -55,7 +55,7 @@ Ask students to do the following before the session:
 
 1. **Have your prototype ready** — the working prototype from the previous session. At minimum, it should have 2–3 connected screens. If it's not clickable yet, a Figma prototype with basic navigation will work.
 2. **Write one sentence** answering: "What is the one thing I most want to know about whether my design works?" Bring this to class.
-3. **Read (optional):** IDF's *Prototyping to Test* (source: `Source/ux-material/design-thinking/prototyping-to-test.pdf`) — two pages, ten minutes.
+3. **Read (optional):** IDF's *Prototyping to Test* (source: `source/ux-material/design-thinking/prototyping-to-test.pdf`) — two pages, ten minutes.
 
 ---
 
@@ -275,7 +275,7 @@ Debrief: What did the moderator do well? What was hard to resist? What did obser
 
 #### Feedback Capture Grid
 
-The Feedback Capture Grid (from `Source/ux-material/design-thinking/feedback-capture-grid.pdf`) divides observations into four quadrants:
+The Feedback Capture Grid (from `source/ux-material/design-thinking/feedback-capture-grid.pdf`) divides observations into four quadrants:
 
              | Likes ✓ | Criticisms ✗ |
 |---|---|
@@ -392,9 +392,9 @@ Run an additional test session using either moderated or unmoderated testing —
 
 ## Further Resources
 
-- *Prototyping to Test* — IDF template (`Source/ux-material/design-thinking/prototyping-to-test.pdf`)
-- *Six Best Practice Tips for Gathering Feedback on Your Prototypes* — IDF guide (`Source/ux-material/design-thinking/six-best-practice-tips-for-gathering-feedback-on-your-prototypes.pdf`)
-- *Feedback Capture Grid* — IDF template (`Source/ux-material/design-thinking/feedback-capture-grid.pdf`)
+- *Prototyping to Test* — IDF template (`source/ux-material/design-thinking/prototyping-to-test.pdf`)
+- *Six Best Practice Tips for Gathering Feedback on Your Prototypes* — IDF guide (`source/ux-material/design-thinking/six-best-practice-tips-for-gathering-feedback-on-your-prototypes.pdf`)
+- *Feedback Capture Grid* — IDF template (`source/ux-material/design-thinking/feedback-capture-grid.pdf`)
 - *Quick validate the solution with a usability testing tool and Intercom* — Winnie's Go1 case study (Notion)
 - *8 Usability Testing Methods That Work* — Contentsquare (2026) — https://contentsquare.com/guides/usability-testing/methods/
 - *What Is User Testing in 2026?* — Userpilot — https://userpilot.com/blog/what-is-user-testing/

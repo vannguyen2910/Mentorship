@@ -17,7 +17,7 @@
 Dùng outline trong file này, build slide deck HTML cho Section 6 - Stitching Prototype
 (khóa Systematic AI Prototyping for Product Designers, bản tiếng Việt).
 
-Theo đúng rule trong _System/rules/SLIDE_DECK_RULES.md.
+Theo đúng rule trong _system/rules/SLIDE_DECK_RULES.md.
 Copy tokens.css và deck-stage.js vào thư mục Section 6 để deck tự chứa (self-contained).
 
 Section này không có real image, toàn bộ slide dùng Diagram hoặc Illustration

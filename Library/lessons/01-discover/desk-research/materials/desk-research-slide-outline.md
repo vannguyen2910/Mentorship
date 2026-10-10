@@ -3,7 +3,7 @@
 > **Source of truth:** `desk-research-lesson.md`
 > All content changes (activities, phases, timing, concepts) must be made there first, then reflected here.
 > This file contains only slide-specific concerns: layout types, visual hints, kickers, and structure.
-> The Assumption Map content (types, formula, matrix) lives in `Library/frameworks/assumption-map/framework-assumption-map.md`. The slides below apply that same framework to this session's evidence sources (competitor scan, other desk research sources, and the mentee's evaluation.md). It isn't a separate version of the framework.
+> The Assumption Map content (types, formula, matrix) lives in `library/frameworks/assumption-map/framework-assumption-map.md`. The slides below apply that same framework to this session's evidence sources (competitor scan, other desk research sources, and the mentee's evaluation.md). It isn't a separate version of the framework.
 
 > **How to use this file**
 > Paste both this file and `desk-research-lesson.md` into your AI tool with the instruction below to generate a new slide deck.
@@ -17,8 +17,8 @@
 ```
 Using the outline in this file, create an HTML slide deck for Desk Research.
 
-Follow the rules in _System/rules/SLIDE_DECK_RULES.md exactly.
-Save the file to Library/lessons/01-discover/desk-research/materials/deck.html.
+Follow the rules in _system/rules/SLIDE_DECK_RULES.md exactly.
+Save the file to library/lessons/01-discover/desk-research/materials/deck.html.
 
 VISUAL DESIGN DIRECTION: apply globally to every slide:
 - Prefer diagrams, frameworks, and annotated tables over bullet lists.
